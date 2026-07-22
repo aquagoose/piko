@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="src/piko.Generator/piko.Generator.csproj" />
+</Solution>
