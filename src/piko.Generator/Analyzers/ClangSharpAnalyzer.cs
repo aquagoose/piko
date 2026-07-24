@@ -23,6 +23,9 @@ public sealed class ClangSharpAnalyzer(string rspName, ClangSharpAnalyzer.Option
                 case "enumeration":
                     ProcessEnum(node, ref bindings);
                     break;
+                case "class":
+                    ProcessFunctionSet(node, ref bindings);
+                    break;
             }
         }
 
@@ -39,13 +42,38 @@ public sealed class ClangSharpAnalyzer(string rspName, ClangSharpAnalyzer.Option
 
         foreach (XmlNode enumerator in node.SelectNodes("enumerator"))
         {
-            string name = enumerator?.Attributes?["name"]?.Value ?? throw new Exception("Enumerator name missing.");
+            string name = enumerator.Attributes?["name"]?.Value ?? throw new Exception("Enumerator name missing.");
             string? value = enumerator["value"]?["code"]?.InnerText;
 
             binding.Values.Add(new EnumBinding.EnumValue(name, value));
         }
 
         bindings.Enums.Add(binding);
+    }
+
+    private void ProcessFunctionSet(XmlNode node, ref BindingsSet bindings)
+    {
+        foreach (XmlNode func in node.SelectNodes("function"))
+        {
+            string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");
+            string? returnType = func["type"]?.InnerText;
+
+            FunctionBinding binding = new FunctionBinding(functionName, functionName, returnType);
+
+            XmlNodeList? parameters = func.SelectNodes("param");
+            if (parameters != null)
+            {
+                foreach (XmlNode parameter in parameters)
+                {
+                    string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
+                    string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
+
+                    binding.Parameters.Add(new FunctionBinding.Parameter(name, type));
+                }
+            }
+
+            bindings.Functions.Add(binding);
+        }
     }
 
     public struct Options
