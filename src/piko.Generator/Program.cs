@@ -48,7 +48,10 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 });
 prettifier.Prettify(ref sdl3Bindings);
 
-Generator generator = new Generator(sdl3Bindings);
+Generator generator = new Generator(sdl3Bindings, "SDL", new Generator.Options()
+{
+    AllTypesAreSubTypes = true
+});
 Generator.Output[] outputs = generator.Generate();
 
 foreach (Generator.Output output in outputs)

@@ -3,7 +3,7 @@ using piko.Generator.Bindings;
 
 namespace piko.Generator;
 
-public class Generator(BindingsSet bindings)
+public class Generator(BindingsSet bindings, string methodClassName, Generator.Options options)
 {
     private readonly StringBuilder _sb = new();
 
@@ -37,6 +37,23 @@ public class Generator(BindingsSet bindings)
         }
 
         _sb.AppendLine("}");
+        string output = _sb.ToString();
+        return WriteExtraStuff(output);
+    }
+
+    private string WriteExtraStuff(string str)
+    {
+        _sb.Clear();
+
+        if (options.AllTypesAreSubTypes)
+        {
+            _sb.AppendLine($"public partial class {methodClassName}");
+            _sb.AppendLine("{");
+            _sb.Append(' ', 4);
+            _sb.AppendLine(str.Replace("\n", "\n    "));
+            _sb.AppendLine("}");
+        }
+
         return _sb.ToString();
     }
 
@@ -50,5 +67,15 @@ public class Generator(BindingsSet bindings)
             TypeName = typeName;
             Code = code;
         }
+    }
+
+    public struct Options
+    {
+        /// <summary>
+        /// If true, all types such as enums and structs, will be a subtype of the method class.
+        /// For example, if the method class is "SDL", then this will generate types "SDL.Window" etc.
+        /// instead of "Window".
+        /// </summary>
+        public bool AllTypesAreSubTypes;
     }
 }
