@@ -13,4 +13,13 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 });
 prettifier.Prettify(ref sdl3Bindings);
 
-Console.WriteLine(sdl3Bindings);
+Generator generator = new Generator(sdl3Bindings);
+Generator.Output[] outputs = generator.Generate();
+
+foreach (Generator.Output output in outputs)
+{
+    Console.WriteLine($"{output.TypeName}.cs");
+    Console.WriteLine("=====================================================================");
+    Console.WriteLine(output.Code);
+    Console.WriteLine();
+}
