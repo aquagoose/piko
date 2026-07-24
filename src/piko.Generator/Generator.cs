@@ -51,6 +51,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private string WriteFunction(FunctionBinding f)
     {
+        // todo IMPORTANT auto generate marshalling stuff and use LibraryImport!!
         _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\", ExactSpelling = true)]");
 
         _sb.Append($"    public extern {f.ReturnType ?? "void"} {f.Name}(");

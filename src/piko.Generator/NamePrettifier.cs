@@ -31,6 +31,8 @@ public class NamePrettifier(NamePrettifier.Options options)
         foreach (FunctionBinding f in bindings.Functions)
         {
             f.Name = TransformIdentifier(f.Name);
+            if (_transformMap.TryGetValue(f.ReturnType, out string newReturnType))
+                f.ReturnType = newReturnType;
 
             foreach (FunctionBinding.Parameter parameter in f.Parameters)
             {
