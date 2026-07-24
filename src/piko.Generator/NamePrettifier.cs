@@ -16,14 +16,15 @@ public class NamePrettifier(NamePrettifier.Options options)
 
         foreach (EnumBinding e in bindings.Enums)
         {
+            string originalName = e.Name;
             e.Name = TransformIdentifier(e.Name);
 
             foreach (EnumBinding.EnumValue value in e.Values)
             {
-                value.Name = TransformEnumerator(value.Name, e.Name);
+                value.Name = TransformEnumerator(value.Name, e.Name, originalName);
                 // some enum values may reference other enum values. therefore, we want to transform those too.
                 if (value.Value != null)
-                    value.Value = TransformEnumerator(value.Value, e.Name);
+                    value.Value = TransformEnumerator(value.Value, e.Name, originalName);
             }
         }
 
@@ -81,14 +82,25 @@ public class NamePrettifier(NamePrettifier.Options options)
         return newName;
     }
 
-    private string TransformEnumerator(string name, string nameToStrip)
+    private string TransformEnumerator(string name, string nameToStrip, string originalEnumName)
     {
         if (_transformMap.TryGetValue(name, out string transformed))
             return transformed;
 
-        string newName = TransformValue(name, false, true);
+        string newName = StripPrefix(name).Trim('_');
+
+        // strip the old prefix if valid
+        string prefixToStrip = options.EnumPrefixStrip.GetValueOrDefault(originalEnumName, "");
+        if (!string.IsNullOrWhiteSpace(prefixToStrip) && newName.StartsWith(prefixToStrip, StringComparison.InvariantCultureIgnoreCase))
+            newName = newName.Substring(prefixToStrip.Length);
+
+        // transform the enum name
+        newName = TransformValue(newName, false, true);
         if (newName.StartsWith(nameToStrip, StringComparison.InvariantCultureIgnoreCase))
             newName = newName.Substring(nameToStrip.Length);
+
+        // then insert the new prefix, if needed
+        newName = newName.Insert(0, options.EnumPrefixRemapping.GetValueOrDefault(originalEnumName, ""));
 
         _transformMap.Add(name, newName);
         return newName;
@@ -119,5 +131,18 @@ public class NamePrettifier(NamePrettifier.Options options)
         /// The prefix to strip from names, for example SDL_
         /// </summary>
         public string? PrefixToStrip;
+
+        /// <summary>
+        /// Prefix any enum value, whose type matches the key, with the value.
+        /// For example, ["SDL_GPUSampleCount"] = "Count" will prefix ALL enum values in that enum with "Count"
+        /// </summary>
+        public Dictionary<string, string> EnumPrefixRemapping;
+
+        /// <summary>
+        /// Strip a prefix from an enum value, whose type matches the key.
+        /// For example, ["SDL_AssertType"] = "ASSERTION" will strip "ASSERTION_" from all enum values in that type.
+        /// This is NOT case-sensitive.
+        /// </summary>
+        public Dictionary<string, string> EnumPrefixStrip;
     }
 }
