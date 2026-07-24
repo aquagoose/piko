@@ -3,7 +3,7 @@ using piko.Generator.Bindings;
 
 namespace piko.Generator.Analyzers;
 
-public sealed class ClangSharpAnalyzer(string rspName, ClangSharpAnalyzer.Options options) : Analyzer
+public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
 {
     public override BindingsSet Analyze()
     {
@@ -74,13 +74,5 @@ public sealed class ClangSharpAnalyzer(string rspName, ClangSharpAnalyzer.Option
 
             bindings.Functions.Add(binding);
         }
-    }
-
-    public struct Options
-    {
-        /// <summary>
-        /// The name of the library DLL name, for example "SDL3".
-        /// </summary>
-        public string LibraryDllName;
     }
 }
