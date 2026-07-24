@@ -1,6 +1,6 @@
 namespace piko.Generator.Bindings;
 
-public struct EnumBinding
+public record EnumBinding
 {
     /// <summary>
     /// The name of the enum.
@@ -24,12 +24,7 @@ public struct EnumBinding
         Values = [];
     }
 
-    public override string ToString()
-    {
-        return $"{Name}, {Values.Count} values";
-    }
-
-    public struct EnumValue
+    public record EnumValue
     {
         /// <summary>
         /// The value's name.
