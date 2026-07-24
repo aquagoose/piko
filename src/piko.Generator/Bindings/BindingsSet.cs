@@ -1,6 +1,6 @@
 namespace piko.Generator.Bindings;
 
-public struct BindingsSet
+public class BindingsSet
 {
     public List<EnumBinding> Enums;
 

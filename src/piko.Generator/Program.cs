@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using piko.Generator.Analyzers;
+using piko.Generator.Bindings;
 
-Console.WriteLine("Hello, World!");
+ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer("SDL3", new ClangSharpAnalyzer.Options
+{
+    LibraryDllName = "SDL3"
+});
+BindingsSet sdl3Bindings = sdl3Anaylyzer.Analyze();
+
+Console.WriteLine(sdl3Bindings);
