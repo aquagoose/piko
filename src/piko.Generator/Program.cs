@@ -7,7 +7,7 @@ ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer("SDL3", new ClangSharp
     LibraryDllName = "SDL3"
 });
 BindingsSet sdl3Bindings = sdl3Anaylyzer.Analyze();
-NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options()
+NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 {
     PrefixToStrip = "SDL_"
 });

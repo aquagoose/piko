@@ -4,8 +4,16 @@ namespace piko.Generator;
 
 public class NamePrettifier(NamePrettifier.Options options)
 {
+    /// <summary>
+    /// Contains a map of already transformed types.
+    /// </summary>
+    private readonly Dictionary<string, string> _transformMap = [];
+
     public void Prettify(ref BindingsSet bindings)
     {
+        // do enums first, then structs, then finally functions.
+        // this ensures that everything is in the transform map and there does not need to be multiple passes.
+
         foreach (EnumBinding e in bindings.Enums)
         {
             e.Name = TransformIdentifier(e.Name);
@@ -18,16 +26,27 @@ public class NamePrettifier(NamePrettifier.Options options)
                     value.Value = TransformEnumerator(value.Value, e.Name);
             }
         }
+
+        foreach (FunctionBinding f in bindings.Functions)
+        {
+            f.Name = TransformIdentifier(f.Name);
+
+            foreach (FunctionBinding.Parameter parameter in f.Parameters)
+            {
+                parameter.Name = TransformParameter(parameter.Name);
+
+                if (_transformMap.TryGetValue(parameter.Type, out string transformed))
+                    parameter.Type = transformed;
+            }
+        }
     }
 
-    // Transform identifiers, such as enum/struct names, and function names.
-    private string TransformIdentifier(string name, bool keepCasing = true)
+    private string TransformValue(string name, bool keepCasing, bool startUpperCase)
     {
-        name = StripPrefix(name);
         string newName = "";
 
-        bool shouldBeUpperCase = true;
-        foreach (char c in name)
+        bool shouldBeUpperCase = startUpperCase;
+        foreach (char c in StripPrefix(name))
         {
             switch (c)
             {
@@ -50,12 +69,40 @@ public class NamePrettifier(NamePrettifier.Options options)
         return newName;
     }
 
+    // Transform identifiers, such as enum/struct names, and function names.
+    private string TransformIdentifier(string name)
+    {
+        if (_transformMap.TryGetValue(name, out string transformed))
+            return transformed;
+
+        string newName = TransformValue(name, true, true);
+
+        _transformMap.Add(name, newName);
+        return newName;
+    }
+
     private string TransformEnumerator(string name, string nameToStrip)
     {
-        name = TransformIdentifier(name, false);
-        if (name.StartsWith(nameToStrip, StringComparison.InvariantCultureIgnoreCase))
-            name = name.Substring(nameToStrip.Length);
-        return name;
+        if (_transformMap.TryGetValue(name, out string transformed))
+            return transformed;
+
+        string newName = TransformValue(name, false, true);
+        if (newName.StartsWith(nameToStrip, StringComparison.InvariantCultureIgnoreCase))
+            newName = newName.Substring(nameToStrip.Length);
+
+        _transformMap.Add(name, newName);
+        return newName;
+    }
+
+    private string TransformParameter(string name)
+    {
+        if (_transformMap.TryGetValue(name, out string transformed))
+            return transformed;
+
+        string newName = TransformValue(name, false, false);
+
+        _transformMap.Add(name, newName);
+        return newName;
     }
 
     private string StripPrefix(string name)
