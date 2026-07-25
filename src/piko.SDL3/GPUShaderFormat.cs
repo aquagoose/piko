@@ -1,0 +1,15 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum GPUShaderFormat : uint
+    {
+        Invalid = 0,
+        Private = (1U << 0),
+        Spirv = (1U << 1),
+        Dxbc = (1U << 2),
+        Dxil = (1U << 3),
+        Msl = (1U << 4),
+        Metallib = (1U << 5),
+    }
+}

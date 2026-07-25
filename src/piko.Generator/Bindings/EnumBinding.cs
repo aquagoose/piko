@@ -13,14 +13,19 @@ public record EnumBinding
     public string? Type;
 
     /// <summary>
+    /// If true, the enum is a bitflags enum.
+    /// </summary>
+    public bool IsFlagsEnum;
+
+    /// <summary>
     /// The values contained in this enum.
     /// </summary>
     public List<EnumValue> Values;
 
-    public EnumBinding()
+    public EnumBinding(string name, string? type)
     {
-        Name = string.Empty;
-        Type = null;
+        Name = name;
+        Type = type;
         Values = [];
     }
 

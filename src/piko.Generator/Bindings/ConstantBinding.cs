@@ -17,6 +17,16 @@ public record ConstantBinding
     /// </summary>
     public string Value;
 
+    /// <summary>
+    /// The original unchanged name.
+    /// </summary>
+    public string? Prefix;
+
+    /// <summary>
+    /// If true, this means that the constant will be generated elsewhere, and should not be generated in the main method class.
+    /// </summary>
+    public bool SkipGenerationInMainClass;
+
     public ConstantBinding(string name, string type, string value)
     {
         Name = name;

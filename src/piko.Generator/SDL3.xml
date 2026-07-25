@@ -3335,7 +3335,7 @@
         <type native="const char *">sbyte*</type>
       </field>
       <field name="format" access="public">
-        <type native="SDL_GPUShaderFormat">uint</type>
+        <type>SDL_GPUShaderFormat</type>
       </field>
       <field name="stage" access="public">
         <type>SDL_GPUShaderStage</type>
@@ -3565,7 +3565,7 @@
         <type native="const char *">sbyte*</type>
       </field>
       <field name="format" access="public">
-        <type native="SDL_GPUShaderFormat">uint</type>
+        <type>SDL_GPUShaderFormat</type>
       </field>
       <field name="num_samplers" access="public">
         <type native="Uint32">uint</type>
@@ -10435,7 +10435,7 @@
       <function name="SDL_GPUSupportsShaderFormats" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
         <type native="bool">byte</type>
         <param name="format_flags">
-          <type>uint</type>
+          <type>SDL_GPUShaderFormat</type>
         </param>
         <param name="name">
           <type>sbyte*</type>
@@ -10450,7 +10450,7 @@
       <function name="SDL_CreateGPUDevice" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
         <type>SDL_GPUDevice*</type>
         <param name="format_flags">
-          <type>uint</type>
+          <type>SDL_GPUShaderFormat</type>
         </param>
         <param name="debug_mode">
           <type>byte</type>
@@ -10487,7 +10487,7 @@
         </param>
       </function>
       <function name="SDL_GetGPUShaderFormats" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
-        <type native="SDL_GPUShaderFormat">uint</type>
+        <type>SDL_GPUShaderFormat</type>
         <param name="device">
           <type>SDL_GPUDevice*</type>
         </param>
@@ -14104,25 +14104,25 @@
       <function name="SDL_Init" access="public" lib="" convention="Cdecl" static="true">
         <type native="bool">byte</type>
         <param name="flags">
-          <type>uint</type>
+          <type>SDL_InitFlags</type>
         </param>
       </function>
       <function name="SDL_InitSubSystem" access="public" lib="" convention="Cdecl" static="true">
         <type native="bool">byte</type>
         <param name="flags">
-          <type>uint</type>
+          <type>SDL_InitFlags</type>
         </param>
       </function>
       <function name="SDL_QuitSubSystem" access="public" lib="" convention="Cdecl" static="true">
         <type>void</type>
         <param name="flags">
-          <type>uint</type>
+          <type>SDL_InitFlags</type>
         </param>
       </function>
       <function name="SDL_WasInit" access="public" lib="" convention="Cdecl" static="true">
-        <type native="SDL_InitFlags">uint</type>
+        <type>SDL_InitFlags</type>
         <param name="flags">
-          <type>uint</type>
+          <type>SDL_InitFlags</type>
         </param>
       </function>
       <function name="SDL_Quit" access="public" lib="" convention="Cdecl" static="true">

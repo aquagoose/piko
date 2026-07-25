@@ -6,6 +6,8 @@ public class TypeTransformer(TypeTransformer.Options options)
 {
     private readonly Dictionary<string, StructBinding> _structs = new();
 
+    private readonly Dictionary<string, EnumBinding> _newEnums = new();
+
     public void Transform(ref BindingsSet bindings)
     {
         foreach (StructBinding s in bindings.Structs)
@@ -24,6 +26,9 @@ public class TypeTransformer(TypeTransformer.Options options)
 
         foreach (FunctionBinding f in bindings.Functions)
             TransformFunction(f);
+
+        foreach ((_, EnumBinding e) in _newEnums)
+            bindings.Enums.Add(e);
     }
 
     private void TransformConstant(ConstantBinding c)
@@ -32,6 +37,30 @@ public class TypeTransformer(TypeTransformer.Options options)
 
         if (c.Type == "string" && c.Value.EndsWith("u8"))
             c.Value = c.Value.Substring(0, c.Value.Length - 2);
+
+        if (options.AssociateConstantPrefixWithType != null)
+        {
+            foreach ((string prefix, ConstantType type) in options.AssociateConstantPrefixWithType)
+            {
+                if (c.Prefix != prefix)
+                    continue;
+
+                c.SkipGenerationInMainClass = true;
+
+                if (type.IsFlagsEnum)
+                {
+                    if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
+                    {
+                        binding = new EnumBinding(type.TypeName, c.Type); // todo better generation of enum type? this may not always be valid
+                        _newEnums.Add(type.TypeName, binding);
+                    }
+
+                    binding.Values.Add(new EnumBinding.EnumValue(c.Name, c.Value));
+                }
+                else
+                    throw new NotImplementedException();
+            }
+        }
     }
 
     private void TransformStruct(StructBinding s)
@@ -89,5 +118,29 @@ public class TypeTransformer(TypeTransformer.Options options)
         /// If true, empty structs will be transformed to a special "handle" type.
         /// </summary>
         public bool EmptyStructsAreHandleTypes;
+
+        /// <summary>
+        /// Associate a constant prefix (key) with a type (value).
+        /// </summary>
+        public Dictionary<string, ConstantType> AssociateConstantPrefixWithType;
+    }
+
+    public struct ConstantType
+    {
+        /// <summary>
+        /// The name of the type.
+        /// </summary>
+        public string TypeName;
+
+        /// <summary>
+        /// If true, a flags enum will be generated. Otherwise, a static class will be generated.
+        /// </summary>
+        public bool IsFlagsEnum;
+
+        public ConstantType(string typeName, bool isFlagsEnum)
+        {
+            TypeName = typeName;
+            IsFlagsEnum = isFlagsEnum;
+        }
     }
 }

@@ -51,26 +51,6 @@ public static unsafe partial class SDL
     public const string PropGamepadCapPlayerLedBoolean = "SDL.joystick.cap.player_led";
     public const string PropGamepadCapRumbleBoolean = "SDL.joystick.cap.rumble";
     public const string PropGamepadCapTriggerRumbleBoolean = "SDL.joystick.cap.trigger_rumble";
-    public const uint GpuTextureusageSampler = (1U << 0);
-    public const uint GpuTextureusageColorTarget = (1U << 1);
-    public const uint GpuTextureusageDepthStencilTarget = (1U << 2);
-    public const uint GpuTextureusageGraphicsStorageRead = (1U << 3);
-    public const uint GpuTextureusageComputeStorageRead = (1U << 4);
-    public const uint GpuTextureusageComputeStorageWrite = (1U << 5);
-    public const uint GpuTextureusageComputeStorageSimultaneousReadWrite = (1U << 6);
-    public const uint GpuBufferusageVertex = (1U << 0);
-    public const uint GpuBufferusageIndex = (1U << 1);
-    public const uint GpuBufferusageIndirect = (1U << 2);
-    public const uint GpuBufferusageGraphicsStorageRead = (1U << 3);
-    public const uint GpuBufferusageComputeStorageRead = (1U << 4);
-    public const uint GpuBufferusageComputeStorageWrite = (1U << 5);
-    public const int GpuShaderformatInvalid = 0;
-    public const uint GpuShaderformatPrivate = (1U << 0);
-    public const uint GpuShaderformatSpirv = (1U << 1);
-    public const uint GpuShaderformatDxbc = (1U << 2);
-    public const uint GpuShaderformatDxil = (1U << 3);
-    public const uint GpuShaderformatMsl = (1U << 4);
-    public const uint GpuShaderformatMetallib = (1U << 5);
     public const uint GpuColorcomponentR = (1U << 0);
     public const uint GpuColorcomponentG = (1U << 1);
     public const uint GpuColorcomponentB = (1U << 2);
@@ -114,13 +94,13 @@ public static unsafe partial class SDL
     public const string PropGpuBufferCreateNameString = "SDL.gpu.buffer.create.name";
     public const string PropGpuTransferbufferCreateNameString = "SDL.gpu.transferbuffer.create.name";
     public const uint HapticInfinity = 4294967295U;
-    public const uint HapticConstant = (1U << 0);
+    // todo public const uint HapticConstant = (1U << 0);
     public const uint HapticSine = (1U << 1);
     public const uint HapticSquare = (1U << 2);
     public const uint HapticTriangle = (1U << 3);
     public const uint HapticSawtoothup = (1U << 4);
     public const uint HapticSawtoothdown = (1U << 5);
-    public const uint HapticRamp = (1U << 6);
+    // todo public const uint HapticRamp = (1U << 6);
     public const uint HapticSpring = (1U << 7);
     public const uint HapticDamper = (1U << 8);
     public const uint HapticInertia = (1U << 9);
@@ -129,7 +109,7 @@ public static unsafe partial class SDL
     public const uint HapticReserved1 = (1U << 12);
     public const uint HapticReserved2 = (1U << 13);
     public const uint HapticReserved3 = (1U << 14);
-    public const uint HapticCustom = (1U << 15);
+    // todo public const uint HapticCustom = (1U << 15);
     public const uint HapticGain = (1U << 16);
     public const uint HapticAutocenter = (1U << 17);
     public const uint HapticStatus = (1U << 18);
@@ -404,14 +384,6 @@ public static unsafe partial class SDL
     public const string HintAssert = "SDL_ASSERT";
     public const string HintPenMouseEvents = "SDL_PEN_MOUSE_EVENTS";
     public const string HintPenTouchEvents = "SDL_PEN_TOUCH_EVENTS";
-    public const uint InitAudio = 0x00000010U;
-    public const uint InitVideo = 0x00000020U;
-    public const uint InitJoystick = 0x00000200U;
-    public const uint InitHaptic = 0x00001000U;
-    public const uint InitGamepad = 0x00002000U;
-    public const uint InitEvents = 0x00004000U;
-    public const uint InitSensor = 0x00008000U;
-    public const uint InitCamera = 0x00010000U;
     public const string PropAppMetadataNameString = "SDL.app.metadata.name";
     public const string PropAppMetadataVersionString = "SDL.app.metadata.version";
     public const string PropAppMetadataIdentifierString = "SDL.app.metadata.identifier";
@@ -1689,17 +1661,11 @@ public static unsafe partial class SDL
     public const float FltEpsilon = 1.1920928955078125e-07F;
     public const string Pris64 = "ld";
     public const string Priu64 = "lu";
-    public const string Prix64 = "lx";
-    public const string Prix64 = "lX";
     public const string Pris32 = "d";
     public const string Priu32 = "u";
-    public const string Prix32 = "x";
-    public const string Prix32 = "X";
     public const string PrillPrefix = "ll";
     public const string Prilld = "lld";
     public const string Prillu = "llu";
-    public const string Prillx = "llx";
-    public const string Prillx = "llX";
     public const int InvalidUnicodeCodepoint = 0xFFFD;
     public const double PiD = 3.141592653589793238462643383279502884;
     public const float PiF = 3.141592653589793238462643383279502884F;
@@ -1732,32 +1698,6 @@ public static unsafe partial class SDL
     public const int MicroVersion = 12;
     public const int Version = ((3) * 1000000 + (4) * 1000 + (12));
     public const string PropGlobalVideoWaylandWlDisplayPointer = "SDL.video.wayland.wl_display";
-    public const nuint WindowFullscreen = 0x0000000000000001U;
-    public const nuint WindowOpengl = 0x0000000000000002U;
-    public const nuint WindowOccluded = 0x0000000000000004U;
-    public const nuint WindowHidden = 0x0000000000000008U;
-    public const nuint WindowBorderless = 0x0000000000000010U;
-    public const nuint WindowResizable = 0x0000000000000020U;
-    public const nuint WindowMinimized = 0x0000000000000040U;
-    public const nuint WindowMaximized = 0x0000000000000080U;
-    public const nuint WindowMouseGrabbed = 0x0000000000000100U;
-    public const nuint WindowInputFocus = 0x0000000000000200U;
-    public const nuint WindowMouseFocus = 0x0000000000000400U;
-    public const nuint WindowExternal = 0x0000000000000800U;
-    public const nuint WindowModal = 0x0000000000001000U;
-    public const nuint WindowHighPixelDensity = 0x0000000000002000U;
-    public const nuint WindowMouseCapture = 0x0000000000004000U;
-    public const nuint WindowMouseRelativeMode = 0x0000000000008000U;
-    public const nuint WindowAlwaysOnTop = 0x0000000000010000U;
-    public const nuint WindowUtility = 0x0000000000020000U;
-    public const nuint WindowTooltip = 0x0000000000040000U;
-    public const nuint WindowPopupMenu = 0x0000000000080000U;
-    public const nuint WindowKeyboardGrabbed = 0x0000000000100000U;
-    public const nuint WindowFillDocument = 0x0000000000200000U;
-    public const nuint WindowVulkan = 0x0000000010000000U;
-    public const nuint WindowMetal = 0x0000000020000000U;
-    public const nuint WindowTransparent = 0x0000000040000000U;
-    public const nuint WindowNotFocusable = 0x0000000080000000U;
     public const uint WindowposUndefinedMask = 0x1FFF0000U;
     public const uint WindowposUndefined = (0x1FFF0000U | (0));
     public const uint WindowposCenteredMask = 0x2FFF0000U;
@@ -1852,20 +1792,9 @@ public static unsafe partial class SDL
     public const string PropWindowX11WindowNumber = "SDL.window.x11.window";
     public const string PropWindowEmscriptenCanvasIdString = "SDL.window.emscripten.canvas_id";
     public const string PropWindowEmscriptenKeyboardElementString = "SDL.window.emscripten.keyboard_element";
-    public const int WindowSurfaceVsyncDisabled = 0;
-    public const int WindowSurfaceVsyncAdaptive = (-1);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReportAssertion")]
     public static partial AssertState ReportAssertion(AssertData* data, [MarshalAs(UnmanagedType.LPStr)] string func, [MarshalAs(UnmanagedType.LPStr)] string file, int line);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAssertionHandler")]
-    public static partial void SetAssertionHandler(delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> handler, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetDefaultAssertionHandler")]
-    public static partial delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetDefaultAssertionHandler();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetAssertionHandler")]
-    public static partial delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetAssertionHandler(void** puserdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetAssertionReport")]
     public static partial AssertData* GetAssertionReport();
@@ -2133,24 +2062,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool UnlockAudioStream(AudioStream stream);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyAudioStream")]
-    public static partial void DestroyAudioStream(AudioStream stream);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream")]
-    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadWAV_IO")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool LoadWAVIO(IOStream src, byte closeio, AudioSpec* spec, byte** audioBuf, uint* audioLen);
@@ -2361,14 +2272,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_SwapFloat")]
     public static partial float SwapFloat(float x);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetError")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetError([MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetErrorV")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetErrorV([MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_OutOfMemory")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool OutOfMemory();
@@ -2417,23 +2320,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool PushEvent(Event* @event);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventFilter")]
-    public static partial void SetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetEventFilter")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, by**** filter, void** userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_AddEventWatch")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AddEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveEventWatch")]
-    public static partial void RemoveEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_FilterEvents")]
-    public static partial void FilterEvents(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventEnabled")]
     public static partial void SetEventEnabled(uint type, byte enabled);
 
@@ -2465,10 +2351,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateDirectory")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CreateDirectory([MarshalAs(UnmanagedType.LPStr)] string path);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateDirectory")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool EnumerateDirectory([MarshalAs(UnmanagedType.LPStr)] string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemovePath")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2640,9 +2522,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GamepadEventsEnabled();
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings")]
-    public static partial GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateGamepads")]
     public static partial void UpdateGamepads();
 
@@ -2746,14 +2625,14 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GPUSupportsShaderFormats")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GPUSupportsShaderFormats(uint formatFlags, [MarshalAs(UnmanagedType.LPStr)] string name);
+    public static partial bool GPUSupportsShaderFormats(GPUShaderFormat formatFlags, [MarshalAs(UnmanagedType.LPStr)] string name);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GPUSupportsProperties")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GPUSupportsProperties(uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateGPUDevice")]
-    public static partial GPUDevice CreateGPUDevice(uint formatFlags, byte debugMode, [MarshalAs(UnmanagedType.LPStr)] string name);
+    public static partial GPUDevice CreateGPUDevice(GPUShaderFormat formatFlags, byte debugMode, [MarshalAs(UnmanagedType.LPStr)] string name);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateGPUDeviceWithProperties")]
     public static partial GPUDevice CreateGPUDeviceWithProperties(uint props);
@@ -2773,7 +2652,7 @@ public static unsafe partial class SDL
     public static partial string GetGPUDeviceDriver(GPUDevice device);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetGPUShaderFormats")]
-    public static partial uint GetGPUShaderFormats(GPUDevice device);
+    public static partial GPUShaderFormat GetGPUShaderFormats(GPUDevice device);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetGPUDeviceProperties")]
     public static partial uint GetGPUDeviceProperties(GPUDevice device);
@@ -2992,7 +2871,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AcquireGPUSwapchainTexture")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitForGPUSwapchain")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3266,17 +3145,17 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Init")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool Init(uint flags);
+    public static partial bool Init(InitFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_InitSubSystem")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool InitSubSystem(uint flags);
+    public static partial bool InitSubSystem(InitFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_QuitSubSystem")]
-    public static partial void QuitSubSystem(uint flags);
+    public static partial void QuitSubSystem(InitFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WasInit")]
-    public static partial uint WasInit(uint flags);
+    public static partial InitFlags WasInit(InitFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Quit")]
     public static partial void Quit();
@@ -3313,9 +3192,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_IOFromDynamicMem")]
     public static partial IOStream IOFromDynamicMem();
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_OpenIO")]
-    public static partial IOStream OpenIO(IOStreamInterface* iface, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseIO")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CloseIO(IOStream context);
@@ -3340,12 +3216,6 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteIO")]
     public static partial nuint WriteIO(IOStream context, void* ptr, nuint size);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_IOprintf")]
-    public static partial nuint IOprintf(IOStream context, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_IOvprintf")]
-    public static partial nuint IOvprintf(IOStream context, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlushIO")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3789,45 +3659,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetLogPriorityPrefix(LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string prefix);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_Log")]
-    public static partial void Log([MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogTrace")]
-    public static partial void LogTrace(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogVerbose")]
-    public static partial void LogVerbose(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogDebug")]
-    public static partial void LogDebug(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogInfo")]
-    public static partial void LogInfo(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogWarn")]
-    public static partial void LogWarn(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogError")]
-    public static partial void LogError(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogCritical")]
-    public static partial void LogCritical(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessage")]
-    public static partial void LogMessage(int category, LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessageV")]
-    public static partial void LogMessageV(int category, LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetDefaultLogOutputFunction")]
-    public static partial delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> GetDefaultLogOutputFunction();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetLogOutputFunction")]
-    public static partial void GetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, vo**** callback, void** userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetLogOutputFunction")]
-    public static partial void SetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> callback, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_main")]
     public static partial int Main(int argc, sbyte** argv);
 
@@ -3836,9 +3667,6 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RunApp")]
     public static partial int RunApp(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<int, sbyte**, int> mainfunction, void* reserved);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_EnterAppMainCallbacks")]
-    public static partial int EnterAppMainCallbacks(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<void**, int, sbyte**, SDL_AppResult> appinit, delegate* unmanaged[Cdecl]<void*, SDL_AppResult> appiter, delegate* unmanaged[Cdecl]<void*, SDL_Event*, SDL_AppResult> appevent, delegate* unmanaged[Cdecl]<void*, SDL_AppResult, void> appquit);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GDKSuspendComplete")]
     public static partial void GDKSuspendComplete();
@@ -3893,10 +3721,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_WarpMouseGlobal")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool WarpMouseGlobal(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetRelativeMouseTransform")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetRelativeMouseTransform(delegate* unmanaged[Cdecl]<void*, ulong, SDL_Window*, uint, float*, float*, void> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowRelativeMouseMode")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -4038,1368 +3862,6 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetInitialized")]
     public static partial void SetInitialized(InitState* state, byte initialized);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClearIndex")]
-    public static partial void GlClearIndex(float c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClearColor")]
-    public static partial void GlClearColor(float red, float green, float blue, float alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClear")]
-    public static partial void GlClear(uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexMask")]
-    public static partial void GlIndexMask(uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorMask")]
-    public static partial void GlColorMask(byte red, byte green, byte blue, byte alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glAlphaFunc")]
-    public static partial void GlAlphaFunc(uint func, float @ref);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBlendFunc")]
-    public static partial void GlBlendFunc(uint sfactor, uint dfactor);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLogicOp")]
-    public static partial void GlLogicOp(uint opcode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCullFace")]
-    public static partial void GlCullFace(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFrontFace")]
-    public static partial void GlFrontFace(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPointSize")]
-    public static partial void GlPointSize(float size);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLineWidth")]
-    public static partial void GlLineWidth(float width);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLineStipple")]
-    public static partial void GlLineStipple(int factor, ushort pattern);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPolygonMode")]
-    public static partial void GlPolygonMode(uint face, uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPolygonOffset")]
-    public static partial void GlPolygonOffset(float factor, float units);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPolygonStipple")]
-    public static partial void GlPolygonStipple(byte* mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetPolygonStipple")]
-    public static partial void GlGetPolygonStipple(byte* mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEdgeFlag")]
-    public static partial void GlEdgeFlag(byte flag);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEdgeFlagv")]
-    public static partial void GlEdgeFlagv(byte* flag);
-
-    [LibraryImport(LibraryName, EntryPoint = "glScissor")]
-    public static partial void GlScissor(int x, int y, int width, int height);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClipPlane")]
-    public static partial void GlClipPlane(uint plane, double* equation);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetClipPlane")]
-    public static partial void GlGetClipPlane(uint plane, double* equation);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDrawBuffer")]
-    public static partial void GlDrawBuffer(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glReadBuffer")]
-    public static partial void GlReadBuffer(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEnable")]
-    public static partial void GlEnable(uint cap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDisable")]
-    public static partial void GlDisable(uint cap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIsEnabled")]
-    public static partial byte GlIsEnabled(uint cap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEnableClientState")]
-    public static partial void GlEnableClientState(uint cap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDisableClientState")]
-    public static partial void GlDisableClientState(uint cap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetBooleanv")]
-    public static partial void GlGetBooleanv(uint pname, byte* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetDoublev")]
-    public static partial void GlGetDoublev(uint pname, double* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetFloatv")]
-    public static partial void GlGetFloatv(uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetIntegerv")]
-    public static partial void GlGetIntegerv(uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPushAttrib")]
-    public static partial void GlPushAttrib(uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPopAttrib")]
-    public static partial void GlPopAttrib();
-
-    [LibraryImport(LibraryName, EntryPoint = "glPushClientAttrib")]
-    public static partial void GlPushClientAttrib(uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPopClientAttrib")]
-    public static partial void GlPopClientAttrib();
-
-    [LibraryImport(LibraryName, EntryPoint = "glRenderMode")]
-    public static partial int GlRenderMode(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetError")]
-    public static partial uint GlGetError();
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetString")]
-    public static partial byte* GlGetString(uint name);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFinish")]
-    public static partial void GlFinish();
-
-    [LibraryImport(LibraryName, EntryPoint = "glFlush")]
-    public static partial void GlFlush();
-
-    [LibraryImport(LibraryName, EntryPoint = "glHint")]
-    public static partial void GlHint(uint target, uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClearDepth")]
-    public static partial void GlClearDepth(double depth);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDepthFunc")]
-    public static partial void GlDepthFunc(uint func);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDepthMask")]
-    public static partial void GlDepthMask(byte flag);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDepthRange")]
-    public static partial void GlDepthRange(double nearVal, double farVal);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClearAccum")]
-    public static partial void GlClearAccum(float red, float green, float blue, float alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glAccum")]
-    public static partial void GlAccum(uint op, float value);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMatrixMode")]
-    public static partial void GlMatrixMode(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glOrtho")]
-    public static partial void GlOrtho(double left, double right, double bottom, double top, double nearVal, double farVal);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFrustum")]
-    public static partial void GlFrustum(double left, double right, double bottom, double top, double nearVal, double farVal);
-
-    [LibraryImport(LibraryName, EntryPoint = "glViewport")]
-    public static partial void GlViewport(int x, int y, int width, int height);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPushMatrix")]
-    public static partial void GlPushMatrix();
-
-    [LibraryImport(LibraryName, EntryPoint = "glPopMatrix")]
-    public static partial void GlPopMatrix();
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadIdentity")]
-    public static partial void GlLoadIdentity();
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadMatrixd")]
-    public static partial void GlLoadMatrixd(double* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadMatrixf")]
-    public static partial void GlLoadMatrixf(float* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultMatrixd")]
-    public static partial void GlMultMatrixd(double* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultMatrixf")]
-    public static partial void GlMultMatrixf(float* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRotated")]
-    public static partial void GlRotated(double angle, double x, double y, double z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRotatef")]
-    public static partial void GlRotatef(float angle, float x, float y, float z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glScaled")]
-    public static partial void GlScaled(double x, double y, double z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glScalef")]
-    public static partial void GlScalef(float x, float y, float z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTranslated")]
-    public static partial void GlTranslated(double x, double y, double z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTranslatef")]
-    public static partial void GlTranslatef(float x, float y, float z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIsList")]
-    public static partial byte GlIsList(uint list);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDeleteLists")]
-    public static partial void GlDeleteLists(uint list, int range);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGenLists")]
-    public static partial uint GlGenLists(int range);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNewList")]
-    public static partial void GlNewList(uint list, uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEndList")]
-    public static partial void GlEndList();
-
-    [LibraryImport(LibraryName, EntryPoint = "glCallList")]
-    public static partial void GlCallList(uint list);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCallLists")]
-    public static partial void GlCallLists(int n, uint type, void* lists);
-
-    [LibraryImport(LibraryName, EntryPoint = "glListBase")]
-    public static partial void GlListBase(uint @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBegin")]
-    public static partial void GlBegin(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEnd")]
-    public static partial void GlEnd();
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2d")]
-    public static partial void GlVertex2d(double x, double y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2f")]
-    public static partial void GlVertex2f(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2i")]
-    public static partial void GlVertex2i(int x, int y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2s")]
-    public static partial void GlVertex2s(short x, short y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3d")]
-    public static partial void GlVertex3d(double x, double y, double z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3f")]
-    public static partial void GlVertex3f(float x, float y, float z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3i")]
-    public static partial void GlVertex3i(int x, int y, int z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3s")]
-    public static partial void GlVertex3s(short x, short y, short z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4d")]
-    public static partial void GlVertex4d(double x, double y, double z, double w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4f")]
-    public static partial void GlVertex4f(float x, float y, float z, float w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4i")]
-    public static partial void GlVertex4i(int x, int y, int z, int w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4s")]
-    public static partial void GlVertex4s(short x, short y, short z, short w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2dv")]
-    public static partial void GlVertex2dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2fv")]
-    public static partial void GlVertex2fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2iv")]
-    public static partial void GlVertex2iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex2sv")]
-    public static partial void GlVertex2sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3dv")]
-    public static partial void GlVertex3dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3fv")]
-    public static partial void GlVertex3fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3iv")]
-    public static partial void GlVertex3iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex3sv")]
-    public static partial void GlVertex3sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4dv")]
-    public static partial void GlVertex4dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4fv")]
-    public static partial void GlVertex4fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4iv")]
-    public static partial void GlVertex4iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertex4sv")]
-    public static partial void GlVertex4sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3b")]
-    public static partial void GlNormal3b(sbyte nx, sbyte ny, sbyte nz);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3d")]
-    public static partial void GlNormal3d(double nx, double ny, double nz);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3f")]
-    public static partial void GlNormal3f(float nx, float ny, float nz);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3i")]
-    public static partial void GlNormal3i(int nx, int ny, int nz);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3s")]
-    public static partial void GlNormal3s(short nx, short ny, short nz);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3bv")]
-    public static partial void GlNormal3bv([MarshalAs(UnmanagedType.LPStr)] string v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3dv")]
-    public static partial void GlNormal3dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3fv")]
-    public static partial void GlNormal3fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3iv")]
-    public static partial void GlNormal3iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormal3sv")]
-    public static partial void GlNormal3sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexd")]
-    public static partial void GlIndexd(double c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexf")]
-    public static partial void GlIndexf(float c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexi")]
-    public static partial void GlIndexi(int c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexs")]
-    public static partial void GlIndexs(short c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexub")]
-    public static partial void GlIndexub(byte c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexdv")]
-    public static partial void GlIndexdv(double* c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexfv")]
-    public static partial void GlIndexfv(float* c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexiv")]
-    public static partial void GlIndexiv(int* c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexsv")]
-    public static partial void GlIndexsv(short* c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexubv")]
-    public static partial void GlIndexubv(byte* c);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3b")]
-    public static partial void GlColor3b(sbyte red, sbyte green, sbyte blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3d")]
-    public static partial void GlColor3d(double red, double green, double blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3f")]
-    public static partial void GlColor3f(float red, float green, float blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3i")]
-    public static partial void GlColor3i(int red, int green, int blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3s")]
-    public static partial void GlColor3s(short red, short green, short blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3ub")]
-    public static partial void GlColor3ub(byte red, byte green, byte blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3ui")]
-    public static partial void GlColor3ui(uint red, uint green, uint blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3us")]
-    public static partial void GlColor3us(ushort red, ushort green, ushort blue);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4b")]
-    public static partial void GlColor4b(sbyte red, sbyte green, sbyte blue, sbyte alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4d")]
-    public static partial void GlColor4d(double red, double green, double blue, double alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4f")]
-    public static partial void GlColor4f(float red, float green, float blue, float alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4i")]
-    public static partial void GlColor4i(int red, int green, int blue, int alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4s")]
-    public static partial void GlColor4s(short red, short green, short blue, short alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4ub")]
-    public static partial void GlColor4ub(byte red, byte green, byte blue, byte alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4ui")]
-    public static partial void GlColor4ui(uint red, uint green, uint blue, uint alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4us")]
-    public static partial void GlColor4us(ushort red, ushort green, ushort blue, ushort alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3bv")]
-    public static partial void GlColor3bv([MarshalAs(UnmanagedType.LPStr)] string v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3dv")]
-    public static partial void GlColor3dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3fv")]
-    public static partial void GlColor3fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3iv")]
-    public static partial void GlColor3iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3sv")]
-    public static partial void GlColor3sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3ubv")]
-    public static partial void GlColor3ubv(byte* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3uiv")]
-    public static partial void GlColor3uiv(uint* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor3usv")]
-    public static partial void GlColor3usv(ushort* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4bv")]
-    public static partial void GlColor4bv([MarshalAs(UnmanagedType.LPStr)] string v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4dv")]
-    public static partial void GlColor4dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4fv")]
-    public static partial void GlColor4fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4iv")]
-    public static partial void GlColor4iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4sv")]
-    public static partial void GlColor4sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4ubv")]
-    public static partial void GlColor4ubv(byte* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4uiv")]
-    public static partial void GlColor4uiv(uint* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColor4usv")]
-    public static partial void GlColor4usv(ushort* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1d")]
-    public static partial void GlTexCoord1d(double s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1f")]
-    public static partial void GlTexCoord1f(float s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1i")]
-    public static partial void GlTexCoord1i(int s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1s")]
-    public static partial void GlTexCoord1s(short s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2d")]
-    public static partial void GlTexCoord2d(double s, double t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2f")]
-    public static partial void GlTexCoord2f(float s, float t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2i")]
-    public static partial void GlTexCoord2i(int s, int t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2s")]
-    public static partial void GlTexCoord2s(short s, short t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3d")]
-    public static partial void GlTexCoord3d(double s, double t, double r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3f")]
-    public static partial void GlTexCoord3f(float s, float t, float r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3i")]
-    public static partial void GlTexCoord3i(int s, int t, int r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3s")]
-    public static partial void GlTexCoord3s(short s, short t, short r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4d")]
-    public static partial void GlTexCoord4d(double s, double t, double r, double q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4f")]
-    public static partial void GlTexCoord4f(float s, float t, float r, float q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4i")]
-    public static partial void GlTexCoord4i(int s, int t, int r, int q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4s")]
-    public static partial void GlTexCoord4s(short s, short t, short r, short q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1dv")]
-    public static partial void GlTexCoord1dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1fv")]
-    public static partial void GlTexCoord1fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1iv")]
-    public static partial void GlTexCoord1iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord1sv")]
-    public static partial void GlTexCoord1sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2dv")]
-    public static partial void GlTexCoord2dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2fv")]
-    public static partial void GlTexCoord2fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2iv")]
-    public static partial void GlTexCoord2iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord2sv")]
-    public static partial void GlTexCoord2sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3dv")]
-    public static partial void GlTexCoord3dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3fv")]
-    public static partial void GlTexCoord3fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3iv")]
-    public static partial void GlTexCoord3iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord3sv")]
-    public static partial void GlTexCoord3sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4dv")]
-    public static partial void GlTexCoord4dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4fv")]
-    public static partial void GlTexCoord4fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4iv")]
-    public static partial void GlTexCoord4iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoord4sv")]
-    public static partial void GlTexCoord4sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2d")]
-    public static partial void GlRasterPos2d(double x, double y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2f")]
-    public static partial void GlRasterPos2f(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2i")]
-    public static partial void GlRasterPos2i(int x, int y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2s")]
-    public static partial void GlRasterPos2s(short x, short y);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3d")]
-    public static partial void GlRasterPos3d(double x, double y, double z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3f")]
-    public static partial void GlRasterPos3f(float x, float y, float z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3i")]
-    public static partial void GlRasterPos3i(int x, int y, int z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3s")]
-    public static partial void GlRasterPos3s(short x, short y, short z);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4d")]
-    public static partial void GlRasterPos4d(double x, double y, double z, double w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4f")]
-    public static partial void GlRasterPos4f(float x, float y, float z, float w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4i")]
-    public static partial void GlRasterPos4i(int x, int y, int z, int w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4s")]
-    public static partial void GlRasterPos4s(short x, short y, short z, short w);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2dv")]
-    public static partial void GlRasterPos2dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2fv")]
-    public static partial void GlRasterPos2fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2iv")]
-    public static partial void GlRasterPos2iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos2sv")]
-    public static partial void GlRasterPos2sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3dv")]
-    public static partial void GlRasterPos3dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3fv")]
-    public static partial void GlRasterPos3fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3iv")]
-    public static partial void GlRasterPos3iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos3sv")]
-    public static partial void GlRasterPos3sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4dv")]
-    public static partial void GlRasterPos4dv(double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4fv")]
-    public static partial void GlRasterPos4fv(float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4iv")]
-    public static partial void GlRasterPos4iv(int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRasterPos4sv")]
-    public static partial void GlRasterPos4sv(short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectd")]
-    public static partial void GlRectd(double x1, double y1, double x2, double y2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectf")]
-    public static partial void GlRectf(float x1, float y1, float x2, float y2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRecti")]
-    public static partial void GlRecti(int x1, int y1, int x2, int y2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRects")]
-    public static partial void GlRects(short x1, short y1, short x2, short y2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectdv")]
-    public static partial void GlRectdv(double* v1, double* v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectfv")]
-    public static partial void GlRectfv(float* v1, float* v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectiv")]
-    public static partial void GlRectiv(int* v1, int* v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glRectsv")]
-    public static partial void GlRectsv(short* v1, short* v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glVertexPointer")]
-    public static partial void GlVertexPointer(int size, uint type, int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glNormalPointer")]
-    public static partial void GlNormalPointer(uint type, int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorPointer")]
-    public static partial void GlColorPointer(int size, uint type, int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIndexPointer")]
-    public static partial void GlIndexPointer(uint type, int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexCoordPointer")]
-    public static partial void GlTexCoordPointer(int size, uint type, int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEdgeFlagPointer")]
-    public static partial void GlEdgeFlagPointer(int stride, void* ptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetPointerv")]
-    public static partial void GlGetPointerv(uint pname, void** @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glArrayElement")]
-    public static partial void GlArrayElement(int i);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDrawArrays")]
-    public static partial void GlDrawArrays(uint mode, int first, int count);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDrawElements")]
-    public static partial void GlDrawElements(uint mode, int count, uint type, void* indices);
-
-    [LibraryImport(LibraryName, EntryPoint = "glInterleavedArrays")]
-    public static partial void GlInterleavedArrays(uint format, int stride, void* pointer);
-
-    [LibraryImport(LibraryName, EntryPoint = "glShadeModel")]
-    public static partial void GlShadeModel(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightf")]
-    public static partial void GlLightf(uint light, uint pname, float param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLighti")]
-    public static partial void GlLighti(uint light, uint pname, int param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightfv")]
-    public static partial void GlLightfv(uint light, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightiv")]
-    public static partial void GlLightiv(uint light, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetLightfv")]
-    public static partial void GlGetLightfv(uint light, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetLightiv")]
-    public static partial void GlGetLightiv(uint light, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightModelf")]
-    public static partial void GlLightModelf(uint pname, float param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightModeli")]
-    public static partial void GlLightModeli(uint pname, int param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightModelfv")]
-    public static partial void GlLightModelfv(uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLightModeliv")]
-    public static partial void GlLightModeliv(uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMaterialf")]
-    public static partial void GlMaterialf(uint face, uint pname, float param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMateriali")]
-    public static partial void GlMateriali(uint face, uint pname, int param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMaterialfv")]
-    public static partial void GlMaterialfv(uint face, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMaterialiv")]
-    public static partial void GlMaterialiv(uint face, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMaterialfv")]
-    public static partial void GlGetMaterialfv(uint face, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMaterialiv")]
-    public static partial void GlGetMaterialiv(uint face, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorMaterial")]
-    public static partial void GlColorMaterial(uint face, uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelZoom")]
-    public static partial void GlPixelZoom(float xfactor, float yfactor);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelStoref")]
-    public static partial void GlPixelStoref(uint pname, float param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelStorei")]
-    public static partial void GlPixelStorei(uint pname, int param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelTransferf")]
-    public static partial void GlPixelTransferf(uint pname, float param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelTransferi")]
-    public static partial void GlPixelTransferi(uint pname, int param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelMapfv")]
-    public static partial void GlPixelMapfv(uint map, int mapsize, float* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelMapuiv")]
-    public static partial void GlPixelMapuiv(uint map, int mapsize, uint* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPixelMapusv")]
-    public static partial void GlPixelMapusv(uint map, int mapsize, ushort* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetPixelMapfv")]
-    public static partial void GlGetPixelMapfv(uint map, float* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetPixelMapuiv")]
-    public static partial void GlGetPixelMapuiv(uint map, uint* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetPixelMapusv")]
-    public static partial void GlGetPixelMapusv(uint map, ushort* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBitmap")]
-    public static partial void GlBitmap(int width, int height, float xorig, float yorig, float xmove, float ymove, byte* bitmap);
-
-    [LibraryImport(LibraryName, EntryPoint = "glReadPixels")]
-    public static partial void GlReadPixels(int x, int y, int width, int height, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDrawPixels")]
-    public static partial void GlDrawPixels(int width, int height, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyPixels")]
-    public static partial void GlCopyPixels(int x, int y, int width, int height, uint type);
-
-    [LibraryImport(LibraryName, EntryPoint = "glStencilFunc")]
-    public static partial void GlStencilFunc(uint func, int @ref, uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glStencilMask")]
-    public static partial void GlStencilMask(uint mask);
-
-    [LibraryImport(LibraryName, EntryPoint = "glStencilOp")]
-    public static partial void GlStencilOp(uint fail, uint zfail, uint zpass);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClearStencil")]
-    public static partial void GlClearStencil(int s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGend")]
-    public static partial void GlTexGend(uint coord, uint pname, double param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGenf")]
-    public static partial void GlTexGenf(uint coord, uint pname, float param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGeni")]
-    public static partial void GlTexGeni(uint coord, uint pname, int param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGendv")]
-    public static partial void GlTexGendv(uint coord, uint pname, double* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGenfv")]
-    public static partial void GlTexGenfv(uint coord, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexGeniv")]
-    public static partial void GlTexGeniv(uint coord, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexGendv")]
-    public static partial void GlGetTexGendv(uint coord, uint pname, double* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexGenfv")]
-    public static partial void GlGetTexGenfv(uint coord, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexGeniv")]
-    public static partial void GlGetTexGeniv(uint coord, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexEnvf")]
-    public static partial void GlTexEnvf(uint target, uint pname, float param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexEnvi")]
-    public static partial void GlTexEnvi(uint target, uint pname, int param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexEnvfv")]
-    public static partial void GlTexEnvfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexEnviv")]
-    public static partial void GlTexEnviv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexEnvfv")]
-    public static partial void GlGetTexEnvfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexEnviv")]
-    public static partial void GlGetTexEnviv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexParameterf")]
-    public static partial void GlTexParameterf(uint target, uint pname, float param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexParameteri")]
-    public static partial void GlTexParameteri(uint target, uint pname, int param2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexParameterfv")]
-    public static partial void GlTexParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexParameteriv")]
-    public static partial void GlTexParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexParameterfv")]
-    public static partial void GlGetTexParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexParameteriv")]
-    public static partial void GlGetTexParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexLevelParameterfv")]
-    public static partial void GlGetTexLevelParameterfv(uint target, int level, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexLevelParameteriv")]
-    public static partial void GlGetTexLevelParameteriv(uint target, int level, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexImage1D")]
-    public static partial void GlTexImage1D(uint target, int level, int internalformat, int width, int border, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexImage2D")]
-    public static partial void GlTexImage2D(uint target, int level, int internalformat, int width, int height, int border, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetTexImage")]
-    public static partial void GlGetTexImage(uint target, int level, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGenTextures")]
-    public static partial void GlGenTextures(int n, uint* textures);
-
-    [LibraryImport(LibraryName, EntryPoint = "glDeleteTextures")]
-    public static partial void GlDeleteTextures(int n, uint* textures);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBindTexture")]
-    public static partial void GlBindTexture(uint target, uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPrioritizeTextures")]
-    public static partial void GlPrioritizeTextures(int n, uint* textures, float* priorities);
-
-    [LibraryImport(LibraryName, EntryPoint = "glAreTexturesResident")]
-    public static partial byte GlAreTexturesResident(int n, uint* textures, byte* residences);
-
-    [LibraryImport(LibraryName, EntryPoint = "glIsTexture")]
-    public static partial byte GlIsTexture(uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexSubImage1D")]
-    public static partial void GlTexSubImage1D(uint target, int level, int xoffset, int width, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexSubImage2D")]
-    public static partial void GlTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyTexImage1D")]
-    public static partial void GlCopyTexImage1D(uint target, int level, uint internalformat, int x, int y, int width, int border);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyTexImage2D")]
-    public static partial void GlCopyTexImage2D(uint target, int level, uint internalformat, int x, int y, int width, int height, int border);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyTexSubImage1D")]
-    public static partial void GlCopyTexSubImage1D(uint target, int level, int xoffset, int x, int y, int width);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyTexSubImage2D")]
-    public static partial void GlCopyTexSubImage2D(uint target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMap1d")]
-    public static partial void GlMap1d(uint target, double u1, double u2, int stride, int order, double* points);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMap1f")]
-    public static partial void GlMap1f(uint target, float u1, float u2, int stride, int order, float* points);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMap2d")]
-    public static partial void GlMap2d(uint target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMap2f")]
-    public static partial void GlMap2f(uint target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMapdv")]
-    public static partial void GlGetMapdv(uint target, uint query, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMapfv")]
-    public static partial void GlGetMapfv(uint target, uint query, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMapiv")]
-    public static partial void GlGetMapiv(uint target, uint query, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord1d")]
-    public static partial void GlEvalCoord1d(double u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord1f")]
-    public static partial void GlEvalCoord1f(float u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord1dv")]
-    public static partial void GlEvalCoord1dv(double* u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord1fv")]
-    public static partial void GlEvalCoord1fv(float* u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord2d")]
-    public static partial void GlEvalCoord2d(double u, double v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord2f")]
-    public static partial void GlEvalCoord2f(float u, float v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord2dv")]
-    public static partial void GlEvalCoord2dv(double* u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalCoord2fv")]
-    public static partial void GlEvalCoord2fv(float* u);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMapGrid1d")]
-    public static partial void GlMapGrid1d(int un, double u1, double u2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMapGrid1f")]
-    public static partial void GlMapGrid1f(int un, float u1, float u2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMapGrid2d")]
-    public static partial void GlMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMapGrid2f")]
-    public static partial void GlMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalPoint1")]
-    public static partial void GlEvalPoint1(int i);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalPoint2")]
-    public static partial void GlEvalPoint2(int i, int j);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalMesh1")]
-    public static partial void GlEvalMesh1(uint mode, int i1, int i2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glEvalMesh2")]
-    public static partial void GlEvalMesh2(uint mode, int i1, int i2, int j1, int j2);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFogf")]
-    public static partial void GlFogf(uint pname, float param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFogi")]
-    public static partial void GlFogi(uint pname, int param1);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFogfv")]
-    public static partial void GlFogfv(uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFogiv")]
-    public static partial void GlFogiv(uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glFeedbackBuffer")]
-    public static partial void GlFeedbackBuffer(int size, uint type, float* buffer);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPassThrough")]
-    public static partial void GlPassThrough(float token);
-
-    [LibraryImport(LibraryName, EntryPoint = "glSelectBuffer")]
-    public static partial void GlSelectBuffer(int size, uint* buffer);
-
-    [LibraryImport(LibraryName, EntryPoint = "glInitNames")]
-    public static partial void GlInitNames();
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadName")]
-    public static partial void GlLoadName(uint name);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPushName")]
-    public static partial void GlPushName(uint name);
-
-    [LibraryImport(LibraryName, EntryPoint = "glPopName")]
-    public static partial void GlPopName();
-
-    [LibraryImport(LibraryName, EntryPoint = "glDrawRangeElements")]
-    public static partial void GlDrawRangeElements(uint mode, uint start, uint end, int count, uint type, void* indices);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexImage3D")]
-    public static partial void GlTexImage3D(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glTexSubImage3D")]
-    public static partial void GlTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, void* pixels);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyTexSubImage3D")]
-    public static partial void GlCopyTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorTable")]
-    public static partial void GlColorTable(uint target, uint internalformat, int width, uint format, uint type, void* table);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorSubTable")]
-    public static partial void GlColorSubTable(uint target, int start, int count, uint format, uint type, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorTableParameteriv")]
-    public static partial void GlColorTableParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glColorTableParameterfv")]
-    public static partial void GlColorTableParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyColorSubTable")]
-    public static partial void GlCopyColorSubTable(uint target, int start, int x, int y, int width);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyColorTable")]
-    public static partial void GlCopyColorTable(uint target, uint internalformat, int x, int y, int width);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetColorTable")]
-    public static partial void GlGetColorTable(uint target, uint format, uint type, void* table);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetColorTableParameterfv")]
-    public static partial void GlGetColorTableParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetColorTableParameteriv")]
-    public static partial void GlGetColorTableParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBlendEquation")]
-    public static partial void GlBlendEquation(uint mode);
-
-    [LibraryImport(LibraryName, EntryPoint = "glBlendColor")]
-    public static partial void GlBlendColor(float red, float green, float blue, float alpha);
-
-    [LibraryImport(LibraryName, EntryPoint = "glHistogram")]
-    public static partial void GlHistogram(uint target, int width, uint internalformat, byte sink);
-
-    [LibraryImport(LibraryName, EntryPoint = "glResetHistogram")]
-    public static partial void GlResetHistogram(uint target);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetHistogram")]
-    public static partial void GlGetHistogram(uint target, byte reset, uint format, uint type, void* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetHistogramParameterfv")]
-    public static partial void GlGetHistogramParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetHistogramParameteriv")]
-    public static partial void GlGetHistogramParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMinmax")]
-    public static partial void GlMinmax(uint target, uint internalformat, byte sink);
-
-    [LibraryImport(LibraryName, EntryPoint = "glResetMinmax")]
-    public static partial void GlResetMinmax(uint target);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMinmax")]
-    public static partial void GlGetMinmax(uint target, byte reset, uint format, uint types, void* values);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMinmaxParameterfv")]
-    public static partial void GlGetMinmaxParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetMinmaxParameteriv")]
-    public static partial void GlGetMinmaxParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionFilter1D")]
-    public static partial void GlConvolutionFilter1D(uint target, uint internalformat, int width, uint format, uint type, void* image);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionFilter2D")]
-    public static partial void GlConvolutionFilter2D(uint target, uint internalformat, int width, int height, uint format, uint type, void* image);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionParameterf")]
-    public static partial void GlConvolutionParameterf(uint target, uint pname, float @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionParameterfv")]
-    public static partial void GlConvolutionParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionParameteri")]
-    public static partial void GlConvolutionParameteri(uint target, uint pname, int @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glConvolutionParameteriv")]
-    public static partial void GlConvolutionParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyConvolutionFilter1D")]
-    public static partial void GlCopyConvolutionFilter1D(uint target, uint internalformat, int x, int y, int width);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCopyConvolutionFilter2D")]
-    public static partial void GlCopyConvolutionFilter2D(uint target, uint internalformat, int x, int y, int width, int height);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetConvolutionFilter")]
-    public static partial void GlGetConvolutionFilter(uint target, uint format, uint type, void* image);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetConvolutionParameterfv")]
-    public static partial void GlGetConvolutionParameterfv(uint target, uint pname, float* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetConvolutionParameteriv")]
-    public static partial void GlGetConvolutionParameteriv(uint target, uint pname, int* @params);
-
-    [LibraryImport(LibraryName, EntryPoint = "glSeparableFilter2D")]
-    public static partial void GlSeparableFilter2D(uint target, uint internalformat, int width, int height, uint format, uint type, void* row, void* column);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetSeparableFilter")]
-    public static partial void GlGetSeparableFilter(uint target, uint format, uint type, void* row, void* column, void* span);
-
-    [LibraryImport(LibraryName, EntryPoint = "glActiveTexture")]
-    public static partial void GlActiveTexture(uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClientActiveTexture")]
-    public static partial void GlClientActiveTexture(uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexImage1D")]
-    public static partial void GlCompressedTexImage1D(uint target, int level, uint internalformat, int width, int border, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexImage2D")]
-    public static partial void GlCompressedTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexImage3D")]
-    public static partial void GlCompressedTexImage3D(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexSubImage1D")]
-    public static partial void GlCompressedTexSubImage1D(uint target, int level, int xoffset, int width, uint format, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexSubImage2D")]
-    public static partial void GlCompressedTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glCompressedTexSubImage3D")]
-    public static partial void GlCompressedTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imagesize, void* data);
-
-    [LibraryImport(LibraryName, EntryPoint = "glGetCompressedTexImage")]
-    public static partial void GlGetCompressedTexImage(uint target, int lod, void* img);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1d")]
-    public static partial void GlMultiTexCoord1d(uint target, double s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1dv")]
-    public static partial void GlMultiTexCoord1dv(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1f")]
-    public static partial void GlMultiTexCoord1f(uint target, float s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1fv")]
-    public static partial void GlMultiTexCoord1fv(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1i")]
-    public static partial void GlMultiTexCoord1i(uint target, int s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1iv")]
-    public static partial void GlMultiTexCoord1iv(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1s")]
-    public static partial void GlMultiTexCoord1s(uint target, short s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1sv")]
-    public static partial void GlMultiTexCoord1sv(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2d")]
-    public static partial void GlMultiTexCoord2d(uint target, double s, double t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2dv")]
-    public static partial void GlMultiTexCoord2dv(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2f")]
-    public static partial void GlMultiTexCoord2f(uint target, float s, float t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2fv")]
-    public static partial void GlMultiTexCoord2fv(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2i")]
-    public static partial void GlMultiTexCoord2i(uint target, int s, int t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2iv")]
-    public static partial void GlMultiTexCoord2iv(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2s")]
-    public static partial void GlMultiTexCoord2s(uint target, short s, short t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2sv")]
-    public static partial void GlMultiTexCoord2sv(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3d")]
-    public static partial void GlMultiTexCoord3d(uint target, double s, double t, double r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3dv")]
-    public static partial void GlMultiTexCoord3dv(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3f")]
-    public static partial void GlMultiTexCoord3f(uint target, float s, float t, float r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3fv")]
-    public static partial void GlMultiTexCoord3fv(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3i")]
-    public static partial void GlMultiTexCoord3i(uint target, int s, int t, int r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3iv")]
-    public static partial void GlMultiTexCoord3iv(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3s")]
-    public static partial void GlMultiTexCoord3s(uint target, short s, short t, short r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3sv")]
-    public static partial void GlMultiTexCoord3sv(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4d")]
-    public static partial void GlMultiTexCoord4d(uint target, double s, double t, double r, double q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4dv")]
-    public static partial void GlMultiTexCoord4dv(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4f")]
-    public static partial void GlMultiTexCoord4f(uint target, float s, float t, float r, float q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4fv")]
-    public static partial void GlMultiTexCoord4fv(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4i")]
-    public static partial void GlMultiTexCoord4i(uint target, int s, int t, int r, int q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4iv")]
-    public static partial void GlMultiTexCoord4iv(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4s")]
-    public static partial void GlMultiTexCoord4s(uint target, short s, short t, short r, short q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4sv")]
-    public static partial void GlMultiTexCoord4sv(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadTransposeMatrixd")]
-    public static partial void GlLoadTransposeMatrixd(double* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glLoadTransposeMatrixf")]
-    public static partial void GlLoadTransposeMatrixf(float* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultTransposeMatrixd")]
-    public static partial void GlMultTransposeMatrixd(double* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultTransposeMatrixf")]
-    public static partial void GlMultTransposeMatrixf(float* m);
-
-    [LibraryImport(LibraryName, EntryPoint = "glSampleCoverage")]
-    public static partial void GlSampleCoverage(float value, byte invert);
-
-    [LibraryImport(LibraryName, EntryPoint = "glActiveTextureARB")]
-    public static partial void GlActiveTextureARB(uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glClientActiveTextureARB")]
-    public static partial void GlClientActiveTextureARB(uint texture);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1dARB")]
-    public static partial void GlMultiTexCoord1dARB(uint target, double s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1dvARB")]
-    public static partial void GlMultiTexCoord1dvARB(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1fARB")]
-    public static partial void GlMultiTexCoord1fARB(uint target, float s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1fvARB")]
-    public static partial void GlMultiTexCoord1fvARB(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1iARB")]
-    public static partial void GlMultiTexCoord1iARB(uint target, int s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1ivARB")]
-    public static partial void GlMultiTexCoord1ivARB(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1sARB")]
-    public static partial void GlMultiTexCoord1sARB(uint target, short s);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord1svARB")]
-    public static partial void GlMultiTexCoord1svARB(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2dARB")]
-    public static partial void GlMultiTexCoord2dARB(uint target, double s, double t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2dvARB")]
-    public static partial void GlMultiTexCoord2dvARB(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2fARB")]
-    public static partial void GlMultiTexCoord2fARB(uint target, float s, float t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2fvARB")]
-    public static partial void GlMultiTexCoord2fvARB(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2iARB")]
-    public static partial void GlMultiTexCoord2iARB(uint target, int s, int t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2ivARB")]
-    public static partial void GlMultiTexCoord2ivARB(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2sARB")]
-    public static partial void GlMultiTexCoord2sARB(uint target, short s, short t);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord2svARB")]
-    public static partial void GlMultiTexCoord2svARB(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3dARB")]
-    public static partial void GlMultiTexCoord3dARB(uint target, double s, double t, double r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3dvARB")]
-    public static partial void GlMultiTexCoord3dvARB(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3fARB")]
-    public static partial void GlMultiTexCoord3fARB(uint target, float s, float t, float r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3fvARB")]
-    public static partial void GlMultiTexCoord3fvARB(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3iARB")]
-    public static partial void GlMultiTexCoord3iARB(uint target, int s, int t, int r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3ivARB")]
-    public static partial void GlMultiTexCoord3ivARB(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3sARB")]
-    public static partial void GlMultiTexCoord3sARB(uint target, short s, short t, short r);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord3svARB")]
-    public static partial void GlMultiTexCoord3svARB(uint target, short* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4dARB")]
-    public static partial void GlMultiTexCoord4dARB(uint target, double s, double t, double r, double q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4dvARB")]
-    public static partial void GlMultiTexCoord4dvARB(uint target, double* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4fARB")]
-    public static partial void GlMultiTexCoord4fARB(uint target, float s, float t, float r, float q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4fvARB")]
-    public static partial void GlMultiTexCoord4fvARB(uint target, float* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4iARB")]
-    public static partial void GlMultiTexCoord4iARB(uint target, int s, int t, int r, int q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4ivARB")]
-    public static partial void GlMultiTexCoord4ivARB(uint target, int* v);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4sARB")]
-    public static partial void GlMultiTexCoord4sARB(uint target, short s, short t, short r, short q);
-
-    [LibraryImport(LibraryName, EntryPoint = "glMultiTexCoord4svARB")]
-    public static partial void GlMultiTexCoord4svARB(uint target, short* v);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetPenDeviceType")]
     public static partial PenDeviceType GetPenDeviceType(uint instanceId);
@@ -5632,7 +4094,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateWindowAndRenderer")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CreateWindowAndRenderer([MarshalAs(UnmanagedType.LPStr)] string title, int width, int height, SDL_WindowFlags windowFlags, Window window, Renderer renderer);
+    public static partial bool CreateWindowAndRenderer([MarshalAs(UnmanagedType.LPStr)] string title, int width, int height, WindowFlags windowFlags, Window window, Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateRenderer")]
     public static partial Renderer CreateRenderer(Window window, [MarshalAs(UnmanagedType.LPStr)] string name);
@@ -5981,10 +4443,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool RenderDebugText(Renderer renderer, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string str);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_RenderDebugTextFormat")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderDebugTextFormat(Renderer renderer, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetDefaultTextureScaleMode")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetDefaultTextureScaleMode(Renderer renderer, ScaleMode scaleMode);
@@ -6063,12 +4521,6 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_free")]
     public static partial void Free(void* mem);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetOriginalMemoryFunctions")]
-    public static partial void GetOriginalMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetMemoryFunctions")]
-    public static partial void GetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetMemoryFunctions")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -6374,30 +4826,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.LPStr)]
     public static partial string UCS4ToUTF8(uint codepoint, [MarshalAs(UnmanagedType.LPStr)] string dst);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_sscanf")]
-    public static partial int Sscanf([MarshalAs(UnmanagedType.LPStr)] string text, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_vsscanf")]
-    public static partial int Vsscanf([MarshalAs(UnmanagedType.LPStr)] string text, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_snprintf")]
-    public static partial int Snprintf([MarshalAs(UnmanagedType.LPStr)] string text, nuint maxlen, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_swprintf")]
-    public static partial int Swprintf(uint* text, nuint maxlen, uint* fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_vsnprintf")]
-    public static partial int Vsnprintf([MarshalAs(UnmanagedType.LPStr)] string text, nuint maxlen, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_vswprintf")]
-    public static partial int Vswprintf(uint* text, nuint maxlen, uint* fmt, __va_list_tag* ap);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_asprintf")]
-    public static partial int Asprintf(sbyte** strp, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_vasprintf")]
-    public static partial int Vasprintf(sbyte** strp, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_srand")]
     public static partial void Srand(ulong seed);
 
@@ -6627,10 +5055,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateStorageDirectory")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CreateStorageDirectory(Storage storage, [MarshalAs(UnmanagedType.LPStr)] string path);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateStorageDirectory")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool EnumerateStorageDirectory(Storage storage, [MarshalAs(UnmanagedType.LPStr)] string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveStoragePath")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -6891,9 +5315,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool WriteSurfacePixelFloat(Surface* surface, int x, int y, float r, float g, float b, float a);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetX11EventHook")]
-    public static partial void SetX11EventHook(delegate* unmanaged[Cdecl]<void*, _XEvent*, byte> callback, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetLinuxThreadPriority")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetLinuxThreadPriority(long threadid, int priority);
@@ -7096,9 +5517,6 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GetTrayEntryEnabled(TrayEntry entry);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetTrayEntryCallback")]
-    public static partial void SetTrayEntryCallback(TrayEntry entry, delegate* unmanaged[Cdecl]<void*, SDL_TrayEntry*, void> callback, void* userdata);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_ClickTrayEntry")]
     public static partial void ClickTrayEntry(TrayEntry entry);
 
@@ -7213,10 +5631,10 @@ public static unsafe partial class SDL
     public static partial Window GetWindows(int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateWindow")]
-    public static partial Window CreateWindow([MarshalAs(UnmanagedType.LPStr)] string title, int w, int h, SDL_WindowFlags flags);
+    public static partial Window CreateWindow([MarshalAs(UnmanagedType.LPStr)] string title, int w, int h, WindowFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreatePopupWindow")]
-    public static partial Window CreatePopupWindow(Window parent, int offsetX, int offsetY, int w, int h, SDL_WindowFlags flags);
+    public static partial Window CreatePopupWindow(Window parent, int offsetX, int offsetY, int w, int h, WindowFlags flags);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateWindowWithProperties")]
     public static partial Window CreateWindowWithProperties(uint props);
@@ -7234,7 +5652,7 @@ public static unsafe partial class SDL
     public static partial uint GetWindowProperties(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetWindowFlags")]
-    public static partial SDL_WindowFlags GetWindowFlags(Window window);
+    public static partial WindowFlags GetWindowFlags(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowTitle")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -7423,10 +5841,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowWindowSystemMenu")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool ShowWindowSystemMenu(Window window, int x, int y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowHitTest")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetWindowHitTest(Window window, delegate* unmanaged[Cdecl]<SDL_Window*, SDL_Point*, void*, SDL_HitTestResult> callback, void* callbackData);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowShape")]
     [return: MarshalAs(UnmanagedType.I1)]

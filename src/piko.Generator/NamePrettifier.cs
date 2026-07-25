@@ -11,6 +11,9 @@ public class NamePrettifier(NamePrettifier.Options options)
 
     public void Prettify(ref BindingsSet bindings)
     {
+        foreach ((string name, string mapping) in options.NameRemappings)
+            _transformMap.Add(name, mapping);
+
         // do enums first, then structs, then finally functions.
         // this ensures that everything is in the transform map and there does not need to be multiple passes.
 
@@ -30,6 +33,15 @@ public class NamePrettifier(NamePrettifier.Options options)
 
         foreach (ConstantBinding c in bindings.Constants)
         {
+            foreach (string prefix in options.ConstantPrefixStrip)
+            {
+                if (c.Name.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    c.Name = c.Name.Substring(prefix.Length);
+                    c.Prefix = prefix;
+                }
+            }
+
             c.Name = TransformValue(c.Name, false, true);
         }
 
@@ -171,5 +183,15 @@ public class NamePrettifier(NamePrettifier.Options options)
         /// This is NOT case-sensitive.
         /// </summary>
         public Dictionary<string, string> EnumPrefixStrip;
+
+        /// <summary>
+        /// Any constants with these prefixes will have it stripped.
+        /// </summary>
+        public List<string> ConstantPrefixStrip;
+
+        /// <summary>
+        /// Manual names to remap. This includes typedefs, which are not automatically remapped.
+        /// </summary>
+        public Dictionary<string, string> NameRemappings;
     }
 }

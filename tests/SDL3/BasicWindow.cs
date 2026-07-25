@@ -6,19 +6,16 @@ using piko.SDL3;
 
 unsafe
 {
-    // todo no SDL.InitFlags
-    if (!SDL.Init(0x20 | 0x4000))
+    if (!SDL.Init(SDL.InitFlags.Video | SDL.InitFlags.Events))
         throw new Exception($"Failed to initialize SDL: {SDL.GetError()}");
-
-    // todo no SDL.WindowFlags
-    SDL.Window window = SDL.CreateWindow("piko.SDL3.Tests.BasicWindow", 1280, 720, 0);
+    
+    SDL.Window window = SDL.CreateWindow("piko.SDL3.Tests.BasicWindow", 1280, 720, SDL.WindowFlags.Resizable);
     if (window.IsNull)
         throw new Exception($"Failed to create window: {SDL.GetError()}");
-
-    // todo no SDL.GPUShaderFormat
+    
     // todo debugMode is a byte?
     // todo name should be nullable or something
-    SDL.GPUDevice device = SDL.CreateGPUDevice((1u << 1) | (1u << 4), 0, null);
+    SDL.GPUDevice device = SDL.CreateGPUDevice(SDL.GPUShaderFormat.Spirv | SDL.GPUShaderFormat.Msl, 0, null);
     if (device.IsNull)
         throw new Exception($"Failed to create device: {SDL.GetError()}");
     if (!SDL.ClaimWindowForGPUDevice(device, window))
@@ -31,7 +28,6 @@ unsafe
         SDL.Event winEvent;
         while (SDL.PollEvent(&winEvent))
         {
-            Console.WriteLine((SDL.EventType) winEvent.Type);
             // todo: manual clause for EventType in here?
             switch ((SDL.EventType) winEvent.Type)
             {

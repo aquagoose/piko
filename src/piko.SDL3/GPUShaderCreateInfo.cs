@@ -8,7 +8,7 @@ public static unsafe partial class SDL
         public nuint CodeSize;
         public byte* Code;
         public sbyte* Entrypoint;
-        public uint Format;
+        public GPUShaderFormat Format;
         public GPUShaderStage Stage;
         public uint NumSamplers;
         public uint NumStorageTextures;
@@ -16,7 +16,7 @@ public static unsafe partial class SDL
         public uint NumUniformBuffers;
         public uint Props;
     
-        public GPUShaderCreateInfo(nuint codeSize, byte* code, sbyte* entrypoint, uint format, GPUShaderStage stage, uint numSamplers, uint numStorageTextures, uint numStorageBuffers, uint numUniformBuffers, uint props)
+        public GPUShaderCreateInfo(nuint codeSize, byte* code, sbyte* entrypoint, GPUShaderFormat format, GPUShaderStage stage, uint numSamplers, uint numStorageTextures, uint numStorageBuffers, uint numUniformBuffers, uint props)
         {
             this.CodeSize = codeSize;
             this.Code = code;

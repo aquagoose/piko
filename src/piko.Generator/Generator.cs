@@ -133,6 +133,9 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private void WriteConstant(ConstantBinding c)
     {
+        if (c.SkipGenerationInMainClass)
+            return;
+
         _sb.AppendLine($"    public const {c.Type} {c.Name} = {c.Value};");
     }
 

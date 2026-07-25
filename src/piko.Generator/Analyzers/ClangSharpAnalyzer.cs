@@ -38,11 +38,10 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
 
     private void ProcessEnum(XmlNode node, ref BindingsSet bindings)
     {
-        EnumBinding binding = new EnumBinding
-        {
-            Name = node.Attributes?["name"]?.Value ?? throw new Exception("Enum name missing."),
-            Type = node["type"]?.InnerText
-        };
+        string enumName = node.Attributes?["name"]?.Value ?? throw new Exception("Enum name missing.");
+        string? enumType = node["type"]?.InnerText;
+
+        EnumBinding binding = new EnumBinding(enumName, enumType);
 
         foreach (XmlNode enumerator in node.SelectNodes("enumerator"))
         {

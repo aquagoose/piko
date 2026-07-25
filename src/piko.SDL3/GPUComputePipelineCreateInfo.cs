@@ -8,7 +8,7 @@ public static unsafe partial class SDL
         public nuint CodeSize;
         public byte* Code;
         public sbyte* Entrypoint;
-        public uint Format;
+        public GPUShaderFormat Format;
         public uint NumSamplers;
         public uint NumReadonlyStorageTextures;
         public uint NumReadonlyStorageBuffers;
@@ -20,7 +20,7 @@ public static unsafe partial class SDL
         public uint ThreadcountZ;
         public uint Props;
     
-        public GPUComputePipelineCreateInfo(nuint codeSize, byte* code, sbyte* entrypoint, uint format, uint numSamplers, uint numReadonlyStorageTextures, uint numReadonlyStorageBuffers, uint numReadwriteStorageTextures, uint numReadwriteStorageBuffers, uint numUniformBuffers, uint threadcountX, uint threadcountY, uint threadcountZ, uint props)
+        public GPUComputePipelineCreateInfo(nuint codeSize, byte* code, sbyte* entrypoint, GPUShaderFormat format, uint numSamplers, uint numReadonlyStorageTextures, uint numReadonlyStorageBuffers, uint numReadwriteStorageTextures, uint numReadwriteStorageBuffers, uint numUniformBuffers, uint threadcountX, uint threadcountY, uint threadcountZ, uint props)
         {
             this.CodeSize = codeSize;
             this.Code = code;

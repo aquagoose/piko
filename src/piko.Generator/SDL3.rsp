@@ -92,4 +92,8 @@ macro-bindings
 nint-codegen
 
 --remap
+SDL_InitFlags=SDL_InitFlags
 SDL_WindowFlags=SDL_WindowFlags
+SDL_GPUShaderFormat=SDL_GPUShaderFormat
+SDL_GPUBufferUsage=SDL_GPUBufferUsage
+SDL_GPUTextureUsage=SDL_GPUTextureUsage
