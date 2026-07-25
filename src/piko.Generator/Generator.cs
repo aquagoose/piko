@@ -130,17 +130,21 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private void WriteFunction(FunctionBinding f)
     {
-        // todo IMPORTANT auto generate marshalling stuff and use LibraryImport!!
-        _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\", ExactSpelling = true)]");
+        _sb.AppendLine($"    [LibraryImport(LibraryName, EntryPoint = \"{f.PInvokeName}\")]");
 
-        string returnType = f.ReturnType == null ? "void" : TransformType(f.ReturnType, f.ReturnTypePointerLevel);
-        _sb.Append($"    public static extern {returnType} {f.Name}(");
+        string returnType = f.ReturnType ?? "void";
+        if (GetMarshalInfoIfNeeded(returnType) is string returnMarshal)
+            _sb.AppendLine($"    [return: {returnMarshal}]");
+
+        _sb.Append($"    public static partial {returnType} {f.Name}(");
 
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
         {
-            string parameterType = TransformType(parameter.Type, parameter.PointerLevel);
-            _sb.Append(parameterType);
+            if (GetMarshalInfoIfNeeded(parameter.Type) is string parameterMarshal)
+                _sb.Append($"[{parameterMarshal}] ");
+
+            _sb.Append(parameter.Type);
             _sb.Append(' ');
             _sb.Append(parameter.Name);
             if (++i < f.Parameters.Count)
@@ -167,18 +171,14 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         return _sb.ToString();
     }
 
-    // todo maybe this should not be in the generator?
-    private string TransformType(string type, int pointerLevel)
+    private string? GetMarshalInfoIfNeeded(string type)
     {
-        switch (type)
+        return type switch
         {
-            case "sbyte" when pointerLevel == 1:
-                return "string";
-            case "sbyte" when pointerLevel == 2:
-                return "string[]";
-        }
-
-        return type;
+            "bool" => "MarshalAs(UnmanagedType.I1)",
+            "string" => "MarshalAs(UnmanagedType.LPStr)",
+            _ => null
+        };
     }
 
     public struct Output
