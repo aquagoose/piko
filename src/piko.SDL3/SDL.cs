@@ -1001,7 +1001,7 @@ public static unsafe partial class SDL
     public static extern GPUTextureFormat GetGPUSwapchainTextureFormat(GPUDevice device, Window window);
 
     [DllImport(LibraryName, EntryPoint = "SDL_AcquireGPUSwapchainTexture", ExactSpelling = true)]
-    public static extern bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static extern bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [DllImport(LibraryName, EntryPoint = "SDL_WaitForGPUSwapchain", ExactSpelling = true)]
     public static extern bool WaitForGPUSwapchain(GPUDevice device, Window window);

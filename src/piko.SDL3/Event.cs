@@ -44,9 +44,10 @@ public static unsafe partial class SDL
         [FieldOffset(0)] public RenderEvent Render;
         [FieldOffset(0)] public DropEvent Drop;
         [FieldOffset(0)] public ClipboardEvent Clipboard;
-        [FieldOffset(0)] public byte Padding;
+        [FieldOffset(0)] public fixed byte Padding[128];
+        // todo generator generated Padding as single byte
     
-        public Event(uint type, CommonEvent common, DisplayEvent display, WindowEvent window, KeyboardDeviceEvent kdevice, KeyboardEvent key, TextEditingEvent edit, TextEditingCandidatesEvent editCandidates, TextInputEvent text, MouseDeviceEvent mdevice, MouseMotionEvent motion, MouseButtonEvent button, MouseWheelEvent wheel, JoyDeviceEvent jdevice, JoyAxisEvent jaxis, JoyBallEvent jball, JoyHatEvent jhat, JoyButtonEvent jbutton, JoyBatteryEvent jbattery, GamepadDeviceEvent gdevice, GamepadAxisEvent gaxis, GamepadButtonEvent gbutton, GamepadTouchpadEvent gtouchpad, GamepadSensorEvent gsensor, AudioDeviceEvent adevice, CameraDeviceEvent cdevice, SensorEvent sensor, QuitEvent quit, UserEvent user, TouchFingerEvent tfinger, PinchFingerEvent pinch, PenProximityEvent pproximity, PenTouchEvent ptouch, PenMotionEvent pmotion, PenButtonEvent pbutton, PenAxisEvent paxis, RenderEvent render, DropEvent drop, ClipboardEvent clipboard, byte padding)
+        public Event(uint type, CommonEvent common, DisplayEvent display, WindowEvent window, KeyboardDeviceEvent kdevice, KeyboardEvent key, TextEditingEvent edit, TextEditingCandidatesEvent editCandidates, TextInputEvent text, MouseDeviceEvent mdevice, MouseMotionEvent motion, MouseButtonEvent button, MouseWheelEvent wheel, JoyDeviceEvent jdevice, JoyAxisEvent jaxis, JoyBallEvent jball, JoyHatEvent jhat, JoyButtonEvent jbutton, JoyBatteryEvent jbattery, GamepadDeviceEvent gdevice, GamepadAxisEvent gaxis, GamepadButtonEvent gbutton, GamepadTouchpadEvent gtouchpad, GamepadSensorEvent gsensor, AudioDeviceEvent adevice, CameraDeviceEvent cdevice, SensorEvent sensor, QuitEvent quit, UserEvent user, TouchFingerEvent tfinger, PinchFingerEvent pinch, PenProximityEvent pproximity, PenTouchEvent ptouch, PenMotionEvent pmotion, PenButtonEvent pbutton, PenAxisEvent paxis, RenderEvent render, DropEvent drop, ClipboardEvent clipboard)
         {
             this.Type = type;
             this.Common = common;
@@ -87,7 +88,6 @@ public static unsafe partial class SDL
             this.Render = render;
             this.Drop = drop;
             this.Clipboard = clipboard;
-            this.Padding = padding;
         }
     }
 }
