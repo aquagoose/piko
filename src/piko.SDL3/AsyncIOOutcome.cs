@@ -9,12 +9,12 @@ public static unsafe partial class SDL
         public AsyncIOTaskType Type;
         public AsyncIOResult Result;
         public void* Buffer;
-        public nuint Offset;
-        public nuint BytesRequested;
-        public nuint BytesTransferred;
+        public ulong Offset;
+        public ulong BytesRequested;
+        public ulong BytesTransferred;
         public void* Userdata;
     
-        public AsyncIOOutcome(AsyncIO asyncio, AsyncIOTaskType type, AsyncIOResult result, void* buffer, nuint offset, nuint bytesRequested, nuint bytesTransferred, void* userdata)
+        public AsyncIOOutcome(AsyncIO asyncio, AsyncIOTaskType type, AsyncIOResult result, void* buffer, ulong offset, ulong bytesRequested, ulong bytesTransferred, void* userdata)
         {
             this.Asyncio = asyncio;
             this.Type = type;

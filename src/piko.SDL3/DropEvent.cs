@@ -7,14 +7,14 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public float X;
         public float Y;
         public sbyte* Source;
         public sbyte* Data;
     
-        public DropEvent(EventType type, uint reserved, nuint timestamp, uint windowID, float x, float y, sbyte* source, sbyte* data)
+        public DropEvent(EventType type, uint reserved, ulong timestamp, uint windowID, float x, float y, sbyte* source, sbyte* data)
         {
             this.Type = type;
             this.Reserved = reserved;

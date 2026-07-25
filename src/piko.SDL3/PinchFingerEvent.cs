@@ -7,11 +7,11 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public float Scale;
         public uint WindowID;
     
-        public PinchFingerEvent(EventType type, uint reserved, nuint timestamp, float scale, uint windowID)
+        public PinchFingerEvent(EventType type, uint reserved, ulong timestamp, float scale, uint windowID)
         {
             this.Type = type;
             this.Reserved = reserved;

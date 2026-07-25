@@ -7,11 +7,11 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public sbyte* Text;
     
-        public TextInputEvent(EventType type, uint reserved, nuint timestamp, uint windowID, sbyte* text)
+        public TextInputEvent(EventType type, uint reserved, ulong timestamp, uint windowID, sbyte* text)
         {
             this.Type = type;
             this.Reserved = reserved;

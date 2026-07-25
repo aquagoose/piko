@@ -31,6 +31,7 @@ unsafe
         SDL.Event winEvent;
         while (SDL.PollEvent(&winEvent))
         {
+            Console.WriteLine((SDL.EventType) winEvent.Type);
             // todo: manual clause for EventType in here?
             switch ((SDL.EventType) winEvent.Type)
             {
@@ -47,6 +48,11 @@ unsafe
         // todo i had to manually add "out" to the bindings as it didn't generate as a pointer at all, which is invalid
         // todo the last 2 parameters should be out or ref. or both!
         SDL.AcquireGPUSwapchainTexture(cb, window, out SDL.GPUTexture texture, null, null);
+        if (texture.IsNull)
+        {
+            SDL.CancelGPUCommandBuffer(cb);
+            continue;
+        }
 
         SDL.GPUColorTargetInfo target = new()
         {
@@ -59,7 +65,7 @@ unsafe
         // todo: span overload
         SDL.GPURenderPass pass = SDL.BeginGPURenderPass(cb, &target, 1, null);
         SDL.EndGPURenderPass(pass);
-        
+
         SDL.SubmitGPUCommandBuffer(cb);
     }
 

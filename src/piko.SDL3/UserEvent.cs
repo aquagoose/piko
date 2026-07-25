@@ -7,13 +7,13 @@ public static unsafe partial class SDL
     {
         public uint Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public int Code;
         public void* Data1;
         public void* Data2;
     
-        public UserEvent(uint type, uint reserved, nuint timestamp, uint windowID, int code, void* data1, void* data2)
+        public UserEvent(uint type, uint reserved, ulong timestamp, uint windowID, int code, void* data1, void* data2)
         {
             this.Type = type;
             this.Reserved = reserved;

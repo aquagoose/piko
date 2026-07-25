@@ -7,9 +7,9 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
     
-        public QuitEvent(EventType type, uint reserved, nuint timestamp)
+        public QuitEvent(EventType type, uint reserved, ulong timestamp)
         {
             this.Type = type;
             this.Reserved = reserved;

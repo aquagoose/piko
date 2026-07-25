@@ -7,12 +7,12 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public bool Owner;
         public int NumMimeTypes;
         public sbyte** MimeTypes;
     
-        public ClipboardEvent(EventType type, uint reserved, nuint timestamp, bool owner, int numMimeTypes, sbyte** mimeTypes)
+        public ClipboardEvent(EventType type, uint reserved, ulong timestamp, bool owner, int numMimeTypes, sbyte** mimeTypes)
         {
             this.Type = type;
             this.Reserved = reserved;

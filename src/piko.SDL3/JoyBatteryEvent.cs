@@ -7,12 +7,12 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
         public PowerState State;
         public int Percent;
     
-        public JoyBatteryEvent(EventType type, uint reserved, nuint timestamp, uint which, PowerState state, int percent)
+        public JoyBatteryEvent(EventType type, uint reserved, ulong timestamp, uint which, PowerState state, int percent)
         {
             this.Type = type;
             this.Reserved = reserved;

@@ -6,12 +6,12 @@ public static unsafe partial class SDL
     public unsafe struct PathInfo
     {
         public PathType Type;
-        public nuint Size;
-        public nint CreateTime;
-        public nint ModifyTime;
-        public nint AccessTime;
+        public ulong Size;
+        public long CreateTime;
+        public long ModifyTime;
+        public long AccessTime;
     
-        public PathInfo(PathType type, nuint size, nint createTime, nint modifyTime, nint accessTime)
+        public PathInfo(PathType type, ulong size, long createTime, long modifyTime, long accessTime)
         {
             this.Type = type;
             this.Size = size;

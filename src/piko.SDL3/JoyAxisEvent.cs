@@ -7,7 +7,7 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
         public byte Axis;
         public byte Padding1;
@@ -16,7 +16,7 @@ public static unsafe partial class SDL
         public short Value;
         public ushort Padding4;
     
-        public JoyAxisEvent(EventType type, uint reserved, nuint timestamp, uint which, byte axis, byte padding1, byte padding2, byte padding3, short value, ushort padding4)
+        public JoyAxisEvent(EventType type, uint reserved, ulong timestamp, uint which, byte axis, byte padding1, byte padding2, byte padding3, short value, ushort padding4)
         {
             this.Type = type;
             this.Reserved = reserved;

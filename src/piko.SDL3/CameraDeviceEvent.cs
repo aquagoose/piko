@@ -7,10 +7,10 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
     
-        public CameraDeviceEvent(EventType type, uint reserved, nuint timestamp, uint which)
+        public CameraDeviceEvent(EventType type, uint reserved, ulong timestamp, uint which)
         {
             this.Type = type;
             this.Reserved = reserved;

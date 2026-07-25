@@ -5,12 +5,12 @@ public static unsafe partial class SDL
     [StructLayout(LayoutKind.Sequential)]
     public unsafe struct Finger
     {
-        public nuint Id;
+        public ulong Id;
         public float X;
         public float Y;
         public float Pressure;
     
-        public Finger(nuint id, float x, float y, float pressure)
+        public Finger(ulong id, float x, float y, float pressure)
         {
             this.Id = id;
             this.X = x;

@@ -28,6 +28,11 @@ public class NamePrettifier(NamePrettifier.Options options)
             }
         }
 
+        foreach (ConstantBinding c in bindings.Constants)
+        {
+            c.Name = TransformValue(c.Name, false, true);
+        }
+
         // for structs we must do 2 passes.
         // first pass maps all the struct names into the transform map.
         // the reason we need to do this is that struct fields may contain other struct types, that may not be

@@ -7,12 +7,12 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public int Data1;
         public int Data2;
     
-        public WindowEvent(EventType type, uint reserved, nuint timestamp, uint windowID, int data1, int data2)
+        public WindowEvent(EventType type, uint reserved, ulong timestamp, uint windowID, int data1, int data2)
         {
             this.Type = type;
             this.Reserved = reserved;

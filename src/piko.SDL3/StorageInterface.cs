@@ -18,7 +18,7 @@ public static unsafe partial class SDL
         public delegate* unmanaged[Cdecl]<void*, sbyte*, byte> Remove;
         public delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> Rename;
         public delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> Copy;
-        public delegate* unmanaged[Cdecl]<void*, nuint> SpaceRemaining;
+        public delegate* unmanaged[Cdecl]<void*, ulong> SpaceRemaining;
     
         public StorageInterface(uint version, delegate* unmanaged[Cdecl]<void*, byte> close, delegate* unmanaged[Cdecl]<void*, byte> ready, delegate* unmanaged[Cdecl]<void*, sbyte*, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, uint>, void*, byte> enumerate, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, byte> info, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> readFile, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> writeFile, delegate* unmanaged[Cdecl]<void*, sbyte*, byte> mkdir, delegate* unmanaged[Cdecl]<void*, sbyte*, byte> remove, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> rename, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> copy, delegate* unmanaged[Cdecl]<void*, nuint> spaceRemaining)
         {

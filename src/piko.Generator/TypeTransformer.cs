@@ -16,11 +16,22 @@ public class TypeTransformer(TypeTransformer.Options options)
             _structs.Add(s.Name, s);
         }
 
+        foreach (ConstantBinding c in bindings.Constants)
+            TransformConstant(c);
+
         foreach (StructBinding s in bindings.Structs)
             TransformStruct(s);
 
         foreach (FunctionBinding f in bindings.Functions)
             TransformFunction(f);
+    }
+
+    private void TransformConstant(ConstantBinding c)
+    {
+        c.Type = GetCorrectedType(c.Type, null, 0, false);
+
+        if (c.Type == "string" && c.Value.EndsWith("u8"))
+            c.Value = c.Value.Substring(0, c.Value.Length - 2);
     }
 
     private void TransformStruct(StructBinding s)
@@ -59,6 +70,8 @@ public class TypeTransformer(TypeTransformer.Options options)
             switch (type)
             {
                 case "sbyte" when pointerLevel == 1:
+                    return "string";
+                case "ReadOnlySpan<byte>":
                     return "string";
             }
         }

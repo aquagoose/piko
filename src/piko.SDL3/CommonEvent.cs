@@ -7,9 +7,9 @@ public static unsafe partial class SDL
     {
         public uint Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
     
-        public CommonEvent(uint type, uint reserved, nuint timestamp)
+        public CommonEvent(uint type, uint reserved, ulong timestamp)
         {
             this.Type = type;
             this.Reserved = reserved;

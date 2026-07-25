@@ -7,7 +7,7 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public uint Which;
         public uint PenState;
@@ -16,7 +16,7 @@ public static unsafe partial class SDL
         public bool Eraser;
         public bool Down;
     
-        public PenTouchEvent(EventType type, uint reserved, nuint timestamp, uint windowID, uint which, uint penState, float x, float y, bool eraser, bool down)
+        public PenTouchEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, uint penState, float x, float y, bool eraser, bool down)
         {
             this.Type = type;
             this.Reserved = reserved;

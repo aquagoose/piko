@@ -6,10 +6,10 @@ public static unsafe partial class SDL
     public unsafe struct InitState
     {
         public AtomicInt Status;
-        public nuint Thread;
+        public ulong Thread;
         public void* Reserved;
     
-        public InitState(AtomicInt status, nuint thread, void* reserved)
+        public InitState(AtomicInt status, ulong thread, void* reserved)
         {
             this.Status = status;
             this.Thread = thread;

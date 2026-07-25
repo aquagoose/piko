@@ -7,14 +7,14 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
         public bool Recording;
         public byte Padding1;
         public byte Padding2;
         public byte Padding3;
     
-        public AudioDeviceEvent(EventType type, uint reserved, nuint timestamp, uint which, bool recording, byte padding1, byte padding2, byte padding3)
+        public AudioDeviceEvent(EventType type, uint reserved, ulong timestamp, uint which, bool recording, byte padding1, byte padding2, byte padding3)
         {
             this.Type = type;
             this.Reserved = reserved;

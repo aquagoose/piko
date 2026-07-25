@@ -7,7 +7,7 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint WindowID;
         public uint Which;
         public uint State;
@@ -16,7 +16,7 @@ public static unsafe partial class SDL
         public float Xrel;
         public float Yrel;
     
-        public MouseMotionEvent(EventType type, uint reserved, nuint timestamp, uint windowID, uint which, uint state, float x, float y, float xrel, float yrel)
+        public MouseMotionEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, uint state, float x, float y, float xrel, float yrel)
         {
             this.Type = type;
             this.Reserved = reserved;

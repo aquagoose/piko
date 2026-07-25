@@ -7,9 +7,9 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
-        public nuint TouchID;
-        public nuint FingerID;
+        public ulong Timestamp;
+        public ulong TouchID;
+        public ulong FingerID;
         public float X;
         public float Y;
         public float Dx;
@@ -17,7 +17,7 @@ public static unsafe partial class SDL
         public float Pressure;
         public uint WindowID;
     
-        public TouchFingerEvent(EventType type, uint reserved, nuint timestamp, nuint touchID, nuint fingerID, float x, float y, float dx, float dy, float pressure, uint windowID)
+        public TouchFingerEvent(EventType type, uint reserved, ulong timestamp, ulong touchID, ulong fingerID, float x, float y, float dx, float dy, float pressure, uint windowID)
         {
             this.Type = type;
             this.Reserved = reserved;

@@ -96,6 +96,19 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
 
     private void ProcessFunctionSet(XmlNode node, ref BindingsSet bindings)
     {
+        foreach (XmlNode constant in node.SelectNodes("constant"))
+        {
+            string name = constant.Attributes?["name"]?.Value ?? throw new Exception("Constant name missing");
+            string type = constant["type"]?.InnerText ?? throw new Exception("Constant type missing");
+            //string value = constant["value"]?["code"]?.InnerText ?? throw new Exception("Constant value missing");
+            string? value = constant["value"]?["code"]?.InnerText;
+            if (value == null)
+                continue;
+
+            ConstantBinding binding = new ConstantBinding(name, type, value);
+            bindings.Constants.Add(binding);
+        }
+
         foreach (XmlNode func in node.SelectNodes("function"))
         {
             string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");

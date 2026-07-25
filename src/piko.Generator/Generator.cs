@@ -23,6 +23,9 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.AppendLine("{");
         _sb.AppendLine($"    public const string LibraryName = \"{options.LibraryDllName}\";");
         _sb.AppendLine();
+        foreach (ConstantBinding c in bindings.Constants)
+            WriteConstant(c);
+        _sb.AppendLine();
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
         _sb.AppendLine("}");
@@ -126,6 +129,11 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.Append('}');
         string output = _sb.ToString();
         return WriteExtraStuff(output);
+    }
+
+    private void WriteConstant(ConstantBinding c)
+    {
+        _sb.AppendLine($"    public const {c.Type} {c.Name} = {c.Value};");
     }
 
     private void WriteFunction(FunctionBinding f)

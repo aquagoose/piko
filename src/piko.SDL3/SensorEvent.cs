@@ -7,12 +7,12 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
         public float Data;
-        public nuint SensorTimestamp;
+        public ulong SensorTimestamp;
     
-        public SensorEvent(EventType type, uint reserved, nuint timestamp, uint which, float data, nuint sensorTimestamp)
+        public SensorEvent(EventType type, uint reserved, ulong timestamp, uint which, float data, ulong sensorTimestamp)
         {
             this.Type = type;
             this.Reserved = reserved;

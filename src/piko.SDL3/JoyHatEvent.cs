@@ -7,14 +7,14 @@ public static unsafe partial class SDL
     {
         public EventType Type;
         public uint Reserved;
-        public nuint Timestamp;
+        public ulong Timestamp;
         public uint Which;
         public byte Hat;
         public byte Value;
         public byte Padding1;
         public byte Padding2;
     
-        public JoyHatEvent(EventType type, uint reserved, nuint timestamp, uint which, byte hat, byte value, byte padding1, byte padding2)
+        public JoyHatEvent(EventType type, uint reserved, ulong timestamp, uint which, byte hat, byte value, byte padding1, byte padding2)
         {
             this.Type = type;
             this.Reserved = reserved;
