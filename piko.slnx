@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="src/piko.Generator/piko.Generator.csproj" />
+  <Project Path="src/piko.SDL3/piko.SDL3.csproj" />
 </Solution>

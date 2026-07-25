@@ -1,4 +1,5 @@
-﻿using piko.Generator;
+﻿using System.Text;
+using piko.Generator;
 using piko.Generator.Analyzers;
 using piko.Generator.Bindings;
 
@@ -51,10 +52,19 @@ Generator generator = new Generator(sdl3Bindings, "SDL", new Generator.Options()
 });
 Generator.Output[] outputs = generator.Generate();
 
+StringBuilder sb = new StringBuilder();
+
 foreach (Generator.Output output in outputs)
 {
-    Console.WriteLine($"{output.TypeName}.cs");
+    /*Console.WriteLine($"{output.TypeName}.cs");
     Console.WriteLine("=====================================================================");
     Console.WriteLine(output.Code);
-    Console.WriteLine();
+    Console.WriteLine();*/
+
+    sb.Clear();
+    sb.AppendLine("using System.Runtime.InteropServices;");
+    sb.AppendLine("namespace piko.SDL3;");
+    sb.Append(output.Code);
+
+    File.WriteAllText($"/home/aqua/Code/C#/piko/src/piko.SDL3/{output.TypeName}.cs", sb.ToString());
 }

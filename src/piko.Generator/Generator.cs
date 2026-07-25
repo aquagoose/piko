@@ -88,7 +88,12 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
                 if (s.Layout == LayoutKind.Explicit)
                     _sb.Append($"[FieldOffset({field.Offset})] ");
 
-                _sb.AppendLine($"public {field.Type} {field.Name};");
+                // temporarily reintroduce pointers for the structs that need it
+                // todo obviously we don't really want structs using pointers were possible in the public API!
+                string fieldType = field.Type;
+                for (int p = 0; p < field.PointerLevel; p++)
+                    fieldType += '*';
+                _sb.AppendLine($"public {fieldType} {field.Name};");
             }
 
             _sb.AppendLine();
@@ -98,7 +103,13 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             int i = 0;
             foreach (StructBinding.Field field in s.Fields)
             {
-                _sb.Append(field.Type);
+                // temporarily reintroduce pointers for the structs that need it
+                // todo obviously we don't really want structs using pointers were possible in the public API!
+                string fieldType = field.Type;
+                for (int p = 0; p < field.PointerLevel; p++)
+                    fieldType += '*';
+
+                _sb.Append(fieldType);
                 _sb.Append(' ');
                 // this sure is a way of all time to convert the first character to lower case to make it a suitable parameter name
                 _sb.Append(char.ToLowerInvariant(field.Name[0]));
@@ -134,7 +145,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\", ExactSpelling = true)]");
 
         string returnType = f.ReturnType == null ? "void" : TransformType(f.ReturnType, f.ReturnTypePointerLevel);
-        _sb.Append($"    public extern {returnType} {f.Name}(");
+        _sb.Append($"    public static extern {returnType} {f.Name}(");
 
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
