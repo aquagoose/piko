@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    [StructLayout(LayoutKind.Explicit)]
+    /*todo [StructLayout(LayoutKind.Explicit)]
     public unsafe struct XEvent
     {
         private readonly nint _handle;
@@ -17,5 +17,5 @@ public static unsafe partial class SDL
     
         public static implicit operator bool(XEvent s)
              => !s.IsNull;
-    }
+    }*/
 }

@@ -7,6 +7,7 @@ public static unsafe partial class SDL
         None,
         Horizontal,
         Vertical,
-        HorizontalAndVertical = (sdlFlipHorizontal | sdlFlipVertical),
+        //todo HorizontalAndVertical = (sdlFlipHorizontal | sdlFlipVertical),
+        HorizontalAndVertical = (Horizontal | Vertical),
     }
 }

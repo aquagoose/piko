@@ -7,14 +7,14 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_ReportAssertion", ExactSpelling = true)]
     public static extern AssertState ReportAssertion(AssertData* data, string func, string file, int line);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetAssertionHandler", ExactSpelling = true)]
-    public static extern void SetAssertionHandler(delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> handler, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetAssertionHandler", ExactSpelling = true)]
+    public static extern void SetAssertionHandler(delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> handler, void* userdata); */
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetDefaultAssertionHandler", ExactSpelling = true)]
-    public static extern delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetDefaultAssertionHandler();
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetDefaultAssertionHandler", ExactSpelling = true)]
+    public static extern delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetDefaultAssertionHandler();*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetAssertionHandler", ExactSpelling = true)]
-    public static extern delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetAssertionHandler(void** puserdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetAssertionHandler", ExactSpelling = true)]
+    public static extern delegate* unmanaged[Cdecl]<SDL_AssertData*, void*, SDL_AssertState> GetAssertionHandler(void** puserdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_GetAssertionReport", ExactSpelling = true)]
     public static extern AssertData* GetAssertionReport();
@@ -244,20 +244,20 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_UnlockAudioStream", ExactSpelling = true)]
     public static extern bool UnlockAudioStream(AudioStream stream);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback", ExactSpelling = true)]
-    public static extern bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback", ExactSpelling = true)]
+    public static extern bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback", ExactSpelling = true)]
-    public static extern bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback", ExactSpelling = true)]
+    public static extern bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_DestroyAudioStream", ExactSpelling = true)]
     public static extern void DestroyAudioStream(AudioStream stream);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream", ExactSpelling = true)]
-    public static extern AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream", ExactSpelling = true)]
+    public static extern AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback", ExactSpelling = true)]
-    public static extern bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback", ExactSpelling = true)]
+    public static extern bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_LoadWAV_IO", ExactSpelling = true)]
     public static extern bool LoadWAVIO(IOStream src, byte closeio, AudioSpec* spec, byte** audioBuf, uint* audioLen);
@@ -439,8 +439,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_SetError", ExactSpelling = true)]
     public static extern bool SetError(string fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetErrorV", ExactSpelling = true)]
-    public static extern bool SetErrorV(string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetErrorV", ExactSpelling = true)]
+    public static extern bool SetErrorV(string fmt, __va_list_tag* ap);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_OutOfMemory", ExactSpelling = true)]
     public static extern bool OutOfMemory();
@@ -481,20 +481,20 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_PushEvent", ExactSpelling = true)]
     public static extern bool PushEvent(Event* @event);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetEventFilter", ExactSpelling = true)]
-    public static extern void SetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetEventFilter", ExactSpelling = true)]
+    public static extern void SetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetEventFilter", ExactSpelling = true)]
-    public static extern bool GetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, by**** filter, void** userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetEventFilter", ExactSpelling = true)]
+    public static extern bool GetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, by**** filter, void** userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_AddEventWatch", ExactSpelling = true)]
-    public static extern bool AddEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_AddEventWatch", ExactSpelling = true)]
+    public static extern bool AddEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_RemoveEventWatch", ExactSpelling = true)]
-    public static extern void RemoveEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_RemoveEventWatch", ExactSpelling = true)]
+    public static extern void RemoveEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_FilterEvents", ExactSpelling = true)]
-    public static extern void FilterEvents(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_FilterEvents", ExactSpelling = true)]
+    public static extern void FilterEvents(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_SetEventEnabled", ExactSpelling = true)]
     public static extern void SetEventEnabled(uint type, byte enabled);
@@ -523,8 +523,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_CreateDirectory", ExactSpelling = true)]
     public static extern bool CreateDirectory(string path);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_EnumerateDirectory", ExactSpelling = true)]
-    public static extern bool EnumerateDirectory(string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_EnumerateDirectory", ExactSpelling = true)]
+    public static extern bool EnumerateDirectory(string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_RemovePath", ExactSpelling = true)]
     public static extern bool RemovePath(string path);
@@ -676,8 +676,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_GamepadEventsEnabled", ExactSpelling = true)]
     public static extern bool GamepadEventsEnabled();
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings", ExactSpelling = true)]
-    public static extern GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings", ExactSpelling = true)]
+    public static extern GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_UpdateGamepads", ExactSpelling = true)]
     public static extern void UpdateGamepads();
@@ -1282,8 +1282,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_IOFromDynamicMem", ExactSpelling = true)]
     public static extern IOStream IOFromDynamicMem();
 
-    [DllImport(LibraryName, EntryPoint = "SDL_OpenIO", ExactSpelling = true)]
-    public static extern IOStream OpenIO(IOStreamInterface* iface, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_OpenIO", ExactSpelling = true)]
+    public static extern IOStream OpenIO(IOStreamInterface* iface, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_CloseIO", ExactSpelling = true)]
     public static extern bool CloseIO(IOStream context);
@@ -1312,8 +1312,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_IOprintf", ExactSpelling = true)]
     public static extern nuint IOprintf(IOStream context, string fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_IOvprintf", ExactSpelling = true)]
-    public static extern nuint IOvprintf(IOStream context, string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_IOvprintf", ExactSpelling = true)]
+    public static extern nuint IOvprintf(IOStream context, string fmt, __va_list_tag* ap);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_FlushIO", ExactSpelling = true)]
     public static extern bool FlushIO(IOStream context);
@@ -1714,17 +1714,17 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_LogMessage", ExactSpelling = true)]
     public static extern void LogMessage(int category, LogPriority priority, string fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_LogMessageV", ExactSpelling = true)]
-    public static extern void LogMessageV(int category, LogPriority priority, string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_LogMessageV", ExactSpelling = true)]
+    public static extern void LogMessageV(int category, LogPriority priority, string fmt, __va_list_tag* ap);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetDefaultLogOutputFunction", ExactSpelling = true)]
-    public static extern delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> GetDefaultLogOutputFunction();
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetDefaultLogOutputFunction", ExactSpelling = true)]
+    public static extern delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> GetDefaultLogOutputFunction();*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetLogOutputFunction", ExactSpelling = true)]
-    public static extern void GetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, vo**** callback, void** userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetLogOutputFunction", ExactSpelling = true)]
+    public static extern void GetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, vo**** callback, void** userdata); */
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetLogOutputFunction", ExactSpelling = true)]
-    public static extern void SetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetLogOutputFunction", ExactSpelling = true)]
+    public static extern void SetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_main", ExactSpelling = true)]
     public static extern int Main(int argc, sbyte** argv);
@@ -1735,8 +1735,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_RunApp", ExactSpelling = true)]
     public static extern int RunApp(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<int, sbyte**, int> mainfunction, void* reserved);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_EnterAppMainCallbacks", ExactSpelling = true)]
-    public static extern int EnterAppMainCallbacks(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<void**, int, sbyte**, SDL_AppResult> appinit, delegate* unmanaged[Cdecl]<void*, SDL_AppResult> appiter, delegate* unmanaged[Cdecl]<void*, SDL_Event*, SDL_AppResult> appevent, delegate* unmanaged[Cdecl]<void*, SDL_AppResult, void> appquit);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_EnterAppMainCallbacks", ExactSpelling = true)]
+    public static extern int EnterAppMainCallbacks(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<void**, int, sbyte**, SDL_AppResult> appinit, delegate* unmanaged[Cdecl]<void*, SDL_AppResult> appiter, delegate* unmanaged[Cdecl]<void*, SDL_Event*, SDL_AppResult> appevent, delegate* unmanaged[Cdecl]<void*, SDL_AppResult, void> appquit);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_GDKSuspendComplete", ExactSpelling = true)]
     public static extern void GDKSuspendComplete();
@@ -1786,8 +1786,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_WarpMouseGlobal", ExactSpelling = true)]
     public static extern bool WarpMouseGlobal(float x, float y);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetRelativeMouseTransform", ExactSpelling = true)]
-    public static extern bool SetRelativeMouseTransform(delegate* unmanaged[Cdecl]<void*, nuint, SDL_Window*, uint, float*, float*, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetRelativeMouseTransform", ExactSpelling = true)]
+    public static extern bool SetRelativeMouseTransform(delegate* unmanaged[Cdecl]<void*, nuint, SDL_Window*, uint, float*, float*, void> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_SetWindowRelativeMouseMode", ExactSpelling = true)]
     public static extern bool SetWindowRelativeMouseMode(Window window, byte enabled);
@@ -3823,14 +3823,14 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_free", ExactSpelling = true)]
     public static extern void Free(void* mem);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetOriginalMemoryFunctions", ExactSpelling = true)]
-    public static extern void GetOriginalMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetOriginalMemoryFunctions", ExactSpelling = true)]
+    public static extern void GetOriginalMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_GetMemoryFunctions", ExactSpelling = true)]
-    public static extern void GetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_GetMemoryFunctions", ExactSpelling = true)]
+    public static extern void GetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*** mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*** callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, voi**** reallocFunc, delegate* unmanaged[Cdecl]<void*, voi*** freeFunc);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetMemoryFunctions", ExactSpelling = true)]
-    public static extern bool SetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*> mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*> callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, void*> reallocFunc, delegate* unmanaged[Cdecl]<void*, void> freeFunc);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetMemoryFunctions", ExactSpelling = true)]
+    public static extern bool SetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*> mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*> callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, void*> reallocFunc, delegate* unmanaged[Cdecl]<void*, void> freeFunc);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_aligned_alloc", ExactSpelling = true)]
     public static extern void* AlignedAlloc(nuint alignment, nuint size);
@@ -4111,8 +4111,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_sscanf", ExactSpelling = true)]
     public static extern int Sscanf(string text, string fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_vsscanf", ExactSpelling = true)]
-    public static extern int Vsscanf(string text, string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_vsscanf", ExactSpelling = true)]
+    public static extern int Vsscanf(string text, string fmt, __va_list_tag* ap);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_snprintf", ExactSpelling = true)]
     public static extern int Snprintf(string text, nuint maxlen, string fmt, __arglist );
@@ -4120,17 +4120,17 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_swprintf", ExactSpelling = true)]
     public static extern int Swprintf(uint* text, nuint maxlen, uint* fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_vsnprintf", ExactSpelling = true)]
-    public static extern int Vsnprintf(string text, nuint maxlen, string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_vsnprintf", ExactSpelling = true)]
+    public static extern int Vsnprintf(string text, nuint maxlen, string fmt, __va_list_tag* ap);*/
 
-    [DllImport(LibraryName, EntryPoint = "SDL_vswprintf", ExactSpelling = true)]
-    public static extern int Vswprintf(uint* text, nuint maxlen, uint* fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_vswprintf", ExactSpelling = true)]
+    public static extern int Vswprintf(uint* text, nuint maxlen, uint* fmt, __va_list_tag* ap);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_asprintf", ExactSpelling = true)]
     public static extern int Asprintf(sbyte** strp, string fmt, __arglist );
 
-    [DllImport(LibraryName, EntryPoint = "SDL_vasprintf", ExactSpelling = true)]
-    public static extern int Vasprintf(sbyte** strp, string fmt, __va_list_tag* ap);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_vasprintf", ExactSpelling = true)]
+    public static extern int Vasprintf(sbyte** strp, string fmt, __va_list_tag* ap);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_srand", ExactSpelling = true)]
     public static extern void Srand(nuint seed);
@@ -4351,8 +4351,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_CreateStorageDirectory", ExactSpelling = true)]
     public static extern bool CreateStorageDirectory(Storage storage, string path);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_EnumerateStorageDirectory", ExactSpelling = true)]
-    public static extern bool EnumerateStorageDirectory(Storage storage, string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_EnumerateStorageDirectory", ExactSpelling = true)]
+    public static extern bool EnumerateStorageDirectory(Storage storage, string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_RemoveStoragePath", ExactSpelling = true)]
     public static extern bool RemoveStoragePath(Storage storage, string path);
@@ -4567,8 +4567,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_WriteSurfacePixelFloat", ExactSpelling = true)]
     public static extern bool WriteSurfacePixelFloat(Surface* surface, int x, int y, float r, float g, float b, float a);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetX11EventHook", ExactSpelling = true)]
-    public static extern void SetX11EventHook(delegate* unmanaged[Cdecl]<void*, _XEvent*, byte> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetX11EventHook", ExactSpelling = true)]
+    public static extern void SetX11EventHook(delegate* unmanaged[Cdecl]<void*, _XEvent*, byte> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_SetLinuxThreadPriority", ExactSpelling = true)]
     public static extern bool SetLinuxThreadPriority(nint threadid, int priority);
@@ -4756,8 +4756,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_GetTrayEntryEnabled", ExactSpelling = true)]
     public static extern bool GetTrayEntryEnabled(TrayEntry entry);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetTrayEntryCallback", ExactSpelling = true)]
-    public static extern void SetTrayEntryCallback(TrayEntry entry, delegate* unmanaged[Cdecl]<void*, SDL_TrayEntry*, void> callback, void* userdata);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetTrayEntryCallback", ExactSpelling = true)]
+    public static extern void SetTrayEntryCallback(TrayEntry entry, delegate* unmanaged[Cdecl]<void*, SDL_TrayEntry*, void> callback, void* userdata);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_ClickTrayEntry", ExactSpelling = true)]
     public static extern void ClickTrayEntry(TrayEntry entry);
@@ -5032,8 +5032,8 @@ public static unsafe partial class SDL
     [DllImport(LibraryName, EntryPoint = "SDL_ShowWindowSystemMenu", ExactSpelling = true)]
     public static extern bool ShowWindowSystemMenu(Window window, int x, int y);
 
-    [DllImport(LibraryName, EntryPoint = "SDL_SetWindowHitTest", ExactSpelling = true)]
-    public static extern bool SetWindowHitTest(Window window, delegate* unmanaged[Cdecl]<SDL_Window*, SDL_Point*, void*, SDL_HitTestResult> callback, void* callbackData);
+    /* todo [DllImport(LibraryName, EntryPoint = "SDL_SetWindowHitTest", ExactSpelling = true)]
+    public static extern bool SetWindowHitTest(Window window, delegate* unmanaged[Cdecl]<SDL_Window*, SDL_Point*, void*, SDL_HitTestResult> callback, void* callbackData);*/
 
     [DllImport(LibraryName, EntryPoint = "SDL_SetWindowShape", ExactSpelling = true)]
     public static extern bool SetWindowShape(Window window, Surface* shape);

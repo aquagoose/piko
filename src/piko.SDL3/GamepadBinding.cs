@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    [StructLayout(LayoutKind.Sequential)]
+    /* todo [StructLayout(LayoutKind.Sequential)]
     public unsafe struct GamepadBinding
     {
         public GamepadBindingType InputType;
@@ -17,5 +17,5 @@ public static unsafe partial class SDL
             this.OutputType = outputType;
             this.Output = output;
         }
-    }
+    }*/
 }

@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    [StructLayout(LayoutKind.Sequential)]
+    /*todo [StructLayout(LayoutKind.Sequential)]
     public unsafe struct IOStreamInterface
     {
         public uint Version;
@@ -23,5 +23,5 @@ public static unsafe partial class SDL
             this.Flush = flush;
             this.Close = close;
         }
-    }
+    }*/
 }
