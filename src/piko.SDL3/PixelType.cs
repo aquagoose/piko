@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum PixelType : uint
+    {
+        Unknown,
+        Index1,
+        Index4,
+        Index8,
+        Packed8,
+        Packed16,
+        Packed32,
+        Arrayu8,
+        Arrayu16,
+        Arrayu32,
+        Arrayf16,
+        Arrayf32,
+        Index2,
+    }
+}

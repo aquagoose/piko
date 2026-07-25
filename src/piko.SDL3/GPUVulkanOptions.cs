@@ -1,0 +1,27 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUVulkanOptions
+    {
+        public uint VulkanApiVersion;
+        public void* FeatureList;
+        public void* Vulkan10PhysicalDeviceFeatures;
+        public uint DeviceExtensionCount;
+        public sbyte** DeviceExtensionNames;
+        public uint InstanceExtensionCount;
+        public sbyte** InstanceExtensionNames;
+    
+        public GPUVulkanOptions(uint vulkanApiVersion, void* featureList, void* vulkan10PhysicalDeviceFeatures, uint deviceExtensionCount, sbyte** deviceExtensionNames, uint instanceExtensionCount, sbyte** instanceExtensionNames)
+        {
+            this.VulkanApiVersion = vulkanApiVersion;
+            this.FeatureList = featureList;
+            this.Vulkan10PhysicalDeviceFeatures = vulkan10PhysicalDeviceFeatures;
+            this.DeviceExtensionCount = deviceExtensionCount;
+            this.DeviceExtensionNames = deviceExtensionNames;
+            this.InstanceExtensionCount = instanceExtensionCount;
+            this.InstanceExtensionNames = instanceExtensionNames;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUGraphicsPipelineTargetInfo
+    {
+        public GPUColorTargetDescription* ColorTargetDescriptions;
+        public uint NumColorTargets;
+        public GPUTextureFormat DepthStencilFormat;
+        public bool HasDepthStencilTarget;
+        public byte Padding1;
+        public byte Padding2;
+        public byte Padding3;
+    
+        public GPUGraphicsPipelineTargetInfo(GPUColorTargetDescription* colorTargetDescriptions, uint numColorTargets, GPUTextureFormat depthStencilFormat, bool hasDepthStencilTarget, byte padding1, byte padding2, byte padding3)
+        {
+            this.ColorTargetDescriptions = colorTargetDescriptions;
+            this.NumColorTargets = numColorTargets;
+            this.DepthStencilFormat = depthStencilFormat;
+            this.HasDepthStencilTarget = hasDepthStencilTarget;
+            this.Padding1 = padding1;
+            this.Padding2 = padding2;
+            this.Padding3 = padding3;
+        }
+    }
+}

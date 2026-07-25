@@ -1,0 +1,27 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct IOStreamInterface
+    {
+        public uint Version;
+        public delegate* unmanaged[Cdecl]<void*, nint> Size;
+        public delegate* unmanaged[Cdecl]<void*, nint, SDL_IOWhence, nint> Seek;
+        public delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> Read;
+        public delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> Write;
+        public delegate* unmanaged[Cdecl]<void*, SDL_IOStatus*, byte> Flush;
+        public delegate* unmanaged[Cdecl]<void*, byte> Close;
+    
+        public IOStreamInterface(uint version, delegate* unmanaged[Cdecl]<void*, nint> size, delegate* unmanaged[Cdecl]<void*, nint, SDL_IOWhence, nint> seek, delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> read, delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> write, delegate* unmanaged[Cdecl]<void*, SDL_IOStatus*, byte> flush, delegate* unmanaged[Cdecl]<void*, byte> close)
+        {
+            this.Version = version;
+            this.Size = size;
+            this.Seek = seek;
+            this.Read = read;
+            this.Write = write;
+            this.Flush = flush;
+            this.Close = close;
+        }
+    }
+}

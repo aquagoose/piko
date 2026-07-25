@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUTextureTransferInfo
+    {
+        public GPUTransferBuffer TransferBuffer;
+        public uint Offset;
+        public uint PixelsPerRow;
+        public uint RowsPerLayer;
+    
+        public GPUTextureTransferInfo(GPUTransferBuffer transferBuffer, uint offset, uint pixelsPerRow, uint rowsPerLayer)
+        {
+            this.TransferBuffer = transferBuffer;
+            this.Offset = offset;
+            this.PixelsPerRow = pixelsPerRow;
+            this.RowsPerLayer = rowsPerLayer;
+        }
+    }
+}

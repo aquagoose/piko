@@ -1,0 +1,31 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUTextureCreateInfo
+    {
+        public GPUTextureType Type;
+        public GPUTextureFormat Format;
+        public uint Usage;
+        public uint Width;
+        public uint Height;
+        public uint LayerCountOrDepth;
+        public uint NumLevels;
+        public GPUSampleCount SampleCount;
+        public uint Props;
+    
+        public GPUTextureCreateInfo(GPUTextureType type, GPUTextureFormat format, uint usage, uint width, uint height, uint layerCountOrDepth, uint numLevels, GPUSampleCount sampleCount, uint props)
+        {
+            this.Type = type;
+            this.Format = format;
+            this.Usage = usage;
+            this.Width = width;
+            this.Height = height;
+            this.LayerCountOrDepth = layerCountOrDepth;
+            this.NumLevels = numLevels;
+            this.SampleCount = sampleCount;
+            this.Props = props;
+        }
+    }
+}

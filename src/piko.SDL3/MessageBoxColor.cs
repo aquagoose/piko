@@ -1,0 +1,19 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct MessageBoxColor
+    {
+        public byte R;
+        public byte G;
+        public byte B;
+    
+        public MessageBoxColor(byte r, byte g, byte b)
+        {
+            this.R = r;
+            this.G = g;
+            this.B = b;
+        }
+    }
+}

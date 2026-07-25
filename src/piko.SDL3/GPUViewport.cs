@@ -1,0 +1,25 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUViewport
+    {
+        public float X;
+        public float Y;
+        public float W;
+        public float H;
+        public float MinDepth;
+        public float MaxDepth;
+    
+        public GPUViewport(float x, float y, float w, float h, float minDepth, float maxDepth)
+        {
+            this.X = x;
+            this.Y = y;
+            this.W = w;
+            this.H = h;
+            this.MinDepth = minDepth;
+            this.MaxDepth = maxDepth;
+        }
+    }
+}

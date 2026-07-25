@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct FRect
+    {
+        public float X;
+        public float Y;
+        public float W;
+        public float H;
+    
+        public FRect(float x, float y, float w, float h)
+        {
+            this.X = x;
+            this.Y = y;
+            this.W = w;
+            this.H = h;
+        }
+    }
+}

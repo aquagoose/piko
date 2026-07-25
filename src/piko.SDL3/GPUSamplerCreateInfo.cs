@@ -1,0 +1,45 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUSamplerCreateInfo
+    {
+        public GPUFilter MinFilter;
+        public GPUFilter MagFilter;
+        public GPUSamplerMipmapMode MipmapMode;
+        public GPUSamplerAddressMode AddressModeU;
+        public GPUSamplerAddressMode AddressModeV;
+        public GPUSamplerAddressMode AddressModeW;
+        public float MipLodBias;
+        public float MaxAnisotropy;
+        public GPUCompareOp CompareOp;
+        public float MinLod;
+        public float MaxLod;
+        public bool EnableAnisotropy;
+        public bool EnableCompare;
+        public byte Padding1;
+        public byte Padding2;
+        public uint Props;
+    
+        public GPUSamplerCreateInfo(GPUFilter minFilter, GPUFilter magFilter, GPUSamplerMipmapMode mipmapMode, GPUSamplerAddressMode addressModeU, GPUSamplerAddressMode addressModeV, GPUSamplerAddressMode addressModeW, float mipLodBias, float maxAnisotropy, GPUCompareOp compareOp, float minLod, float maxLod, bool enableAnisotropy, bool enableCompare, byte padding1, byte padding2, uint props)
+        {
+            this.MinFilter = minFilter;
+            this.MagFilter = magFilter;
+            this.MipmapMode = mipmapMode;
+            this.AddressModeU = addressModeU;
+            this.AddressModeV = addressModeV;
+            this.AddressModeW = addressModeW;
+            this.MipLodBias = mipLodBias;
+            this.MaxAnisotropy = maxAnisotropy;
+            this.CompareOp = compareOp;
+            this.MinLod = minLod;
+            this.MaxLod = maxLod;
+            this.EnableAnisotropy = enableAnisotropy;
+            this.EnableCompare = enableCompare;
+            this.Padding1 = padding1;
+            this.Padding2 = padding2;
+            this.Props = props;
+        }
+    }
+}

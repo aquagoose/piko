@@ -1,0 +1,20 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum AudioFormat : uint
+    {
+        Unknown = 0x0000u,
+        U8 = 0x0008u,
+        S8 = 0x8008u,
+        S16le = 0x8010u,
+        S16be = 0x9010u,
+        S32le = 0x8020u,
+        S32be = 0x9020u,
+        F32le = 0x8120u,
+        F32be = 0x9120u,
+        S16 = S16le,
+        S32 = S32le,
+        F32 = F32le,
+    }
+}

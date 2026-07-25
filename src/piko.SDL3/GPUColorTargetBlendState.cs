@@ -1,0 +1,35 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUColorTargetBlendState
+    {
+        public GPUBlendFactor SrcColorBlendfactor;
+        public GPUBlendFactor DstColorBlendfactor;
+        public GPUBlendOp ColorBlendOp;
+        public GPUBlendFactor SrcAlphaBlendfactor;
+        public GPUBlendFactor DstAlphaBlendfactor;
+        public GPUBlendOp AlphaBlendOp;
+        public byte ColorWriteMask;
+        public bool EnableBlend;
+        public bool EnableColorWriteMask;
+        public byte Padding1;
+        public byte Padding2;
+    
+        public GPUColorTargetBlendState(GPUBlendFactor srcColorBlendfactor, GPUBlendFactor dstColorBlendfactor, GPUBlendOp colorBlendOp, GPUBlendFactor srcAlphaBlendfactor, GPUBlendFactor dstAlphaBlendfactor, GPUBlendOp alphaBlendOp, byte colorWriteMask, bool enableBlend, bool enableColorWriteMask, byte padding1, byte padding2)
+        {
+            this.SrcColorBlendfactor = srcColorBlendfactor;
+            this.DstColorBlendfactor = dstColorBlendfactor;
+            this.ColorBlendOp = colorBlendOp;
+            this.SrcAlphaBlendfactor = srcAlphaBlendfactor;
+            this.DstAlphaBlendfactor = dstAlphaBlendfactor;
+            this.AlphaBlendOp = alphaBlendOp;
+            this.ColorWriteMask = colorWriteMask;
+            this.EnableBlend = enableBlend;
+            this.EnableColorWriteMask = enableColorWriteMask;
+            this.Padding1 = padding1;
+            this.Padding2 = padding2;
+        }
+    }
+}

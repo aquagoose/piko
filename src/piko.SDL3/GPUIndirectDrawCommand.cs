@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUIndirectDrawCommand
+    {
+        public uint NumVertices;
+        public uint NumInstances;
+        public uint FirstVertex;
+        public uint FirstInstance;
+    
+        public GPUIndirectDrawCommand(uint numVertices, uint numInstances, uint firstVertex, uint firstInstance)
+        {
+            this.NumVertices = numVertices;
+            this.NumInstances = numInstances;
+            this.FirstVertex = firstVertex;
+            this.FirstInstance = firstInstance;
+        }
+    }
+}

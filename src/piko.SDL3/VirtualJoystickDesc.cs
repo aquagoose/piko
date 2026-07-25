@@ -1,0 +1,65 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct VirtualJoystickDesc
+    {
+        public uint Version;
+        public ushort Type;
+        public ushort Padding;
+        public ushort VendorId;
+        public ushort ProductId;
+        public ushort Naxes;
+        public ushort Nbuttons;
+        public ushort Nballs;
+        public ushort Nhats;
+        public ushort Ntouchpads;
+        public ushort Nsensors;
+        public ushort Padding2;
+        public uint ButtonMask;
+        public uint AxisMask;
+        public sbyte* Name;
+        public VirtualJoystickTouchpadDesc* Touchpads;
+        public VirtualJoystickSensorDesc* Sensors;
+        public void* Userdata;
+        public delegate* unmanaged[Cdecl]<void*, void> Update;
+        public delegate* unmanaged[Cdecl]<void*, int, void> SetPlayerIndex;
+        public delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> Rumble;
+        public delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> RumbleTriggers;
+        public delegate* unmanaged[Cdecl]<void*, byte, byte, byte, byte> SetLED;
+        public delegate* unmanaged[Cdecl]<void*, void*, int, byte> SendEffect;
+        public delegate* unmanaged[Cdecl]<void*, byte, byte> SetSensorsEnabled;
+        public delegate* unmanaged[Cdecl]<void*, void> Cleanup;
+    
+        public VirtualJoystickDesc(uint version, ushort type, ushort padding, ushort vendorId, ushort productId, ushort naxes, ushort nbuttons, ushort nballs, ushort nhats, ushort ntouchpads, ushort nsensors, ushort padding2, uint buttonMask, uint axisMask, sbyte* name, VirtualJoystickTouchpadDesc* touchpads, VirtualJoystickSensorDesc* sensors, void* userdata, delegate* unmanaged[Cdecl]<void*, void> update, delegate* unmanaged[Cdecl]<void*, int, void> setPlayerIndex, delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> rumble, delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> rumbleTriggers, delegate* unmanaged[Cdecl]<void*, byte, byte, byte, byte> setLED, delegate* unmanaged[Cdecl]<void*, void*, int, byte> sendEffect, delegate* unmanaged[Cdecl]<void*, byte, byte> setSensorsEnabled, delegate* unmanaged[Cdecl]<void*, void> cleanup)
+        {
+            this.Version = version;
+            this.Type = type;
+            this.Padding = padding;
+            this.VendorId = vendorId;
+            this.ProductId = productId;
+            this.Naxes = naxes;
+            this.Nbuttons = nbuttons;
+            this.Nballs = nballs;
+            this.Nhats = nhats;
+            this.Ntouchpads = ntouchpads;
+            this.Nsensors = nsensors;
+            this.Padding2 = padding2;
+            this.ButtonMask = buttonMask;
+            this.AxisMask = axisMask;
+            this.Name = name;
+            this.Touchpads = touchpads;
+            this.Sensors = sensors;
+            this.Userdata = userdata;
+            this.Update = update;
+            this.SetPlayerIndex = setPlayerIndex;
+            this.Rumble = rumble;
+            this.RumbleTriggers = rumbleTriggers;
+            this.SetLED = setLED;
+            this.SendEffect = sendEffect;
+            this.SetSensorsEnabled = setSensorsEnabled;
+            this.Cleanup = cleanup;
+        }
+    }
+}

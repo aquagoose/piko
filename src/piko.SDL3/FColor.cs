@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct FColor
+    {
+        public float R;
+        public float G;
+        public float B;
+        public float A;
+    
+        public FColor(float r, float g, float b, float a)
+        {
+            this.R = r;
+            this.G = g;
+            this.B = b;
+            this.A = a;
+        }
+    }
+}

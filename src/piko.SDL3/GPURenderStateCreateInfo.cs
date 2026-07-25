@@ -1,0 +1,29 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPURenderStateCreateInfo
+    {
+        public GPUShader FragmentShader;
+        public int NumSamplerBindings;
+        public GPUTextureSamplerBinding* SamplerBindings;
+        public int NumStorageTextures;
+        public GPUTexture StorageTextures;
+        public int NumStorageBuffers;
+        public GPUBuffer StorageBuffers;
+        public uint Props;
+    
+        public GPURenderStateCreateInfo(GPUShader fragmentShader, int numSamplerBindings, GPUTextureSamplerBinding* samplerBindings, int numStorageTextures, GPUTexture storageTextures, int numStorageBuffers, GPUBuffer storageBuffers, uint props)
+        {
+            this.FragmentShader = fragmentShader;
+            this.NumSamplerBindings = numSamplerBindings;
+            this.SamplerBindings = samplerBindings;
+            this.NumStorageTextures = numStorageTextures;
+            this.StorageTextures = storageTextures;
+            this.NumStorageBuffers = numStorageBuffers;
+            this.StorageBuffers = storageBuffers;
+            this.Props = props;
+        }
+    }
+}

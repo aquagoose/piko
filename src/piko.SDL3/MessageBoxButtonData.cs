@@ -1,0 +1,19 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct MessageBoxButtonData
+    {
+        public uint Flags;
+        public int ButtonID;
+        public sbyte* Text;
+    
+        public MessageBoxButtonData(uint flags, int buttonID, sbyte* text)
+        {
+            this.Flags = flags;
+            this.ButtonID = buttonID;
+            this.Text = text;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct Surface
+    {
+        public uint Flags;
+        public PixelFormat Format;
+        public int W;
+        public int H;
+        public int Pitch;
+        public void* Pixels;
+        public int Refcount;
+        public void* Reserved;
+    
+        public Surface(uint flags, PixelFormat format, int w, int h, int pitch, void* pixels, int refcount, void* reserved)
+        {
+            this.Flags = flags;
+            this.Format = format;
+            this.W = w;
+            this.H = h;
+            this.Pitch = pitch;
+            this.Pixels = pixels;
+            this.Refcount = refcount;
+            this.Reserved = reserved;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUStorageBufferReadWriteBinding
+    {
+        public GPUBuffer Buffer;
+        public bool Cycle;
+        public byte Padding1;
+        public byte Padding2;
+        public byte Padding3;
+    
+        public GPUStorageBufferReadWriteBinding(GPUBuffer buffer, bool cycle, byte padding1, byte padding2, byte padding3)
+        {
+            this.Buffer = buffer;
+            this.Cycle = cycle;
+            this.Padding1 = padding1;
+            this.Padding2 = padding2;
+            this.Padding3 = padding3;
+        }
+    }
+}

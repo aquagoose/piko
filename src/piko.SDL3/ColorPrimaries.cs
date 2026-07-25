@@ -1,0 +1,22 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum ColorPrimaries : uint
+    {
+        Unknown = 0,
+        Bt709 = 1,
+        Unspecified = 2,
+        Bt470m = 4,
+        Bt470bg = 5,
+        Bt601 = 6,
+        Smpte240 = 7,
+        GenericFilm = 8,
+        Bt2020 = 9,
+        Xyz = 10,
+        Smpte431 = 11,
+        Smpte432 = 12,
+        Ebu3213 = 22,
+        Custom = 31,
+    }
+}

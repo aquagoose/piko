@@ -1,0 +1,36 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum GamepadButton : int
+    {
+        Invalid = -1,
+        South,
+        East,
+        West,
+        North,
+        Back,
+        Guide,
+        Start,
+        LeftStick,
+        RightStick,
+        LeftShoulder,
+        RightShoulder,
+        DpadUp,
+        DpadDown,
+        DpadLeft,
+        DpadRight,
+        Misc1,
+        RightPaddle1,
+        LeftPaddle1,
+        RightPaddle2,
+        LeftPaddle2,
+        Touchpad,
+        Misc2,
+        Misc3,
+        Misc4,
+        Misc5,
+        Misc6,
+        Count,
+    }
+}

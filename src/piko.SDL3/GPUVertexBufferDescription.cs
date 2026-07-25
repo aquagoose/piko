@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUVertexBufferDescription
+    {
+        public uint Slot;
+        public uint Pitch;
+        public GPUVertexInputRate InputRate;
+        public uint InstanceStepRate;
+    
+        public GPUVertexBufferDescription(uint slot, uint pitch, GPUVertexInputRate inputRate, uint instanceStepRate)
+        {
+            this.Slot = slot;
+            this.Pitch = pitch;
+            this.InputRate = inputRate;
+            this.InstanceStepRate = instanceStepRate;
+        }
+    }
+}

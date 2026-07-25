@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GamepadBinding
+    {
+        public GamepadBindingType InputType;
+        public _input_e__Union Input;
+        public GamepadBindingType OutputType;
+        public _output_e__Union Output;
+    
+        public GamepadBinding(GamepadBindingType inputType, _input_e__Union input, GamepadBindingType outputType, _output_e__Union output)
+        {
+            this.InputType = inputType;
+            this.Input = input;
+            this.OutputType = outputType;
+            this.Output = output;
+        }
+    }
+}

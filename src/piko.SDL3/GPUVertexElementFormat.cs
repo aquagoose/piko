@@ -1,0 +1,39 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum GPUVertexElementFormat : uint
+    {
+        Invalid,
+        Int,
+        Int2,
+        Int3,
+        Int4,
+        Uint,
+        Uint2,
+        Uint3,
+        Uint4,
+        Float,
+        Float2,
+        Float3,
+        Float4,
+        Byte2,
+        Byte4,
+        Ubyte2,
+        Ubyte4,
+        Byte2Norm,
+        Byte4Norm,
+        Ubyte2Norm,
+        Ubyte4Norm,
+        Short2,
+        Short4,
+        Ushort2,
+        Ushort4,
+        Short2Norm,
+        Short4Norm,
+        Ushort2Norm,
+        Ushort4Norm,
+        Half2,
+        Half4,
+    }
+}

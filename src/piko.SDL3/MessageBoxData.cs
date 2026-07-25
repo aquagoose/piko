@@ -1,0 +1,27 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct MessageBoxData
+    {
+        public uint Flags;
+        public Window Window;
+        public sbyte* Title;
+        public sbyte* Message;
+        public int Numbuttons;
+        public MessageBoxButtonData* Buttons;
+        public MessageBoxColorScheme* ColorScheme;
+    
+        public MessageBoxData(uint flags, Window window, sbyte* title, sbyte* message, int numbuttons, MessageBoxButtonData* buttons, MessageBoxColorScheme* colorScheme)
+        {
+            this.Flags = flags;
+            this.Window = window;
+            this.Title = title;
+            this.Message = message;
+            this.Numbuttons = numbuttons;
+            this.Buttons = buttons;
+            this.ColorScheme = colorScheme;
+        }
+    }
+}

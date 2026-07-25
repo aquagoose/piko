@@ -1,0 +1,25 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUMultisampleState
+    {
+        public GPUSampleCount SampleCount;
+        public uint SampleMask;
+        public bool EnableMask;
+        public bool EnableAlphaToCoverage;
+        public byte Padding2;
+        public byte Padding3;
+    
+        public GPUMultisampleState(GPUSampleCount sampleCount, uint sampleMask, bool enableMask, bool enableAlphaToCoverage, byte padding2, byte padding3)
+        {
+            this.SampleCount = sampleCount;
+            this.SampleMask = sampleMask;
+            this.EnableMask = enableMask;
+            this.EnableAlphaToCoverage = enableAlphaToCoverage;
+            this.Padding2 = padding2;
+            this.Padding3 = padding3;
+        }
+    }
+}

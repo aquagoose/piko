@@ -1,0 +1,93 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Explicit)]
+    public unsafe struct Event
+    {
+        [FieldOffset(0)] public uint Type;
+        [FieldOffset(0)] public CommonEvent Common;
+        [FieldOffset(0)] public DisplayEvent Display;
+        [FieldOffset(0)] public WindowEvent Window;
+        [FieldOffset(0)] public KeyboardDeviceEvent Kdevice;
+        [FieldOffset(0)] public KeyboardEvent Key;
+        [FieldOffset(0)] public TextEditingEvent Edit;
+        [FieldOffset(0)] public TextEditingCandidatesEvent EditCandidates;
+        [FieldOffset(0)] public TextInputEvent Text;
+        [FieldOffset(0)] public MouseDeviceEvent Mdevice;
+        [FieldOffset(0)] public MouseMotionEvent Motion;
+        [FieldOffset(0)] public MouseButtonEvent Button;
+        [FieldOffset(0)] public MouseWheelEvent Wheel;
+        [FieldOffset(0)] public JoyDeviceEvent Jdevice;
+        [FieldOffset(0)] public JoyAxisEvent Jaxis;
+        [FieldOffset(0)] public JoyBallEvent Jball;
+        [FieldOffset(0)] public JoyHatEvent Jhat;
+        [FieldOffset(0)] public JoyButtonEvent Jbutton;
+        [FieldOffset(0)] public JoyBatteryEvent Jbattery;
+        [FieldOffset(0)] public GamepadDeviceEvent Gdevice;
+        [FieldOffset(0)] public GamepadAxisEvent Gaxis;
+        [FieldOffset(0)] public GamepadButtonEvent Gbutton;
+        [FieldOffset(0)] public GamepadTouchpadEvent Gtouchpad;
+        [FieldOffset(0)] public GamepadSensorEvent Gsensor;
+        [FieldOffset(0)] public AudioDeviceEvent Adevice;
+        [FieldOffset(0)] public CameraDeviceEvent Cdevice;
+        [FieldOffset(0)] public SensorEvent Sensor;
+        [FieldOffset(0)] public QuitEvent Quit;
+        [FieldOffset(0)] public UserEvent User;
+        [FieldOffset(0)] public TouchFingerEvent Tfinger;
+        [FieldOffset(0)] public PinchFingerEvent Pinch;
+        [FieldOffset(0)] public PenProximityEvent Pproximity;
+        [FieldOffset(0)] public PenTouchEvent Ptouch;
+        [FieldOffset(0)] public PenMotionEvent Pmotion;
+        [FieldOffset(0)] public PenButtonEvent Pbutton;
+        [FieldOffset(0)] public PenAxisEvent Paxis;
+        [FieldOffset(0)] public RenderEvent Render;
+        [FieldOffset(0)] public DropEvent Drop;
+        [FieldOffset(0)] public ClipboardEvent Clipboard;
+        [FieldOffset(0)] public byte Padding;
+    
+        public Event(uint type, CommonEvent common, DisplayEvent display, WindowEvent window, KeyboardDeviceEvent kdevice, KeyboardEvent key, TextEditingEvent edit, TextEditingCandidatesEvent editCandidates, TextInputEvent text, MouseDeviceEvent mdevice, MouseMotionEvent motion, MouseButtonEvent button, MouseWheelEvent wheel, JoyDeviceEvent jdevice, JoyAxisEvent jaxis, JoyBallEvent jball, JoyHatEvent jhat, JoyButtonEvent jbutton, JoyBatteryEvent jbattery, GamepadDeviceEvent gdevice, GamepadAxisEvent gaxis, GamepadButtonEvent gbutton, GamepadTouchpadEvent gtouchpad, GamepadSensorEvent gsensor, AudioDeviceEvent adevice, CameraDeviceEvent cdevice, SensorEvent sensor, QuitEvent quit, UserEvent user, TouchFingerEvent tfinger, PinchFingerEvent pinch, PenProximityEvent pproximity, PenTouchEvent ptouch, PenMotionEvent pmotion, PenButtonEvent pbutton, PenAxisEvent paxis, RenderEvent render, DropEvent drop, ClipboardEvent clipboard, byte padding)
+        {
+            this.Type = type;
+            this.Common = common;
+            this.Display = display;
+            this.Window = window;
+            this.Kdevice = kdevice;
+            this.Key = key;
+            this.Edit = edit;
+            this.EditCandidates = editCandidates;
+            this.Text = text;
+            this.Mdevice = mdevice;
+            this.Motion = motion;
+            this.Button = button;
+            this.Wheel = wheel;
+            this.Jdevice = jdevice;
+            this.Jaxis = jaxis;
+            this.Jball = jball;
+            this.Jhat = jhat;
+            this.Jbutton = jbutton;
+            this.Jbattery = jbattery;
+            this.Gdevice = gdevice;
+            this.Gaxis = gaxis;
+            this.Gbutton = gbutton;
+            this.Gtouchpad = gtouchpad;
+            this.Gsensor = gsensor;
+            this.Adevice = adevice;
+            this.Cdevice = cdevice;
+            this.Sensor = sensor;
+            this.Quit = quit;
+            this.User = user;
+            this.Tfinger = tfinger;
+            this.Pinch = pinch;
+            this.Pproximity = pproximity;
+            this.Ptouch = ptouch;
+            this.Pmotion = pmotion;
+            this.Pbutton = pbutton;
+            this.Paxis = paxis;
+            this.Render = render;
+            this.Drop = drop;
+            this.Clipboard = clipboard;
+            this.Padding = padding;
+        }
+    }
+}

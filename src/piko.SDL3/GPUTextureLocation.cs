@@ -1,0 +1,25 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUTextureLocation
+    {
+        public GPUTexture Texture;
+        public uint MipLevel;
+        public uint Layer;
+        public uint X;
+        public uint Y;
+        public uint Z;
+    
+        public GPUTextureLocation(GPUTexture texture, uint mipLevel, uint layer, uint x, uint y, uint z)
+        {
+            this.Texture = texture;
+            this.MipLevel = mipLevel;
+            this.Layer = layer;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+    }
+}

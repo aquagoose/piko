@@ -1,0 +1,33 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUBlitInfo
+    {
+        public GPUBlitRegion Source;
+        public GPUBlitRegion Destination;
+        public GPULoadOp LoadOp;
+        public FColor ClearColor;
+        public FlipMode FlipMode;
+        public GPUFilter Filter;
+        public bool Cycle;
+        public byte Padding1;
+        public byte Padding2;
+        public byte Padding3;
+    
+        public GPUBlitInfo(GPUBlitRegion source, GPUBlitRegion destination, GPULoadOp loadOp, FColor clearColor, FlipMode flipMode, GPUFilter filter, bool cycle, byte padding1, byte padding2, byte padding3)
+        {
+            this.Source = source;
+            this.Destination = destination;
+            this.LoadOp = loadOp;
+            this.ClearColor = clearColor;
+            this.FlipMode = flipMode;
+            this.Filter = filter;
+            this.Cycle = cycle;
+            this.Padding1 = padding1;
+            this.Padding2 = padding2;
+            this.Padding3 = padding3;
+        }
+    }
+}

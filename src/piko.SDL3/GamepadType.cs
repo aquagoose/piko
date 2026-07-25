@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    public enum GamepadType : uint
+    {
+        Unknown = 0,
+        Standard,
+        Xbox360,
+        Xboxone,
+        Ps3,
+        Ps4,
+        Ps5,
+        NintendoSwitchPro,
+        NintendoSwitchJoyconLeft,
+        NintendoSwitchJoyconRight,
+        NintendoSwitchJoyconPair,
+        Gamecube,
+        Count,
+    }
+}

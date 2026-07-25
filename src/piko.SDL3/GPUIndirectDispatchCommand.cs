@@ -1,0 +1,19 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUIndirectDispatchCommand
+    {
+        public uint GroupcountX;
+        public uint GroupcountY;
+        public uint GroupcountZ;
+    
+        public GPUIndirectDispatchCommand(uint groupcountX, uint groupcountY, uint groupcountZ)
+        {
+            this.GroupcountX = groupcountX;
+            this.GroupcountY = groupcountY;
+            this.GroupcountZ = groupcountZ;
+        }
+    }
+}

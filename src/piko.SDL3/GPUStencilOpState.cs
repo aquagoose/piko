@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct GPUStencilOpState
+    {
+        public GPUStencilOp FailOp;
+        public GPUStencilOp PassOp;
+        public GPUStencilOp DepthFailOp;
+        public GPUCompareOp CompareOp;
+    
+        public GPUStencilOpState(GPUStencilOp failOp, GPUStencilOp passOp, GPUStencilOp depthFailOp, GPUCompareOp compareOp)
+        {
+            this.FailOp = failOp;
+            this.PassOp = passOp;
+            this.DepthFailOp = depthFailOp;
+            this.CompareOp = compareOp;
+        }
+    }
+}

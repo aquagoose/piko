@@ -1,0 +1,25 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct CameraSpec
+    {
+        public PixelFormat Format;
+        public Colorspace Colorspace;
+        public int Width;
+        public int Height;
+        public int FramerateNumerator;
+        public int FramerateDenominator;
+    
+        public CameraSpec(PixelFormat format, Colorspace colorspace, int width, int height, int framerateNumerator, int framerateDenominator)
+        {
+            this.Format = format;
+            this.Colorspace = colorspace;
+            this.Width = width;
+            this.Height = height;
+            this.FramerateNumerator = framerateNumerator;
+            this.FramerateDenominator = framerateDenominator;
+        }
+    }
+}

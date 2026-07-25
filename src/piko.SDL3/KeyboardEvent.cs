@@ -1,0 +1,35 @@
+using System.Runtime.InteropServices;
+namespace piko.SDL3;
+public static unsafe partial class SDL
+{
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct KeyboardEvent
+    {
+        public EventType Type;
+        public uint Reserved;
+        public nuint Timestamp;
+        public uint WindowID;
+        public uint Which;
+        public Scancode Scancode;
+        public uint Key;
+        public ushort Mod;
+        public ushort Raw;
+        public bool Down;
+        public bool Repeat;
+    
+        public KeyboardEvent(EventType type, uint reserved, nuint timestamp, uint windowID, uint which, Scancode scancode, uint key, ushort mod, ushort raw, bool down, bool repeat)
+        {
+            this.Type = type;
+            this.Reserved = reserved;
+            this.Timestamp = timestamp;
+            this.WindowID = windowID;
+            this.Which = which;
+            this.Scancode = scancode;
+            this.Key = key;
+            this.Mod = mod;
+            this.Raw = raw;
+            this.Down = down;
+            this.Repeat = repeat;
+        }
+    }
+}
