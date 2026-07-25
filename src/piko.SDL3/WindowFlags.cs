@@ -3,7 +3,7 @@ namespace piko.SDL3;
 public static unsafe partial class SDL
 {
     [Flags]
-    public enum WindowFlags : nuint
+    public enum WindowFlags : ulong
     {
         Fullscreen = 0x0000000000000001U,
         Opengl = 0x0000000000000002U,
@@ -31,7 +31,5 @@ public static unsafe partial class SDL
         Metal = 0x0000000020000000U,
         Transparent = 0x0000000040000000U,
         NotFocusable = 0x0000000080000000U,
-        SurfaceVsyncDisabled = 0,
-        SurfaceVsyncAdaptive = (-1),
     }
 }

@@ -51,7 +51,14 @@ public class TypeTransformer(TypeTransformer.Options options)
                 {
                     if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
                     {
-                        binding = new EnumBinding(type.TypeName, c.Type) // todo better generation of enum type? this may not always be valid
+                        // need to remap some types such as nuint as enums can't be of that type
+                        string enumType = c.Type switch
+                        {
+                            "nuint" => "ulong",
+                            _ => c.Type
+                        };
+
+                        binding = new EnumBinding(type.TypeName, enumType)
                         {
                             IsFlagsEnum = true
                         };

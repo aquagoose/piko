@@ -11543,7 +11543,7 @@
         </value>
       </constant>
       <constant name="SDL_GPU_SHADERFORMAT_INVALID" access="public">
-        <type primitive="True">int</type>
+        <type primitive="True">uint</type>
         <value>
           <code>0</code>
         </value>
