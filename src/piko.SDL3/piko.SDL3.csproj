@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Description>A small n cute set of actually good* SDL3 bindings.</Description>
+        <Version>0.0.1</Version>
     </PropertyGroup>
 
 </Project>

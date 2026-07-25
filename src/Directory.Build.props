@@ -1,0 +1,15 @@
+<Project>
+    <PropertyGroup>
+        <RepositoryUrl>https://github.com/aquagoose/piko</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Authors>aquagoose</Authors>
+        <PackageTags>sdl3;sdl;graphics;opengl;vulkan;directx</PackageTags>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(SolutionDir)LICENSE" Pack="true" PackagePath="" />
+        <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+</Project>
