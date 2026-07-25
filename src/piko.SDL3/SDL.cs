@@ -4,11 +4,6 @@ public static unsafe partial class SDL
 {
     public const string LibraryName = "SDL3";
 
-    public const int AssertLevel = 2;
-    public const string File = "SDL_assert.h";
-    public const string AssertFile = "SDL_assert.h";
-    public const int Line = 710;
-    public const int NullWhileLoopCondition = (0);
     public const uint AudioMaskBitsize = (0xFFU);
     public const uint AudioMaskFloat = (1U << 8);
     public const uint AudioMaskBigEndian = (1U << 12);
@@ -16,7 +11,6 @@ public static unsafe partial class SDL
     public const uint AudioDeviceDefaultPlayback = ((uint)(0xFFFFFFFFU));
     public const uint AudioDeviceDefaultRecording = ((uint)(0xFFFFFFFEU));
     public const string PropAudiostreamAutoCleanupBoolean = "SDL.audiostream.auto_cleanup";
-    public const int Null = 0;
     public const uint BlendmodeNone = 0x00000000U;
     public const uint BlendmodeBlend = 0x00000001U;
     public const uint BlendmodeBlendPremultiplied = 0x00000010U;
@@ -34,17 +28,6 @@ public static unsafe partial class SDL
     public const string PropFileDialogTitleString = "SDL.filedialog.title";
     public const string PropFileDialogAcceptString = "SDL.filedialog.accept";
     public const string PropFileDialogCancelString = "SDL.filedialog.cancel";
-    public const string ElfNoteDlopenPrioritySuggested = "suggested";
-    public const string ElfNoteDlopenPriorityRecommended = "recommended";
-    public const string ElfNoteDlopenPriorityRequired = "required";
-    public const int LilEndian = 1234;
-    public const int BigEndian = 4321;
-    public const int Byteorder = 1234;
-    public const int Floatwordorder = 1234;
-    public const bool HasBuiltinBswap16 = (1) != 0 || (4 > 4 || (4 == 4 && 2 >= 8));
-    public const bool HasBuiltinBswap32 = (1) != 0 || (4 > 4 || (4 == 4 && 2 >= 3));
-    public const bool HasBuiltinBswap64 = (1) != 0 || (4 > 4 || (4 == 4 && 2 >= 3));
-    public const bool HasBrokenBswap = (4 == 2 && 2 <= 95);
     public const uint GlobCaseinsensitive = (1U << 0);
     public const string PropGamepadCapMonoLedBoolean = "SDL.joystick.cap.mono_led";
     public const string PropGamepadCapRgbLedBoolean = "SDL.joystick.cap.rgb_led";
@@ -391,15 +374,6 @@ public static unsafe partial class SDL
     public const string PropAppMetadataCopyrightString = "SDL.app.metadata.copyright";
     public const string PropAppMetadataUrlString = "SDL.app.metadata.url";
     public const string PropAppMetadataTypeString = "SDL.app.metadata.type";
-    public const int MmxIntrinsics = 1;
-    public const int SseIntrinsics = 1;
-    public const int Sse2Intrinsics = 1;
-    public const int Sse3Intrinsics = 1;
-    public const int Sse41Intrinsics = 1;
-    public const int Sse42Intrinsics = 1;
-    public const int AvxIntrinsics = 1;
-    public const int Avx2Intrinsics = 1;
-    public const int Avx512fIntrinsics = 1;
     public const string PropIostreamWindowsHandlePointer = "SDL.iostream.windows.handle";
     public const string PropIostreamStdioFilePointer = "SDL.iostream.stdio.file";
     public const string PropIostreamFileDescriptorNumber = "SDL.iostream.file_descriptor";
@@ -723,790 +697,6 @@ public static unsafe partial class SDL
     public const uint ButtonRmask = (1U << ((3) - 1));
     public const uint ButtonX1mask = (1U << ((4) - 1));
     public const uint ButtonX2mask = (1U << ((5) - 1));
-    public const int KhronosSupportInt64 = 1;
-    public const int KhronosSupportFloat = 1;
-    public const int KhronosMaxEnum = 0x7FFFFFFF;
-    public const int GlVersion11 = 1;
-    public const int GlVersion12 = 1;
-    public const int GlVersion13 = 1;
-    public const int GlArbImaging = 1;
-    public const int GlFalse = 0;
-    public const int GlTrue = 1;
-    public const int GlByte = 0x1400;
-    public const int GlUnsignedByte = 0x1401;
-    public const int GlShort = 0x1402;
-    public const int GlUnsignedShort = 0x1403;
-    public const int GlInt = 0x1404;
-    public const int GlUnsignedInt = 0x1405;
-    public const int GlFloat = 0x1406;
-    public const int Gl2Bytes = 0x1407;
-    public const int Gl3Bytes = 0x1408;
-    public const int Gl4Bytes = 0x1409;
-    public const int GlDouble = 0x140A;
-    public const int GlPoints = 0x0000;
-    public const int GlLines = 0x0001;
-    public const int GlLineLoop = 0x0002;
-    public const int GlLineStrip = 0x0003;
-    public const int GlTriangles = 0x0004;
-    public const int GlTriangleStrip = 0x0005;
-    public const int GlTriangleFan = 0x0006;
-    public const int GlQuads = 0x0007;
-    public const int GlQuadStrip = 0x0008;
-    public const int GlPolygon = 0x0009;
-    public const int GlVertexArray = 0x8074;
-    public const int GlNormalArray = 0x8075;
-    public const int GlColorArray = 0x8076;
-    public const int GlIndexArray = 0x8077;
-    public const int GlTextureCoordArray = 0x8078;
-    public const int GlEdgeFlagArray = 0x8079;
-    public const int GlVertexArraySize = 0x807A;
-    public const int GlVertexArrayType = 0x807B;
-    public const int GlVertexArrayStride = 0x807C;
-    public const int GlNormalArrayType = 0x807E;
-    public const int GlNormalArrayStride = 0x807F;
-    public const int GlColorArraySize = 0x8081;
-    public const int GlColorArrayType = 0x8082;
-    public const int GlColorArrayStride = 0x8083;
-    public const int GlIndexArrayType = 0x8085;
-    public const int GlIndexArrayStride = 0x8086;
-    public const int GlTextureCoordArraySize = 0x8088;
-    public const int GlTextureCoordArrayType = 0x8089;
-    public const int GlTextureCoordArrayStride = 0x808A;
-    public const int GlEdgeFlagArrayStride = 0x808C;
-    public const int GlVertexArrayPointer = 0x808E;
-    public const int GlNormalArrayPointer = 0x808F;
-    public const int GlColorArrayPointer = 0x8090;
-    public const int GlIndexArrayPointer = 0x8091;
-    public const int GlTextureCoordArrayPointer = 0x8092;
-    public const int GlEdgeFlagArrayPointer = 0x8093;
-    public const int GlV2f = 0x2A20;
-    public const int GlV3f = 0x2A21;
-    public const int GlC4ubV2f = 0x2A22;
-    public const int GlC4ubV3f = 0x2A23;
-    public const int GlC3fV3f = 0x2A24;
-    public const int GlN3fV3f = 0x2A25;
-    public const int GlC4fN3fV3f = 0x2A26;
-    public const int GlT2fV3f = 0x2A27;
-    public const int GlT4fV4f = 0x2A28;
-    public const int GlT2fC4ubV3f = 0x2A29;
-    public const int GlT2fC3fV3f = 0x2A2A;
-    public const int GlT2fN3fV3f = 0x2A2B;
-    public const int GlT2fC4fN3fV3f = 0x2A2C;
-    public const int GlT4fC4fN3fV4f = 0x2A2D;
-    public const int GlMatrixMode = 0x0BA0;
-    public const int GlModelview = 0x1700;
-    public const int GlProjection = 0x1701;
-    public const int GlTexture = 0x1702;
-    public const int GlPointSmooth = 0x0B10;
-    public const int GlPointSize = 0x0B11;
-    public const int GlPointSizeGranularity = 0x0B13;
-    public const int GlPointSizeRange = 0x0B12;
-    public const int GlLineSmooth = 0x0B20;
-    public const int GlLineStipple = 0x0B24;
-    public const int GlLineStipplePattern = 0x0B25;
-    public const int GlLineStippleRepeat = 0x0B26;
-    public const int GlLineWidth = 0x0B21;
-    public const int GlLineWidthGranularity = 0x0B23;
-    public const int GlLineWidthRange = 0x0B22;
-    public const int GlPoint = 0x1B00;
-    public const int GlLine = 0x1B01;
-    public const int GlFill = 0x1B02;
-    public const int GlCw = 0x0900;
-    public const int GlCcw = 0x0901;
-    public const int GlFront = 0x0404;
-    public const int GlBack = 0x0405;
-    public const int GlPolygonMode = 0x0B40;
-    public const int GlPolygonSmooth = 0x0B41;
-    public const int GlPolygonStipple = 0x0B42;
-    public const int GlEdgeFlag = 0x0B43;
-    public const int GlCullFace = 0x0B44;
-    public const int GlCullFaceMode = 0x0B45;
-    public const int GlFrontFace = 0x0B46;
-    public const int GlPolygonOffsetFactor = 0x8038;
-    public const int GlPolygonOffsetUnits = 0x2A00;
-    public const int GlPolygonOffsetPoint = 0x2A01;
-    public const int GlPolygonOffsetLine = 0x2A02;
-    public const int GlPolygonOffsetFill = 0x8037;
-    public const int GlCompile = 0x1300;
-    public const int GlCompileAndExecute = 0x1301;
-    public const int GlListBase = 0x0B32;
-    public const int GlListIndex = 0x0B33;
-    public const int GlListMode = 0x0B30;
-    public const int GlNever = 0x0200;
-    public const int GlLess = 0x0201;
-    public const int GlEqual = 0x0202;
-    public const int GlLequal = 0x0203;
-    public const int GlGreater = 0x0204;
-    public const int GlNotequal = 0x0205;
-    public const int GlGequal = 0x0206;
-    public const int GlAlways = 0x0207;
-    public const int GlDepthTest = 0x0B71;
-    public const int GlDepthBits = 0x0D56;
-    public const int GlDepthClearValue = 0x0B73;
-    public const int GlDepthFunc = 0x0B74;
-    public const int GlDepthRange = 0x0B70;
-    public const int GlDepthWritemask = 0x0B72;
-    public const int GlDepthComponent = 0x1902;
-    public const int GlLighting = 0x0B50;
-    public const int GlLight0 = 0x4000;
-    public const int GlLight1 = 0x4001;
-    public const int GlLight2 = 0x4002;
-    public const int GlLight3 = 0x4003;
-    public const int GlLight4 = 0x4004;
-    public const int GlLight5 = 0x4005;
-    public const int GlLight6 = 0x4006;
-    public const int GlLight7 = 0x4007;
-    public const int GlSpotExponent = 0x1205;
-    public const int GlSpotCutoff = 0x1206;
-    public const int GlConstantAttenuation = 0x1207;
-    public const int GlLinearAttenuation = 0x1208;
-    public const int GlQuadraticAttenuation = 0x1209;
-    public const int GlAmbient = 0x1200;
-    public const int GlDiffuse = 0x1201;
-    public const int GlSpecular = 0x1202;
-    public const int GlShininess = 0x1601;
-    public const int GlEmission = 0x1600;
-    public const int GlPosition = 0x1203;
-    public const int GlSpotDirection = 0x1204;
-    public const int GlAmbientAndDiffuse = 0x1602;
-    public const int GlColorIndexes = 0x1603;
-    public const int GlLightModelTwoSide = 0x0B52;
-    public const int GlLightModelLocalViewer = 0x0B51;
-    public const int GlLightModelAmbient = 0x0B53;
-    public const int GlFrontAndBack = 0x0408;
-    public const int GlShadeModel = 0x0B54;
-    public const int GlFlat = 0x1D00;
-    public const int GlSmooth = 0x1D01;
-    public const int GlColorMaterial = 0x0B57;
-    public const int GlColorMaterialFace = 0x0B55;
-    public const int GlColorMaterialParameter = 0x0B56;
-    public const int GlNormalize = 0x0BA1;
-    public const int GlClipPlane0 = 0x3000;
-    public const int GlClipPlane1 = 0x3001;
-    public const int GlClipPlane2 = 0x3002;
-    public const int GlClipPlane3 = 0x3003;
-    public const int GlClipPlane4 = 0x3004;
-    public const int GlClipPlane5 = 0x3005;
-    public const int GlAccumRedBits = 0x0D58;
-    public const int GlAccumGreenBits = 0x0D59;
-    public const int GlAccumBlueBits = 0x0D5A;
-    public const int GlAccumAlphaBits = 0x0D5B;
-    public const int GlAccumClearValue = 0x0B80;
-    public const int GlAccum = 0x0100;
-    public const int GlAdd = 0x0104;
-    public const int GlLoad = 0x0101;
-    public const int GlMult = 0x0103;
-    public const int GlReturn = 0x0102;
-    public const int GlAlphaTest = 0x0BC0;
-    public const int GlAlphaTestRef = 0x0BC2;
-    public const int GlAlphaTestFunc = 0x0BC1;
-    public const int GlBlend = 0x0BE2;
-    public const int GlBlendSrc = 0x0BE1;
-    public const int GlBlendDst = 0x0BE0;
-    public const int GlZero = 0;
-    public const int GlOne = 1;
-    public const int GlSrcColor = 0x0300;
-    public const int GlOneMinusSrcColor = 0x0301;
-    public const int GlSrcAlpha = 0x0302;
-    public const int GlOneMinusSrcAlpha = 0x0303;
-    public const int GlDstAlpha = 0x0304;
-    public const int GlOneMinusDstAlpha = 0x0305;
-    public const int GlDstColor = 0x0306;
-    public const int GlOneMinusDstColor = 0x0307;
-    public const int GlSrcAlphaSaturate = 0x0308;
-    public const int GlFeedback = 0x1C01;
-    public const int GlRender = 0x1C00;
-    public const int GlSelect = 0x1C02;
-    public const int Gl2d = 0x0600;
-    public const int Gl3d = 0x0601;
-    public const int Gl3dColor = 0x0602;
-    public const int Gl3dColorTexture = 0x0603;
-    public const int Gl4dColorTexture = 0x0604;
-    public const int GlPointToken = 0x0701;
-    public const int GlLineToken = 0x0702;
-    public const int GlLineResetToken = 0x0707;
-    public const int GlPolygonToken = 0x0703;
-    public const int GlBitmapToken = 0x0704;
-    public const int GlDrawPixelToken = 0x0705;
-    public const int GlCopyPixelToken = 0x0706;
-    public const int GlPassThroughToken = 0x0700;
-    public const int GlFeedbackBufferPointer = 0x0DF0;
-    public const int GlFeedbackBufferSize = 0x0DF1;
-    public const int GlFeedbackBufferType = 0x0DF2;
-    public const int GlSelectionBufferPointer = 0x0DF3;
-    public const int GlSelectionBufferSize = 0x0DF4;
-    public const int GlFog = 0x0B60;
-    public const int GlFogMode = 0x0B65;
-    public const int GlFogDensity = 0x0B62;
-    public const int GlFogColor = 0x0B66;
-    public const int GlFogIndex = 0x0B61;
-    public const int GlFogStart = 0x0B63;
-    public const int GlFogEnd = 0x0B64;
-    public const int GlLinear = 0x2601;
-    public const int GlExp = 0x0800;
-    public const int GlExp2 = 0x0801;
-    public const int GlLogicOp = 0x0BF1;
-    public const int GlIndexLogicOp = 0x0BF1;
-    public const int GlColorLogicOp = 0x0BF2;
-    public const int GlLogicOpMode = 0x0BF0;
-    public const int GlClear = 0x1500;
-    public const int GlSet = 0x150F;
-    public const int GlCopy = 0x1503;
-    public const int GlCopyInverted = 0x150C;
-    public const int GlNoop = 0x1505;
-    public const int GlInvert = 0x150A;
-    public const int GlAnd = 0x1501;
-    public const int GlNand = 0x150E;
-    public const int GlOr = 0x1507;
-    public const int GlNor = 0x1508;
-    public const int GlXor = 0x1506;
-    public const int GlEquiv = 0x1509;
-    public const int GlAndReverse = 0x1502;
-    public const int GlAndInverted = 0x1504;
-    public const int GlOrReverse = 0x150B;
-    public const int GlOrInverted = 0x150D;
-    public const int GlStencilBits = 0x0D57;
-    public const int GlStencilTest = 0x0B90;
-    public const int GlStencilClearValue = 0x0B91;
-    public const int GlStencilFunc = 0x0B92;
-    public const int GlStencilValueMask = 0x0B93;
-    public const int GlStencilFail = 0x0B94;
-    public const int GlStencilPassDepthFail = 0x0B95;
-    public const int GlStencilPassDepthPass = 0x0B96;
-    public const int GlStencilRef = 0x0B97;
-    public const int GlStencilWritemask = 0x0B98;
-    public const int GlStencilIndex = 0x1901;
-    public const int GlKeep = 0x1E00;
-    public const int GlReplace = 0x1E01;
-    public const int GlIncr = 0x1E02;
-    public const int GlDecr = 0x1E03;
-    public const int GlNone = 0;
-    public const int GlLeft = 0x0406;
-    public const int GlRight = 0x0407;
-    public const int GlFrontLeft = 0x0400;
-    public const int GlFrontRight = 0x0401;
-    public const int GlBackLeft = 0x0402;
-    public const int GlBackRight = 0x0403;
-    public const int GlAux0 = 0x0409;
-    public const int GlAux1 = 0x040A;
-    public const int GlAux2 = 0x040B;
-    public const int GlAux3 = 0x040C;
-    public const int GlColorIndex = 0x1900;
-    public const int GlRed = 0x1903;
-    public const int GlGreen = 0x1904;
-    public const int GlBlue = 0x1905;
-    public const int GlAlpha = 0x1906;
-    public const int GlLuminance = 0x1909;
-    public const int GlLuminanceAlpha = 0x190A;
-    public const int GlAlphaBits = 0x0D55;
-    public const int GlRedBits = 0x0D52;
-    public const int GlGreenBits = 0x0D53;
-    public const int GlBlueBits = 0x0D54;
-    public const int GlIndexBits = 0x0D51;
-    public const int GlSubpixelBits = 0x0D50;
-    public const int GlAuxBuffers = 0x0C00;
-    public const int GlReadBuffer = 0x0C02;
-    public const int GlDrawBuffer = 0x0C01;
-    public const int GlDoublebuffer = 0x0C32;
-    public const int GlStereo = 0x0C33;
-    public const int GlBitmap = 0x1A00;
-    public const int GlColor = 0x1800;
-    public const int GlDepth = 0x1801;
-    public const int GlStencil = 0x1802;
-    public const int GlDither = 0x0BD0;
-    public const int GlRgb = 0x1907;
-    public const int GlRgba = 0x1908;
-    public const int GlMaxListNesting = 0x0B31;
-    public const int GlMaxEvalOrder = 0x0D30;
-    public const int GlMaxLights = 0x0D31;
-    public const int GlMaxClipPlanes = 0x0D32;
-    public const int GlMaxTextureSize = 0x0D33;
-    public const int GlMaxPixelMapTable = 0x0D34;
-    public const int GlMaxAttribStackDepth = 0x0D35;
-    public const int GlMaxModelviewStackDepth = 0x0D36;
-    public const int GlMaxNameStackDepth = 0x0D37;
-    public const int GlMaxProjectionStackDepth = 0x0D38;
-    public const int GlMaxTextureStackDepth = 0x0D39;
-    public const int GlMaxViewportDims = 0x0D3A;
-    public const int GlMaxClientAttribStackDepth = 0x0D3B;
-    public const int GlAttribStackDepth = 0x0BB0;
-    public const int GlClientAttribStackDepth = 0x0BB1;
-    public const int GlColorClearValue = 0x0C22;
-    public const int GlColorWritemask = 0x0C23;
-    public const int GlCurrentIndex = 0x0B01;
-    public const int GlCurrentColor = 0x0B00;
-    public const int GlCurrentNormal = 0x0B02;
-    public const int GlCurrentRasterColor = 0x0B04;
-    public const int GlCurrentRasterDistance = 0x0B09;
-    public const int GlCurrentRasterIndex = 0x0B05;
-    public const int GlCurrentRasterPosition = 0x0B07;
-    public const int GlCurrentRasterTextureCoords = 0x0B06;
-    public const int GlCurrentRasterPositionValid = 0x0B08;
-    public const int GlCurrentTextureCoords = 0x0B03;
-    public const int GlIndexClearValue = 0x0C20;
-    public const int GlIndexMode = 0x0C30;
-    public const int GlIndexWritemask = 0x0C21;
-    public const int GlModelviewMatrix = 0x0BA6;
-    public const int GlModelviewStackDepth = 0x0BA3;
-    public const int GlNameStackDepth = 0x0D70;
-    public const int GlProjectionMatrix = 0x0BA7;
-    public const int GlProjectionStackDepth = 0x0BA4;
-    public const int GlRenderMode = 0x0C40;
-    public const int GlRgbaMode = 0x0C31;
-    public const int GlTextureMatrix = 0x0BA8;
-    public const int GlTextureStackDepth = 0x0BA5;
-    public const int GlViewport = 0x0BA2;
-    public const int GlAutoNormal = 0x0D80;
-    public const int GlMap1Color4 = 0x0D90;
-    public const int GlMap1Index = 0x0D91;
-    public const int GlMap1Normal = 0x0D92;
-    public const int GlMap1TextureCoord1 = 0x0D93;
-    public const int GlMap1TextureCoord2 = 0x0D94;
-    public const int GlMap1TextureCoord3 = 0x0D95;
-    public const int GlMap1TextureCoord4 = 0x0D96;
-    public const int GlMap1Vertex3 = 0x0D97;
-    public const int GlMap1Vertex4 = 0x0D98;
-    public const int GlMap2Color4 = 0x0DB0;
-    public const int GlMap2Index = 0x0DB1;
-    public const int GlMap2Normal = 0x0DB2;
-    public const int GlMap2TextureCoord1 = 0x0DB3;
-    public const int GlMap2TextureCoord2 = 0x0DB4;
-    public const int GlMap2TextureCoord3 = 0x0DB5;
-    public const int GlMap2TextureCoord4 = 0x0DB6;
-    public const int GlMap2Vertex3 = 0x0DB7;
-    public const int GlMap2Vertex4 = 0x0DB8;
-    public const int GlMap1GridDomain = 0x0DD0;
-    public const int GlMap1GridSegments = 0x0DD1;
-    public const int GlMap2GridDomain = 0x0DD2;
-    public const int GlMap2GridSegments = 0x0DD3;
-    public const int GlCoeff = 0x0A00;
-    public const int GlOrder = 0x0A01;
-    public const int GlDomain = 0x0A02;
-    public const int GlPerspectiveCorrectionHint = 0x0C50;
-    public const int GlPointSmoothHint = 0x0C51;
-    public const int GlLineSmoothHint = 0x0C52;
-    public const int GlPolygonSmoothHint = 0x0C53;
-    public const int GlFogHint = 0x0C54;
-    public const int GlDontCare = 0x1100;
-    public const int GlFastest = 0x1101;
-    public const int GlNicest = 0x1102;
-    public const int GlScissorBox = 0x0C10;
-    public const int GlScissorTest = 0x0C11;
-    public const int GlMapColor = 0x0D10;
-    public const int GlMapStencil = 0x0D11;
-    public const int GlIndexShift = 0x0D12;
-    public const int GlIndexOffset = 0x0D13;
-    public const int GlRedScale = 0x0D14;
-    public const int GlRedBias = 0x0D15;
-    public const int GlGreenScale = 0x0D18;
-    public const int GlGreenBias = 0x0D19;
-    public const int GlBlueScale = 0x0D1A;
-    public const int GlBlueBias = 0x0D1B;
-    public const int GlAlphaScale = 0x0D1C;
-    public const int GlAlphaBias = 0x0D1D;
-    public const int GlDepthScale = 0x0D1E;
-    public const int GlDepthBias = 0x0D1F;
-    public const int GlPixelMapSToSSize = 0x0CB1;
-    public const int GlPixelMapIToISize = 0x0CB0;
-    public const int GlPixelMapIToRSize = 0x0CB2;
-    public const int GlPixelMapIToGSize = 0x0CB3;
-    public const int GlPixelMapIToBSize = 0x0CB4;
-    public const int GlPixelMapIToASize = 0x0CB5;
-    public const int GlPixelMapRToRSize = 0x0CB6;
-    public const int GlPixelMapGToGSize = 0x0CB7;
-    public const int GlPixelMapBToBSize = 0x0CB8;
-    public const int GlPixelMapAToASize = 0x0CB9;
-    public const int GlPixelMapSToS = 0x0C71;
-    public const int GlPixelMapIToI = 0x0C70;
-    public const int GlPixelMapIToR = 0x0C72;
-    public const int GlPixelMapIToG = 0x0C73;
-    public const int GlPixelMapIToB = 0x0C74;
-    public const int GlPixelMapIToA = 0x0C75;
-    public const int GlPixelMapRToR = 0x0C76;
-    public const int GlPixelMapGToG = 0x0C77;
-    public const int GlPixelMapBToB = 0x0C78;
-    public const int GlPixelMapAToA = 0x0C79;
-    public const int GlPackAlignment = 0x0D05;
-    public const int GlPackLsbFirst = 0x0D01;
-    public const int GlPackRowLength = 0x0D02;
-    public const int GlPackSkipPixels = 0x0D04;
-    public const int GlPackSkipRows = 0x0D03;
-    public const int GlPackSwapBytes = 0x0D00;
-    public const int GlUnpackAlignment = 0x0CF5;
-    public const int GlUnpackLsbFirst = 0x0CF1;
-    public const int GlUnpackRowLength = 0x0CF2;
-    public const int GlUnpackSkipPixels = 0x0CF4;
-    public const int GlUnpackSkipRows = 0x0CF3;
-    public const int GlUnpackSwapBytes = 0x0CF0;
-    public const int GlZoomX = 0x0D16;
-    public const int GlZoomY = 0x0D17;
-    public const int GlTextureEnv = 0x2300;
-    public const int GlTextureEnvMode = 0x2200;
-    public const int GlTexture1d = 0x0DE0;
-    public const int GlTexture2d = 0x0DE1;
-    public const int GlTextureWrapS = 0x2802;
-    public const int GlTextureWrapT = 0x2803;
-    public const int GlTextureMagFilter = 0x2800;
-    public const int GlTextureMinFilter = 0x2801;
-    public const int GlTextureEnvColor = 0x2201;
-    public const int GlTextureGenS = 0x0C60;
-    public const int GlTextureGenT = 0x0C61;
-    public const int GlTextureGenR = 0x0C62;
-    public const int GlTextureGenQ = 0x0C63;
-    public const int GlTextureGenMode = 0x2500;
-    public const int GlTextureBorderColor = 0x1004;
-    public const int GlTextureWidth = 0x1000;
-    public const int GlTextureHeight = 0x1001;
-    public const int GlTextureBorder = 0x1005;
-    public const int GlTextureComponents = 0x1003;
-    public const int GlTextureRedSize = 0x805C;
-    public const int GlTextureGreenSize = 0x805D;
-    public const int GlTextureBlueSize = 0x805E;
-    public const int GlTextureAlphaSize = 0x805F;
-    public const int GlTextureLuminanceSize = 0x8060;
-    public const int GlTextureIntensitySize = 0x8061;
-    public const int GlNearestMipmapNearest = 0x2700;
-    public const int GlNearestMipmapLinear = 0x2702;
-    public const int GlLinearMipmapNearest = 0x2701;
-    public const int GlLinearMipmapLinear = 0x2703;
-    public const int GlObjectLinear = 0x2401;
-    public const int GlObjectPlane = 0x2501;
-    public const int GlEyeLinear = 0x2400;
-    public const int GlEyePlane = 0x2502;
-    public const int GlSphereMap = 0x2402;
-    public const int GlDecal = 0x2101;
-    public const int GlModulate = 0x2100;
-    public const int GlNearest = 0x2600;
-    public const int GlRepeat = 0x2901;
-    public const int GlClamp = 0x2900;
-    public const int GlS = 0x2000;
-    public const int GlT = 0x2001;
-    public const int GlR = 0x2002;
-    public const int GlQ = 0x2003;
-    public const int GlVendor = 0x1F00;
-    public const int GlRenderer = 0x1F01;
-    public const int GlVersion = 0x1F02;
-    public const int GlExtensions = 0x1F03;
-    public const int GlNoError = 0;
-    public const int GlInvalidEnum = 0x0500;
-    public const int GlInvalidValue = 0x0501;
-    public const int GlInvalidOperation = 0x0502;
-    public const int GlStackOverflow = 0x0503;
-    public const int GlStackUnderflow = 0x0504;
-    public const int GlOutOfMemory = 0x0505;
-    public const int GlCurrentBit = 0x00000001;
-    public const int GlPointBit = 0x00000002;
-    public const int GlLineBit = 0x00000004;
-    public const int GlPolygonBit = 0x00000008;
-    public const int GlPolygonStippleBit = 0x00000010;
-    public const int GlPixelModeBit = 0x00000020;
-    public const int GlLightingBit = 0x00000040;
-    public const int GlFogBit = 0x00000080;
-    public const int GlDepthBufferBit = 0x00000100;
-    public const int GlAccumBufferBit = 0x00000200;
-    public const int GlStencilBufferBit = 0x00000400;
-    public const int GlViewportBit = 0x00000800;
-    public const int GlTransformBit = 0x00001000;
-    public const int GlEnableBit = 0x00002000;
-    public const int GlColorBufferBit = 0x00004000;
-    public const int GlHintBit = 0x00008000;
-    public const int GlEvalBit = 0x00010000;
-    public const int GlListBit = 0x00020000;
-    public const int GlTextureBit = 0x00040000;
-    public const int GlScissorBit = 0x00080000;
-    public const int GlAllAttribBits = 0x000FFFFF;
-    public const int GlProxyTexture1d = 0x8063;
-    public const int GlProxyTexture2d = 0x8064;
-    public const int GlTexturePriority = 0x8066;
-    public const int GlTextureResident = 0x8067;
-    public const int GlTextureBinding1d = 0x8068;
-    public const int GlTextureBinding2d = 0x8069;
-    public const int GlTextureInternalFormat = 0x1003;
-    public const int GlAlpha4 = 0x803B;
-    public const int GlAlpha8 = 0x803C;
-    public const int GlAlpha12 = 0x803D;
-    public const int GlAlpha16 = 0x803E;
-    public const int GlLuminance4 = 0x803F;
-    public const int GlLuminance8 = 0x8040;
-    public const int GlLuminance12 = 0x8041;
-    public const int GlLuminance16 = 0x8042;
-    public const int GlLuminance4Alpha4 = 0x8043;
-    public const int GlLuminance6Alpha2 = 0x8044;
-    public const int GlLuminance8Alpha8 = 0x8045;
-    public const int GlLuminance12Alpha4 = 0x8046;
-    public const int GlLuminance12Alpha12 = 0x8047;
-    public const int GlLuminance16Alpha16 = 0x8048;
-    public const int GlIntensity = 0x8049;
-    public const int GlIntensity4 = 0x804A;
-    public const int GlIntensity8 = 0x804B;
-    public const int GlIntensity12 = 0x804C;
-    public const int GlIntensity16 = 0x804D;
-    public const int GlR3G3B2 = 0x2A10;
-    public const int GlRgb4 = 0x804F;
-    public const int GlRgb5 = 0x8050;
-    public const int GlRgb8 = 0x8051;
-    public const int GlRgb10 = 0x8052;
-    public const int GlRgb12 = 0x8053;
-    public const int GlRgb16 = 0x8054;
-    public const int GlRgba2 = 0x8055;
-    public const int GlRgba4 = 0x8056;
-    public const int GlRgb5A1 = 0x8057;
-    public const int GlRgba8 = 0x8058;
-    public const int GlRgb10A2 = 0x8059;
-    public const int GlRgba12 = 0x805A;
-    public const int GlRgba16 = 0x805B;
-    public const int GlClientPixelStoreBit = 0x00000001;
-    public const int GlClientVertexArrayBit = 0x00000002;
-    public const uint GlAllClientAttribBits = 0xFFFFFFFF;
-    public const uint GlClientAllAttribBits = 0xFFFFFFFF;
-    public const int GlRescaleNormal = 0x803A;
-    public const int GlClampToEdge = 0x812F;
-    public const int GlMaxElementsVertices = 0x80E8;
-    public const int GlMaxElementsIndices = 0x80E9;
-    public const int GlBgr = 0x80E0;
-    public const int GlBgra = 0x80E1;
-    public const int GlUnsignedByte332 = 0x8032;
-    public const int GlUnsignedByte233Rev = 0x8362;
-    public const int GlUnsignedShort565 = 0x8363;
-    public const int GlUnsignedShort565Rev = 0x8364;
-    public const int GlUnsignedShort4444 = 0x8033;
-    public const int GlUnsignedShort4444Rev = 0x8365;
-    public const int GlUnsignedShort5551 = 0x8034;
-    public const int GlUnsignedShort1555Rev = 0x8366;
-    public const int GlUnsignedInt8888 = 0x8035;
-    public const int GlUnsignedInt8888Rev = 0x8367;
-    public const int GlUnsignedInt1010102 = 0x8036;
-    public const int GlUnsignedInt2101010Rev = 0x8368;
-    public const int GlLightModelColorControl = 0x81F8;
-    public const int GlSingleColor = 0x81F9;
-    public const int GlSeparateSpecularColor = 0x81FA;
-    public const int GlTextureMinLod = 0x813A;
-    public const int GlTextureMaxLod = 0x813B;
-    public const int GlTextureBaseLevel = 0x813C;
-    public const int GlTextureMaxLevel = 0x813D;
-    public const int GlSmoothPointSizeRange = 0x0B12;
-    public const int GlSmoothPointSizeGranularity = 0x0B13;
-    public const int GlSmoothLineWidthRange = 0x0B22;
-    public const int GlSmoothLineWidthGranularity = 0x0B23;
-    public const int GlAliasedPointSizeRange = 0x846D;
-    public const int GlAliasedLineWidthRange = 0x846E;
-    public const int GlPackSkipImages = 0x806B;
-    public const int GlPackImageHeight = 0x806C;
-    public const int GlUnpackSkipImages = 0x806D;
-    public const int GlUnpackImageHeight = 0x806E;
-    public const int GlTexture3d = 0x806F;
-    public const int GlProxyTexture3d = 0x8070;
-    public const int GlTextureDepth = 0x8071;
-    public const int GlTextureWrapR = 0x8072;
-    public const int GlMax3dTextureSize = 0x8073;
-    public const int GlTextureBinding3d = 0x806A;
-    public const int GlConstantColor = 0x8001;
-    public const int GlOneMinusConstantColor = 0x8002;
-    public const int GlConstantAlpha = 0x8003;
-    public const int GlOneMinusConstantAlpha = 0x8004;
-    public const int GlColorTable = 0x80D0;
-    public const int GlPostConvolutionColorTable = 0x80D1;
-    public const int GlPostColorMatrixColorTable = 0x80D2;
-    public const int GlProxyColorTable = 0x80D3;
-    public const int GlProxyPostConvolutionColorTable = 0x80D4;
-    public const int GlProxyPostColorMatrixColorTable = 0x80D5;
-    public const int GlColorTableScale = 0x80D6;
-    public const int GlColorTableBias = 0x80D7;
-    public const int GlColorTableFormat = 0x80D8;
-    public const int GlColorTableWidth = 0x80D9;
-    public const int GlColorTableRedSize = 0x80DA;
-    public const int GlColorTableGreenSize = 0x80DB;
-    public const int GlColorTableBlueSize = 0x80DC;
-    public const int GlColorTableAlphaSize = 0x80DD;
-    public const int GlColorTableLuminanceSize = 0x80DE;
-    public const int GlColorTableIntensitySize = 0x80DF;
-    public const int GlConvolution1d = 0x8010;
-    public const int GlConvolution2d = 0x8011;
-    public const int GlSeparable2d = 0x8012;
-    public const int GlConvolutionBorderMode = 0x8013;
-    public const int GlConvolutionFilterScale = 0x8014;
-    public const int GlConvolutionFilterBias = 0x8015;
-    public const int GlReduce = 0x8016;
-    public const int GlConvolutionFormat = 0x8017;
-    public const int GlConvolutionWidth = 0x8018;
-    public const int GlConvolutionHeight = 0x8019;
-    public const int GlMaxConvolutionWidth = 0x801A;
-    public const int GlMaxConvolutionHeight = 0x801B;
-    public const int GlPostConvolutionRedScale = 0x801C;
-    public const int GlPostConvolutionGreenScale = 0x801D;
-    public const int GlPostConvolutionBlueScale = 0x801E;
-    public const int GlPostConvolutionAlphaScale = 0x801F;
-    public const int GlPostConvolutionRedBias = 0x8020;
-    public const int GlPostConvolutionGreenBias = 0x8021;
-    public const int GlPostConvolutionBlueBias = 0x8022;
-    public const int GlPostConvolutionAlphaBias = 0x8023;
-    public const int GlConstantBorder = 0x8151;
-    public const int GlReplicateBorder = 0x8153;
-    public const int GlConvolutionBorderColor = 0x8154;
-    public const int GlColorMatrix = 0x80B1;
-    public const int GlColorMatrixStackDepth = 0x80B2;
-    public const int GlMaxColorMatrixStackDepth = 0x80B3;
-    public const int GlPostColorMatrixRedScale = 0x80B4;
-    public const int GlPostColorMatrixGreenScale = 0x80B5;
-    public const int GlPostColorMatrixBlueScale = 0x80B6;
-    public const int GlPostColorMatrixAlphaScale = 0x80B7;
-    public const int GlPostColorMatrixRedBias = 0x80B8;
-    public const int GlPostColorMatrixGreenBias = 0x80B9;
-    public const int GlPostColorMatrixBlueBias = 0x80BA;
-    public const int GlPostColorMatrixAlphaBias = 0x80BB;
-    public const int GlHistogram = 0x8024;
-    public const int GlProxyHistogram = 0x8025;
-    public const int GlHistogramWidth = 0x8026;
-    public const int GlHistogramFormat = 0x8027;
-    public const int GlHistogramRedSize = 0x8028;
-    public const int GlHistogramGreenSize = 0x8029;
-    public const int GlHistogramBlueSize = 0x802A;
-    public const int GlHistogramAlphaSize = 0x802B;
-    public const int GlHistogramLuminanceSize = 0x802C;
-    public const int GlHistogramSink = 0x802D;
-    public const int GlMinmax = 0x802E;
-    public const int GlMinmaxFormat = 0x802F;
-    public const int GlMinmaxSink = 0x8030;
-    public const int GlTableTooLarge = 0x8031;
-    public const int GlBlendEquation = 0x8009;
-    public const int GlMin = 0x8007;
-    public const int GlMax = 0x8008;
-    public const int GlFuncAdd = 0x8006;
-    public const int GlFuncSubtract = 0x800A;
-    public const int GlFuncReverseSubtract = 0x800B;
-    public const int GlBlendColor = 0x8005;
-    public const int GlTexture0 = 0x84C0;
-    public const int GlTexture1 = 0x84C1;
-    public const int GlTexture2 = 0x84C2;
-    public const int GlTexture3 = 0x84C3;
-    public const int GlTexture4 = 0x84C4;
-    public const int GlTexture5 = 0x84C5;
-    public const int GlTexture6 = 0x84C6;
-    public const int GlTexture7 = 0x84C7;
-    public const int GlTexture8 = 0x84C8;
-    public const int GlTexture9 = 0x84C9;
-    public const int GlTexture10 = 0x84CA;
-    public const int GlTexture11 = 0x84CB;
-    public const int GlTexture12 = 0x84CC;
-    public const int GlTexture13 = 0x84CD;
-    public const int GlTexture14 = 0x84CE;
-    public const int GlTexture15 = 0x84CF;
-    public const int GlTexture16 = 0x84D0;
-    public const int GlTexture17 = 0x84D1;
-    public const int GlTexture18 = 0x84D2;
-    public const int GlTexture19 = 0x84D3;
-    public const int GlTexture20 = 0x84D4;
-    public const int GlTexture21 = 0x84D5;
-    public const int GlTexture22 = 0x84D6;
-    public const int GlTexture23 = 0x84D7;
-    public const int GlTexture24 = 0x84D8;
-    public const int GlTexture25 = 0x84D9;
-    public const int GlTexture26 = 0x84DA;
-    public const int GlTexture27 = 0x84DB;
-    public const int GlTexture28 = 0x84DC;
-    public const int GlTexture29 = 0x84DD;
-    public const int GlTexture30 = 0x84DE;
-    public const int GlTexture31 = 0x84DF;
-    public const int GlActiveTexture = 0x84E0;
-    public const int GlClientActiveTexture = 0x84E1;
-    public const int GlMaxTextureUnits = 0x84E2;
-    public const int GlNormalMap = 0x8511;
-    public const int GlReflectionMap = 0x8512;
-    public const int GlTextureCubeMap = 0x8513;
-    public const int GlTextureBindingCubeMap = 0x8514;
-    public const int GlTextureCubeMapPositiveX = 0x8515;
-    public const int GlTextureCubeMapNegativeX = 0x8516;
-    public const int GlTextureCubeMapPositiveY = 0x8517;
-    public const int GlTextureCubeMapNegativeY = 0x8518;
-    public const int GlTextureCubeMapPositiveZ = 0x8519;
-    public const int GlTextureCubeMapNegativeZ = 0x851A;
-    public const int GlProxyTextureCubeMap = 0x851B;
-    public const int GlMaxCubeMapTextureSize = 0x851C;
-    public const int GlCompressedAlpha = 0x84E9;
-    public const int GlCompressedLuminance = 0x84EA;
-    public const int GlCompressedLuminanceAlpha = 0x84EB;
-    public const int GlCompressedIntensity = 0x84EC;
-    public const int GlCompressedRgb = 0x84ED;
-    public const int GlCompressedRgba = 0x84EE;
-    public const int GlTextureCompressionHint = 0x84EF;
-    public const int GlTextureCompressedImageSize = 0x86A0;
-    public const int GlTextureCompressed = 0x86A1;
-    public const int GlNumCompressedTextureFormats = 0x86A2;
-    public const int GlCompressedTextureFormats = 0x86A3;
-    public const int GlMultisample = 0x809D;
-    public const int GlSampleAlphaToCoverage = 0x809E;
-    public const int GlSampleAlphaToOne = 0x809F;
-    public const int GlSampleCoverage = 0x80A0;
-    public const int GlSampleBuffers = 0x80A8;
-    public const int GlSamples = 0x80A9;
-    public const int GlSampleCoverageValue = 0x80AA;
-    public const int GlSampleCoverageInvert = 0x80AB;
-    public const int GlMultisampleBit = 0x20000000;
-    public const int GlTransposeModelviewMatrix = 0x84E3;
-    public const int GlTransposeProjectionMatrix = 0x84E4;
-    public const int GlTransposeTextureMatrix = 0x84E5;
-    public const int GlTransposeColorMatrix = 0x84E6;
-    public const int GlCombine = 0x8570;
-    public const int GlCombineRgb = 0x8571;
-    public const int GlCombineAlpha = 0x8572;
-    public const int GlSource0Rgb = 0x8580;
-    public const int GlSource1Rgb = 0x8581;
-    public const int GlSource2Rgb = 0x8582;
-    public const int GlSource0Alpha = 0x8588;
-    public const int GlSource1Alpha = 0x8589;
-    public const int GlSource2Alpha = 0x858A;
-    public const int GlOperand0Rgb = 0x8590;
-    public const int GlOperand1Rgb = 0x8591;
-    public const int GlOperand2Rgb = 0x8592;
-    public const int GlOperand0Alpha = 0x8598;
-    public const int GlOperand1Alpha = 0x8599;
-    public const int GlOperand2Alpha = 0x859A;
-    public const int GlRgbScale = 0x8573;
-    public const int GlAddSigned = 0x8574;
-    public const int GlInterpolate = 0x8575;
-    public const int GlSubtract = 0x84E7;
-    public const int GlConstant = 0x8576;
-    public const int GlPrimaryColor = 0x8577;
-    public const int GlPrevious = 0x8578;
-    public const int GlDot3Rgb = 0x86AE;
-    public const int GlDot3Rgba = 0x86AF;
-    public const int GlClampToBorder = 0x812D;
-    public const int GlArbMultitexture = 1;
-    public const int GlTexture0Arb = 0x84C0;
-    public const int GlTexture1Arb = 0x84C1;
-    public const int GlTexture2Arb = 0x84C2;
-    public const int GlTexture3Arb = 0x84C3;
-    public const int GlTexture4Arb = 0x84C4;
-    public const int GlTexture5Arb = 0x84C5;
-    public const int GlTexture6Arb = 0x84C6;
-    public const int GlTexture7Arb = 0x84C7;
-    public const int GlTexture8Arb = 0x84C8;
-    public const int GlTexture9Arb = 0x84C9;
-    public const int GlTexture10Arb = 0x84CA;
-    public const int GlTexture11Arb = 0x84CB;
-    public const int GlTexture12Arb = 0x84CC;
-    public const int GlTexture13Arb = 0x84CD;
-    public const int GlTexture14Arb = 0x84CE;
-    public const int GlTexture15Arb = 0x84CF;
-    public const int GlTexture16Arb = 0x84D0;
-    public const int GlTexture17Arb = 0x84D1;
-    public const int GlTexture18Arb = 0x84D2;
-    public const int GlTexture19Arb = 0x84D3;
-    public const int GlTexture20Arb = 0x84D4;
-    public const int GlTexture21Arb = 0x84D5;
-    public const int GlTexture22Arb = 0x84D6;
-    public const int GlTexture23Arb = 0x84D7;
-    public const int GlTexture24Arb = 0x84D8;
-    public const int GlTexture25Arb = 0x84D9;
-    public const int GlTexture26Arb = 0x84DA;
-    public const int GlTexture27Arb = 0x84DB;
-    public const int GlTexture28Arb = 0x84DC;
-    public const int GlTexture29Arb = 0x84DD;
-    public const int GlTexture30Arb = 0x84DE;
-    public const int GlTexture31Arb = 0x84DF;
-    public const int GlActiveTextureArb = 0x84E0;
-    public const int GlClientActiveTextureArb = 0x84E1;
-    public const int GlMaxTextureUnitsArb = 0x84E2;
     public const uint PenInputDown = (1U << 0);
     public const uint PenInputButton1 = (1U << 1);
     public const uint PenInputButton2 = (1U << 2);
@@ -1519,8 +709,6 @@ public static unsafe partial class SDL
     public const float AlphaOpaqueFloat = 1.0f;
     public const int AlphaTransparent = 0;
     public const float AlphaTransparentFloat = 0.0f;
-    public const int PlatformLinux = 1;
-    public const int PlatformUnix = 1;
     public const string PropProcessCreateArgsPointer = "SDL.process.create.args";
     public const string PropProcessCreateEnvironmentPointer = "SDL.process.create.environment";
     public const string PropProcessCreateWorkingDirectoryString = "SDL.process.create.working_directory";
@@ -1645,30 +833,6 @@ public static unsafe partial class SDL
     public const int DebugTextFontCharacterSize = 8;
     public const string Revision = "";
     public const float StandardGravity = 9.80665f;
-    public const sbyte MaxSint8 = ((sbyte)(0x7F));
-    public const sbyte MinSint8 = ((sbyte)(~0x7F));
-    public const byte MaxUint8 = ((byte)(0xFF));
-    public const byte MinUint8 = ((byte)(0x00));
-    public const short MaxSint16 = ((short)(0x7FFF));
-    public const short MinSint16 = ((short)(~0x7FFF));
-    public const ushort MaxUint16 = ((ushort)(0xFFFF));
-    public const ushort MinUint16 = ((ushort)(0x0000));
-    public const int MaxSint32 = ((int)(0x7FFFFFFF));
-    public const int MinSint32 = ((int)(~0x7FFFFFFF));
-    public const uint MaxUint32 = ((uint)(0xFFFFFFFFU));
-    public const uint MinUint32 = ((uint)(0x00000000));
-    public const nuint MinUint64 = 0x0000000000000000U;
-    public const float FltEpsilon = 1.1920928955078125e-07F;
-    public const string Pris64 = "ld";
-    public const string Priu64 = "lu";
-    public const string Pris32 = "d";
-    public const string Priu32 = "u";
-    public const string PrillPrefix = "ll";
-    public const string Prilld = "lld";
-    public const string Prillu = "llu";
-    public const int InvalidUnicodeCodepoint = 0xFFFD;
-    public const double PiD = 3.141592653589793238462643383279502884;
-    public const float PiF = 3.141592653589793238462643383279502884F;
     public const uint SurfacePreallocated = 0x00000001U;
     public const uint SurfaceLockNeeded = 0x00000002U;
     public const uint SurfaceLocked = 0x00000004U;
@@ -1792,15 +956,6 @@ public static unsafe partial class SDL
     public const string PropWindowX11WindowNumber = "SDL.window.x11.window";
     public const string PropWindowEmscriptenCanvasIdString = "SDL.window.emscripten.canvas_id";
     public const string PropWindowEmscriptenKeyboardElementString = "SDL.window.emscripten.keyboard_element";
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ReportAssertion")]
-    public static partial AssertState ReportAssertion(AssertData* data, [MarshalAs(UnmanagedType.LPStr)] string func, [MarshalAs(UnmanagedType.LPStr)] string file, int line);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetAssertionReport")]
-    public static partial AssertData* GetAssertionReport();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ResetAssertionReport")]
-    public static partial void ResetAssertionReport();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AsyncIOFromFile")]
     public static partial AsyncIO AsyncIOFromFile([MarshalAs(UnmanagedType.LPStr)] string file, [MarshalAs(UnmanagedType.LPStr)] string mode);
@@ -2062,6 +1217,24 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool UnlockAudioStream(AudioStream stream);
 
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyAudioStream")]
+    public static partial void DestroyAudioStream(AudioStream stream);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream")]
+    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);*/
+
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadWAV_IO")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool LoadWAVIO(IOStream src, byte closeio, AudioSpec* spec, byte** audioBuf, uint* audioLen);
@@ -2269,8 +1442,13 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowFileDialogWithProperties")]
     public static partial void ShowFileDialogWithProperties(FileDialogType type, delegate* unmanaged[Cdecl]<void*, sbyte**, int, void> callback, void* userdata, uint props);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SwapFloat")]
-    public static partial float SwapFloat(float x);
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetError")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetError([MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_SetErrorV")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetErrorV([MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OutOfMemory")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2320,6 +1498,23 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool PushEvent(Event* @event);
 
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventFilter")]
+    public static partial void SetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_GetEventFilter")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool GetEventFilter(delegate* unmanaged[Cdecl]<void*, SDL_Event*, by**** filter, void** userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_AddEventWatch")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool AddEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveEventWatch")]
+    public static partial void RemoveEventWatch(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_FilterEvents")]
+    public static partial void FilterEvents(delegate* unmanaged[Cdecl]<void*, SDL_Event*, byte> filter, void* userdata);*/
+
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventEnabled")]
     public static partial void SetEventEnabled(uint type, byte enabled);
 
@@ -2351,6 +1546,10 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateDirectory")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CreateDirectory([MarshalAs(UnmanagedType.LPStr)] string path);
+
+    /*todo [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateDirectory")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool EnumerateDirectory([MarshalAs(UnmanagedType.LPStr)] string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemovePath")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2521,6 +1720,9 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_GamepadEventsEnabled")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GamepadEventsEnabled();
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings")]
+    public static partial GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateGamepads")]
     public static partial void UpdateGamepads();
@@ -2879,7 +2081,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitAndAcquireGPUSwapchainTexture")]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SubmitGPUCommandBuffer")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3192,6 +2394,9 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_IOFromDynamicMem")]
     public static partial IOStream IOFromDynamicMem();
 
+    /*[LibraryImport(LibraryName, EntryPoint = "SDL_OpenIO")]
+    public static partial IOStream OpenIO(IOStreamInterface* iface, void* userdata);*/
+
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseIO")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CloseIO(IOStream context);
@@ -3216,6 +2421,12 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteIO")]
     public static partial nuint WriteIO(IOStream context, void* ptr, nuint size);
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_IOprintf")]
+    public static partial nuint IOprintf(IOStream context, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_IOvprintf")]
+    public static partial nuint IOvprintf(IOStream context, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlushIO")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3659,17 +2870,44 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetLogPriorityPrefix(LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string prefix);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_main")]
-    public static partial int Main(int argc, sbyte** argv);
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_Log")]
+    public static partial void Log([MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetMainReady")]
-    public static partial void SetMainReady();
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogTrace")]
+    public static partial void LogTrace(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_RunApp")]
-    public static partial int RunApp(int argc, sbyte** argv, delegate* unmanaged[Cdecl]<int, sbyte**, int> mainfunction, void* reserved);
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogVerbose")]
+    public static partial void LogVerbose(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GDKSuspendComplete")]
-    public static partial void GDKSuspendComplete();
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogDebug")]
+    public static partial void LogDebug(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogInfo")]
+    public static partial void LogInfo(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogWarn")]
+    public static partial void LogWarn(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogError")]
+    public static partial void LogError(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogCritical")]
+    public static partial void LogCritical(int category, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessage")]
+    public static partial void LogMessage(int category, LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessageV")]
+    public static partial void LogMessageV(int category, LogPriority priority, [MarshalAs(UnmanagedType.LPStr)] string fmt, __va_list_tag* ap);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_GetDefaultLogOutputFunction")]
+    public static partial delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> GetDefaultLogOutputFunction();
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_GetLogOutputFunction")]
+    public static partial void GetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, vo**** callback, void** userdata);
+
+    [LibraryImport(LibraryName, EntryPoint = "SDL_SetLogOutputFunction")]
+    public static partial void SetLogOutputFunction(delegate* unmanaged[Cdecl]<void*, int, SDL_LogPriority, sbyte*, void> callback, void* userdata);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowMessageBox")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3721,6 +2959,10 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_WarpMouseGlobal")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool WarpMouseGlobal(float x, float y);
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetRelativeMouseTransform")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetRelativeMouseTransform(delegate* unmanaged[Cdecl]<void*, ulong, SDL_Window*, uint, float*, float*, void> callback, void* userdata);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowRelativeMouseMode")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -4443,6 +3685,10 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool RenderDebugText(Renderer renderer, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string str);
 
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_RenderDebugTextFormat")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool RenderDebugTextFormat(Renderer renderer, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string fmt, __arglist );*/
+
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetDefaultTextureScaleMode")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetDefaultTextureScaleMode(Renderer renderer, ScaleMode scaleMode);
@@ -4510,516 +3756,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateSensors")]
     public static partial void UpdateSensors();
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_malloc")]
-    public static partial void* Malloc(nuint size);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_calloc")]
-    public static partial void* Calloc(nuint nmemb, nuint size);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_realloc")]
-    public static partial void* Realloc(void* mem, nuint size);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_free")]
-    public static partial void Free(void* mem);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetMemoryFunctions")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetMemoryFunctions(delegate* unmanaged[Cdecl]<nuint, void*> mallocFunc, delegate* unmanaged[Cdecl]<nuint, nuint, void*> callocFunc, delegate* unmanaged[Cdecl]<void*, nuint, void*> reallocFunc, delegate* unmanaged[Cdecl]<void*, void> freeFunc);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_aligned_alloc")]
-    public static partial void* AlignedAlloc(nuint alignment, nuint size);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_aligned_free")]
-    public static partial void AlignedFree(void* mem);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetNumAllocations")]
-    public static partial int GetNumAllocations();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetEnvironment")]
-    public static partial Environment GetEnvironment();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_CreateEnvironment")]
-    public static partial Environment CreateEnvironment(byte populated);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetEnvironmentVariable")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string GetEnvironmentVariable(Environment env, [MarshalAs(UnmanagedType.LPStr)] string name);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetEnvironmentVariables")]
-    public static partial sbyte** GetEnvironmentVariables(Environment env);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetEnvironmentVariable")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetEnvironmentVariable(Environment env, [MarshalAs(UnmanagedType.LPStr)] string name, [MarshalAs(UnmanagedType.LPStr)] string value, byte overwrite);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_UnsetEnvironmentVariable")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool UnsetEnvironmentVariable(Environment env, [MarshalAs(UnmanagedType.LPStr)] string name);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyEnvironment")]
-    public static partial void DestroyEnvironment(Environment env);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_getenv")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Getenv([MarshalAs(UnmanagedType.LPStr)] string name);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_getenv_unsafe")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string GetenvUnsafe([MarshalAs(UnmanagedType.LPStr)] string name);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_setenv_unsafe")]
-    public static partial int SetenvUnsafe([MarshalAs(UnmanagedType.LPStr)] string name, [MarshalAs(UnmanagedType.LPStr)] string value, int overwrite);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_unsetenv_unsafe")]
-    public static partial int UnsetenvUnsafe([MarshalAs(UnmanagedType.LPStr)] string name);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_qsort")]
-    public static partial void Qsort(void* @base, nuint nmemb, nuint size, delegate* unmanaged[Cdecl]<void*, void*, int> compare);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_bsearch")]
-    public static partial void* Bsearch(void* key, void* @base, nuint nmemb, nuint size, delegate* unmanaged[Cdecl]<void*, void*, int> compare);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_qsort_r")]
-    public static partial void QsortR(void* @base, nuint nmemb, nuint size, delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_bsearch_r")]
-    public static partial void* BsearchR(void* key, void* @base, nuint nmemb, nuint size, delegate* unmanaged[Cdecl]<void*, void*, void*, int> compare, void* userdata);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_abs")]
-    public static partial int Abs(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isalpha")]
-    public static partial int Isalpha(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isalnum")]
-    public static partial int Isalnum(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isblank")]
-    public static partial int Isblank(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_iscntrl")]
-    public static partial int Iscntrl(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isdigit")]
-    public static partial int Isdigit(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isxdigit")]
-    public static partial int Isxdigit(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ispunct")]
-    public static partial int Ispunct(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isspace")]
-    public static partial int Isspace(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isupper")]
-    public static partial int Isupper(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_islower")]
-    public static partial int Islower(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isprint")]
-    public static partial int Isprint(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isgraph")]
-    public static partial int Isgraph(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_toupper")]
-    public static partial int Toupper(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_tolower")]
-    public static partial int Tolower(int x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_crc16")]
-    public static partial ushort Crc16(ushort crc, void* data, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_crc32")]
-    public static partial uint Crc32(uint crc, void* data, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_murmur3_32")]
-    public static partial uint Murmur332(void* data, nuint len, uint seed);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_memcpy")]
-    public static partial void* Memcpy(void* dst, void* src, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_memmove")]
-    public static partial void* Memmove(void* dst, void* src, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_memset")]
-    public static partial void* Memset(void* dst, int c, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_memset4")]
-    public static partial void* Memset4(void* dst, uint val, nuint dwords);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_memcmp")]
-    public static partial int Memcmp(void* s1, void* s2, nuint len);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcslen")]
-    public static partial nuint Wcslen(uint* wstr);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsnlen")]
-    public static partial nuint Wcsnlen(uint* wstr, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcslcpy")]
-    public static partial nuint Wcslcpy(uint* dst, uint* src, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcslcat")]
-    public static partial nuint Wcslcat(uint* dst, uint* src, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsdup")]
-    public static partial uint* Wcsdup(uint* wstr);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsstr")]
-    public static partial uint* Wcsstr(uint* haystack, uint* needle);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsnstr")]
-    public static partial uint* Wcsnstr(uint* haystack, uint* needle, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcscmp")]
-    public static partial int Wcscmp(uint* str1, uint* str2);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsncmp")]
-    public static partial int Wcsncmp(uint* str1, uint* str2, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcscasecmp")]
-    public static partial int Wcscasecmp(uint* str1, uint* str2);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcsncasecmp")]
-    public static partial int Wcsncasecmp(uint* str1, uint* str2, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_wcstol")]
-    public static partial nint Wcstol(uint* str, uint** endp, int @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strlen")]
-    public static partial nuint Strlen([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strnlen")]
-    public static partial nuint Strnlen([MarshalAs(UnmanagedType.LPStr)] string str, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strlcpy")]
-    public static partial nuint Strlcpy([MarshalAs(UnmanagedType.LPStr)] string dst, [MarshalAs(UnmanagedType.LPStr)] string src, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_utf8strlcpy")]
-    public static partial nuint Utf8strlcpy([MarshalAs(UnmanagedType.LPStr)] string dst, [MarshalAs(UnmanagedType.LPStr)] string src, nuint dstBytes);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strlcat")]
-    public static partial nuint Strlcat([MarshalAs(UnmanagedType.LPStr)] string dst, [MarshalAs(UnmanagedType.LPStr)] string src, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strdup")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strdup([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strndup")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strndup([MarshalAs(UnmanagedType.LPStr)] string str, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strrev")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strrev([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strupr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strupr([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strlwr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strlwr([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strchr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strchr([MarshalAs(UnmanagedType.LPStr)] string str, int c);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strrchr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strrchr([MarshalAs(UnmanagedType.LPStr)] string str, int c);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strstr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strstr([MarshalAs(UnmanagedType.LPStr)] string haystack, [MarshalAs(UnmanagedType.LPStr)] string needle);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strnstr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strnstr([MarshalAs(UnmanagedType.LPStr)] string haystack, [MarshalAs(UnmanagedType.LPStr)] string needle, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strcasestr")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strcasestr([MarshalAs(UnmanagedType.LPStr)] string haystack, [MarshalAs(UnmanagedType.LPStr)] string needle);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtok_r")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string StrtokR([MarshalAs(UnmanagedType.LPStr)] string str, [MarshalAs(UnmanagedType.LPStr)] string delim, sbyte** saveptr);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_utf8strlen")]
-    public static partial nuint Utf8strlen([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_utf8strnlen")]
-    public static partial nuint Utf8strnlen([MarshalAs(UnmanagedType.LPStr)] string str, nuint bytes);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_itoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Itoa(int value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_uitoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Uitoa(uint value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ltoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Ltoa(nint value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ultoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Ultoa(nuint value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_lltoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Lltoa(long value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ulltoa")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Ulltoa(ulong value, [MarshalAs(UnmanagedType.LPStr)] string str, int radix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atoi")]
-    public static partial int Atoi([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atof")]
-    public static partial double Atof([MarshalAs(UnmanagedType.LPStr)] string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtol")]
-    public static partial nint Strtol([MarshalAs(UnmanagedType.LPStr)] string str, sbyte** endp, int @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtoul")]
-    public static partial nuint Strtoul([MarshalAs(UnmanagedType.LPStr)] string str, sbyte** endp, int @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtoll")]
-    public static partial long Strtoll([MarshalAs(UnmanagedType.LPStr)] string str, sbyte** endp, int @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtoull")]
-    public static partial ulong Strtoull([MarshalAs(UnmanagedType.LPStr)] string str, sbyte** endp, int @base);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strtod")]
-    public static partial double Strtod([MarshalAs(UnmanagedType.LPStr)] string str, sbyte** endp);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strcmp")]
-    public static partial int Strcmp([MarshalAs(UnmanagedType.LPStr)] string str1, [MarshalAs(UnmanagedType.LPStr)] string str2);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strncmp")]
-    public static partial int Strncmp([MarshalAs(UnmanagedType.LPStr)] string str1, [MarshalAs(UnmanagedType.LPStr)] string str2, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strcasecmp")]
-    public static partial int Strcasecmp([MarshalAs(UnmanagedType.LPStr)] string str1, [MarshalAs(UnmanagedType.LPStr)] string str2);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strncasecmp")]
-    public static partial int Strncasecmp([MarshalAs(UnmanagedType.LPStr)] string str1, [MarshalAs(UnmanagedType.LPStr)] string str2, nuint maxlen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_strpbrk")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string Strpbrk([MarshalAs(UnmanagedType.LPStr)] string str, [MarshalAs(UnmanagedType.LPStr)] string breakset);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_StepUTF8")]
-    public static partial uint StepUTF8(sbyte** pstr, nuint* pslen);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_StepBackUTF8")]
-    public static partial uint StepBackUTF8([MarshalAs(UnmanagedType.LPStr)] string start, sbyte** pstr);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_UCS4ToUTF8")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string UCS4ToUTF8(uint codepoint, [MarshalAs(UnmanagedType.LPStr)] string dst);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_srand")]
-    public static partial void Srand(ulong seed);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_rand")]
-    public static partial int Rand(int n);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_randf")]
-    public static partial float Randf();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_rand_bits")]
-    public static partial uint RandBits();
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_rand_r")]
-    public static partial int RandR(ulong* state, int n);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_randf_r")]
-    public static partial float RandfR(ulong* state);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_rand_bits_r")]
-    public static partial uint RandBitsR(ulong* state);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_acos")]
-    public static partial double Acos(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_acosf")]
-    public static partial float Acosf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_asin")]
-    public static partial double Asin(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_asinf")]
-    public static partial float Asinf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atan")]
-    public static partial double Atan(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atanf")]
-    public static partial float Atanf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atan2")]
-    public static partial double Atan2(double y, double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_atan2f")]
-    public static partial float Atan2f(float y, float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ceil")]
-    public static partial double Ceil(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_ceilf")]
-    public static partial float Ceilf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_copysign")]
-    public static partial double Copysign(double x, double y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_copysignf")]
-    public static partial float Copysignf(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_cos")]
-    public static partial double Cos(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_cosf")]
-    public static partial float Cosf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_exp")]
-    public static partial double Exp(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_expf")]
-    public static partial float Expf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_fabs")]
-    public static partial double Fabs(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_fabsf")]
-    public static partial float Fabsf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_floor")]
-    public static partial double Floor(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_floorf")]
-    public static partial float Floorf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_trunc")]
-    public static partial double Trunc(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_truncf")]
-    public static partial float Truncf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_fmod")]
-    public static partial double Fmod(double x, double y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_fmodf")]
-    public static partial float Fmodf(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isinf")]
-    public static partial int Isinf(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isinff")]
-    public static partial int Isinff(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isnan")]
-    public static partial int Isnan(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_isnanf")]
-    public static partial int Isnanf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_log")]
-    public static partial double Log(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_logf")]
-    public static partial float Logf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_log10")]
-    public static partial double Log10(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_log10f")]
-    public static partial float Log10f(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_modf")]
-    public static partial double Modf(double x, double* y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_modff")]
-    public static partial float Modff(float x, float* y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_pow")]
-    public static partial double Pow(double x, double y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_powf")]
-    public static partial float Powf(float x, float y);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_round")]
-    public static partial double Round(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_roundf")]
-    public static partial float Roundf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_lround")]
-    public static partial nint Lround(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_lroundf")]
-    public static partial nint Lroundf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_scalbn")]
-    public static partial double Scalbn(double x, int n);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_scalbnf")]
-    public static partial float Scalbnf(float x, int n);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_sin")]
-    public static partial double Sin(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_sinf")]
-    public static partial float Sinf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_sqrt")]
-    public static partial double Sqrt(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_sqrtf")]
-    public static partial float Sqrtf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_tan")]
-    public static partial double Tan(double x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_tanf")]
-    public static partial float Tanf(float x);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_iconv_open")]
-    public static partial IconvDataT IconvOpen([MarshalAs(UnmanagedType.LPStr)] string tocode, [MarshalAs(UnmanagedType.LPStr)] string fromcode);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_iconv_close")]
-    public static partial int IconvClose(IconvDataT cd);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_iconv")]
-    public static partial nuint Iconv(IconvDataT cd, sbyte** inbuf, nuint* inbytesleft, sbyte** outbuf, nuint* outbytesleft);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_iconv_string")]
-    [return: MarshalAs(UnmanagedType.LPStr)]
-    public static partial string IconvString([MarshalAs(UnmanagedType.LPStr)] string tocode, [MarshalAs(UnmanagedType.LPStr)] string fromcode, [MarshalAs(UnmanagedType.LPStr)] string inbuf, nuint inbytesleft);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_size_mul_check_overflow")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SizeMulCheckOverflow(nuint a, nuint b, nuint* ret);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_size_mul_check_overflow_builtin")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SizeMulCheckOverflowBuiltin(nuint a, nuint b, nuint* ret);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_size_add_check_overflow")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SizeAddCheckOverflow(nuint a, nuint b, nuint* ret);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_size_add_check_overflow_builtin")]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SizeAddCheckOverflowBuiltin(nuint a, nuint b, nuint* ret);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenTitleStorage")]
     public static partial Storage OpenTitleStorage([MarshalAs(UnmanagedType.LPStr)] string @override, uint props);
 
@@ -5055,6 +3791,10 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateStorageDirectory")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CreateStorageDirectory(Storage storage, [MarshalAs(UnmanagedType.LPStr)] string path);
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateStorageDirectory")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool EnumerateStorageDirectory(Storage storage, [MarshalAs(UnmanagedType.LPStr)] string path, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult> callback, void* userdata);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveStoragePath")]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -5315,6 +4055,9 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool WriteSurfacePixelFloat(Surface* surface, int x, int y, float r, float g, float b, float a);
 
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetX11EventHook")]
+    public static partial void SetX11EventHook(delegate* unmanaged[Cdecl]<void*, _XEvent*, byte> callback, void* userdata);*/
+
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetLinuxThreadPriority")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetLinuxThreadPriority(long threadid, int priority);
@@ -5516,6 +4259,9 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTrayEntryEnabled")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GetTrayEntryEnabled(TrayEntry entry);
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetTrayEntryCallback")]
+    public static partial void SetTrayEntryCallback(TrayEntry entry, delegate* unmanaged[Cdecl]<void*, SDL_TrayEntry*, void> callback, void* userdata);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ClickTrayEntry")]
     public static partial void ClickTrayEntry(TrayEntry entry);
@@ -5841,6 +4587,10 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowWindowSystemMenu")]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool ShowWindowSystemMenu(Window window, int x, int y);
+
+    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowHitTest")]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SetWindowHitTest(Window window, delegate* unmanaged[Cdecl]<SDL_Window*, SDL_Point*, void*, SDL_HitTestResult> callback, void* callbackData);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowShape")]
     [return: MarshalAs(UnmanagedType.I1)]

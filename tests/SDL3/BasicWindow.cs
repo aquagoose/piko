@@ -43,7 +43,7 @@ unsafe
             throw new Exception($"Failed to acquire command buffer: {SDL.GetError()}");
         // todo i had to manually add "out" to the bindings as it didn't generate as a pointer at all, which is invalid
         // todo the last 2 parameters should be out or ref. or both!
-        SDL.AcquireGPUSwapchainTexture(cb, window, out SDL.GPUTexture texture, null, null);
+        SDL.WaitAndAcquireGPUSwapchainTexture(cb, window, out SDL.GPUTexture texture, null, null);
         if (texture.IsNull)
         {
             SDL.CancelGPUCommandBuffer(cb);
