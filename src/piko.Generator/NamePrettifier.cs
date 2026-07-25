@@ -136,13 +136,7 @@ public class NamePrettifier(NamePrettifier.Options options)
 
     private string TransformParameter(string name)
     {
-        if (_transformMap.TryGetValue(name, out string transformed))
-            return transformed;
-
-        string newName = TransformValue(name, false, false);
-
-        _transformMap.Add(name, newName);
-        return newName;
+        return TransformValue(name, false, false);
     }
 
     private string StripPrefix(string name)
