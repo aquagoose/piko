@@ -59,21 +59,73 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.Clear();
 
         _sb.AppendLine($"[StructLayout(LayoutKind.{s.Layout})]"); // we can directly print the enum as we are using the same enum
-        _sb.AppendLine($"public struct {s.Name}");
+        _sb.AppendLine($"public unsafe struct {s.Name}");
         _sb.AppendLine("{");
 
-        foreach (StructBinding.Field field in s.Fields)
+        if (s.Fields.Count == 0)
         {
-            _sb.Append(' ', 4);
+            _sb.AppendLine($$"""
+                                 private readonly nint _handle;
 
-            if (s.Layout == LayoutKind.Explicit)
-                _sb.Append($"[FieldOffset({field.Offset})] ");
+                                 public nint Handle => _handle;
+                                 public bool IsNull => _handle == 0;
 
-            _sb.AppendLine($"public {field.Type} {field.Name};");
+                                 public {{s.Name}}(nint handle)
+                                 {
+                                     _handle = handle;
+                                 }
+                             
+                                 public static implicit operator bool({{s.Name}} s)
+                                      => !s.IsNull;
+                             """);
+        }
+        else
+        {
+            foreach (StructBinding.Field field in s.Fields)
+            {
+                _sb.Append(' ', 4);
+
+                if (s.Layout == LayoutKind.Explicit)
+                    _sb.Append($"[FieldOffset({field.Offset})] ");
+
+                _sb.AppendLine($"public {field.Type} {field.Name};");
+            }
+
+            _sb.AppendLine();
+
+            // generate constructor
+            _sb.Append($"    public {s.Name}(");
+            int i = 0;
+            foreach (StructBinding.Field field in s.Fields)
+            {
+                _sb.Append(field.Type);
+                _sb.Append(' ');
+                // this sure is a way of all time to convert the first character to lower case to make it a suitable parameter name
+                _sb.Append(char.ToLowerInvariant(field.Name[0]));
+                _sb.Append(field.Name[1..]);
+                if (++i < s.Fields.Count)
+                    _sb.Append(", ");
+            }
+            _sb.AppendLine(")");
+            _sb.AppendLine("    {");
+
+            foreach (StructBinding.Field field in s.Fields)
+            {
+                _sb.Append(' ', 8);
+                _sb.Append("this.");
+                _sb.Append(field.Name);
+                _sb.Append(" = ");
+                _sb.Append(char.ToLowerInvariant(field.Name[0]));
+                _sb.Append(field.Name[1..]);
+                _sb.AppendLine(";");
+            }
+
+            _sb.AppendLine("    }");
         }
 
         _sb.Append('}');
-        return _sb.ToString();
+        string output = _sb.ToString();
+        return WriteExtraStuff(output);
     }
 
     private void WriteFunction(FunctionBinding f)
