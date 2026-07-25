@@ -28,6 +28,32 @@ public class NamePrettifier(NamePrettifier.Options options)
             }
         }
 
+        // for structs we must do 2 passes.
+        // first pass maps all the struct names into the transform map.
+        // the reason we need to do this is that struct fields may contain other struct types, that may not be
+        // present in the map.
+        // performing an initial map pass fixes this issue.
+        foreach (StructBinding s in bindings.Structs)
+        {
+            /*string newName = TransformIdentifier(s.Name);
+            _transformMap.Add(s.Name, newName);*/
+            // TransformIdentifier adds it to the map on its own, so no need to add it manually.
+            TransformIdentifier(s.Name); // todo i don't like this. this feels. cursed.
+        }
+
+        // second pass actually does the transforming
+        foreach (StructBinding s in bindings.Structs)
+        {
+            s.Name = _transformMap[s.Name];
+
+            foreach (StructBinding.Field field in s.Fields)
+            {
+                field.Name = TransformIdentifier(field.Name);
+                if (_transformMap.TryGetValue(field.Type, out string transformed))
+                    field.Type = transformed;
+            }
+        }
+
         foreach (FunctionBinding f in bindings.Functions)
         {
             f.Name = TransformIdentifier(f.Name);
