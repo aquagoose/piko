@@ -18,14 +18,14 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         foreach (StructBinding s in bindings.Structs)
             outputs.Add(new Output(s.Name, WriteStruct(s)));
 
-        /*_sb.Clear();
+        _sb.Clear();
         _sb.AppendLine($"public static unsafe partial class {methodClassName}");
         _sb.AppendLine("{");
         _sb.AppendLine($"    public const string LibraryName = \"{options.LibraryDllName}\";");
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
         _sb.AppendLine("}");
-        outputs.Add(new Output(methodClassName, _sb.ToString()));*/
+        outputs.Add(new Output(methodClassName, _sb.ToString()));
 
         return outputs.ToArray();
     }
@@ -133,12 +133,14 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         // todo IMPORTANT auto generate marshalling stuff and use LibraryImport!!
         _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\", ExactSpelling = true)]");
 
-        _sb.Append($"    public extern {f.ReturnType ?? "void"} {f.Name}(");
+        string returnType = f.ReturnType == null ? "void" : TransformType(f.ReturnType, f.ReturnTypePointerLevel);
+        _sb.Append($"    public extern {returnType} {f.Name}(");
 
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
         {
-            _sb.Append(parameter.Type);
+            string parameterType = TransformType(parameter.Type, parameter.PointerLevel);
+            _sb.Append(parameterType);
             _sb.Append(' ');
             _sb.Append(parameter.Name);
             if (++i < f.Parameters.Count)
@@ -163,6 +165,20 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         }
 
         return _sb.ToString();
+    }
+
+    // todo maybe this should not be in the generator?
+    private string TransformType(string type, int pointerLevel)
+    {
+        switch (type)
+        {
+            case "sbyte" when pointerLevel == 1:
+                return "string";
+            case "sbyte" when pointerLevel == 2:
+                return "string[]";
+        }
+
+        return type;
     }
 
     public struct Output
