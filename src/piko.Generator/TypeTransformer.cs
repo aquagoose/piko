@@ -32,10 +32,10 @@ public class TypeTransformer(TypeTransformer.Options options)
     private void TransformFunction(FunctionBinding f)
     {
         if (f.ReturnType != null)
-            f.ReturnType = GetCorrectedType(f.ReturnType, null, f.ReturnTypePointerLevel, false);
+            f.ReturnType = GetCorrectedType(f.ReturnType, f.ReturnTypeNativeType, f.ReturnTypePointerLevel, false);
 
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
-            parameter.Type = GetCorrectedType(parameter.Type, null, parameter.PointerLevel, false);
+            parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, parameter.PointerLevel, false);
     }
 
     private string GetCorrectedType(string type, string? nativeType, int pointerLevel, bool isStruct)

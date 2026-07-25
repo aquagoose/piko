@@ -100,6 +100,8 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
         {
             string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");
             string? returnType = func["type"]?.InnerText;
+            string? returnTypeNativeType = func["type"]?.Attributes["native"]?.Value;
+
             int returnTypePointerLevel = 0;
             if (returnType != null && returnType.EndsWith('*'))
             {
@@ -107,7 +109,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
                 returnType = returnType.Substring(0, returnType.Length - returnTypePointerLevel);
             }
 
-            FunctionBinding binding = new FunctionBinding(functionName, functionName, returnType, returnTypePointerLevel);
+            FunctionBinding binding = new FunctionBinding(functionName, functionName, returnType, returnTypeNativeType, returnTypePointerLevel);
 
             XmlNodeList? parameters = func.SelectNodes("param");
             if (parameters != null)
@@ -116,6 +118,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
                 {
                     string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
                     string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
+                    string? nativeType = parameter["type"]?.Attributes?["native"]?.Value;
 
                     int pointerLevel = 0;
                     if (type.EndsWith('*'))
@@ -125,7 +128,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
                         type = type.Substring(0, type.Length - pointerLevel);
                     }
 
-                    binding.Parameters.Add(new FunctionBinding.Parameter(name, type, pointerLevel));
+                    binding.Parameters.Add(new FunctionBinding.Parameter(name, type, nativeType, pointerLevel));
                 }
             }
 
