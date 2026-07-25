@@ -22,6 +22,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.AppendLine($"public static unsafe partial class {methodClassName}");
         _sb.AppendLine("{");
         _sb.AppendLine($"    public const string LibraryName = \"{options.LibraryDllName}\";");
+        _sb.AppendLine();
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
         _sb.AppendLine("}");

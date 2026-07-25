@@ -45,6 +45,11 @@ public record StructBinding
         public string Type;
 
         /// <summary>
+        /// The native type, if applicable.
+        /// </summary>
+        public string? NativeType;
+
+        /// <summary>
         /// The pointer level of the type. Type* will be 1, Type** will be 2, etc.
         /// </summary>
         public int PointerLevel;
@@ -54,10 +59,11 @@ public record StructBinding
         /// </summary>
         public int Offset;
 
-        public Field(string name, string type, int pointerLevel, int offset)
+        public Field(string name, string type, string? nativeType, int pointerLevel, int offset)
         {
             Name = name;
             Type = type;
+            NativeType = nativeType;
             PointerLevel = pointerLevel;
             Offset = offset;
         }

@@ -73,6 +73,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
             {
                 string fieldName = field.Attributes?["name"]?.Value ?? throw new Exception("Field name missing.");
                 string fieldType = field["type"]?.InnerText ?? throw new Exception("Field type missing.");
+                string? nativeType = field["type"]?.Attributes?["native"]?.Value;
 
                 int pointerLevel = 0;
                 if (fieldType.EndsWith('*'))
@@ -86,7 +87,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
                 if (fieldOffset != null)
                     offset = int.Parse(fieldOffset);
 
-                binding.Fields.Add(new StructBinding.Field(fieldName, fieldType, pointerLevel, offset));
+                binding.Fields.Add(new StructBinding.Field(fieldName, fieldType, nativeType, pointerLevel, offset));
             }
         }
 

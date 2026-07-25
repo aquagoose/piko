@@ -56,6 +56,7 @@ transformer.Transform(ref sdl3Bindings);
 
 Generator generator = new Generator(sdl3Bindings, "SDL", new Generator.Options()
 {
+    LibraryDllName = "SDL3",
     AllTypesAreSubTypes = true
 });
 Generator.Output[] outputs = generator.Generate();
