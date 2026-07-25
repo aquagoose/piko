@@ -51,7 +51,10 @@ public class TypeTransformer(TypeTransformer.Options options)
                 {
                     if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
                     {
-                        binding = new EnumBinding(type.TypeName, c.Type); // todo better generation of enum type? this may not always be valid
+                        binding = new EnumBinding(type.TypeName, c.Type) // todo better generation of enum type? this may not always be valid
+                        {
+                            IsFlagsEnum = true
+                        };
                         _newEnums.Add(type.TypeName, binding);
                     }
 

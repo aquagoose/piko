@@ -38,6 +38,9 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
     {
         _sb.Clear();
 
+        if (e.IsFlagsEnum)
+            _sb.AppendLine("[Flags]");
+
         _sb.Append($"public enum {e.Name}");
         if (e.Type != null)
             _sb.Append($" : {e.Type}");
