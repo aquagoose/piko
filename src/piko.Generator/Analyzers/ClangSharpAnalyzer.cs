@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Xml;
 using piko.Generator.Bindings;
 
@@ -22,6 +23,9 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
             {
                 case "enumeration":
                     ProcessEnum(node, ref bindings);
+                    break;
+                case "struct":
+                    ProcessStruct(node, ref bindings);
                     break;
                 case "class":
                     ProcessFunctionSet(node, ref bindings);
@@ -49,6 +53,44 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
         }
 
         bindings.Enums.Add(binding);
+    }
+
+    private void ProcessStruct(XmlNode node, ref BindingsSet bindings)
+    {
+        string name = node.Attributes?["name"]?.Value ?? throw new Exception("Struct name missing");
+
+        LayoutKind layout = LayoutKind.Sequential;
+        string? structLayout = node.Attributes["layout"]?.Value;
+        if (structLayout != null && structLayout.Equals("explicit", StringComparison.InvariantCultureIgnoreCase))
+            layout = LayoutKind.Explicit;
+
+        StructBinding binding = new StructBinding(name, layout);
+
+        XmlNodeList? fields = node.SelectNodes("field");
+        if (fields != null)
+        {
+            foreach (XmlNode field in fields)
+            {
+                string fieldName = field.Attributes?["name"]?.Value ?? throw new Exception("Field name missing.");
+                string fieldType = field["type"]?.InnerText ?? throw new Exception("Field type missing.");
+
+                int pointerLevel = 0;
+                if (fieldType.EndsWith('*'))
+                {
+                    pointerLevel = fieldType.Count('*');
+                    fieldType = fieldType.Substring(0, fieldType.Length - pointerLevel);
+                }
+
+                string? fieldOffset = field.Attributes?["offset"]?.InnerText;
+                int offset = 0;
+                if (fieldOffset != null)
+                    offset = int.Parse(fieldOffset);
+
+                binding.Fields.Add(new StructBinding.Field(fieldName, fieldType, pointerLevel, offset));
+            }
+        }
+
+        bindings.Structs.Add(binding);
     }
 
     private void ProcessFunctionSet(XmlNode node, ref BindingsSet bindings)
