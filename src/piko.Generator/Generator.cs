@@ -87,13 +87,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
                 if (s.Layout == LayoutKind.Explicit)
                     _sb.Append($"[FieldOffset({field.Offset})] ");
-
-                // temporarily reintroduce pointers for the structs that need it
-                // todo obviously we don't really want structs using pointers were possible in the public API!
-                string fieldType = field.Type;
-                for (int p = 0; p < field.PointerLevel; p++)
-                    fieldType += '*';
-                _sb.AppendLine($"public {fieldType} {field.Name};");
+                _sb.AppendLine($"public {field.Type} {field.Name};");
             }
 
             _sb.AppendLine();
@@ -103,13 +97,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             int i = 0;
             foreach (StructBinding.Field field in s.Fields)
             {
-                // temporarily reintroduce pointers for the structs that need it
-                // todo obviously we don't really want structs using pointers were possible in the public API!
-                string fieldType = field.Type;
-                for (int p = 0; p < field.PointerLevel; p++)
-                    fieldType += '*';
-
-                _sb.Append(fieldType);
+                _sb.Append(field.Type);
                 _sb.Append(' ');
                 // this sure is a way of all time to convert the first character to lower case to make it a suitable parameter name
                 _sb.Append(char.ToLowerInvariant(field.Name[0]));

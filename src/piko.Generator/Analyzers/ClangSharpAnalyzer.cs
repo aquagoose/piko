@@ -64,7 +64,7 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
         if (structLayout != null && structLayout.Equals("explicit", StringComparison.InvariantCultureIgnoreCase))
             layout = LayoutKind.Explicit;
 
-        StructBinding binding = new StructBinding(name, layout);
+        StructBinding binding = new StructBinding(name, layout, false);
 
         XmlNodeList? fields = node.SelectNodes("field");
         if (fields != null)

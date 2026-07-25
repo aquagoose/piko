@@ -3,6 +3,8 @@ using piko.Generator;
 using piko.Generator.Analyzers;
 using piko.Generator.Bindings;
 
+string pikoBase = args[0];
+
 ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer("SDL3");
 BindingsSet sdl3Bindings = sdl3Anaylyzer.Analyze();
 NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
@@ -46,6 +48,12 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 });
 prettifier.Prettify(ref sdl3Bindings);
 
+TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options()
+{
+    EmptyStructsAreHandleTypes = true
+});
+transformer.Transform(ref sdl3Bindings);
+
 Generator generator = new Generator(sdl3Bindings, "SDL", new Generator.Options()
 {
     AllTypesAreSubTypes = true
@@ -54,6 +62,7 @@ Generator.Output[] outputs = generator.Generate();
 
 StringBuilder sb = new StringBuilder();
 
+string sdl3Output = Path.Combine(pikoBase, "src", "piko.SDL3");
 foreach (Generator.Output output in outputs)
 {
     /*Console.WriteLine($"{output.TypeName}.cs");
@@ -66,5 +75,6 @@ foreach (Generator.Output output in outputs)
     sb.AppendLine("namespace piko.SDL3;");
     sb.Append(output.Code);
 
-    File.WriteAllText($"/home/aqua/Code/C#/piko/src/piko.SDL3/{output.TypeName}.cs", sb.ToString());
+    string filePath = Path.Combine(sdl3Output, $"{output.TypeName}.cs");
+    File.WriteAllText(filePath, sb.ToString());
 }
