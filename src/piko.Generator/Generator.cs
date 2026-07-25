@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Text;
 using piko.Generator.Bindings;
 
@@ -14,14 +15,17 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         foreach (EnumBinding e in bindings.Enums)
             outputs.Add(new Output(e.Name, WriteEnum(e)));
 
-        _sb.Clear();
+        foreach (StructBinding s in bindings.Structs)
+            outputs.Add(new Output(s.Name, WriteStruct(s)));
+
+        /*_sb.Clear();
         _sb.AppendLine($"public static unsafe partial class {methodClassName}");
         _sb.AppendLine("{");
         _sb.AppendLine($"    public const string LibraryName = \"{options.LibraryDllName}\";");
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
         _sb.AppendLine("}");
-        outputs.Add(new Output(methodClassName, _sb.ToString()));
+        outputs.Add(new Output(methodClassName, _sb.ToString()));*/
 
         return outputs.ToArray();
     }
@@ -45,12 +49,34 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             _sb.AppendLine(",");
         }
 
-        _sb.AppendLine("}");
+        _sb.Append('}');
         string output = _sb.ToString();
         return WriteExtraStuff(output);
     }
 
-    private string WriteFunction(FunctionBinding f)
+    private string WriteStruct(StructBinding s)
+    {
+        _sb.Clear();
+
+        _sb.AppendLine($"[StructLayout(LayoutKind.{s.Layout})]"); // we can directly print the enum as we are using the same enum
+        _sb.AppendLine($"public struct {s.Name}");
+        _sb.AppendLine("{");
+
+        foreach (StructBinding.Field field in s.Fields)
+        {
+            _sb.Append(' ', 4);
+
+            if (s.Layout == LayoutKind.Explicit)
+                _sb.Append($"[FieldOffset({field.Offset})] ");
+
+            _sb.AppendLine($"public {field.Type} {field.Name};");
+        }
+
+        _sb.Append('}');
+        return _sb.ToString();
+    }
+
+    private void WriteFunction(FunctionBinding f)
     {
         // todo IMPORTANT auto generate marshalling stuff and use LibraryImport!!
         _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\", ExactSpelling = true)]");
@@ -69,7 +95,6 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
         _sb.AppendLine(");");
         _sb.AppendLine();
-        return _sb.ToString();
     }
 
     private string WriteExtraStuff(string str)
