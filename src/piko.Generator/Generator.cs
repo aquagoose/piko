@@ -63,7 +63,12 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         foreach (EnumBinding.EnumValue value in e.Values)
         {
             _sb.Append(' ', 4);
-            _sb.Append(value.Name);
+            string valueName = value.Name;
+            // while ideally the name prettifier will have been configured to prefix numbers with a usable name,
+            // this acts as a "last line of defence" and inserts an underscore to prevent invalid code from being generated.
+            if (char.IsNumber(valueName[0]))
+                valueName = valueName.Insert(0, "_");
+            _sb.Append(valueName);
             if (value.Value != null)
                 _sb.Append($" = {value.Value}");
             _sb.AppendLine(",");
