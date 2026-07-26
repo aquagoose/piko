@@ -5,7 +5,7 @@
   "PrefixToStrip": "SDL_",
   "Analyzer": "ClangSharp",
   "ClangSharp": {
-    "FileDirectory": "../../lib/SDL/include/SDL3",
+    "FileDirectory": "../lib/SDL/include/SDL3",
     "Files": [
       //"SDL_assert.h",
       "SDL_asyncio.h",

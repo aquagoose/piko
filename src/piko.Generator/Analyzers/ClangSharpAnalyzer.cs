@@ -1,17 +1,61 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Xml;
 using piko.Generator.Bindings;
+using piko.Generator.Configs;
 
 namespace piko.Generator.Analyzers;
 
-public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
+public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig config, List<string> typeRemappings) : Analyzer
 {
     public override BindingsSet Analyze()
     {
+        const string outFileName = "piko.xml";
+
+        ProcessStartInfo clangSharpInfo = new ProcessStartInfo("ClangSharpPInvokeGenerator");
+        clangSharpInfo.ArgumentList.Add("--namespace");
+        clangSharpInfo.ArgumentList.Add("piko");
+        clangSharpInfo.ArgumentList.Add("--output-mode");
+        clangSharpInfo.ArgumentList.Add("Xml");
+        clangSharpInfo.ArgumentList.Add("--output");
+        clangSharpInfo.ArgumentList.Add(outFileName);
+        clangSharpInfo.ArgumentList.Add("--generate");
+        clangSharpInfo.ArgumentList.Add("macro-bindings");
+        clangSharpInfo.ArgumentList.Add("--generate");
+        clangSharpInfo.ArgumentList.Add("nint-codegen");
+
+        clangSharpInfo.ArgumentList.Add("--file-directory");
+        clangSharpInfo.ArgumentList.Add(Path.Combine(workingDir, config.FileDirectory));
+
+        foreach (string file in config.Files)
+        {
+            clangSharpInfo.ArgumentList.Add("--file");
+            clangSharpInfo.ArgumentList.Add(file);
+        }
+
+        foreach (string remapping in typeRemappings)
+        {
+            // clangsharp won't automatically remap some typedefs, particularly those mapping to integers.
+            // however, we can manually specify them, and map them to themselves.
+            // this will cause it to generate the typenames.
+            clangSharpInfo.ArgumentList.Add("--remap");
+            clangSharpInfo.ArgumentList.Add($"{remapping}={remapping}");
+        }
+
+        Process clangSharpProcess = new()
+        {
+            StartInfo = clangSharpInfo
+        };
+        clangSharpProcess.Start();
+        clangSharpProcess.WaitForExit();
+
+        if (clangSharpProcess.ExitCode != 0 && clangSharpProcess.ExitCode != 253) // 253 seems to be used for warnings which we can ignore
+            throw new Exception("Clangsharp failed.");
+
         BindingsSet bindings = new BindingsSet();
 
         XmlDocument xml = new XmlDocument();
-        xml.Load($"{rspName}.xml");
+        xml.Load(outFileName);
 
         XmlNode? baseNode = xml["bindings"]?["namespace"];
         if (baseNode is null)
@@ -32,6 +76,8 @@ public sealed class ClangSharpAnalyzer(string rspName) : Analyzer
                     break;
             }
         }
+
+        File.Delete(outFileName);
 
         return bindings;
     }

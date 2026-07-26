@@ -12,6 +12,7 @@ if (args.Length == 0)
 }
 
 string jsonFilePath = Path.GetFullPath(args[0]);
+string workingDir = Path.GetDirectoryName(jsonFilePath);
 string jsonText = File.ReadAllText(jsonFilePath);
 PikoGeneratorConfig pikoConfig = JsonSerializer.Deserialize<PikoGeneratorConfig>(jsonText, new JsonSerializerOptions
 {
@@ -19,7 +20,7 @@ PikoGeneratorConfig pikoConfig = JsonSerializer.Deserialize<PikoGeneratorConfig>
     ReadCommentHandling = JsonCommentHandling.Skip
 });
 
-ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer("SDL3");
+ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer(workingDir, pikoConfig.ClangSharp, pikoConfig.TypeRemapping.Keys.ToList());
 BindingsSet sdl3Bindings = sdl3Anaylyzer.Analyze();
 NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 {
@@ -50,7 +51,7 @@ Generator.Output[] outputs = generator.Generate();
 
 StringBuilder sb = new StringBuilder();
 
-string sdl3Output = Path.Combine(Path.GetDirectoryName(jsonFilePath), pikoConfig.OutputDirectory);
+string sdl3Output = Path.Combine(workingDir, pikoConfig.OutputDirectory);
 foreach (Generator.Output output in outputs)
 {
     /*Console.WriteLine($"{output.TypeName}.cs");
