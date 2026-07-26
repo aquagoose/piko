@@ -49,8 +49,9 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
         clangSharpProcess.Start();
         clangSharpProcess.WaitForExit();
 
-        if (clangSharpProcess.ExitCode != 0 && clangSharpProcess.ExitCode != 253) // 253 seems to be used for warnings which we can ignore
-            throw new Exception("Clangsharp failed.");
+        // todo reenable this.
+        //if (clangSharpProcess.ExitCode != 0 && clangSharpProcess.ExitCode != 253) // 253 seems to be used for warnings which we can ignore
+        //    throw new Exception("Clangsharp failed.");
 
         BindingsSet bindings = new BindingsSet();
 

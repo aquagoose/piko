@@ -1,0 +1,33 @@
+{
+  "OutputDirectory": "../src/piko.SDL3.ShaderCross",
+  "Namespace": "piko.SDL3.ShaderCross",
+  "LibraryDllName": "SDL_shadercross",
+  "MethodClassName": "SDLShaderCross",
+  "PrefixToStrip": "SDL_ShaderCross_",
+  "Analyzer": "ClangSharp",
+  "ClangSharp": {
+    "FileDirectory": "../lib/SDL_shadercross/include/SDL3_shadercross",
+    "Files": [
+      "SDL_shadercross.h"
+    ]
+  },
+  "TypeRemapping": {
+    "SDL_GPUDevice": "SDL.GPUDevice",
+    "SDL_GPUShader": "SDL.GPUShader",
+    "SDL_GPUComputePipeline": "SDL.GPUComputePipeline"
+  },
+  "Enums": {
+    "CustomPrefixes": {},
+    "PrefixesToStrip": {}
+  },
+  "Constants": {
+    "AssociateConstantPrefixWithType": {}
+  },
+  "Generator": {
+    "EmptyStructsAreHandleTypes": true,
+    "HandleTypesUseIHandleInterface": true,
+    "AllTypesAreSubTypes": true,
+    "AllStringsAreUTF8": true,
+    "CustomReturnValueTypeMarshallers": {}
+  }
+}

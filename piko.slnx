@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="src/piko.Core/piko.Core.csproj" />
   <Project Path="src/piko.Generator/piko.Generator.csproj" />
+  <Project Path="src/piko.SDL3.ShaderCross/piko.SDL3.ShaderCross.csproj" />
   <Project Path="src/piko.SDL3/piko.SDL3.csproj" />
 </Solution>
