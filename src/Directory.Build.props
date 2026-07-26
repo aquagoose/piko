@@ -1,5 +1,6 @@
 <Project>
     <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RepositoryUrl>https://github.com/aquagoose/piko</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <Authors>aquagoose</Authors>
