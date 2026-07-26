@@ -8,6 +8,11 @@ public class PikoGeneratorConfig
     public string OutputDirectory;
 
     /// <summary>
+    /// The namespace to apply to all output types.
+    /// </summary>
+    public string Namespace;
+
+    /// <summary>
     /// The name of the library's DLL, for example "SDL3".
     /// You should not include a file extension as the .NET runtime will detect this automatically,
     /// and doing so would prevent the generated library from being crossplatform.

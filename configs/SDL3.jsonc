@@ -1,5 +1,6 @@
 {
   "OutputDirectory": "../src/piko.SDL3",
+  "Namespace": "piko.SDL3",
   "LibraryDllName": "SDL3",
   "MethodClassName": "SDL",
   "PrefixToStrip": "SDL_",
