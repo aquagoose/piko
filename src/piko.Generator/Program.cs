@@ -51,9 +51,11 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
         "SDL_WINDOW_",
         "SDL_GPU_SHADERFORMAT",
         "SDL_GPU_BUFFERUSAGE",
-        "SDL_GPU_TEXTUREUSAGE"
+        "SDL_GPU_TEXTUREUSAGE",
+        "SDL_PROP",
+        "SDL_HINT"
     },
-    NameRemappings = new Dictionary<string, string>
+    NameRemapping = new Dictionary<string, string>
     {
         { "SDL_InitFlags", "InitFlags" },
         { "SDL_WindowFlags", "WindowFlags" },
@@ -73,7 +75,9 @@ TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
         { "SDL_WINDOW_", new TypeTransformer.ConstantType("WindowFlags", true) },
         { "SDL_GPU_SHADERFORMAT", new TypeTransformer.ConstantType("GPUShaderFormat", true) },
         { "SDL_GPU_BUFFERUSAGE", new TypeTransformer.ConstantType("GPUBufferUsage", true) },
-        { "SDL_GPU_TEXTUREUSAGE", new TypeTransformer.ConstantType("GPUTextureUsage", true) }
+        { "SDL_GPU_TEXTUREUSAGE", new TypeTransformer.ConstantType("GPUTextureUsage", true) },
+        { "SDL_PROP", new TypeTransformer.ConstantType("Prop", false) },
+        { "SDL_HINT", new TypeTransformer.ConstantType("Hint", false) }
     }
 });
 transformer.Transform(ref sdl3Bindings);

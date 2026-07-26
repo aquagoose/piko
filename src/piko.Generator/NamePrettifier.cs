@@ -11,7 +11,7 @@ public class NamePrettifier(NamePrettifier.Options options)
 
     public void Prettify(ref BindingsSet bindings)
     {
-        foreach ((string name, string mapping) in options.NameRemappings)
+        foreach ((string name, string mapping) in options.NameRemapping)
             _transformMap.Add(name, mapping);
 
         // do enums first, then structs, then finally functions.
@@ -192,6 +192,6 @@ public class NamePrettifier(NamePrettifier.Options options)
         /// <summary>
         /// Manual names to remap. This includes typedefs, which are not automatically remapped.
         /// </summary>
-        public Dictionary<string, string> NameRemappings;
+        public Dictionary<string, string> NameRemapping;
     }
 }

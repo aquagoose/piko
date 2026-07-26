@@ -45,8 +45,6 @@ public class TypeTransformer(TypeTransformer.Options options)
                 if (c.Prefix != prefix)
                     continue;
 
-                c.SkipGenerationInMainClass = true;
-
                 if (type.IsFlagsEnum)
                 {
                     if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
@@ -66,9 +64,10 @@ public class TypeTransformer(TypeTransformer.Options options)
                     }
 
                     binding.Values.Add(new EnumBinding.EnumValue(c.Name, c.Value));
+                    c.SkipGenerationInMainClass = true;
                 }
                 else
-                    throw new NotImplementedException();
+                    c.ClassName = type.TypeName;
             }
         }
     }

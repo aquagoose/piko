@@ -7,6 +7,7 @@ namespace piko.Generator;
 public class Generator(BindingsSet bindings, string methodClassName, Generator.Options options)
 {
     private readonly StringBuilder _sb = new();
+    private readonly Dictionary<string, List<ConstantBinding>> _constantTypes = new();
 
     public Output[] Generate()
     {
@@ -24,12 +25,24 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.AppendLine($"    public const string LibraryName = \"{options.LibraryDllName}\";");
         _sb.AppendLine();
         foreach (ConstantBinding c in bindings.Constants)
-            WriteConstant(c);
+            WriteConstant(c, false);
         _sb.AppendLine();
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
         _sb.AppendLine("}");
         outputs.Add(new Output(methodClassName, _sb.ToString()));
+
+        foreach ((string typeName, List<ConstantBinding> constants) in _constantTypes)
+        {
+            _sb.Clear();
+            _sb.AppendLine($"public static unsafe partial class {typeName}");
+            _sb.AppendLine("{");
+            foreach (ConstantBinding c in constants)
+                WriteConstant(c, true);
+            _sb.AppendLine("}");
+            string output = WriteExtraStuff(_sb.ToString());
+            outputs.Add(new Output(typeName, output));
+        }
 
         return outputs.ToArray();
     }
@@ -134,10 +147,25 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         return WriteExtraStuff(output);
     }
 
-    private void WriteConstant(ConstantBinding c)
+    private void WriteConstant(ConstantBinding c, bool force)
     {
-        if (c.SkipGenerationInMainClass)
-            return;
+        if (!force)
+        {
+            if (c.SkipGenerationInMainClass)
+                return;
+
+            if (c.ClassName != null)
+            {
+                if (!_constantTypes.TryGetValue(c.ClassName, out List<ConstantBinding> constants))
+                {
+                    constants = [];
+                    _constantTypes.Add(c.ClassName, constants);
+                }
+
+                constants.Add(c);
+                return;
+            }
+        }
 
         _sb.AppendLine($"    public const {c.Type} {c.Name} = {c.Value};");
     }

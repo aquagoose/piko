@@ -27,6 +27,11 @@ public record ConstantBinding
     /// </summary>
     public bool SkipGenerationInMainClass;
 
+    /// <summary>
+    /// The class name to generate this constant in, if any.
+    /// </summary>
+    public string? ClassName;
+
     public ConstantBinding(string name, string type, string value)
     {
         Name = name;
