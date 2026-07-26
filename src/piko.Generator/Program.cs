@@ -1,106 +1,56 @@
 ﻿using System.Text;
+using System.Text.Json;
 using piko.Generator;
 using piko.Generator.Analyzers;
 using piko.Generator.Bindings;
+using piko.Generator.Configs;
 
-string pikoBase = args[0];
+if (args.Length == 0)
+{
+    Console.WriteLine("You must specify a config file!");
+    return;
+}
+
+string jsonFilePath = Path.GetFullPath(args[0]);
+string jsonText = File.ReadAllText(jsonFilePath);
+PikoGeneratorConfig pikoConfig = JsonSerializer.Deserialize<PikoGeneratorConfig>(jsonText, new JsonSerializerOptions
+{
+    IncludeFields = true,
+    ReadCommentHandling = JsonCommentHandling.Skip
+});
 
 ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer("SDL3");
 BindingsSet sdl3Bindings = sdl3Anaylyzer.Analyze();
 NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
 {
-    PrefixToStrip = "SDL_",
-    EnumPrefixRemapping = new Dictionary<string, string>
-    {
-        { "SDL_GPUIndexElementSize", "Size" },
-        { "SDL_GPUTextureType", "Type" },
-        { "SDL_GPUSampleCount", "Count" },
-        { "SDL_BitmapOrder", "Order" },
-        { "SDL_PackedLayout", "Layout" },
-        { "SDL_TimeFormat", "Format" }
-    },
-    EnumPrefixStrip = new Dictionary<string, string>
-    {
-        { "SDL_AssertState", "ASSERTION" },
-        { "SDL_AsyncIOTaskType", "ASYNCIO_TASK" },
-        { "SDL_AsyncIOResult", "ASYNCIO" },
-        { "SDL_AudioFormat", "AUDIO" },
-        { "SDL_FileDialogType", "FILEDIALOG" },
-        { "SDL_EventType", "EVENT" },
-        { "SDL_EnumerationResult", "ENUM" },
-        { "SDL_GamepadBindingType", "GAMEPAD_BINDTYPE" },
-        { "SDL_JoystickConnectionState", "JOYSTICK_CONNECTION" },
-        { "SDL_Capitalization", "CAPITALIZE" }, // todo maybe this should be kept as-is
-        { "SDL_MessageBoxColorType", "MESSAGEBOX_COLOR" },
-        { "SDL_MouseWheelDirection", "MOUSEWHEEL" },
-        { "SDL_ProcessIO", "PROCESS_STDIO" },
-        { "SDL_TextureAddressMode", "TEXTURE_ADDRESS" },
-        { "SDL_RendererLogicalPresentation", "LOGICAL_PRESENTATION" },
-        { "SDL_SensorType", "SENSOR" },
-        { "SDL_FlipMode", "FLIP" }, // todo maybe this also should be kept as-is?
-        { "SDL_ThreadState", "THREAD" },
-        { "SDL_TouchDeviceType", "TOUCH_DEVICE" },
-        { "SDL_DisplayOrientation", "ORIENTATION" },
-        { "SDL_FlashOperation", "FLASH" },
-        { "SDL_GLAttr", "GL" },
-        { "SDL_HitTestResult", "HITTEST" }
-    },
-    ConstantPrefixStrip = new List<string>
-    {
-        "SDL_INIT",
-        "SDL_WINDOW_",
-        "SDL_GPU_SHADERFORMAT",
-        "SDL_GPU_BUFFERUSAGE",
-        "SDL_GPU_TEXTUREUSAGE",
-        "SDL_PROP",
-        "SDL_HINT",
-        "SDLK"
-    },
-    NameRemapping = new Dictionary<string, string>
-    {
-        { "SDL_InitFlags", "InitFlags" },
-        { "SDL_WindowFlags", "WindowFlags" },
-        { "SDL_GPUShaderFormat", "GPUShaderFormat" },
-        { "SDL_GPUTextureUsageFlags", "GPUTextureUsageFlags" },
-        { "SDL_GPUBufferUsageFlags", "GPUBufferUsageFlags" },
-        { "SDL_Keycode", "Keycode" }
-    }
+    PrefixToStrip = pikoConfig.PrefixToStrip,
+    EnumPrefixRemapping = pikoConfig.Enums.CustomPrefixes,
+    EnumPrefixStrip = pikoConfig.Enums.PrefixesToStrip,
+    ConstantPrefixStrip = pikoConfig.Constants.AssociateConstantPrefixWithType.Keys.ToList(),
+    NameRemapping = pikoConfig.TypeRemapping
 });
 prettifier.Prettify(ref sdl3Bindings);
 
 TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
 {
-    EmptyStructsAreHandleTypes = true,
-    AssociateConstantPrefixWithType = new Dictionary<string, TypeTransformer.ConstantType>
-    {
-        { "SDL_INIT", new TypeTransformer.ConstantType("InitFlags", true) },
-        { "SDL_WINDOW_", new TypeTransformer.ConstantType("WindowFlags", true) },
-        { "SDL_GPU_SHADERFORMAT", new TypeTransformer.ConstantType("GPUShaderFormat", true) },
-        { "SDL_GPU_BUFFERUSAGE", new TypeTransformer.ConstantType("GPUBufferUsageFlags", true) },
-        { "SDL_GPU_TEXTUREUSAGE", new TypeTransformer.ConstantType("GPUTextureUsageFlags", true) },
-        { "SDLK", new TypeTransformer.ConstantType("Keycode", true) },
-        { "SDL_PROP", new TypeTransformer.ConstantType("Prop", false) },
-        { "SDL_HINT", new TypeTransformer.ConstantType("Hint", false) }
-    }
+    EmptyStructsAreHandleTypes = pikoConfig.Generator.EmptyStructsAreHandleTypes,
+    AssociateConstantPrefixWithType = pikoConfig.Constants.AssociateConstantPrefixWithType
 });
 transformer.Transform(ref sdl3Bindings);
 
-Generator generator = new Generator(sdl3Bindings, "SDL", new Generator.Options()
+Generator generator = new Generator(sdl3Bindings, pikoConfig.MethodClassName, new Generator.Options
 {
-    LibraryDllName = "SDL3",
-    AllTypesAreSubTypes = true,
-    HandleTypesUseIHandleInterface = true,
-    AllStringsAreUTF8 = true,
-    CustomReturnValueTypeMarshallers = new Dictionary<string, string>
-    {
-        { "string", "StringMarshaller" }
-    }
+    LibraryDllName = pikoConfig.LibraryDllName,
+    AllTypesAreSubTypes = pikoConfig.Generator.AllTypesAreSubTypes,
+    HandleTypesUseIHandleInterface = pikoConfig.Generator.HandleTypesUseIHandleInterface,
+    AllStringsAreUTF8 = pikoConfig.Generator.AllStringsAreUTF8,
+    CustomReturnValueTypeMarshallers = pikoConfig.Generator.CustomReturnValueTypeMarshallers
 });
 Generator.Output[] outputs = generator.Generate();
 
 StringBuilder sb = new StringBuilder();
 
-string sdl3Output = Path.Combine(pikoBase, "src", "piko.SDL3");
+string sdl3Output = Path.Combine(Path.GetDirectoryName(jsonFilePath), pikoConfig.OutputDirectory);
 foreach (Generator.Output output in outputs)
 {
     /*Console.WriteLine($"{output.TypeName}.cs");
