@@ -6,6 +6,7 @@
         <PackageTags>sdl3;sdl;graphics;opengl;vulkan;directx</PackageTags>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Version>0.0.2</Version>
     </PropertyGroup>
 
     <ItemGroup>

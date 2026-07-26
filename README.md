@@ -1,6 +1,7 @@
 # piko
-
 A small n cute set of actually good* gamedev-focused bindings for C#.
+
+<img src="piko.png" title="piko" alt="piko" width="256" height="256">
 
 [Discord](https://discord.gg/n3qjwA6zhV)
 
