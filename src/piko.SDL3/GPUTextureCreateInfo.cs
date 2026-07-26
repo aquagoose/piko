@@ -9,7 +9,7 @@ public static unsafe partial class SDL
     {
         public GPUTextureType Type;
         public GPUTextureFormat Format;
-        public uint Usage;
+        public GPUTextureUsageFlags Usage;
         public uint Width;
         public uint Height;
         public uint LayerCountOrDepth;
@@ -17,7 +17,7 @@ public static unsafe partial class SDL
         public GPUSampleCount SampleCount;
         public uint Props;
     
-        public GPUTextureCreateInfo(GPUTextureType type, GPUTextureFormat format, uint usage, uint width, uint height, uint layerCountOrDepth, uint numLevels, GPUSampleCount sampleCount, uint props)
+        public GPUTextureCreateInfo(GPUTextureType type, GPUTextureFormat format, GPUTextureUsageFlags usage, uint width, uint height, uint layerCountOrDepth, uint numLevels, GPUSampleCount sampleCount, uint props)
         {
             this.Type = type;
             this.Format = format;

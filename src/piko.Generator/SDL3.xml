@@ -852,7 +852,7 @@
         <type>SDL_Scancode</type>
       </field>
       <field name="key" access="public">
-        <type native="SDL_Keycode">uint</type>
+        <type>SDL_Keycode</type>
       </field>
       <field name="mod" access="public">
         <type native="SDL_Keymod">ushort</type>
@@ -3323,7 +3323,7 @@
         <type>SDL_GPUTextureFormat</type>
       </field>
       <field name="usage" access="public">
-        <type native="SDL_GPUTextureUsageFlags">uint</type>
+        <type>SDL_GPUTextureUsageFlags</type>
       </field>
       <field name="width" access="public">
         <type native="Uint32">uint</type>
@@ -3346,7 +3346,7 @@
     </struct>
     <struct name="SDL_GPUBufferCreateInfo" access="public">
       <field name="usage" access="public">
-        <type native="SDL_GPUBufferUsageFlags">uint</type>
+        <type>SDL_GPUBufferUsageFlags</type>
       </field>
       <field name="size" access="public">
         <type native="Uint32">uint</type>
@@ -11178,7 +11178,7 @@
           <type>SDL_GPUTextureType</type>
         </param>
         <param name="usage">
-          <type>uint</type>
+          <type>SDL_GPUTextureUsageFlags</type>
         </param>
       </function>
       <function name="SDL_GPUTextureSupportsSampleCount" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
@@ -15103,7 +15103,7 @@
         </param>
       </function>
       <function name="SDL_GetKeyFromScancode" access="public" lib="" convention="Cdecl" static="true">
-        <type native="SDL_Keycode">uint</type>
+        <type>SDL_Keycode</type>
         <param name="scancode">
           <type>SDL_Scancode</type>
         </param>
@@ -15117,7 +15117,7 @@
       <function name="SDL_GetScancodeFromKey" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
         <type>SDL_Scancode</type>
         <param name="key">
-          <type>uint</type>
+          <type>SDL_Keycode</type>
         </param>
         <param name="modstate">
           <type>ushort*</type>
@@ -15147,11 +15147,11 @@
       <function name="SDL_GetKeyName" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
         <type native="const char *">sbyte*</type>
         <param name="key">
-          <type>uint</type>
+          <type>SDL_Keycode</type>
         </param>
       </function>
       <function name="SDL_GetKeyFromName" access="public" lib="" convention="Cdecl" static="true" unsafe="true">
-        <type native="SDL_Keycode">uint</type>
+        <type>SDL_Keycode</type>
         <param name="name">
           <type>sbyte*</type>
         </param>

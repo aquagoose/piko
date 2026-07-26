@@ -5,7 +5,7 @@ namespace piko.SDL3;
 public static unsafe partial class SDL
 {
     [Flags]
-    public enum GPUTextureUsage : uint
+    public enum GPUTextureUsageFlags : uint
     {
         Sampler = (1U << 0),
         ColorTarget = (1U << 1),

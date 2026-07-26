@@ -96,8 +96,9 @@ nint-codegen
 SDL_InitFlags=SDL_InitFlags
 SDL_WindowFlags=SDL_WindowFlags
 SDL_GPUShaderFormat=SDL_GPUShaderFormat
-SDL_GPUBufferUsage=SDL_GPUBufferUsage
-SDL_GPUTextureUsage=SDL_GPUTextureUsage
+SDL_GPUBufferUsageFlags=SDL_GPUBufferUsageFlags
+SDL_GPUTextureUsageFlags=SDL_GPUTextureUsageFlags
+SDL_Keycode=SDL_Keycode
 
 --remap-type
 SDL_GPU_SHADERFORMAT_INVALID=uint

@@ -53,15 +53,17 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
         "SDL_GPU_BUFFERUSAGE",
         "SDL_GPU_TEXTUREUSAGE",
         "SDL_PROP",
-        "SDL_HINT"
+        "SDL_HINT",
+        "SDLK"
     },
     NameRemapping = new Dictionary<string, string>
     {
         { "SDL_InitFlags", "InitFlags" },
         { "SDL_WindowFlags", "WindowFlags" },
         { "SDL_GPUShaderFormat", "GPUShaderFormat" },
-        { "SDL_GPUTextureUsage", "GPUTextureUsage" },
-        { "SDL_GPUBufferUsage", "GPUBufferUsage" },
+        { "SDL_GPUTextureUsageFlags", "GPUTextureUsageFlags" },
+        { "SDL_GPUBufferUsageFlags", "GPUBufferUsageFlags" },
+        { "SDL_Keycode", "Keycode" }
     }
 });
 prettifier.Prettify(ref sdl3Bindings);
@@ -74,8 +76,9 @@ TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
         { "SDL_INIT", new TypeTransformer.ConstantType("InitFlags", true) },
         { "SDL_WINDOW_", new TypeTransformer.ConstantType("WindowFlags", true) },
         { "SDL_GPU_SHADERFORMAT", new TypeTransformer.ConstantType("GPUShaderFormat", true) },
-        { "SDL_GPU_BUFFERUSAGE", new TypeTransformer.ConstantType("GPUBufferUsage", true) },
-        { "SDL_GPU_TEXTUREUSAGE", new TypeTransformer.ConstantType("GPUTextureUsage", true) },
+        { "SDL_GPU_BUFFERUSAGE", new TypeTransformer.ConstantType("GPUBufferUsageFlags", true) },
+        { "SDL_GPU_TEXTUREUSAGE", new TypeTransformer.ConstantType("GPUTextureUsageFlags", true) },
+        { "SDLK", new TypeTransformer.ConstantType("Keycode", true) },
         { "SDL_PROP", new TypeTransformer.ConstantType("Prop", false) },
         { "SDL_HINT", new TypeTransformer.ConstantType("Hint", false) }
     }

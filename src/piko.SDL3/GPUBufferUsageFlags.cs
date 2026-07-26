@@ -5,7 +5,7 @@ namespace piko.SDL3;
 public static unsafe partial class SDL
 {
     [Flags]
-    public enum GPUBufferUsage : uint
+    public enum GPUBufferUsageFlags : uint
     {
         Vertex = (1U << 0),
         Index = (1U << 1),
