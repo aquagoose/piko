@@ -18,6 +18,12 @@ unsafe
     SDL.GPUDevice device = SDL.CreateGPUDevice(SDL.GPUShaderFormat.Spirv | SDL.GPUShaderFormat.Msl, 0, null);
     if (device.IsNull)
         throw new Exception($"Failed to create device: {SDL.GetError()}");
+
+    uint props = SDL.GetGPUDeviceProperties(device);
+    Console.WriteLine(SDL.GetStringProperty(props, SDL.Prop.GpuDeviceNameString, ""));
+    Console.WriteLine(SDL.GetStringProperty(props, SDL.Prop.GpuDeviceDriverInfoString, ""));
+    Console.WriteLine(SDL.GetGPUDeviceDriver(device));
+    
     if (!SDL.ClaimWindowForGPUDevice(device, window))
         throw new Exception($"Failed to claim window for device: {SDL.GetError()}");
 

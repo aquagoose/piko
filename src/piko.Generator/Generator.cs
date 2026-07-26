@@ -172,10 +172,13 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private void WriteFunction(FunctionBinding f)
     {
-        _sb.AppendLine($"    [LibraryImport(LibraryName, EntryPoint = \"{f.PInvokeName}\")]");
+        _sb.Append($"    [LibraryImport(LibraryName, EntryPoint = \"{f.PInvokeName}\"");
+        if (options.AllStringsAreUTF8)
+            _sb.Append(", StringMarshalling = StringMarshalling.Utf8");
+        _sb.AppendLine(")]");
 
         string returnType = f.ReturnType ?? "void";
-        if (GetMarshalInfoIfNeeded(returnType) is string returnMarshal)
+        if (GetMarshalInfoIfNeeded(returnType, true) is string returnMarshal)
             _sb.AppendLine($"    [return: {returnMarshal}]");
 
         _sb.Append($"    public static partial {returnType} {f.Name}(");
@@ -183,7 +186,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
         {
-            if (GetMarshalInfoIfNeeded(parameter.Type) is string parameterMarshal)
+            if (GetMarshalInfoIfNeeded(parameter.Type, false) is string parameterMarshal)
                 _sb.Append($"[{parameterMarshal}] ");
 
             _sb.Append(parameter.Type);
@@ -213,12 +216,15 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         return _sb.ToString();
     }
 
-    private string? GetMarshalInfoIfNeeded(string type)
+    private string? GetMarshalInfoIfNeeded(string type, bool isReturnValue)
     {
+        if (isReturnValue && (options.CustomReturnValueTypeMarshallers?.TryGetValue(type, out string customMarshaller) ?? false))
+            return $"MarshalUsing(typeof({customMarshaller}))";
+
         return type switch
         {
             "bool" => "MarshalAs(UnmanagedType.I1)",
-            "string" => "MarshalAs(UnmanagedType.LPStr)",
+            "string" when !options.AllStringsAreUTF8 => "MarshalAs(UnmanagedType.LPStr)",
             _ => null
         };
     }
@@ -253,5 +259,15 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         /// If true, all handle types will use the IHandle interface.
         /// </summary>
         public bool HandleTypesUseIHandleInterface;
+
+        /// <summary>
+        /// Generate StringMarshalling.Utf8 information for all methods that use strings.
+        /// </summary>
+        public bool AllStringsAreUTF8;
+
+        /// <summary>
+        /// Define custom type marshallers for return values, to be used in place of the default ones.
+        /// </summary>
+        public Dictionary<string, string>? CustomReturnValueTypeMarshallers;
     }
 }
