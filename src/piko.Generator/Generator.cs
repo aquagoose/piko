@@ -79,10 +79,13 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.Clear();
 
         _sb.AppendLine($"[StructLayout(LayoutKind.{s.Layout})]"); // we can directly print the enum as we are using the same enum
-        _sb.AppendLine($"public unsafe struct {s.Name}");
+        _sb.Append($"public unsafe struct {s.Name}");
+        if (s.IsHandleType && options.HandleTypesUseIHandleInterface)
+            _sb.Append(" : piko.Core.IHandle");
+        _sb.AppendLine();
         _sb.AppendLine("{");
 
-        if (s.Fields.Count == 0)
+        if (s.IsHandleType)
         {
             _sb.AppendLine($$"""
                                  private readonly nint _handle;
@@ -94,9 +97,6 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
                                  {
                                      _handle = handle;
                                  }
-                             
-                                 public static implicit operator bool({{s.Name}} s)
-                                      => !s.IsNull;
                              """);
         }
         else
@@ -248,5 +248,10 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         /// instead of "Window".
         /// </summary>
         public bool AllTypesAreSubTypes;
+
+        /// <summary>
+        /// If true, all handle types will use the IHandle interface.
+        /// </summary>
+        public bool HandleTypesUseIHandleInterface;
     }
 }

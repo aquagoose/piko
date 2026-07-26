@@ -3,7 +3,7 @@ namespace piko.SDL3;
 public static unsafe partial class SDL
 {
     [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct Process
+    public unsafe struct Process : piko.Core.IHandle
     {
         private readonly nint _handle;
     
@@ -14,8 +14,5 @@ public static unsafe partial class SDL
         {
             _handle = handle;
         }
-    
-        public static implicit operator bool(Process s)
-             => !s.IsNull;
     }
 }

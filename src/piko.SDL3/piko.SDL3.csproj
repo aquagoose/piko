@@ -9,4 +9,8 @@
         <Version>0.0.1</Version>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\piko.Core\piko.Core.csproj" />
+    </ItemGroup>
+
 </Project>
