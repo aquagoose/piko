@@ -1,7 +1,7 @@
 {
   "OutputDirectory": "../src/piko.SDL3.ShaderCross",
   "Namespace": "piko.SDL3.ShaderCross",
-  "LibraryDllName": "SDL_shadercross",
+  "LibraryDllName": "SDL3_shadercross",
   "MethodClassName": "SDLShaderCross",
   "PrefixToStrip": "SDL_ShaderCross_",
   "Analyzer": "ClangSharp",
