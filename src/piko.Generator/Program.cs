@@ -17,7 +17,8 @@ string jsonText = File.ReadAllText(jsonFilePath);
 PikoGeneratorConfig pikoConfig = JsonSerializer.Deserialize<PikoGeneratorConfig>(jsonText, new JsonSerializerOptions
 {
     IncludeFields = true,
-    ReadCommentHandling = JsonCommentHandling.Skip
+    ReadCommentHandling = JsonCommentHandling.Skip,
+    AllowTrailingCommas = true
 });
 
 ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer(workingDir, pikoConfig.ClangSharp, pikoConfig.TypeRemapping.Keys.ToList());

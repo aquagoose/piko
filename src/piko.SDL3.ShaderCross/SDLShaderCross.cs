@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.Marshalling;
 namespace piko.SDL3.ShaderCross;
 public static unsafe partial class SDLShaderCross
 {
-    public const string LibraryName = "SDL_shadercross";
+    public const string LibraryName = "SDL3_shadercross";
 
     public const int MajorVersion = 3;
     public const int MinorVersion = 0;

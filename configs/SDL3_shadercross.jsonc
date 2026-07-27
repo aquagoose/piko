@@ -9,7 +9,8 @@
     "FileDirectory": "../lib/SDL_shadercross/include/SDL3_shadercross",
     "Files": [
       "SDL_shadercross.h"
-    ]
+    ],
+    "IncludeDirectories": ["../lib/SDL/include"]
   },
   "TypeRemapping": {
     "SDL_GPUDevice": "void",

@@ -7,11 +7,13 @@
         <PackageTags>sdl3;sdl;graphics;opengl;vulkan;directx</PackageTags>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
         <Version>0.0.3</Version>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="$(SolutionDir)LICENSE" Pack="true" PackagePath="" />
         <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="" />
+        <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="" />
     </ItemGroup>
 </Project>

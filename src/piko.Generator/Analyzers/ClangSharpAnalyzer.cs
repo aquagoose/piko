@@ -33,6 +33,24 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
             clangSharpInfo.ArgumentList.Add(file);
         }
 
+        if (config.IncludeDirectories != null)
+        {
+            foreach (string dir in config.IncludeDirectories)
+            {
+                clangSharpInfo.ArgumentList.Add("--include-directory");
+                clangSharpInfo.ArgumentList.Add(Path.Combine(workingDir, dir));
+            }
+        }
+
+        if (config.IncludeFiles != null)
+        {
+            foreach (string file in config.IncludeFiles)
+            {
+                clangSharpInfo.ArgumentList.Add("--include");
+                clangSharpInfo.ArgumentList.Add(file);
+            }
+        }
+
         foreach (string remapping in typeRemappings)
         {
             // clangsharp won't automatically remap some typedefs, particularly those mapping to integers.

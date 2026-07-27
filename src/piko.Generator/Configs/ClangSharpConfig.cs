@@ -11,4 +11,7 @@ public class ClangSharpConfig
     /// The files to analyze.
     /// </summary>
     public string[] Files;
+
+    public string[]? IncludeDirectories;
+    public string[]? IncludeFiles;
 }
