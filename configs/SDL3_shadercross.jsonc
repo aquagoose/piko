@@ -12,16 +12,19 @@
     ]
   },
   "TypeRemapping": {
-    "SDL_GPUDevice": "SDL.GPUDevice",
-    "SDL_GPUShader": "SDL.GPUShader",
-    "SDL_GPUComputePipeline": "SDL.GPUComputePipeline"
+    "SDL_GPUDevice": "void",
+    "SDL_GPUShader": "void",
+    "SDL_GPUComputePipeline": "void",
+    "SDL_GPUShaderFormat": "SDL.GPUShaderFormat"
   },
   "Enums": {
     "CustomPrefixes": {},
     "PrefixesToStrip": {}
   },
   "Constants": {
-    "AssociateConstantPrefixWithType": {}
+    "AssociateConstantPrefixWithType": {
+      "SDL_SHADERCROSS_PROP": { "TypeName": "Prop", "IsFlagsEnum": false }
+    }
   },
   "Generator": {
     "EmptyStructsAreHandleTypes": true,
