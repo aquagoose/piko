@@ -7,7 +7,7 @@ public static unsafe partial class SDL
     [StructLayout(LayoutKind.Sequential)]
     public unsafe struct MessageBoxData
     {
-        public uint Flags;
+        public MessageBoxFlags Flags;
         public Window Window;
         public sbyte* Title;
         public sbyte* Message;
@@ -15,7 +15,7 @@ public static unsafe partial class SDL
         public MessageBoxButtonData* Buttons;
         public MessageBoxColorScheme* ColorScheme;
     
-        public MessageBoxData(uint flags, Window window, sbyte* title, sbyte* message, int numbuttons, MessageBoxButtonData* buttons, MessageBoxColorScheme* colorScheme)
+        public MessageBoxData(MessageBoxFlags flags, Window window, sbyte* title, sbyte* message, int numbuttons, MessageBoxButtonData* buttons, MessageBoxColorScheme* colorScheme)
         {
             this.Flags = flags;
             this.Window = window;

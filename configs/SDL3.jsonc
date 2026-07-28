@@ -93,7 +93,16 @@
     "SDL_GPUShaderFormat": "GPUShaderFormat",
     "SDL_GPUTextureUsageFlags": "GPUTextureUsageFlags",
     "SDL_GPUBufferUsageFlags": "GPUBufferUsageFlags",
+    "SDL_MessageBoxFlags": "MessageBoxFlags",
+    "SDL_MouseButtonFlags": "MouseButtonFlags",
+    "SDL_GLContextResetNotification": "GLContextResetNotification",
+    "SDL_GLContextReleaseFlag": "GLContextReleaseFlag",
+    "SDL_GLProfile": "GLProfile",
+    "SDL_GLContextFlag": "GLContextFlag",
     "SDL_Keycode": "Keycode",
+    "SDL_Keymod": "Keymod",
+    "SDL_PenInputFlags": "PenInputFlags",
+    "SDL_BlendMode": "BlendMode",
     // manually redefine every fnptr so that clangsharp actually generates them as delegates
     // todo find if there's a better way to do this or a way to get clangsharp to output the fnptr name instead of intptr
     "SDL_AudioStreamDataCompleteCallback": "AudioStreamDataCompleteCallback",
@@ -130,7 +139,7 @@
       "SDL_GPUSampleCount": "Count",
       "SDL_BitmapOrder": "Order",
       "SDL_PackedLayout": "Layout",
-      "SDL_TimeFormat": "Format"
+      "SDL_TimeFormat": "Format",
     },
     "PrefixesToStrip": {
       "SDL_AssertState": "ASSERTION",
@@ -165,7 +174,16 @@
       "SDL_GPU_SHADERFORMAT": { "TypeName": "GPUShaderFormat", "IsFlagsEnum": true },
       "SDL_GPU_BUFFERUSAGE": { "TypeName": "GPUBufferUsageFlags", "IsFlagsEnum": true },
       "SDL_GPU_TEXTUREUSAGE": { "TypeName": "GPUTextureUsageFlags", "IsFlagsEnum": true },
+      "SDL_MESSAGEBOX": { "TypeName": "MessageBoxFlags", "IsFlagsEnum": true },
+      "SDL_BUTTON": { "TypeName": "MouseButtonFlags", "IsFlagsEnum": true },
+      "SDL_GL_CONTEXT_RESET": { "TypeName": "GLContextResetNotification", "IsFlagsEnum": true },
+      "SDL_GL_CONTEXT_RELEASE_BEHAVIOR": { "TypeName": "GLContextReleaseFlag", "IsFlagsEnum": true },
+      "SDL_GL_CONTEXT_PROFILE": { "TypeName": "GLProfile", "IsFlagsEnum": true },
+      "SDL_GL_CONTEXT": { "TypeName": "GLContextFlag", "IsFlagsEnum": true },
       "SDLK": { "TypeName": "Keycode", "IsFlagsEnum": true },
+      "SDL_KMOD": { "TypeName": "Keymod", "IsFlagsEnum": true },
+      "SDL_PEN_INPUT": { "TypeName": "PenInputFlags", "IsFlagsEnum": true },
+      "SDL_BLENDMODE": { "TypeName": "BlendMode", "IsFlagsEnum": true },
       "SDL_PROP": { "TypeName": "Prop", "IsFlagsEnum": false },
       "SDL_HINT": { "TypeName": "Hint", "IsFlagsEnum": false }
     }

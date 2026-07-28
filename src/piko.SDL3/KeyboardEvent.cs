@@ -14,12 +14,12 @@ public static unsafe partial class SDL
         public uint Which;
         public Scancode Scancode;
         public Keycode Key;
-        public ushort Mod;
+        public Keymod Mod;
         public ushort Raw;
         public bool Down;
         public bool Repeat;
     
-        public KeyboardEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, Scancode scancode, Keycode key, ushort mod, ushort raw, bool down, bool repeat)
+        public KeyboardEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, Scancode scancode, Keycode key, Keymod mod, ushort raw, bool down, bool repeat)
         {
             this.Type = type;
             this.Reserved = reserved;

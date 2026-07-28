@@ -12,13 +12,13 @@ public static unsafe partial class SDL
         public ulong Timestamp;
         public uint WindowID;
         public uint Which;
-        public uint State;
+        public MouseButtonFlags State;
         public float X;
         public float Y;
         public float Xrel;
         public float Yrel;
     
-        public MouseMotionEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, uint state, float x, float y, float xrel, float yrel)
+        public MouseMotionEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, MouseButtonFlags state, float x, float y, float xrel, float yrel)
         {
             this.Type = type;
             this.Reserved = reserved;

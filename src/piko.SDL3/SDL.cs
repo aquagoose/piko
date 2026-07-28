@@ -12,14 +12,6 @@ public static unsafe partial class SDL
     public const uint AudioMaskSigned = (1U << 15);
     public const uint AudioDeviceDefaultPlayback = ((uint)(0xFFFFFFFFU));
     public const uint AudioDeviceDefaultRecording = ((uint)(0xFFFFFFFEU));
-    public const uint BlendmodeNone = 0x00000000U;
-    public const uint BlendmodeBlend = 0x00000001U;
-    public const uint BlendmodeBlendPremultiplied = 0x00000010U;
-    public const uint BlendmodeAdd = 0x00000002U;
-    public const uint BlendmodeAddPremultiplied = 0x00000020U;
-    public const uint BlendmodeMod = 0x00000004U;
-    public const uint BlendmodeMul = 0x00000008U;
-    public const uint BlendmodeInvalid = 0x7FFFFFFFU;
     public const int CachelineSize = 128;
     public const uint GlobCaseinsensitive = (1U << 0);
     public const uint GpuColorcomponentR = (1U << 0);
@@ -62,49 +54,6 @@ public static unsafe partial class SDL
     public const uint HatRightdown = (0x02U | 0x04U);
     public const uint HatLeftup = (0x08U | 0x01U);
     public const uint HatLeftdown = (0x08U | 0x04U);
-    public const uint KmodNone = 0x0000U;
-    public const uint KmodLshift = 0x0001U;
-    public const uint KmodRshift = 0x0002U;
-    public const uint KmodLevel5 = 0x0004U;
-    public const uint KmodLctrl = 0x0040U;
-    public const uint KmodRctrl = 0x0080U;
-    public const uint KmodLalt = 0x0100U;
-    public const uint KmodRalt = 0x0200U;
-    public const uint KmodLgui = 0x0400U;
-    public const uint KmodRgui = 0x0800U;
-    public const uint KmodNum = 0x1000U;
-    public const uint KmodCaps = 0x2000U;
-    public const uint KmodMode = 0x4000U;
-    public const uint KmodScroll = 0x8000U;
-    public const uint KmodCtrl = (0x0040U | 0x0080U);
-    public const uint KmodShift = (0x0001U | 0x0002U);
-    public const uint KmodAlt = (0x0100U | 0x0200U);
-    public const uint KmodGui = (0x0400U | 0x0800U);
-    public const uint MessageboxError = 0x00000010U;
-    public const uint MessageboxWarning = 0x00000020U;
-    public const uint MessageboxInformation = 0x00000040U;
-    public const uint MessageboxButtonsLeftToRight = 0x00000080U;
-    public const uint MessageboxButtonsRightToLeft = 0x00000100U;
-    public const uint MessageboxButtonReturnkeyDefault = 0x00000001U;
-    public const uint MessageboxButtonEscapekeyDefault = 0x00000002U;
-    public const int ButtonLeft = 1;
-    public const int ButtonMiddle = 2;
-    public const int ButtonRight = 3;
-    public const int ButtonX1 = 4;
-    public const int ButtonX2 = 5;
-    public const uint ButtonLmask = (1U << ((1) - 1));
-    public const uint ButtonMmask = (1U << ((2) - 1));
-    public const uint ButtonRmask = (1U << ((3) - 1));
-    public const uint ButtonX1mask = (1U << ((4) - 1));
-    public const uint ButtonX2mask = (1U << ((5) - 1));
-    public const uint PenInputDown = (1U << 0);
-    public const uint PenInputButton1 = (1U << 1);
-    public const uint PenInputButton2 = (1U << 2);
-    public const uint PenInputButton3 = (1U << 3);
-    public const uint PenInputButton4 = (1U << 4);
-    public const uint PenInputButton5 = (1U << 5);
-    public const uint PenInputEraserTip = (1U << 30);
-    public const uint PenInputInProximity = (1U << 31);
     public const int AlphaOpaque = 255;
     public const float AlphaOpaqueFloat = 1.0f;
     public const int AlphaTransparent = 0;
@@ -138,17 +87,6 @@ public static unsafe partial class SDL
     public const uint WindowposUndefined = (0x1FFF0000U | (0));
     public const uint WindowposCenteredMask = 0x2FFF0000U;
     public const uint WindowposCentered = (0x2FFF0000U | (0));
-    public const int GlContextProfileCore = 0x0001;
-    public const int GlContextProfileCompatibility = 0x0002;
-    public const int GlContextProfileEs = 0x0004;
-    public const int GlContextDebugFlag = 0x0001;
-    public const int GlContextForwardCompatibleFlag = 0x0002;
-    public const int GlContextRobustAccessFlag = 0x0004;
-    public const int GlContextResetIsolationFlag = 0x0008;
-    public const int GlContextReleaseBehaviorNone = 0x0000;
-    public const int GlContextReleaseBehaviorFlush = 0x0001;
-    public const int GlContextResetNoNotification = 0x0000;
-    public const int GlContextResetLoseContext = 0x0001;
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AsyncIOFromFile", StringMarshalling = StringMarshalling.Utf8)]
     public static partial AsyncIO AsyncIOFromFile(string file, string mode);
@@ -459,7 +397,7 @@ public static unsafe partial class SDL
     public static partial bool HasExactlyOneBitSet32(uint x);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ComposeCustomBlendMode", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint ComposeCustomBlendMode(BlendFactor srccolorfactor, BlendFactor dstcolorfactor, BlendOperation coloroperation, BlendFactor srcalphafactor, BlendFactor dstalphafactor, BlendOperation alphaoperation);
+    public static partial BlendMode ComposeCustomBlendMode(BlendFactor srccolorfactor, BlendFactor dstcolorfactor, BlendOperation coloroperation, BlendFactor srcalphafactor, BlendFactor dstalphafactor, BlendOperation alphaoperation);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetNumCameraDrivers", StringMarshalling = StringMarshalling.Utf8)]
     public static partial int GetNumCameraDrivers();
@@ -1956,16 +1894,16 @@ public static unsafe partial class SDL
     public static partial void ResetKeyboard();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetModState", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial ushort GetModState();
+    public static partial Keymod GetModState();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetModState", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetModState(ushort modstate);
+    public static partial void SetModState(Keymod modstate);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetKeyFromScancode", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Keycode GetKeyFromScancode(Scancode scancode, ushort modstate, byte keyEvent);
+    public static partial Keycode GetKeyFromScancode(Scancode scancode, Keymod modstate, byte keyEvent);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetScancodeFromKey", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Scancode GetScancodeFromKey(Keycode key, ushort* modstate);
+    public static partial Scancode GetScancodeFromKey(Keycode key, Keymod* modstate);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetScancodeName", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2064,7 +2002,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowSimpleMessageBox", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ShowSimpleMessageBox(uint flags, string title, string message, Window window);
+    public static partial bool ShowSimpleMessageBox(MessageBoxFlags flags, string title, string message, Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Metal_CreateView", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void* MetalCreateView(Window window);
@@ -2094,13 +2032,13 @@ public static unsafe partial class SDL
     public static partial Window GetMouseFocus();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetMouseState", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint GetMouseState(float* x, float* y);
+    public static partial MouseButtonFlags GetMouseState(float* x, float* y);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetGlobalMouseState", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint GetGlobalMouseState(float* x, float* y);
+    public static partial MouseButtonFlags GetGlobalMouseState(float* x, float* y);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRelativeMouseState", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint GetRelativeMouseState(float* x, float* y);
+    public static partial MouseButtonFlags GetRelativeMouseState(float* x, float* y);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WarpMouseInWindow", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void WarpMouseInWindow(Window window, float x, float y);
@@ -2583,11 +2521,11 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureBlendMode(Texture* texture, uint blendmode);
+    public static partial bool SetTextureBlendMode(Texture* texture, BlendMode blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureBlendMode(Texture* texture, uint* blendmode);
+    public static partial bool GetTextureBlendMode(Texture* texture, BlendMode* blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureScaleMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2713,11 +2651,11 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderDrawBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetRenderDrawBlendMode(Renderer renderer, uint blendmode);
+    public static partial bool SetRenderDrawBlendMode(Renderer renderer, BlendMode blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRenderDrawBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetRenderDrawBlendMode(Renderer renderer, uint* blendmode);
+    public static partial bool GetRenderDrawBlendMode(Renderer renderer, BlendMode* blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderClear", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3085,11 +3023,11 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceBlendMode(Surface* surface, uint blendmode);
+    public static partial bool SetSurfaceBlendMode(Surface* surface, BlendMode blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceBlendMode(Surface* surface, uint* blendmode);
+    public static partial bool GetSurfaceBlendMode(Surface* surface, BlendMode* blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceClipRect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]

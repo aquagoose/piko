@@ -12,13 +12,13 @@ public static unsafe partial class SDL
         public ulong Timestamp;
         public uint WindowID;
         public uint Which;
-        public uint PenState;
+        public PenInputFlags PenState;
         public float X;
         public float Y;
         public bool Eraser;
         public bool Down;
     
-        public PenTouchEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, uint penState, float x, float y, bool eraser, bool down)
+        public PenTouchEvent(EventType type, uint reserved, ulong timestamp, uint windowID, uint which, PenInputFlags penState, float x, float y, bool eraser, bool down)
         {
             this.Type = type;
             this.Reserved = reserved;
