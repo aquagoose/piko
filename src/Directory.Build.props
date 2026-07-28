@@ -8,7 +8,7 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
-        <Version>0.0.3.1</Version>
+        <Version>0.0.4</Version>
         <Description>A small n cute set of actually good* gamedev-focused bindings for C#.</Description>
     </PropertyGroup>
 
