@@ -25,16 +25,16 @@ public static unsafe partial class SDL
         public VirtualJoystickTouchpadDesc* Touchpads;
         public VirtualJoystickSensorDesc* Sensors;
         public void* Userdata;
-        public delegate* unmanaged[Cdecl]<void*, void> Update;
-        public delegate* unmanaged[Cdecl]<void*, int, void> SetPlayerIndex;
-        public delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> Rumble;
-        public delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> RumbleTriggers;
-        public delegate* unmanaged[Cdecl]<void*, byte, byte, byte, byte> SetLED;
-        public delegate* unmanaged[Cdecl]<void*, void*, int, byte> SendEffect;
-        public delegate* unmanaged[Cdecl]<void*, byte, byte> SetSensorsEnabled;
-        public delegate* unmanaged[Cdecl]<void*, void> Cleanup;
+        public IntPtr Update;
+        public IntPtr SetPlayerIndex;
+        public IntPtr Rumble;
+        public IntPtr RumbleTriggers;
+        public IntPtr SetLED;
+        public IntPtr SendEffect;
+        public IntPtr SetSensorsEnabled;
+        public IntPtr Cleanup;
     
-        public VirtualJoystickDesc(uint version, ushort type, ushort padding, ushort vendorId, ushort productId, ushort naxes, ushort nbuttons, ushort nballs, ushort nhats, ushort ntouchpads, ushort nsensors, ushort padding2, uint buttonMask, uint axisMask, sbyte* name, VirtualJoystickTouchpadDesc* touchpads, VirtualJoystickSensorDesc* sensors, void* userdata, delegate* unmanaged[Cdecl]<void*, void> update, delegate* unmanaged[Cdecl]<void*, int, void> setPlayerIndex, delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> rumble, delegate* unmanaged[Cdecl]<void*, ushort, ushort, byte> rumbleTriggers, delegate* unmanaged[Cdecl]<void*, byte, byte, byte, byte> setLED, delegate* unmanaged[Cdecl]<void*, void*, int, byte> sendEffect, delegate* unmanaged[Cdecl]<void*, byte, byte> setSensorsEnabled, delegate* unmanaged[Cdecl]<void*, void> cleanup)
+        public VirtualJoystickDesc(uint version, ushort type, ushort padding, ushort vendorId, ushort productId, ushort naxes, ushort nbuttons, ushort nballs, ushort nhats, ushort ntouchpads, ushort nsensors, ushort padding2, uint buttonMask, uint axisMask, sbyte* name, VirtualJoystickTouchpadDesc* touchpads, VirtualJoystickSensorDesc* sensors, void* userdata, IntPtr update, IntPtr setPlayerIndex, IntPtr rumble, IntPtr rumbleTriggers, IntPtr setLED, IntPtr sendEffect, IntPtr setSensorsEnabled, IntPtr cleanup)
         {
             this.Version = version;
             this.Type = type;

@@ -23,6 +23,9 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
         clangSharpInfo.ArgumentList.Add("macro-bindings");
         clangSharpInfo.ArgumentList.Add("--generate");
         clangSharpInfo.ArgumentList.Add("nint-codegen");
+        // without disabling fnptr-codegen, clangsharp won't output any delegates
+        clangSharpInfo.ArgumentList.Add("--generate");
+        clangSharpInfo.ArgumentList.Add("fnptr-codegen=false");
 
         clangSharpInfo.ArgumentList.Add("--file-directory");
         clangSharpInfo.ArgumentList.Add(Path.Combine(workingDir, config.FileDirectory));
@@ -89,6 +92,9 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
                     break;
                 case "struct":
                     ProcessStruct(node, ref bindings);
+                    break;
+                case "delegate":
+                    bindings.Delegates.Add(ProcessFunction(node));
                     break;
                 case "class":
                     ProcessFunctionSet(node, ref bindings);
@@ -175,41 +181,47 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
 
         foreach (XmlNode func in node.SelectNodes("function"))
         {
-            string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");
-            string? returnType = func["type"]?.InnerText;
-            string? returnTypeNativeType = func["type"]?.Attributes["native"]?.Value;
-
-            int returnTypePointerLevel = 0;
-            if (returnType != null && returnType.EndsWith('*'))
-            {
-                returnTypePointerLevel = returnType.Count('*');
-                returnType = returnType.Substring(0, returnType.Length - returnTypePointerLevel);
-            }
-
-            FunctionBinding binding = new FunctionBinding(functionName, functionName, returnType, returnTypeNativeType, returnTypePointerLevel);
-
-            XmlNodeList? parameters = func.SelectNodes("param");
-            if (parameters != null)
-            {
-                foreach (XmlNode parameter in parameters)
-                {
-                    string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
-                    string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
-                    string? nativeType = parameter["type"]?.Attributes?["native"]?.Value;
-
-                    int pointerLevel = 0;
-                    if (type.EndsWith('*'))
-                    {
-                        // count the pointer level then strip it from the typename
-                        pointerLevel = type.Count('*');
-                        type = type.Substring(0, type.Length - pointerLevel);
-                    }
-
-                    binding.Parameters.Add(new FunctionBinding.Parameter(name, type, nativeType, pointerLevel));
-                }
-            }
-
+            FunctionBinding binding = ProcessFunction(func);
             bindings.Functions.Add(binding);
         }
+    }
+
+    private FunctionBinding ProcessFunction(XmlNode func)
+    {
+        string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");
+        string? returnType = func["type"]?.InnerText;
+        string? returnTypeNativeType = func["type"]?.Attributes["native"]?.Value;
+
+        int returnTypePointerLevel = 0;
+        if (returnType != null && returnType.EndsWith('*'))
+        {
+            returnTypePointerLevel = returnType.Count('*');
+            returnType = returnType.Substring(0, returnType.Length - returnTypePointerLevel);
+        }
+
+        FunctionBinding binding = new FunctionBinding(functionName, functionName, returnType, returnTypeNativeType, returnTypePointerLevel);
+
+        XmlNodeList? parameters = func.SelectNodes("param");
+        if (parameters != null)
+        {
+            foreach (XmlNode parameter in parameters)
+            {
+                string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
+                string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
+                string? nativeType = parameter["type"]?.Attributes?["native"]?.Value;
+
+                int pointerLevel = 0;
+                if (type.EndsWith('*'))
+                {
+                    // count the pointer level then strip it from the typename
+                    pointerLevel = type.Count('*');
+                    type = type.Substring(0, type.Length - pointerLevel);
+                }
+
+                binding.Parameters.Add(new FunctionBinding.Parameter(name, type, nativeType, pointerLevel));
+            }
+        }
+
+        return binding;
     }
 }

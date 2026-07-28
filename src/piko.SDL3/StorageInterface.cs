@@ -8,21 +8,19 @@ public static unsafe partial class SDL
     public unsafe struct StorageInterface
     {
         public uint Version;
-        public delegate* unmanaged[Cdecl]<void*, byte> Close;
-        public delegate* unmanaged[Cdecl]<void*, byte> Ready;
-        //todo public delegate* unmanaged[Cdecl]<void*, sbyte*, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, SDL_EnumerationResult>, void*, byte> Enumerate;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, uint>, void*, byte> Enumerate;
-        //todo public delegate* unmanaged[Cdecl]<void*, sbyte*, SDL_PathInfo*, byte> Info;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, void*, byte> Info;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> ReadFile;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> WriteFile;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, byte> Mkdir;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, byte> Remove;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> Rename;
-        public delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> Copy;
-        public delegate* unmanaged[Cdecl]<void*, ulong> SpaceRemaining;
-
-        public StorageInterface(uint version, delegate* unmanaged[Cdecl]<void*, byte> close, delegate* unmanaged[Cdecl]<void*, byte> ready, delegate* unmanaged[Cdecl]<void*, sbyte*, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, uint>, void*, byte> enumerate, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, byte> info, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> readFile, delegate* unmanaged[Cdecl]<void*, sbyte*, void*, nuint, byte> writeFile, delegate* unmanaged[Cdecl]<void*, sbyte*, byte> mkdir, delegate* unmanaged[Cdecl]<void*, sbyte*, byte> remove, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> rename, delegate* unmanaged[Cdecl]<void*, sbyte*, sbyte*, byte> copy, delegate* unmanaged[Cdecl]<void*, ulong> spaceRemaining)
+        public IntPtr Close;
+        public IntPtr Ready;
+        public IntPtr Enumerate;
+        public IntPtr Info;
+        public IntPtr ReadFile;
+        public IntPtr WriteFile;
+        public IntPtr Mkdir;
+        public IntPtr Remove;
+        public IntPtr Rename;
+        public IntPtr Copy;
+        public IntPtr SpaceRemaining;
+    
+        public StorageInterface(uint version, IntPtr close, IntPtr ready, IntPtr enumerate, IntPtr info, IntPtr readFile, IntPtr writeFile, IntPtr mkdir, IntPtr remove, IntPtr rename, IntPtr copy, IntPtr spaceRemaining)
         {
             this.Version = version;
             this.Close = close;

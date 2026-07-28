@@ -93,7 +93,35 @@
     "SDL_GPUShaderFormat": "GPUShaderFormat",
     "SDL_GPUTextureUsageFlags": "GPUTextureUsageFlags",
     "SDL_GPUBufferUsageFlags": "GPUBufferUsageFlags",
-    "SDL_Keycode": "Keycode"
+    "SDL_Keycode": "Keycode",
+    // manually redefine every fnptr so that clangsharp actually generates them as delegates
+    // todo find if there's a better way to do this or a way to get clangsharp to output the fnptr name instead of intptr
+    "SDL_AudioStreamDataCompleteCallback": "AudioStreamDataCompleteCallback",
+    "SDL_AudioStreamCallback": "AudioStreamCallback",
+    "SDL_AudioPostmixCallback": "AudioPostmixCallback",
+    "SDL_ClipboardDataCallback": "ClipboardDataCallback",
+    "SDL_ClipboardCleanupCallback": "ClipboardCleanupCallback",
+    "SDL_DialogFileCallback": "DialogFileCallback",
+    "SDL_EventFilter": "EventFilter",
+    "SDL_EnumerateDirectoryCallback": "EnumerateDirectoryCallback",
+    "SDL_HitCallback": "HitCallback",
+    "SDL_AppInitFunc": "AppInitFunc",
+    "SDL_AppIterateFunc": "AppIterateFunc",
+    "SDL_AppEventFunc": "AppEventFunc",
+    "SDL_AppQuitFunc": "AppQuitFunc",
+    "SDL_MainThreadCallback": "MainThreadCallback",
+    "SDL_LogOutputFunction": "LogOutputFunction",
+    "SDL_MouseMotionTransformCallback": "MouseMotionTransformCallback",
+    "SDL_CleanupPropertyCallback": "CleanupPropertyCallback",
+    "SDL_EnumeratePropertiesCallback": "EnumeratePropertiesCallback",
+    "SDL_X11EventHook": "X11EventHook",
+    "SDL_ThreadFunction": "ThreadFunction",
+    "SDL_TLSDestructorCallback": "TLSDestructorCallback",
+    "SDL_TimerCallback": "TimerCallback",
+    "SDL_NSTimerCallback": "NSTimerCallback",
+    "SDL_TrayCallback": "TrayCallback",
+    "SDL_EGLAttribArrayCallback": "EGLAttribArrayCallback",
+    "SDL_HitTest": "HitTest"
   },
   "Enums": {
     "CustomPrefixes": {

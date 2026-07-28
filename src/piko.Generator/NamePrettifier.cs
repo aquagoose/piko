@@ -72,19 +72,9 @@ public class NamePrettifier(NamePrettifier.Options options)
         }
 
         foreach (FunctionBinding f in bindings.Functions)
-        {
-            f.Name = TransformIdentifier(f.Name);
-            if (_transformMap.TryGetValue(f.ReturnType, out string newReturnType))
-                f.ReturnType = newReturnType;
-
-            foreach (FunctionBinding.Parameter parameter in f.Parameters)
-            {
-                parameter.Name = TransformParameter(parameter.Name);
-
-                if (_transformMap.TryGetValue(parameter.Type, out string transformed))
-                    parameter.Type = transformed;
-            }
-        }
+            TransformFunction(f);
+        foreach (FunctionBinding d in bindings.Delegates)
+            TransformFunction(d);
     }
 
     private string TransformValue(string name, bool keepCasing, bool startUpperCase)
@@ -149,6 +139,21 @@ public class NamePrettifier(NamePrettifier.Options options)
 
         _transformMap.Add(name, newName);
         return newName;
+    }
+
+    private void TransformFunction(FunctionBinding f)
+    {
+        f.Name = TransformIdentifier(f.Name);
+        if (_transformMap.TryGetValue(f.ReturnType, out string newReturnType))
+            f.ReturnType = newReturnType;
+
+        foreach (FunctionBinding.Parameter parameter in f.Parameters)
+        {
+            parameter.Name = TransformParameter(parameter.Name);
+
+            if (_transformMap.TryGetValue(parameter.Type, out string transformed))
+                parameter.Type = transformed;
+        }
     }
 
     private string TransformParameter(string name)

@@ -4,18 +4,18 @@ using System.Runtime.InteropServices.Marshalling;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    /*todo [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential)]
     public unsafe struct IOStreamInterface
     {
         public uint Version;
-        public delegate* unmanaged[Cdecl]<void*, long> Size;
-        public delegate* unmanaged[Cdecl]<void*, long, SDL_IOWhence, long> Seek;
-        public delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> Read;
-        public delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> Write;
-        public delegate* unmanaged[Cdecl]<void*, SDL_IOStatus*, byte> Flush;
-        public delegate* unmanaged[Cdecl]<void*, byte> Close;
+        public IntPtr Size;
+        public IntPtr Seek;
+        public IntPtr Read;
+        public IntPtr Write;
+        public IntPtr Flush;
+        public IntPtr Close;
     
-        public IOStreamInterface(uint version, delegate* unmanaged[Cdecl]<void*, long> size, delegate* unmanaged[Cdecl]<void*, long, SDL_IOWhence, long> seek, delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> read, delegate* unmanaged[Cdecl]<void*, void*, nuint, SDL_IOStatus*, nuint> write, delegate* unmanaged[Cdecl]<void*, SDL_IOStatus*, byte> flush, delegate* unmanaged[Cdecl]<void*, byte> close)
+        public IOStreamInterface(uint version, IntPtr size, IntPtr seek, IntPtr read, IntPtr write, IntPtr flush, IntPtr close)
         {
             this.Version = version;
             this.Size = size;
@@ -25,5 +25,5 @@ public static unsafe partial class SDL
             this.Flush = flush;
             this.Close = close;
         }
-    }*/
+    }
 }

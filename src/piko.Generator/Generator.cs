@@ -29,6 +29,9 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         _sb.AppendLine();
         foreach (FunctionBinding f in bindings.Functions)
             WriteFunction(f);
+        _sb.AppendLine();
+        foreach (FunctionBinding d in bindings.Delegates)
+            WriteDelegate(d);
         _sb.AppendLine("}");
         outputs.Add(new Output(methodClassName, _sb.ToString()));
 
@@ -187,7 +190,22 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             _sb.AppendLine($"    [return: {returnMarshal}]");
 
         _sb.Append($"    public static partial {returnType} {f.Name}(");
+        WriteFunctionParameters(f);
+        _sb.AppendLine(");");
+        _sb.AppendLine();
+    }
 
+    private void WriteDelegate(FunctionBinding d)
+    {
+        string returnType = d.ReturnType ?? "void";
+        _sb.Append($"    public delegate {returnType} {d.Name}(");
+        WriteFunctionParameters(d);
+        _sb.AppendLine(");");
+        _sb.AppendLine();
+    }
+
+    private void WriteFunctionParameters(FunctionBinding f)
+    {
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
         {
@@ -200,9 +218,6 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             if (++i < f.Parameters.Count)
                 _sb.Append(", ");
         }
-
-        _sb.AppendLine(");");
-        _sb.AppendLine();
     }
 
     private string WriteExtraStuff(string str)

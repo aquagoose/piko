@@ -6,6 +6,7 @@ public record BindingsSet
     public List<ConstantBinding> Constants;
     public List<StructBinding> Structs;
     public List<FunctionBinding> Functions;
+    public List<FunctionBinding> Delegates;
 
     public BindingsSet()
     {
@@ -13,5 +14,6 @@ public record BindingsSet
         Constants = [];
         Structs = [];
         Functions = [];
+        Delegates = [];
     }
 }

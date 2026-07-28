@@ -27,6 +27,9 @@ public class TypeTransformer(TypeTransformer.Options options)
         foreach (FunctionBinding f in bindings.Functions)
             TransformFunction(f);
 
+        foreach (FunctionBinding d in bindings.Delegates)
+            TransformFunction(d);
+
         foreach ((_, EnumBinding e) in _newEnums)
             bindings.Enums.Add(e);
     }
