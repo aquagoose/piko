@@ -168,6 +168,9 @@
     }
   },
   "Constants": {
+    "PrefixRemapping": {
+      "SDL_HAPTIC": "HapticType"
+    },
     "AssociateConstantPrefixWithType": {
       "SDL_INIT": { "TypeName": "InitFlags", "IsFlagsEnum": true },
       "SDL_WINDOW_": { "TypeName": "WindowFlags", "IsFlagsEnum": true },

@@ -28,6 +28,7 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
     PrefixToStrip = pikoConfig.PrefixToStrip,
     EnumPrefixRemapping = pikoConfig.Enums.CustomPrefixes,
     EnumPrefixStrip = pikoConfig.Enums.PrefixesToStrip,
+    ConstantPrefixRemapping = pikoConfig.Constants.PrefixRemapping,
     ConstantPrefixStrip = pikoConfig.Constants.AssociateConstantPrefixWithType.Keys.ToList(),
     NameRemapping = pikoConfig.TypeRemapping
 });

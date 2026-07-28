@@ -33,6 +33,18 @@ public class NamePrettifier(NamePrettifier.Options options)
 
         foreach (ConstantBinding c in bindings.Constants)
         {
+            string? remapPrefix = null;
+
+            foreach ((string prefix, string remap) in options.ConstantPrefixRemapping)
+            {
+                if (!c.Name.StartsWith(prefix))
+                    continue;
+
+                c.Name = c.Name.Substring(prefix.Length);
+                remapPrefix = remap;
+                break;
+            }
+
             foreach (string prefix in options.ConstantPrefixStrip)
             {
                 if (c.Name.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase))
@@ -43,6 +55,8 @@ public class NamePrettifier(NamePrettifier.Options options)
             }
 
             c.Name = TransformValue(c.Name, false, true);
+            if (remapPrefix != null)
+                c.Name = c.Name.Insert(0, remapPrefix);
         }
 
         // for structs we must do 2 passes.
@@ -188,6 +202,12 @@ public class NamePrettifier(NamePrettifier.Options options)
         /// This is NOT case-sensitive.
         /// </summary>
         public Dictionary<string, string> EnumPrefixStrip;
+
+        /// <summary>
+        /// Remap constants with another prefix.
+        /// For example, ["SDL_HAPTIC"] = "HapticType" will remap all constants from "HapticXYZ" to "HapticTypeXYZ"
+        /// </summary>
+        public Dictionary<string, string> ConstantPrefixRemapping;
 
         /// <summary>
         /// Any constants with these prefixes will have it stripped.
