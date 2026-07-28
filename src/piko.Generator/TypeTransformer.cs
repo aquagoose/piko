@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using piko.Generator.Bindings;
 
 namespace piko.Generator;
@@ -12,7 +13,7 @@ public class TypeTransformer(TypeTransformer.Options options)
     {
         foreach (StructBinding s in bindings.Structs)
         {
-            if (s.Fields.Count == 0 && options.EmptyStructsAreHandleTypes)
+            if (s.Fields.Count == 0 && options.EmptyStructsAreHandleTypes && s.Layout != LayoutKind.Explicit)
                 s.IsHandleType = true;
 
             _structs.Add(s.Name, s);

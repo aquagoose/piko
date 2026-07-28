@@ -3842,7 +3842,7 @@ public static unsafe partial class SDL
 
     public delegate void EnumeratePropertiesCallback(void* userdata, uint props, string name);
 
-    public delegate bool X11EventHook(void* userdata, XEvent xevent);
+    public delegate bool X11EventHook(void* userdata, XEvent* xevent);
 
     public delegate int ThreadFunction(void* data);
 
