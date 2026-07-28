@@ -410,23 +410,23 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool UnlockAudioStream(AudioStream stream);
 
-    /* todo [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    public static partial bool SetAudioStreamGetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, AudioStream, int, int, void> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    public static partial bool SetAudioStreamPutCallback(AudioStream stream, delegate* unmanaged[Cdecl]<void*, AudioStream, int, int, void> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyAudioStream", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DestroyAudioStream(AudioStream stream);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, SDL_AudioStream*, int, int, void> callback, void* userdata);
+    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, delegate* unmanaged[Cdecl]<void*, AudioStream, int, int, void> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, SDL_AudioSpec*, float*, int, void> callback, void* userdata);*/
+    public static partial bool SetAudioPostmixCallback(uint devid, delegate* unmanaged[Cdecl]<void*, AudioSpec*, float*, int, void> callback, void* userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadWAV_IO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]

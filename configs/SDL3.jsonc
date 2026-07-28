@@ -84,7 +84,8 @@
       "SDL_version.h",
       "SDL_video.h",
       "SDL_vulkan.h"
-    ]
+    ],
+    "IncludeDirectories": ["../lib/SDL/include/"]
   },
   "TypeRemapping": {
     "SDL_InitFlags": "InitFlags",
