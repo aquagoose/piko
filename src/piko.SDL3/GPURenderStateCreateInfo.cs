@@ -11,12 +11,12 @@ public static unsafe partial class SDL
         public int NumSamplerBindings;
         public GPUTextureSamplerBinding* SamplerBindings;
         public int NumStorageTextures;
-        public GPUTexture StorageTextures;
+        public GPUTexture* StorageTextures;
         public int NumStorageBuffers;
-        public GPUBuffer StorageBuffers;
+        public GPUBuffer* StorageBuffers;
         public uint Props;
     
-        public GPURenderStateCreateInfo(GPUShader fragmentShader, int numSamplerBindings, GPUTextureSamplerBinding* samplerBindings, int numStorageTextures, GPUTexture storageTextures, int numStorageBuffers, GPUBuffer storageBuffers, uint props)
+        public GPURenderStateCreateInfo(GPUShader fragmentShader, int numSamplerBindings, GPUTextureSamplerBinding* samplerBindings, int numStorageTextures, GPUTexture* storageTextures, int numStorageBuffers, GPUBuffer* storageBuffers, uint props)
         {
             this.FragmentShader = fragmentShader;
             this.NumSamplerBindings = numSamplerBindings;

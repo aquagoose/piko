@@ -37,7 +37,8 @@ public class TypeTransformer(TypeTransformer.Options options)
 
     private void TransformConstant(ConstantBinding c)
     {
-        c.Type = GetCorrectedType(c.Type, null, 0, false);
+        int zero = 0;
+        c.Type = GetCorrectedType(c.Type, null, ref zero, false);
 
         if (c.Type == "string" && c.Value.EndsWith("u8"))
             c.Value = c.Value.Substring(0, c.Value.Length - 2);
@@ -79,23 +80,23 @@ public class TypeTransformer(TypeTransformer.Options options)
     private void TransformStruct(StructBinding s)
     {
         foreach (StructBinding.Field field in s.Fields)
-            field.Type = GetCorrectedType(field.Type, field.NativeType, field.PointerLevel, true);
+            field.Type = GetCorrectedType(field.Type, field.NativeType, ref field.PointerLevel, true);
     }
 
     private void TransformFunction(FunctionBinding f)
     {
         if (f.ReturnType != null)
-            f.ReturnType = GetCorrectedType(f.ReturnType, f.ReturnTypeNativeType, f.ReturnTypePointerLevel, false);
+            f.ReturnType = GetCorrectedType(f.ReturnType, f.ReturnTypeNativeType, ref f.ReturnTypePointerLevel, false);
 
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
-            parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, parameter.PointerLevel, false);
+            parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, ref parameter.PointerLevel, false);
     }
 
-    private string GetCorrectedType(string type, string? nativeType, int pointerLevel, bool isStruct)
+    private string GetCorrectedType(string type, string? nativeType, ref int pointerLevel, bool isStruct)
     {
         // if the field's type is a handle type, don't generate a pointer for it.
         if (_structs.TryGetValue(type, out StructBinding fieldStruct) && fieldStruct.IsHandleType)
-            return type;
+            pointerLevel--;
 
         if (nativeType != null)
         {

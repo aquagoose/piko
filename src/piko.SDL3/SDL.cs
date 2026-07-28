@@ -242,14 +242,14 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindAudioStreams", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BindAudioStreams(uint devid, AudioStream streams, int numStreams);
+    public static partial bool BindAudioStreams(uint devid, AudioStream* streams, int numStreams);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindAudioStream", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool BindAudioStream(uint devid, AudioStream stream);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnbindAudioStreams", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void UnbindAudioStreams(AudioStream streams, int numStreams);
+    public static partial void UnbindAudioStreams(AudioStream* streams, int numStreams);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnbindAudioStream", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void UnbindAudioStream(AudioStream stream);
@@ -1079,19 +1079,19 @@ public static unsafe partial class SDL
     public static partial void BindGPUVertexSamplers(GPURenderPass renderPass, uint firstSlot, GPUTextureSamplerBinding* textureSamplerBindings, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUVertexStorageTextures", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUVertexStorageTextures(GPURenderPass renderPass, uint firstSlot, GPUTexture storageTextures, uint numBindings);
+    public static partial void BindGPUVertexStorageTextures(GPURenderPass renderPass, uint firstSlot, GPUTexture* storageTextures, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUVertexStorageBuffers", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUVertexStorageBuffers(GPURenderPass renderPass, uint firstSlot, GPUBuffer storageBuffers, uint numBindings);
+    public static partial void BindGPUVertexStorageBuffers(GPURenderPass renderPass, uint firstSlot, GPUBuffer* storageBuffers, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUFragmentSamplers", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void BindGPUFragmentSamplers(GPURenderPass renderPass, uint firstSlot, GPUTextureSamplerBinding* textureSamplerBindings, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUFragmentStorageTextures", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUFragmentStorageTextures(GPURenderPass renderPass, uint firstSlot, GPUTexture storageTextures, uint numBindings);
+    public static partial void BindGPUFragmentStorageTextures(GPURenderPass renderPass, uint firstSlot, GPUTexture* storageTextures, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUFragmentStorageBuffers", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUFragmentStorageBuffers(GPURenderPass renderPass, uint firstSlot, GPUBuffer storageBuffers, uint numBindings);
+    public static partial void BindGPUFragmentStorageBuffers(GPURenderPass renderPass, uint firstSlot, GPUBuffer* storageBuffers, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DrawGPUIndexedPrimitives", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DrawGPUIndexedPrimitives(GPURenderPass renderPass, uint numIndices, uint numInstances, uint firstIndex, int vertexOffset, uint firstInstance);
@@ -1118,10 +1118,10 @@ public static unsafe partial class SDL
     public static partial void BindGPUComputeSamplers(GPUComputePass computePass, uint firstSlot, GPUTextureSamplerBinding* textureSamplerBindings, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUComputeStorageTextures", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUComputeStorageTextures(GPUComputePass computePass, uint firstSlot, GPUTexture storageTextures, uint numBindings);
+    public static partial void BindGPUComputeStorageTextures(GPUComputePass computePass, uint firstSlot, GPUTexture* storageTextures, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUComputeStorageBuffers", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void BindGPUComputeStorageBuffers(GPUComputePass computePass, uint firstSlot, GPUBuffer storageBuffers, uint numBindings);
+    public static partial void BindGPUComputeStorageBuffers(GPUComputePass computePass, uint firstSlot, GPUBuffer* storageBuffers, uint numBindings);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DispatchGPUCompute", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DispatchGPUCompute(GPUComputePass computePass, uint groupcountX, uint groupcountY, uint groupcountZ);
@@ -1196,7 +1196,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AcquireGPUSwapchainTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture* swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitForGPUSwapchain", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1204,7 +1204,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitAndAcquireGPUSwapchainTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture* swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SubmitGPUCommandBuffer", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1223,7 +1223,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitForGPUFences", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WaitForGPUFences(GPUDevice device, byte waitAll, GPUFence fences, uint numFences);
+    public static partial bool WaitForGPUFences(GPUDevice device, byte waitAll, GPUFence* fences, uint numFences);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_QueryGPUFence", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2423,7 +2423,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateWindowAndRenderer", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CreateWindowAndRenderer(string title, int width, int height, WindowFlags windowFlags, Window window, Renderer renderer);
+    public static partial bool CreateWindowAndRenderer(string title, int width, int height, WindowFlags windowFlags, Window* window, Renderer* renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateRenderer", StringMarshalling = StringMarshalling.Utf8)]
     public static partial Renderer CreateRenderer(Window window, string name);
@@ -3314,7 +3314,7 @@ public static unsafe partial class SDL
     public static partial TrayMenu GetTraySubmenu(TrayEntry entry);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTrayEntries", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial TrayEntry GetTrayEntries(TrayMenu menu, int* count);
+    public static partial TrayEntry* GetTrayEntries(TrayMenu menu, int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveTrayEntry", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void RemoveTrayEntry(TrayEntry entry);
@@ -3457,7 +3457,7 @@ public static unsafe partial class SDL
     public static partial PixelFormat GetWindowPixelFormat(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetWindows", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Window GetWindows(int* count);
+    public static partial Window* GetWindows(int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateWindow", StringMarshalling = StringMarshalling.Utf8)]
     public static partial Window CreateWindow(string title, int w, int h, WindowFlags flags);
@@ -3796,7 +3796,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Vulkan_CreateSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool VulkanCreateSurface(Window window, VkInstanceT instance, VkAllocationCallbacks allocator, VkSurfaceKHRT surface);
+    public static partial bool VulkanCreateSurface(Window window, VkInstanceT instance, VkAllocationCallbacks allocator, VkSurfaceKHRT* surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Vulkan_DestroySurface", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void VulkanDestroySurface(VkInstanceT instance, VkSurfaceKHRT surface, VkAllocationCallbacks allocator);
