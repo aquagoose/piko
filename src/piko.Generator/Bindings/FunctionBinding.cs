@@ -64,12 +64,18 @@ public record FunctionBinding
         /// </summary>
         public int PointerLevel;
 
-        public Parameter(string name, string type, string? nativeType, int pointerLevel)
+        /// <summary>
+        /// The flow direction of a pointer, if applicable.
+        /// </summary>
+        public PointerFlowDirection FlowDirection;
+
+        public Parameter(string name, string type, string? nativeType, int pointerLevel, PointerFlowDirection flowDirection)
         {
             Name = name;
             Type = type;
             NativeType = nativeType;
             PointerLevel = pointerLevel;
+            FlowDirection = flowDirection;
         }
     }
 }

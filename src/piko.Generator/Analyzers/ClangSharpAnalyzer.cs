@@ -102,7 +102,7 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
             }
         }
 
-        File.Delete(outFileName);
+        //File.Delete(outFileName);
 
         return bindings;
     }
@@ -211,6 +211,7 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
                 string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
                 string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
                 string? nativeType = parameter["type"]?.Attributes?["native"]?.Value;
+                PointerFlowDirection flowDirection = PointerFlowDirection.None;
 
                 if (type == "__arglist" || type == "__va_list_tag*")
                 {
@@ -226,7 +227,7 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
                     type = type.Substring(0, type.Length - pointerLevel);
                 }
 
-                binding.Parameters.Add(new FunctionBinding.Parameter(name, type, nativeType, pointerLevel));
+                binding.Parameters.Add(new FunctionBinding.Parameter(name, type, nativeType, pointerLevel, flowDirection));
             }
         }
 

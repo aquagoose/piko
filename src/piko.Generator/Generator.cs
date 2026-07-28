@@ -212,6 +212,24 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
             if (GetMarshalInfoIfNeeded(parameter.Type, false) is string parameterMarshal)
                 _sb.Append($"[{parameterMarshal}] ");
 
+            switch (parameter.FlowDirection)
+            {
+                // no flow direction to apply
+                case PointerFlowDirection.None:
+                    break;
+                case PointerFlowDirection.In:
+                    _sb.Append("in ");
+                    break;
+                case PointerFlowDirection.Out:
+                    _sb.Append("out ");
+                    break;
+                case PointerFlowDirection.InAndOut:
+                    _sb.Append("ref ");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             _sb.Append(parameter.Type);
             _sb.Append(' ');
             _sb.Append(parameter.Name);

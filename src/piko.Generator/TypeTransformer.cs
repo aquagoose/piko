@@ -89,10 +89,10 @@ public class TypeTransformer(TypeTransformer.Options options)
             f.ReturnType = GetCorrectedType(f.ReturnType, f.ReturnTypeNativeType, ref f.ReturnTypePointerLevel, false);
 
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
-            parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, ref parameter.PointerLevel, false);
+            parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, ref parameter.PointerLevel, false, true, ref parameter.FlowDirection);
     }
 
-    private string GetCorrectedType(string type, string? nativeType, ref int pointerLevel, bool isStruct)
+    private string GetCorrectedType(string type, string? nativeType, ref int pointerLevel, bool isStruct, bool isParameter, ref PointerFlowDirection flowDirection)
     {
         // if the field's type is a handle type, don't generate a pointer for it.
         if (_structs.TryGetValue(type, out StructBinding fieldStruct) && fieldStruct.IsHandleType)
@@ -119,11 +119,38 @@ public class TypeTransformer(TypeTransformer.Options options)
             }
         }
 
+        /*if (flowDirection == PointerFlowDirection.None && isParameter && pointerLevel > 0)
+        {
+            switch (type)
+            {
+                case "void":
+                case "sbyte":
+                //case "byte":
+                //case "short":
+                //case "ushort":
+                //case "int":
+                //case "uint":
+                //case "long":
+                //case "ulong":
+                    break;
+                default:
+                    flowDirection = PointerFlowDirection.InAndOut;
+                    pointerLevel--;
+                    break;
+            }
+        }*/
+
         string newType = type;
         for (int i = 0; i < pointerLevel; i++)
             newType += '*';
 
         return newType;
+    }
+
+    private string GetCorrectedType(string type, string? nativeType, ref int pointerLevel, bool isStruct)
+    {
+        PointerFlowDirection none = PointerFlowDirection.None;
+        return GetCorrectedType(type, nativeType, ref pointerLevel, isStruct, false, ref none);
     }
 
     public struct Options
