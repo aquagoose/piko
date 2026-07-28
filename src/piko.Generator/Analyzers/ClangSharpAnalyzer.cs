@@ -181,12 +181,14 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
 
         foreach (XmlNode func in node.SelectNodes("function"))
         {
-            FunctionBinding binding = ProcessFunction(func);
+            FunctionBinding? binding = ProcessFunction(func);
+            if (binding == null)
+                continue;
             bindings.Functions.Add(binding);
         }
     }
 
-    private FunctionBinding ProcessFunction(XmlNode func)
+    private FunctionBinding? ProcessFunction(XmlNode func)
     {
         string functionName = func.Attributes?["name"]?.Value ?? throw new Exception("Function name missing.");
         string? returnType = func["type"]?.InnerText;
@@ -209,6 +211,12 @@ public sealed class ClangSharpAnalyzer(string workingDir, ClangSharpConfig confi
                 string name = parameter.Attributes?["name"]?.InnerText ?? throw new Exception("Parameter name missing.");
                 string type = parameter["type"]?.InnerText ?? throw new Exception("Parameter type missing.");
                 string? nativeType = parameter["type"]?.Attributes?["native"]?.Value;
+
+                if (type == "__arglist" || type == "__va_list_tag*")
+                {
+                    Console.WriteLine($"Skipping function '{functionName}' as it is using parameter '{type}' which is not yet supported!");
+                    return null;
+                }
 
                 int pointerLevel = 0;
                 if (type.EndsWith('*'))

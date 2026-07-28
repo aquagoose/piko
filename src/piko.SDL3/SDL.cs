@@ -635,14 +635,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowFileDialogWithProperties", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void ShowFileDialogWithProperties(FileDialogType type, DialogFileCallback callback, void* userdata, uint props);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetError", StringMarshalling = StringMarshalling.Utf8)]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetError(string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_SetErrorV", StringMarshalling = StringMarshalling.Utf8)]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetErrorV(string fmt, __va_list_tag* ap);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_OutOfMemory", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool OutOfMemory();
@@ -1615,12 +1607,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteIO", StringMarshalling = StringMarshalling.Utf8)]
     public static partial nuint WriteIO(IOStream context, void* ptr, nuint size);
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_IOprintf", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial nuint IOprintf(IOStream context, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_IOvprintf", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial nuint IOvprintf(IOStream context, string fmt, __va_list_tag* ap);
-
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlushIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool FlushIO(IOStream context);
@@ -2062,36 +2048,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetLogPriorityPrefix", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SetLogPriorityPrefix(LogPriority priority, string prefix);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_Log", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void Log(string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogTrace", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogTrace(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogVerbose", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogVerbose(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogDebug", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogDebug(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogInfo", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogInfo(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogWarn", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogWarn(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogError", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogError(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogCritical", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogCritical(int category, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessage", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogMessage(int category, LogPriority priority, string fmt, __arglist );
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_LogMessageV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void LogMessageV(int category, LogPriority priority, string fmt, __va_list_tag* ap);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetDefaultLogOutputFunction", StringMarshalling = StringMarshalling.Utf8)]
     public static partial LogOutputFunction GetDefaultLogOutputFunction();
@@ -2877,10 +2833,6 @@ public static unsafe partial class SDL
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderDebugText", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool RenderDebugText(Renderer renderer, float x, float y, string str);
-
-    [LibraryImport(LibraryName, EntryPoint = "SDL_RenderDebugTextFormat", StringMarshalling = StringMarshalling.Utf8)]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderDebugTextFormat(Renderer renderer, float x, float y, string fmt, __arglist );
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetDefaultTextureScaleMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
