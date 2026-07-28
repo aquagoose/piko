@@ -5,7 +5,7 @@ namespace piko.SDL3;
 public static unsafe partial class SDL
 {
     [Flags]
-    public enum MouseButtonFlags : int
+    public enum MouseButtonFlags : uint
     {
         Left = 1,
         Middle = 2,

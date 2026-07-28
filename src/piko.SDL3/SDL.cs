@@ -844,8 +844,8 @@ public static unsafe partial class SDL
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool GamepadEventsEnabled();
 
-    [LibraryImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);
+    /*[LibraryImport(LibraryName, EntryPoint = "SDL_GetGamepadBindings", StringMarshalling = StringMarshalling.Utf8)]
+    public static partial GamepadBinding** GetGamepadBindings(Gamepad gamepad, int* count);*/
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateGamepads", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void UpdateGamepads();
@@ -1196,7 +1196,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AcquireGPUSwapchainTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool AcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitForGPUSwapchain", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1204,7 +1204,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WaitAndAcquireGPUSwapchainTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
+    public static partial bool WaitAndAcquireGPUSwapchainTexture(GPUCommandBuffer commandBuffer, Window window, out GPUTexture swapchainTexture, uint* swapchainTextureWidth, uint* swapchainTextureHeight);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SubmitGPUCommandBuffer", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
