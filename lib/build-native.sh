@@ -31,7 +31,7 @@ SDL3_DLLNAME=""
 case $WORKFLOW_OS in
     windows-latest)
 	RUNTIME="win-x64"
-	SDL3_DLLNAME="SDL3.dll"
+	SDL3_DLLNAME="Release/SDL3.dll"
         ;;
     ubuntu-latest)
         RUNTIME="linux-x64"
