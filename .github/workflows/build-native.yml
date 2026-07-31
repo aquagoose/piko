@@ -1,9 +1,9 @@
 name: Build native deps
 
+permissions: write-all
 on:
   workflow_dispatch:
 
-permissions: write-all
 jobs:
   build:
     name: Build deps
@@ -53,5 +53,5 @@ jobs:
         uses: EndBug/add-and-commit@v10
         with:
           add: 'src'
+          default_author: github_actions
           message: 'Build native dependencies'
-        
