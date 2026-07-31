@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    name: Build deps
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
@@ -13,7 +14,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
         submodules: true
     - name: Install linux deps
       if: ${{ matrix.os == 'ubuntu-latest' }}
@@ -35,4 +35,23 @@ jobs:
         name: ${{ matrix.os }}
         path: lib/build/**/*
         if-no-files-found: error
+  commit:
+    name: Commit everything
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          merge-multiple: true
+      - name: Copy SDL3
+        run: cp -r SDL3/runtimes/ src/piko.SDL3/
+      - name: Commit files
+        uses: EndBug/add-and-commit@v10
+        with:
+          add: 'src'
+          default_author: github_actions
+          message: 'Build native dependencies'
         
