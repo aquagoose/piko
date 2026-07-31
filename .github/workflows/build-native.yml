@@ -26,7 +26,7 @@ jobs:
         libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev libusb-1.0-0-dev \
         libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
     - name: Build
-      run: ./build-native.sh
+      run: ./build-native.sh ${{ matrix.os }}
       working-directory: lib/
       shell: bash
     - name: Upload artifact
