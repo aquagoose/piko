@@ -1,0 +1,46 @@
+{
+  "OutputDirectory": "../src/piko.VulkanMemoryAllocator.Silk.NET",
+  "Namespace": "piko.VulkanMemoryAllocator",
+  "LibraryDllName": "VulkanMemoryAllocator",
+  "MethodClassName": "VMA",
+  "PrefixToStrip": "vma",
+  "Analyzer": "ClangSharp",
+  "ClangSharp": {
+    "FileDirectory": "../lib/VulkanMemoryAllocator/include",
+    "Files": [
+      "vk_mem_alloc.h"
+    ],
+    "IncludeDirectories": []
+  },
+  "TypeRemapping": {
+    "VkResult": "global::Silk.NET.Vulkan.Device",
+    "VkInstance_T": "global::Silk.NET.Vulkan.Instance",
+    "VkPhysicalDevice_T": "global::Silk.NET.Vulkan.PhysicalDevice",
+    "VkDevice_T": "global::Silk.NET.Vulkan.Device",
+    "VkBuffer_T": "global::Silk.NET.Vulkan.Buffer",
+    "VkImage_T": "global::Silk.NET.Vulkan.Image",
+    "VkDeviceMemory_T": "global::Silk.NET.Vulkan.DeviceMemory",
+    "VkPhysicalDeviceProperties": "global::Silk.NET.Vulkan.PhysicalDeviceProperties",
+    "VkPhysicalDeviceMemoryProperties": "global::Silk.NET.Vulkan.PhysicalDeviceMemoryProperties",
+    "VkBufferCreateInfo": "global::Silk.NET.Vulkan.BufferCreateInfo",
+    "VkImageCreateInfo": "global::Silk.NET.Vulkan.ImageCreateInfo",
+    "VkMemoryRequirements": "global::Silk.NET.Vulkan.MemoryRequirements",
+    "VkAllocationCallbacks": "global::Silk.NET.Vulkan.AllocationCallbacks"
+  },
+  "Enums": {
+    "CustomPrefixes": {},
+    "PrefixesToStrip": {}
+  },
+  "Constants": {
+    "PrefixRemapping": {},
+    "AssociateConstantPrefixWithType": {}
+  },
+  "Generator": {
+    "UseLibraryImport": false,
+    "EmptyStructsAreHandleTypes": true,
+    "HandleTypesUseIHandleInterface": true,
+    "AllTypesAreSubTypes": true,
+    "AllStringsAreUTF8": false,
+    "CustomReturnValueTypeMarshallers": {}
+  }
+}
