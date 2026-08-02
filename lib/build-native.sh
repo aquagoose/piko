@@ -46,7 +46,7 @@ case $WORKFLOW_OS in
     windows-latest)
 	RUNTIME="win-x64"
 	SDL3_DLLNAME="Release/SDL3.dll"
-	VMA_DLLNAME="VulkanMemoryAllocator.dll"
+	VMA_DLLNAME="Release/VulkanMemoryAllocator.dll"
         ;;
     ubuntu-latest)
         RUNTIME="linux-x64"
