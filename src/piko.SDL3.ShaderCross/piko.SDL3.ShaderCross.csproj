@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <Description>A small n cute set of actually good* SDL3_shadercross bindings.</Description>
+        <Description>A small n cute set of SDL3_shadercross bindings for C#.</Description>
     </PropertyGroup>
 
     <ItemGroup>
