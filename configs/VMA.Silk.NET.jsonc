@@ -25,11 +25,24 @@
     "VkBufferCreateInfo": "global::Silk.NET.Vulkan.BufferCreateInfo",
     "VkImageCreateInfo": "global::Silk.NET.Vulkan.ImageCreateInfo",
     "VkMemoryRequirements": "global::Silk.NET.Vulkan.MemoryRequirements",
-    "VkAllocationCallbacks": "global::Silk.NET.Vulkan.AllocationCallbacks"
+    "VkAllocationCallbacks": "global::Silk.NET.Vulkan.AllocationCallbacks",
+    "VmaAllocation_T": "Allocation",
+    "VmaAllocator_T": "Allocator",
+    "VmaDefragmentationContext_T": "DefragmentationContext",
+    "VmaPool_T": "Pool",
+    "VmaVirtualAllocation_T": "VirtualAllocation",
+    "VmaVirtualBlock_T": "VirtualBlock"
   },
   "Enums": {
     "CustomPrefixes": {},
-    "PrefixesToStrip": {}
+    "PrefixesToStrip": {
+      "VmaAllocationCreateFlagBits": "ALLOCATION_CREATE",
+      "VmaAllocatorCreateFlagBits": "ALLOCATOR_CREATE",
+      "VmaDefragmentationFlagBits": "DEFRAGMENTATION_FLAG",
+      "VmaPoolCreateFlagBits": "POOL_CREATE",
+      "VmaVirtualAllocationCreateFlagBits": "VIRTUAL_ALLOCATION_CREATE",
+      "VmaVirtualBlockCreateFlagBits": "VIRTUAL_BLOCK_CREATE"
+    }
   },
   "Constants": {
     "PrefixRemapping": {},
@@ -39,7 +52,7 @@
     "UseLibraryImport": false,
     "EmptyStructsAreHandleTypes": true,
     "HandleTypesUseIHandleInterface": true,
-    "AllTypesAreSubTypes": true,
+    "AllTypesAreSubTypes": false,
     "AllStringsAreUTF8": false,
     "CustomReturnValueTypeMarshallers": {}
   }

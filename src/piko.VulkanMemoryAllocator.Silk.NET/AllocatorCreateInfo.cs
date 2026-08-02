@@ -2,36 +2,33 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct AllocatorCreateInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct AllocatorCreateInfo
+    public uint Flags;
+    public global::Silk.NET.Vulkan.PhysicalDevice* PhysicalDevice;
+    public global::Silk.NET.Vulkan.Device* Device;
+    public ulong PreferredLargeHeapBlockSize;
+    public global::Silk.NET.Vulkan.AllocationCallbacks* PAllocationCallbacks;
+    public DeviceMemoryCallbacks* PDeviceMemoryCallbacks;
+    public ulong* PHeapSizeLimit;
+    public VulkanFunctions* PVulkanFunctions;
+    public global::Silk.NET.Vulkan.Instance* Instance;
+    public uint VulkanApiVersion;
+    public uint* PTypeExternalMemoryHandleTypes;
+
+    public AllocatorCreateInfo(uint flags, global::Silk.NET.Vulkan.PhysicalDevice* physicalDevice, global::Silk.NET.Vulkan.Device* device, ulong preferredLargeHeapBlockSize, global::Silk.NET.Vulkan.AllocationCallbacks* pAllocationCallbacks, DeviceMemoryCallbacks* pDeviceMemoryCallbacks, ulong* pHeapSizeLimit, VulkanFunctions* pVulkanFunctions, global::Silk.NET.Vulkan.Instance* instance, uint vulkanApiVersion, uint* pTypeExternalMemoryHandleTypes)
     {
-        public uint Flags;
-        public global::Silk.NET.Vulkan.PhysicalDevice* PhysicalDevice;
-        public global::Silk.NET.Vulkan.Device* Device;
-        public ulong PreferredLargeHeapBlockSize;
-        public global::Silk.NET.Vulkan.AllocationCallbacks* PAllocationCallbacks;
-        public DeviceMemoryCallbacks* PDeviceMemoryCallbacks;
-        public ulong* PHeapSizeLimit;
-        public VulkanFunctions* PVulkanFunctions;
-        public global::Silk.NET.Vulkan.Instance* Instance;
-        public uint VulkanApiVersion;
-        public uint* PTypeExternalMemoryHandleTypes;
-    
-        public AllocatorCreateInfo(uint flags, global::Silk.NET.Vulkan.PhysicalDevice* physicalDevice, global::Silk.NET.Vulkan.Device* device, ulong preferredLargeHeapBlockSize, global::Silk.NET.Vulkan.AllocationCallbacks* pAllocationCallbacks, DeviceMemoryCallbacks* pDeviceMemoryCallbacks, ulong* pHeapSizeLimit, VulkanFunctions* pVulkanFunctions, global::Silk.NET.Vulkan.Instance* instance, uint vulkanApiVersion, uint* pTypeExternalMemoryHandleTypes)
-        {
-            this.Flags = flags;
-            this.PhysicalDevice = physicalDevice;
-            this.Device = device;
-            this.PreferredLargeHeapBlockSize = preferredLargeHeapBlockSize;
-            this.PAllocationCallbacks = pAllocationCallbacks;
-            this.PDeviceMemoryCallbacks = pDeviceMemoryCallbacks;
-            this.PHeapSizeLimit = pHeapSizeLimit;
-            this.PVulkanFunctions = pVulkanFunctions;
-            this.Instance = instance;
-            this.VulkanApiVersion = vulkanApiVersion;
-            this.PTypeExternalMemoryHandleTypes = pTypeExternalMemoryHandleTypes;
-        }
+        this.Flags = flags;
+        this.PhysicalDevice = physicalDevice;
+        this.Device = device;
+        this.PreferredLargeHeapBlockSize = preferredLargeHeapBlockSize;
+        this.PAllocationCallbacks = pAllocationCallbacks;
+        this.PDeviceMemoryCallbacks = pDeviceMemoryCallbacks;
+        this.PHeapSizeLimit = pHeapSizeLimit;
+        this.PVulkanFunctions = pVulkanFunctions;
+        this.Instance = instance;
+        this.VulkanApiVersion = vulkanApiVersion;
+        this.PTypeExternalMemoryHandleTypes = pTypeExternalMemoryHandleTypes;
     }
 }

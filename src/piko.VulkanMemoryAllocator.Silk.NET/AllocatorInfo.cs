@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct AllocatorInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct AllocatorInfo
+    public global::Silk.NET.Vulkan.Instance* Instance;
+    public global::Silk.NET.Vulkan.PhysicalDevice* PhysicalDevice;
+    public global::Silk.NET.Vulkan.Device* Device;
+
+    public AllocatorInfo(global::Silk.NET.Vulkan.Instance* instance, global::Silk.NET.Vulkan.PhysicalDevice* physicalDevice, global::Silk.NET.Vulkan.Device* device)
     {
-        public global::Silk.NET.Vulkan.Instance* Instance;
-        public global::Silk.NET.Vulkan.PhysicalDevice* PhysicalDevice;
-        public global::Silk.NET.Vulkan.Device* Device;
-    
-        public AllocatorInfo(global::Silk.NET.Vulkan.Instance* instance, global::Silk.NET.Vulkan.PhysicalDevice* physicalDevice, global::Silk.NET.Vulkan.Device* device)
-        {
-            this.Instance = instance;
-            this.PhysicalDevice = physicalDevice;
-            this.Device = device;
-        }
+        this.Instance = instance;
+        this.PhysicalDevice = physicalDevice;
+        this.Device = device;
     }
 }

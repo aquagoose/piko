@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct DeviceMemoryCallbacks
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct DeviceMemoryCallbacks
+    public IntPtr PfnAllocate;
+    public IntPtr PfnFree;
+    public void* PUserData;
+
+    public DeviceMemoryCallbacks(IntPtr pfnAllocate, IntPtr pfnFree, void* pUserData)
     {
-        public IntPtr PfnAllocate;
-        public IntPtr PfnFree;
-        public void* PUserData;
-    
-        public DeviceMemoryCallbacks(IntPtr pfnAllocate, IntPtr pfnFree, void* pUserData)
-        {
-            this.PfnAllocate = pfnAllocate;
-            this.PfnFree = pfnFree;
-            this.PUserData = pUserData;
-        }
+        this.PfnAllocate = pfnAllocate;
+        this.PfnFree = pfnFree;
+        this.PUserData = pUserData;
     }
 }

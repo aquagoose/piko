@@ -2,18 +2,15 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct DefragmentationPassMoveInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct DefragmentationPassMoveInfo
+    public uint MoveCount;
+    public DefragmentationMove* PMoves;
+
+    public DefragmentationPassMoveInfo(uint moveCount, DefragmentationMove* pMoves)
     {
-        public uint MoveCount;
-        public DefragmentationMove* PMoves;
-    
-        public DefragmentationPassMoveInfo(uint moveCount, DefragmentationMove* pMoves)
-        {
-            this.MoveCount = moveCount;
-            this.PMoves = pMoves;
-        }
+        this.MoveCount = moveCount;
+        this.PMoves = pMoves;
     }
 }

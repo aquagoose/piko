@@ -2,15 +2,12 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum DefragmentationFlagBits : uint
 {
-    public enum DefragmentationFlagBits : uint
-    {
-        DefragmentationFlagAlgorithmFastBit = 0x1,
-        DefragmentationFlagAlgorithmBalancedBit = 0x2,
-        DefragmentationFlagAlgorithmFullBit = 0x4,
-        DefragmentationFlagAlgorithmExtensiveBit = 0x8,
-        DefragmentationFlagAlgorithmMask = DefragmentationFlagAlgorithmFastBit | vmaDefragmentationFlagAlgorithmBalancedBit | vmaDefragmentationFlagAlgorithmFullBit | vmaDefragmentationFlagAlgorithmExtensiveBit,
-        MaxEnum = 0x7fffffff,
-    }
+    AlgorithmFastBit = 0x1,
+    AlgorithmBalancedBit = 0x2,
+    AlgorithmFullBit = 0x4,
+    AlgorithmExtensiveBit = 0x8,
+    AlgorithmMask = AlgorithmFastBit | vmaDefragmentationFlagAlgorithmBalancedBit | vmaDefragmentationFlagAlgorithmFullBit | vmaDefragmentationFlagAlgorithmExtensiveBit,
+    BitsMaxEnum = 0x7fffffff,
 }

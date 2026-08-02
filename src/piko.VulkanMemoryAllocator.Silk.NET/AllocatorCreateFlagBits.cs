@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum AllocatorCreateFlagBits : uint
 {
-    public enum AllocatorCreateFlagBits : uint
-    {
-        AllocatorCreateExternallySynchronizedBit = 0x00000001,
-        AllocatorCreateKhrDedicatedAllocationBit = 0x00000002,
-        AllocatorCreateKhrBindMemory2Bit = 0x00000004,
-        AllocatorCreateExtMemoryBudgetBit = 0x00000008,
-        AllocatorCreateAmdDeviceCoherentMemoryBit = 0x00000010,
-        AllocatorCreateBufferDeviceAddressBit = 0x00000020,
-        AllocatorCreateExtMemoryPriorityBit = 0x00000040,
-        AllocatorCreateKhrMaintenance4Bit = 0x00000080,
-        AllocatorCreateKhrMaintenance5Bit = 0x00000100,
-        AllocatorCreateKhrExternalMemoryWin32Bit = 0x00000200,
-        MaxEnum = 0x7fffffff,
-    }
+    ExternallySynchronizedBit = 0x00000001,
+    KhrDedicatedAllocationBit = 0x00000002,
+    KhrBindMemory2Bit = 0x00000004,
+    ExtMemoryBudgetBit = 0x00000008,
+    AmdDeviceCoherentMemoryBit = 0x00000010,
+    BufferDeviceAddressBit = 0x00000020,
+    ExtMemoryPriorityBit = 0x00000040,
+    KhrMaintenance4Bit = 0x00000080,
+    KhrMaintenance5Bit = 0x00000100,
+    KhrExternalMemoryWin32Bit = 0x00000200,
+    FlagBitsMaxEnum = 0x7fffffff,
 }

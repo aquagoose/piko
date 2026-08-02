@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct TotalStatistics
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct TotalStatistics
+    public DetailedStatistics MemoryType;
+    public DetailedStatistics MemoryHeap;
+    public DetailedStatistics Total;
+
+    public TotalStatistics(DetailedStatistics memoryType, DetailedStatistics memoryHeap, DetailedStatistics total)
     {
-        public DetailedStatistics MemoryType;
-        public DetailedStatistics MemoryHeap;
-        public DetailedStatistics Total;
-    
-        public TotalStatistics(DetailedStatistics memoryType, DetailedStatistics memoryHeap, DetailedStatistics total)
-        {
-            this.MemoryType = memoryType;
-            this.MemoryHeap = memoryHeap;
-            this.Total = total;
-        }
+        this.MemoryType = memoryType;
+        this.MemoryHeap = memoryHeap;
+        this.Total = total;
     }
 }

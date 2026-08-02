@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum MemoryUsage : uint
 {
-    public enum MemoryUsage : uint
-    {
-        Unknown = 0,
-        GpuOnly = 1,
-        CpuOnly = 2,
-        CpuToGpu = 3,
-        GpuToCpu = 4,
-        CpuCopy = 5,
-        GpuLazilyAllocated = 6,
-        Auto = 7,
-        AutoPreferDevice = 8,
-        AutoPreferHost = 9,
-        MaxEnum = 0x7fffffff,
-    }
+    Unknown = 0,
+    GpuOnly = 1,
+    CpuOnly = 2,
+    CpuToGpu = 3,
+    GpuToCpu = 4,
+    CpuCopy = 5,
+    GpuLazilyAllocated = 6,
+    Auto = 7,
+    AutoPreferDevice = 8,
+    AutoPreferHost = 9,
+    MaxEnum = 0x7fffffff,
 }

@@ -2,12 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum VirtualBlockCreateFlagBits : uint
 {
-    public enum VirtualBlockCreateFlagBits : uint
-    {
-        VirtualBlockCreateLinearAlgorithmBit = 0x00000001,
-        VirtualBlockCreateAlgorithmMask = VirtualBlockCreateLinearAlgorithmBit,
-        MaxEnum = 0x7fffffff,
-    }
+    LinearAlgorithmBit = 0x00000001,
+    AlgorithmMask = LinearAlgorithmBit,
+    FlagBitsMaxEnum = 0x7fffffff,
 }

@@ -2,26 +2,23 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct DetailedStatistics
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct DetailedStatistics
+    public Statistics Statistics;
+    public uint UnusedRangeCount;
+    public ulong AllocationSizeMin;
+    public ulong AllocationSizeMax;
+    public ulong UnusedRangeSizeMin;
+    public ulong UnusedRangeSizeMax;
+
+    public DetailedStatistics(Statistics statistics, uint unusedRangeCount, ulong allocationSizeMin, ulong allocationSizeMax, ulong unusedRangeSizeMin, ulong unusedRangeSizeMax)
     {
-        public Statistics Statistics;
-        public uint UnusedRangeCount;
-        public ulong AllocationSizeMin;
-        public ulong AllocationSizeMax;
-        public ulong UnusedRangeSizeMin;
-        public ulong UnusedRangeSizeMax;
-    
-        public DetailedStatistics(Statistics statistics, uint unusedRangeCount, ulong allocationSizeMin, ulong allocationSizeMax, ulong unusedRangeSizeMin, ulong unusedRangeSizeMax)
-        {
-            this.Statistics = statistics;
-            this.UnusedRangeCount = unusedRangeCount;
-            this.AllocationSizeMin = allocationSizeMin;
-            this.AllocationSizeMax = allocationSizeMax;
-            this.UnusedRangeSizeMin = unusedRangeSizeMin;
-            this.UnusedRangeSizeMax = unusedRangeSizeMax;
-        }
+        this.Statistics = statistics;
+        this.UnusedRangeCount = unusedRangeCount;
+        this.AllocationSizeMin = allocationSizeMin;
+        this.AllocationSizeMax = allocationSizeMax;
+        this.UnusedRangeSizeMin = unusedRangeSizeMin;
+        this.UnusedRangeSizeMax = unusedRangeSizeMax;
     }
 }

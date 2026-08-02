@@ -2,28 +2,25 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct AllocationInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct AllocationInfo
+    public uint MemoryType;
+    public global::Silk.NET.Vulkan.DeviceMemory* DeviceMemory;
+    public ulong Offset;
+    public ulong Size;
+    public void* PMappedData;
+    public void* PUserData;
+    public sbyte* PName;
+
+    public AllocationInfo(uint memoryType, global::Silk.NET.Vulkan.DeviceMemory* deviceMemory, ulong offset, ulong size, void* pMappedData, void* pUserData, sbyte* pName)
     {
-        public uint MemoryType;
-        public global::Silk.NET.Vulkan.DeviceMemory* DeviceMemory;
-        public ulong Offset;
-        public ulong Size;
-        public void* PMappedData;
-        public void* PUserData;
-        public sbyte* PName;
-    
-        public AllocationInfo(uint memoryType, global::Silk.NET.Vulkan.DeviceMemory* deviceMemory, ulong offset, ulong size, void* pMappedData, void* pUserData, sbyte* pName)
-        {
-            this.MemoryType = memoryType;
-            this.DeviceMemory = deviceMemory;
-            this.Offset = offset;
-            this.Size = size;
-            this.PMappedData = pMappedData;
-            this.PUserData = pUserData;
-            this.PName = pName;
-        }
+        this.MemoryType = memoryType;
+        this.DeviceMemory = deviceMemory;
+        this.Offset = offset;
+        this.Size = size;
+        this.PMappedData = pMappedData;
+        this.PUserData = pUserData;
+        this.PName = pName;
     }
 }

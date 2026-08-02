@@ -2,20 +2,17 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct Budget
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct Budget
+    public Statistics Statistics;
+    public ulong Usage;
+    public ulong Budget;
+
+    public Budget(Statistics statistics, ulong usage, ulong budget)
     {
-        public Statistics Statistics;
-        public ulong Usage;
-        public ulong Budget;
-    
-        public Budget(Statistics statistics, ulong usage, ulong budget)
-        {
-            this.Statistics = statistics;
-            this.Usage = usage;
-            this.Budget = budget;
-        }
+        this.Statistics = statistics;
+        this.Usage = usage;
+        this.Budget = budget;
     }
 }

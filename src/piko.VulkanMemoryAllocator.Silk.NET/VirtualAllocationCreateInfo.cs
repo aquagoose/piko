@@ -2,22 +2,19 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct VirtualAllocationCreateInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct VirtualAllocationCreateInfo
+    public ulong Size;
+    public ulong Alignment;
+    public uint Flags;
+    public void* PUserData;
+
+    public VirtualAllocationCreateInfo(ulong size, ulong alignment, uint flags, void* pUserData)
     {
-        public ulong Size;
-        public ulong Alignment;
-        public uint Flags;
-        public void* PUserData;
-    
-        public VirtualAllocationCreateInfo(ulong size, ulong alignment, uint flags, void* pUserData)
-        {
-            this.Size = size;
-            this.Alignment = alignment;
-            this.Flags = flags;
-            this.PUserData = pUserData;
-        }
+        this.Size = size;
+        this.Alignment = alignment;
+        this.Flags = flags;
+        this.PUserData = pUserData;
     }
 }

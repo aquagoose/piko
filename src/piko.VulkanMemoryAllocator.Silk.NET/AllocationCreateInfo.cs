@@ -2,32 +2,29 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+[StructLayout(LayoutKind.Sequential)]
+public unsafe struct AllocationCreateInfo
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct AllocationCreateInfo
+    public uint Flags;
+    public MemoryUsage Usage;
+    public uint RequiredFlags;
+    public uint PreferredFlags;
+    public uint MemoryTypeBits;
+    public Pool Pool;
+    public void* PUserData;
+    public float Priority;
+    public ulong MinAlignment;
+
+    public AllocationCreateInfo(uint flags, MemoryUsage usage, uint requiredFlags, uint preferredFlags, uint memoryTypeBits, Pool pool, void* pUserData, float priority, ulong minAlignment)
     {
-        public uint Flags;
-        public MemoryUsage Usage;
-        public uint RequiredFlags;
-        public uint PreferredFlags;
-        public uint MemoryTypeBits;
-        public PoolT Pool;
-        public void* PUserData;
-        public float Priority;
-        public ulong MinAlignment;
-    
-        public AllocationCreateInfo(uint flags, MemoryUsage usage, uint requiredFlags, uint preferredFlags, uint memoryTypeBits, PoolT pool, void* pUserData, float priority, ulong minAlignment)
-        {
-            this.Flags = flags;
-            this.Usage = usage;
-            this.RequiredFlags = requiredFlags;
-            this.PreferredFlags = preferredFlags;
-            this.MemoryTypeBits = memoryTypeBits;
-            this.Pool = pool;
-            this.PUserData = pUserData;
-            this.Priority = priority;
-            this.MinAlignment = minAlignment;
-        }
+        this.Flags = flags;
+        this.Usage = usage;
+        this.RequiredFlags = requiredFlags;
+        this.PreferredFlags = preferredFlags;
+        this.MemoryTypeBits = memoryTypeBits;
+        this.Pool = pool;
+        this.PUserData = pUserData;
+        this.Priority = priority;
+        this.MinAlignment = minAlignment;
     }
 }

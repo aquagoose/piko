@@ -2,12 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum DefragmentationMoveOperation : uint
 {
-    public enum DefragmentationMoveOperation : uint
-    {
-        Copy = 0,
-        Ignore = 1,
-        Destroy = 2,
-    }
+    Copy = 0,
+    Ignore = 1,
+    Destroy = 2,
 }

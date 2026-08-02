@@ -2,27 +2,24 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
-public static unsafe partial class VMA
+public enum AllocationCreateFlagBits : uint
 {
-    public enum AllocationCreateFlagBits : uint
-    {
-        AllocationCreateDedicatedMemoryBit = 0x00000001,
-        AllocationCreateNeverAllocateBit = 0x00000002,
-        AllocationCreateMappedBit = 0x00000004,
-        AllocationCreateUserDataCopyStringBit = 0x00000020,
-        AllocationCreateUpperAddressBit = 0x00000040,
-        AllocationCreateDontBindBit = 0x00000080,
-        AllocationCreateWithinBudgetBit = 0x00000100,
-        AllocationCreateCanAliasBit = 0x00000200,
-        AllocationCreateHostAccessSequentialWriteBit = 0x00000400,
-        AllocationCreateHostAccessRandomBit = 0x00000800,
-        AllocationCreateHostAccessAllowTransferInsteadBit = 0x00001000,
-        AllocationCreateStrategyMinMemoryBit = 0x00010000,
-        AllocationCreateStrategyMinTimeBit = 0x00020000,
-        AllocationCreateStrategyMinOffsetBit = 0x00040000,
-        AllocationCreateStrategyBestFitBit = AllocationCreateStrategyMinMemoryBit,
-        AllocationCreateStrategyFirstFitBit = AllocationCreateStrategyMinTimeBit,
-        AllocationCreateStrategyMask = AllocationCreateStrategyMinMemoryBit | vmaAllocationCreateStrategyMinTimeBit | vmaAllocationCreateStrategyMinOffsetBit,
-        MaxEnum = 0x7fffffff,
-    }
+    DedicatedMemoryBit = 0x00000001,
+    NeverAllocateBit = 0x00000002,
+    MappedBit = 0x00000004,
+    UserDataCopyStringBit = 0x00000020,
+    UpperAddressBit = 0x00000040,
+    DontBindBit = 0x00000080,
+    WithinBudgetBit = 0x00000100,
+    CanAliasBit = 0x00000200,
+    HostAccessSequentialWriteBit = 0x00000400,
+    HostAccessRandomBit = 0x00000800,
+    HostAccessAllowTransferInsteadBit = 0x00001000,
+    StrategyMinMemoryBit = 0x00010000,
+    StrategyMinTimeBit = 0x00020000,
+    StrategyMinOffsetBit = 0x00040000,
+    StrategyBestFitBit = StrategyMinMemoryBit,
+    StrategyFirstFitBit = StrategyMinTimeBit,
+    StrategyMask = StrategyMinMemoryBit | vmaAllocationCreateStrategyMinTimeBit | vmaAllocationCreateStrategyMinOffsetBit,
+    FlagBitsMaxEnum = 0x7fffffff,
 }
