@@ -21,7 +21,7 @@ public static unsafe partial class VMA
     public const int StatsStringEnabled = 1;
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateAllocator")]
-    public static extern global::Silk.NET.Vulkan.Device CreateAllocator(AllocatorCreateInfo* pcreateinfo, Allocator* pallocator);
+    public static extern global::Silk.NET.Vulkan.Result CreateAllocator(AllocatorCreateInfo* pcreateinfo, Allocator* pallocator);
 
     [DllImport(LibraryName, EntryPoint = "vmaDestroyAllocator")]
     public static extern void DestroyAllocator(Allocator allocator);
@@ -48,16 +48,16 @@ public static unsafe partial class VMA
     public static extern void GetHeapBudgets(Allocator allocator, Budget* pbudgets);
 
     [DllImport(LibraryName, EntryPoint = "vmaFindMemoryTypeIndex")]
-    public static extern global::Silk.NET.Vulkan.Device FindMemoryTypeIndex(Allocator allocator, uint memorytypebits, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
+    public static extern global::Silk.NET.Vulkan.Result FindMemoryTypeIndex(Allocator allocator, uint memorytypebits, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
 
     [DllImport(LibraryName, EntryPoint = "vmaFindMemoryTypeIndexForBufferInfo")]
-    public static extern global::Silk.NET.Vulkan.Device FindMemoryTypeIndexForBufferInfo(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
+    public static extern global::Silk.NET.Vulkan.Result FindMemoryTypeIndexForBufferInfo(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
 
     [DllImport(LibraryName, EntryPoint = "vmaFindMemoryTypeIndexForImageInfo")]
-    public static extern global::Silk.NET.Vulkan.Device FindMemoryTypeIndexForImageInfo(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
+    public static extern global::Silk.NET.Vulkan.Result FindMemoryTypeIndexForImageInfo(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, uint* pmemorytypeindex);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreatePool")]
-    public static extern global::Silk.NET.Vulkan.Device CreatePool(Allocator allocator, PoolCreateInfo* pcreateinfo, Pool* ppool);
+    public static extern global::Silk.NET.Vulkan.Result CreatePool(Allocator allocator, PoolCreateInfo* pcreateinfo, Pool* ppool);
 
     [DllImport(LibraryName, EntryPoint = "vmaDestroyPool")]
     public static extern void DestroyPool(Allocator allocator, Pool pool);
@@ -69,7 +69,7 @@ public static unsafe partial class VMA
     public static extern void CalculatePoolStatistics(Allocator allocator, Pool pool, DetailedStatistics* ppoolstats);
 
     [DllImport(LibraryName, EntryPoint = "vmaCheckPoolCorruption")]
-    public static extern global::Silk.NET.Vulkan.Device CheckPoolCorruption(Allocator allocator, Pool pool);
+    public static extern global::Silk.NET.Vulkan.Result CheckPoolCorruption(Allocator allocator, Pool pool);
 
     [DllImport(LibraryName, EntryPoint = "vmaGetPoolName")]
     public static extern void GetPoolName(Allocator allocator, Pool pool, sbyte** ppname);
@@ -78,19 +78,19 @@ public static unsafe partial class VMA
     public static extern void SetPoolName(Allocator allocator, Pool pool, string pname);
 
     [DllImport(LibraryName, EntryPoint = "vmaAllocateMemory")]
-    public static extern global::Silk.NET.Vulkan.Device AllocateMemory(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result AllocateMemory(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaAllocateDedicatedMemory")]
-    public static extern global::Silk.NET.Vulkan.Device AllocateDedicatedMemory(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, void* pmemoryallocatenext, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result AllocateDedicatedMemory(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, void* pmemoryallocatenext, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaAllocateMemoryPages")]
-    public static extern global::Silk.NET.Vulkan.Device AllocateMemoryPages(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, nuint allocationcount, Allocation* pallocations, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result AllocateMemoryPages(Allocator allocator, global::Silk.NET.Vulkan.MemoryRequirements* pvkmemoryrequirements, AllocationCreateInfo* pcreateinfo, nuint allocationcount, Allocation* pallocations, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaAllocateMemoryForBuffer")]
-    public static extern global::Silk.NET.Vulkan.Device AllocateMemoryForBuffer(Allocator allocator, global::Silk.NET.Vulkan.Buffer* buffer, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result AllocateMemoryForBuffer(Allocator allocator, global::Silk.NET.Vulkan.Buffer buffer, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaAllocateMemoryForImage")]
-    public static extern global::Silk.NET.Vulkan.Device AllocateMemoryForImage(Allocator allocator, global::Silk.NET.Vulkan.Image* image, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result AllocateMemoryForImage(Allocator allocator, global::Silk.NET.Vulkan.Image image, AllocationCreateInfo* pcreateinfo, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaFreeMemory")]
     public static extern void FreeMemory(Allocator allocator, Allocation allocation);
@@ -114,91 +114,91 @@ public static unsafe partial class VMA
     public static extern void GetAllocationMemoryProperties(Allocator allocator, Allocation allocation, uint* pflags);
 
     [DllImport(LibraryName, EntryPoint = "vmaMapMemory")]
-    public static extern global::Silk.NET.Vulkan.Device MapMemory(Allocator allocator, Allocation allocation, void** ppdata);
+    public static extern global::Silk.NET.Vulkan.Result MapMemory(Allocator allocator, Allocation allocation, void** ppdata);
 
     [DllImport(LibraryName, EntryPoint = "vmaUnmapMemory")]
     public static extern void UnmapMemory(Allocator allocator, Allocation allocation);
 
     [DllImport(LibraryName, EntryPoint = "vmaFlushAllocation")]
-    public static extern global::Silk.NET.Vulkan.Device FlushAllocation(Allocator allocator, Allocation allocation, ulong offset, ulong size);
+    public static extern global::Silk.NET.Vulkan.Result FlushAllocation(Allocator allocator, Allocation allocation, ulong offset, ulong size);
 
     [DllImport(LibraryName, EntryPoint = "vmaInvalidateAllocation")]
-    public static extern global::Silk.NET.Vulkan.Device InvalidateAllocation(Allocator allocator, Allocation allocation, ulong offset, ulong size);
+    public static extern global::Silk.NET.Vulkan.Result InvalidateAllocation(Allocator allocator, Allocation allocation, ulong offset, ulong size);
 
     [DllImport(LibraryName, EntryPoint = "vmaFlushAllocations")]
-    public static extern global::Silk.NET.Vulkan.Device FlushAllocations(Allocator allocator, uint allocationcount, Allocation* allocations, ulong* offsets, ulong* sizes);
+    public static extern global::Silk.NET.Vulkan.Result FlushAllocations(Allocator allocator, uint allocationcount, Allocation* allocations, ulong* offsets, ulong* sizes);
 
     [DllImport(LibraryName, EntryPoint = "vmaInvalidateAllocations")]
-    public static extern global::Silk.NET.Vulkan.Device InvalidateAllocations(Allocator allocator, uint allocationcount, Allocation* allocations, ulong* offsets, ulong* sizes);
+    public static extern global::Silk.NET.Vulkan.Result InvalidateAllocations(Allocator allocator, uint allocationcount, Allocation* allocations, ulong* offsets, ulong* sizes);
 
     [DllImport(LibraryName, EntryPoint = "vmaCopyMemoryToAllocation")]
-    public static extern global::Silk.NET.Vulkan.Device CopyMemoryToAllocation(Allocator allocator, void* psrchostpointer, Allocation dstallocation, ulong dstallocationlocaloffset, ulong size);
+    public static extern global::Silk.NET.Vulkan.Result CopyMemoryToAllocation(Allocator allocator, void* psrchostpointer, Allocation dstallocation, ulong dstallocationlocaloffset, ulong size);
 
     [DllImport(LibraryName, EntryPoint = "vmaCopyAllocationToMemory")]
-    public static extern global::Silk.NET.Vulkan.Device CopyAllocationToMemory(Allocator allocator, Allocation srcallocation, ulong srcallocationlocaloffset, void* pdsthostpointer, ulong size);
+    public static extern global::Silk.NET.Vulkan.Result CopyAllocationToMemory(Allocator allocator, Allocation srcallocation, ulong srcallocationlocaloffset, void* pdsthostpointer, ulong size);
 
     [DllImport(LibraryName, EntryPoint = "vmaCheckCorruption")]
-    public static extern global::Silk.NET.Vulkan.Device CheckCorruption(Allocator allocator, uint memorytypebits);
+    public static extern global::Silk.NET.Vulkan.Result CheckCorruption(Allocator allocator, uint memorytypebits);
 
     [DllImport(LibraryName, EntryPoint = "vmaBeginDefragmentation")]
-    public static extern global::Silk.NET.Vulkan.Device BeginDefragmentation(Allocator allocator, DefragmentationInfo* pinfo, DefragmentationContext* pcontext);
+    public static extern global::Silk.NET.Vulkan.Result BeginDefragmentation(Allocator allocator, DefragmentationInfo* pinfo, DefragmentationContext* pcontext);
 
     [DllImport(LibraryName, EntryPoint = "vmaEndDefragmentation")]
     public static extern void EndDefragmentation(Allocator allocator, DefragmentationContext context, DefragmentationStats* pstats);
 
     [DllImport(LibraryName, EntryPoint = "vmaBeginDefragmentationPass")]
-    public static extern global::Silk.NET.Vulkan.Device BeginDefragmentationPass(Allocator allocator, DefragmentationContext context, DefragmentationPassMoveInfo* ppassinfo);
+    public static extern global::Silk.NET.Vulkan.Result BeginDefragmentationPass(Allocator allocator, DefragmentationContext context, DefragmentationPassMoveInfo* ppassinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaEndDefragmentationPass")]
-    public static extern global::Silk.NET.Vulkan.Device EndDefragmentationPass(Allocator allocator, DefragmentationContext context, DefragmentationPassMoveInfo* ppassinfo);
+    public static extern global::Silk.NET.Vulkan.Result EndDefragmentationPass(Allocator allocator, DefragmentationContext context, DefragmentationPassMoveInfo* ppassinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaBindBufferMemory")]
-    public static extern global::Silk.NET.Vulkan.Device BindBufferMemory(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.Buffer* buffer);
+    public static extern global::Silk.NET.Vulkan.Result BindBufferMemory(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.Buffer buffer);
 
     [DllImport(LibraryName, EntryPoint = "vmaBindBufferMemory2")]
-    public static extern global::Silk.NET.Vulkan.Device BindBufferMemory2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.Buffer* buffer, void* pnext);
+    public static extern global::Silk.NET.Vulkan.Result BindBufferMemory2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.Buffer buffer, void* pnext);
 
     [DllImport(LibraryName, EntryPoint = "vmaBindImageMemory")]
-    public static extern global::Silk.NET.Vulkan.Device BindImageMemory(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.Image* image);
+    public static extern global::Silk.NET.Vulkan.Result BindImageMemory(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.Image image);
 
     [DllImport(LibraryName, EntryPoint = "vmaBindImageMemory2")]
-    public static extern global::Silk.NET.Vulkan.Device BindImageMemory2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.Image* image, void* pnext);
+    public static extern global::Silk.NET.Vulkan.Result BindImageMemory2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.Image image, void* pnext);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateBuffer")]
-    public static extern global::Silk.NET.Vulkan.Device CreateBuffer(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, global::Silk.NET.Vulkan.Buffer** pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result CreateBuffer(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, global::Silk.NET.Vulkan.Buffer* pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateBufferWithAlignment")]
-    public static extern global::Silk.NET.Vulkan.Device CreateBufferWithAlignment(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, ulong minalignment, global::Silk.NET.Vulkan.Buffer** pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result CreateBufferWithAlignment(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, ulong minalignment, global::Silk.NET.Vulkan.Buffer* pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateDedicatedBuffer")]
-    public static extern global::Silk.NET.Vulkan.Device CreateDedicatedBuffer(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, void* pmemoryallocatenext, global::Silk.NET.Vulkan.Buffer** pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result CreateDedicatedBuffer(Allocator allocator, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, AllocationCreateInfo* pallocationcreateinfo, void* pmemoryallocatenext, global::Silk.NET.Vulkan.Buffer* pbuffer, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateAliasingBuffer")]
-    public static extern global::Silk.NET.Vulkan.Device CreateAliasingBuffer(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, global::Silk.NET.Vulkan.Buffer** pbuffer);
+    public static extern global::Silk.NET.Vulkan.Result CreateAliasingBuffer(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, global::Silk.NET.Vulkan.Buffer* pbuffer);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateAliasingBuffer2")]
-    public static extern global::Silk.NET.Vulkan.Device CreateAliasingBuffer2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, global::Silk.NET.Vulkan.Buffer** pbuffer);
+    public static extern global::Silk.NET.Vulkan.Result CreateAliasingBuffer2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.BufferCreateInfo* pbuffercreateinfo, global::Silk.NET.Vulkan.Buffer* pbuffer);
 
     [DllImport(LibraryName, EntryPoint = "vmaDestroyBuffer")]
-    public static extern void DestroyBuffer(Allocator allocator, global::Silk.NET.Vulkan.Buffer* buffer, Allocation allocation);
+    public static extern void DestroyBuffer(Allocator allocator, global::Silk.NET.Vulkan.Buffer buffer, Allocation allocation);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateImage")]
-    public static extern global::Silk.NET.Vulkan.Device CreateImage(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, global::Silk.NET.Vulkan.Image** pimage, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result CreateImage(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, global::Silk.NET.Vulkan.Image* pimage, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateDedicatedImage")]
-    public static extern global::Silk.NET.Vulkan.Device CreateDedicatedImage(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, void* pmemoryallocatenext, global::Silk.NET.Vulkan.Image** pimage, Allocation* pallocation, AllocationInfo* pallocationinfo);
+    public static extern global::Silk.NET.Vulkan.Result CreateDedicatedImage(Allocator allocator, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, AllocationCreateInfo* pallocationcreateinfo, void* pmemoryallocatenext, global::Silk.NET.Vulkan.Image* pimage, Allocation* pallocation, AllocationInfo* pallocationinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateAliasingImage")]
-    public static extern global::Silk.NET.Vulkan.Device CreateAliasingImage(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, global::Silk.NET.Vulkan.Image** pimage);
+    public static extern global::Silk.NET.Vulkan.Result CreateAliasingImage(Allocator allocator, Allocation allocation, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, global::Silk.NET.Vulkan.Image* pimage);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateAliasingImage2")]
-    public static extern global::Silk.NET.Vulkan.Device CreateAliasingImage2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, global::Silk.NET.Vulkan.Image** pimage);
+    public static extern global::Silk.NET.Vulkan.Result CreateAliasingImage2(Allocator allocator, Allocation allocation, ulong allocationlocaloffset, global::Silk.NET.Vulkan.ImageCreateInfo* pimagecreateinfo, global::Silk.NET.Vulkan.Image* pimage);
 
     [DllImport(LibraryName, EntryPoint = "vmaDestroyImage")]
-    public static extern void DestroyImage(Allocator allocator, global::Silk.NET.Vulkan.Image* image, Allocation allocation);
+    public static extern void DestroyImage(Allocator allocator, global::Silk.NET.Vulkan.Image image, Allocation allocation);
 
     [DllImport(LibraryName, EntryPoint = "vmaCreateVirtualBlock")]
-    public static extern global::Silk.NET.Vulkan.Device CreateVirtualBlock(VirtualBlockCreateInfo* pcreateinfo, VirtualBlock* pvirtualblock);
+    public static extern global::Silk.NET.Vulkan.Result CreateVirtualBlock(VirtualBlockCreateInfo* pcreateinfo, VirtualBlock* pvirtualblock);
 
     [DllImport(LibraryName, EntryPoint = "vmaDestroyVirtualBlock")]
     public static extern void DestroyVirtualBlock(VirtualBlock virtualblock);
@@ -210,7 +210,7 @@ public static unsafe partial class VMA
     public static extern void GetVirtualAllocationInfo(VirtualBlock virtualblock, VirtualAllocation allocation, VirtualAllocationInfo* pvirtualallocinfo);
 
     [DllImport(LibraryName, EntryPoint = "vmaVirtualAllocate")]
-    public static extern global::Silk.NET.Vulkan.Device VirtualAllocate(VirtualBlock virtualblock, VirtualAllocationCreateInfo* pcreateinfo, VirtualAllocation* pallocation, ulong* poffset);
+    public static extern global::Silk.NET.Vulkan.Result VirtualAllocate(VirtualBlock virtualblock, VirtualAllocationCreateInfo* pcreateinfo, VirtualAllocation* pallocation, ulong* poffset);
 
     [DllImport(LibraryName, EntryPoint = "vmaVirtualFree")]
     public static extern void VirtualFree(VirtualBlock virtualblock, VirtualAllocation allocation);
@@ -240,9 +240,9 @@ public static unsafe partial class VMA
     public static extern void FreeStatsString(Allocator allocator, string pstatsstring);
 
 
-    public delegate void PFNVmaAllocateDeviceMemoryFunction(Allocator allocator, uint memorytype, global::Silk.NET.Vulkan.DeviceMemory* memory, ulong size, void* puserdata);
+    public delegate void PFNVmaAllocateDeviceMemoryFunction(Allocator allocator, uint memorytype, global::Silk.NET.Vulkan.DeviceMemory memory, ulong size, void* puserdata);
 
-    public delegate void PFNVmaFreeDeviceMemoryFunction(Allocator allocator, uint memorytype, global::Silk.NET.Vulkan.DeviceMemory* memory, ulong size, void* puserdata);
+    public delegate void PFNVmaFreeDeviceMemoryFunction(Allocator allocator, uint memorytype, global::Silk.NET.Vulkan.DeviceMemory memory, ulong size, void* puserdata);
 
     public delegate uint PFNVmaCheckDefragmentationBreakFunction(void* puserdata);
 

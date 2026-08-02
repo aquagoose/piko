@@ -98,8 +98,13 @@ public class TypeTransformer(TypeTransformer.Options options)
         if (_structs.TryGetValue(type, out StructBinding fieldStruct) && fieldStruct.IsHandleType)
             pointerLevel--;
 
-        if (options.TypeRemapping.TryGetValue(type, out TypeRemap remap) && remap.IsHandleType)
-            pointerLevel--;
+        // naive way of checking if the type we're transforming has been manually remapped to a handle type
+        // todo see if there's a better way to do this rather than looping through every remapped type
+        foreach ((_, TypeRemap remap) in options.TypeRemapping)
+        {
+            if (remap.Name == type && remap.IsHandleType)
+                pointerLevel--;
+        }
 
         if (nativeType != null)
         {

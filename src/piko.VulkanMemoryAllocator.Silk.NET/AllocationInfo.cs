@@ -6,14 +6,14 @@ namespace piko.VulkanMemoryAllocator;
 public unsafe struct AllocationInfo
 {
     public uint MemoryType;
-    public global::Silk.NET.Vulkan.DeviceMemory* DeviceMemory;
+    public global::Silk.NET.Vulkan.DeviceMemory DeviceMemory;
     public ulong Offset;
     public ulong Size;
     public void* PMappedData;
     public void* PUserData;
     public sbyte* PName;
 
-    public AllocationInfo(uint memoryType, global::Silk.NET.Vulkan.DeviceMemory* deviceMemory, ulong offset, ulong size, void* pMappedData, void* pUserData, sbyte* pName)
+    public AllocationInfo(uint memoryType, global::Silk.NET.Vulkan.DeviceMemory deviceMemory, ulong offset, ulong size, void* pMappedData, void* pUserData, sbyte* pName)
     {
         this.MemoryType = memoryType;
         this.DeviceMemory = deviceMemory;
