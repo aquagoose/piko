@@ -29,8 +29,8 @@ jobs:
     - name: Setup Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.1
       with:
-        version: latest
-        cache: true
+        vulkan-query-version: latest
+        vulkan-use-cache: true
     - name: Build
       run: ./build-native.sh ${{ matrix.os }}
       working-directory: lib/
