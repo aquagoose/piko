@@ -6,10 +6,11 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>piko.VulkanMemoryAllocator</RootNamespace>
+        <Description>A small n cute set of Vulkan Memory Allocator bindings for Silk.NET 2.x</Description>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Silk.NET.Vulkan" Version="2.23.0" />
+      <PackageReference Include="Silk.NET.Vulkan" Version="2.*" />
     </ItemGroup>
 
     <ItemGroup>
