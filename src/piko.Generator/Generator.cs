@@ -180,16 +180,26 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private void WriteFunction(FunctionBinding f)
     {
-        _sb.Append($"    [LibraryImport(LibraryName, EntryPoint = \"{f.PInvokeName}\"");
-        if (options.AllStringsAreUTF8)
-            _sb.Append(", StringMarshalling = StringMarshalling.Utf8");
-        _sb.AppendLine(")]");
-
         string returnType = f.ReturnType ?? "void";
-        if (GetMarshalInfoIfNeeded(returnType, true) is string returnMarshal)
-            _sb.AppendLine($"    [return: {returnMarshal}]");
 
-        _sb.Append($"    public static partial {returnType} {f.Name}(");
+        if (options.UseLibraryImport)
+        {
+            _sb.Append($"    [LibraryImport(LibraryName, EntryPoint = \"{f.PInvokeName}\"");
+            if (options.AllStringsAreUTF8)
+                _sb.Append(", StringMarshalling = StringMarshalling.Utf8");
+            _sb.AppendLine(")]");
+
+            if (options.UseLibraryImport && GetMarshalInfoIfNeeded(returnType, true) is string returnMarshal)
+                _sb.AppendLine($"    [return: {returnMarshal}]");
+
+            _sb.Append($"    public static partial {returnType} {f.Name}(");
+        }
+        else
+        {
+            _sb.AppendLine($"    [DllImport(LibraryName, EntryPoint = \"{f.PInvokeName}\")]");
+            _sb.Append($"    public static extern {returnType} {f.Name}(");
+        }
+
         WriteFunctionParameters(f);
         _sb.AppendLine(");");
         _sb.AppendLine();
@@ -209,7 +219,7 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         int i = 0;
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
         {
-            if (GetMarshalInfoIfNeeded(parameter.Type, false) is string parameterMarshal)
+            if (options.UseLibraryImport && GetMarshalInfoIfNeeded(parameter.Type, false) is string parameterMarshal)
                 _sb.Append($"[{parameterMarshal}] ");
 
             switch (parameter.FlowDirection)
@@ -285,6 +295,11 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
         /// The name of the library DLL name, for example "SDL3".
         /// </summary>
         public string LibraryDllName;
+
+        /// <summary>
+        /// If true, LibraryImport attributes will be generated. Otherwise, DllImport will be used.
+        /// </summary>
+        public bool UseLibraryImport;
 
         /// <summary>
         /// If true, all types such as enums and structs, will be a subtype of the method class.

@@ -23,11 +23,13 @@
     "PrefixesToStrip": {}
   },
   "Constants": {
+    "PrefixRemapping": {},
     "AssociateConstantPrefixWithType": {
       "SDL_SHADERCROSS_PROP": { "TypeName": "Prop", "IsFlagsEnum": false }
     }
   },
   "Generator": {
+    "UseLibraryImport": true
     "EmptyStructsAreHandleTypes": true,
     "HandleTypesUseIHandleInterface": true,
     "AllTypesAreSubTypes": true,

@@ -44,6 +44,7 @@ transformer.Transform(ref sdl3Bindings);
 Generator generator = new Generator(sdl3Bindings, pikoConfig.MethodClassName, new Generator.Options
 {
     LibraryDllName = pikoConfig.LibraryDllName,
+    UseLibraryImport = pikoConfig.Generator.UseLibraryImport,
     AllTypesAreSubTypes = pikoConfig.Generator.AllTypesAreSubTypes,
     HandleTypesUseIHandleInterface = pikoConfig.Generator.HandleTypesUseIHandleInterface,
     AllStringsAreUTF8 = pikoConfig.Generator.AllStringsAreUTF8,

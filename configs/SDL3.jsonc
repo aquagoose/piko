@@ -192,6 +192,7 @@
     }
   },
   "Generator": {
+    "UseLibraryImport": true,
     "EmptyStructsAreHandleTypes": true,
     "HandleTypesUseIHandleInterface": true,
     "AllTypesAreSubTypes": true,
