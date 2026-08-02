@@ -250,10 +250,9 @@ public class Generator(BindingsSet bindings, string methodClassName, Generator.O
 
     private string WriteExtraStuff(string str)
     {
-        _sb.Clear();
-
         if (options.AllTypesAreSubTypes)
         {
+            _sb.Clear();
             _sb.AppendLine($"public static unsafe partial class {methodClassName}");
             _sb.AppendLine("{");
             _sb.Append(' ', 4);
