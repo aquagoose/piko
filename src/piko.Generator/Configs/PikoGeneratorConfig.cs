@@ -41,7 +41,7 @@ public class PikoGeneratorConfig
     /// <summary>
     /// Specify type names to manually remap. This includes typedefs, which are not automatically remapped.
     /// </summary>
-    public Dictionary<string, string> TypeRemapping;
+    public Dictionary<string, TypeTransformer.TypeRemap> TypeRemapping;
 
     /// <summary>
     /// Defines the configuration for enums.

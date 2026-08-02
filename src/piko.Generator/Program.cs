@@ -30,14 +30,15 @@ NamePrettifier prettifier = new NamePrettifier(new NamePrettifier.Options
     EnumPrefixStrip = pikoConfig.Enums.PrefixesToStrip,
     ConstantPrefixRemapping = pikoConfig.Constants.PrefixRemapping,
     ConstantPrefixStrip = pikoConfig.Constants.AssociateConstantPrefixWithType.Keys.ToList(),
-    NameRemapping = pikoConfig.TypeRemapping
+    NameRemapping = pikoConfig.TypeRemapping.ToDictionary(remap => remap.Key, remap => remap.Value.Name)
 });
 prettifier.Prettify(ref sdl3Bindings);
 
 TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
 {
     EmptyStructsAreHandleTypes = pikoConfig.Generator.EmptyStructsAreHandleTypes,
-    AssociateConstantPrefixWithType = pikoConfig.Constants.AssociateConstantPrefixWithType
+    AssociateConstantPrefixWithType = pikoConfig.Constants.AssociateConstantPrefixWithType,
+    TypeRemapping = pikoConfig.TypeRemapping
 });
 transformer.Transform(ref sdl3Bindings);
 

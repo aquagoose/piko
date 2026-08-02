@@ -13,10 +13,10 @@
     "IncludeDirectories": ["../lib/SDL/include"]
   },
   "TypeRemapping": {
-    "SDL_GPUDevice": "void",
-    "SDL_GPUShader": "void",
-    "SDL_GPUComputePipeline": "void",
-    "SDL_GPUShaderFormat": "SDL.GPUShaderFormat"
+    "SDL_GPUDevice": { "Name": "void" },
+    "SDL_GPUShader": { "Name": "void" },
+    "SDL_GPUComputePipeline": { "Name": "void" },
+    "SDL_GPUShaderFormat": { "Name": "SDL.GPUShaderFormat" }
   },
   "Enums": {
     "CustomPrefixes": {},
@@ -29,7 +29,7 @@
     }
   },
   "Generator": {
-    "UseLibraryImport": true
+    "UseLibraryImport": true,
     "EmptyStructsAreHandleTypes": true,
     "HandleTypesUseIHandleInterface": true,
     "AllTypesAreSubTypes": true,

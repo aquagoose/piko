@@ -98,6 +98,9 @@ public class TypeTransformer(TypeTransformer.Options options)
         if (_structs.TryGetValue(type, out StructBinding fieldStruct) && fieldStruct.IsHandleType)
             pointerLevel--;
 
+        if (options.TypeRemapping.TryGetValue(type, out TypeRemap remap) && remap.IsHandleType)
+            pointerLevel--;
+
         if (nativeType != null)
         {
             switch (nativeType)
@@ -164,6 +167,8 @@ public class TypeTransformer(TypeTransformer.Options options)
         /// Associate a constant prefix (key) with a type (value).
         /// </summary>
         public Dictionary<string, ConstantType> AssociateConstantPrefixWithType;
+
+        public Dictionary<string, TypeRemap> TypeRemapping;
     }
 
     public struct ConstantType
@@ -182,6 +187,19 @@ public class TypeTransformer(TypeTransformer.Options options)
         {
             TypeName = typeName;
             IsFlagsEnum = isFlagsEnum;
+        }
+    }
+
+    public struct TypeRemap
+    {
+        public string Name;
+
+        public bool IsHandleType;
+
+        public TypeRemap(string name, bool isHandleType)
+        {
+            Name = name;
+            IsHandleType = isHandleType;
         }
     }
 }
