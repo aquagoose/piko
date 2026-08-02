@@ -8,6 +8,6 @@ public enum DefragmentationFlagBits : uint
     AlgorithmBalancedBit = 0x2,
     AlgorithmFullBit = 0x4,
     AlgorithmExtensiveBit = 0x8,
-    AlgorithmMask = AlgorithmFastBit | vmaDefragmentationFlagAlgorithmBalancedBit | vmaDefragmentationFlagAlgorithmFullBit | vmaDefragmentationFlagAlgorithmExtensiveBit,
+    AlgorithmMask = AlgorithmFastBit | AlgorithmBalancedBit | AlgorithmFullBit | AlgorithmExtensiveBit,
     BitsMaxEnum = 0x7fffffff,
 }

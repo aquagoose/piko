@@ -4,10 +4,10 @@ using System.Runtime.InteropServices.Marshalling;
 namespace piko.VulkanMemoryAllocator;
 public enum VirtualAllocationCreateFlagBits : uint
 {
-    UpperAddressBit = UpperAddressBit,
-    StrategyMinMemoryBit = StrategyMinMemoryBit,
-    StrategyMinTimeBit = StrategyMinTimeBit,
-    StrategyMinOffsetBit = StrategyMinOffsetBit,
-    StrategyMask = StrategyMask,
+    UpperAddressBit = AllocationCreateFlagBits.UpperAddressBit,
+    StrategyMinMemoryBit = AllocationCreateFlagBits.StrategyMinMemoryBit,
+    StrategyMinTimeBit = AllocationCreateFlagBits.StrategyMinTimeBit,
+    StrategyMinOffsetBit = AllocationCreateFlagBits.StrategyMinOffsetBit,
+    StrategyMask = AllocationCreateFlagBits.StrategyMask,
     FlagBitsMaxEnum = 0x7fffffff,
 }

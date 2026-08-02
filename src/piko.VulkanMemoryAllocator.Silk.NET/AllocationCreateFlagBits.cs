@@ -20,6 +20,6 @@ public enum AllocationCreateFlagBits : uint
     StrategyMinOffsetBit = 0x00040000,
     StrategyBestFitBit = StrategyMinMemoryBit,
     StrategyFirstFitBit = StrategyMinTimeBit,
-    StrategyMask = StrategyMinMemoryBit | vmaAllocationCreateStrategyMinTimeBit | vmaAllocationCreateStrategyMinOffsetBit,
+    StrategyMask = StrategyMinMemoryBit | StrategyMinTimeBit | StrategyMinOffsetBit,
     FlagBitsMaxEnum = 0x7fffffff,
 }

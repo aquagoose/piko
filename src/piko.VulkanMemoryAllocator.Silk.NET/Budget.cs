@@ -7,12 +7,12 @@ public unsafe struct Budget
 {
     public Statistics Statistics;
     public ulong Usage;
-    public ulong Budget;
+    public ulong BudgetCount;
 
-    public Budget(Statistics statistics, ulong usage, ulong budget)
+    public Budget(Statistics statistics, ulong usage, ulong budgetCount)
     {
         this.Statistics = statistics;
         this.Usage = usage;
-        this.Budget = budget;
+        this.BudgetCount = budgetCount;
     }
 }
