@@ -7,6 +7,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>piko.VulkanMemoryAllocator</RootNamespace>
         <Description>A small n cute set of Vulkan Memory Allocator bindings for Silk.NET 2.x</Description>
+        <PackageTags>$(PackageTags);vulkan;vma;vulkan memory allocator;silk;silk.net;silknet;silkdotnet</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,6 +16,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\piko.Core\piko.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="runtimes/**/*" Pack="true" PackagePath="runtimes/" />
     </ItemGroup>
 
 </Project>
