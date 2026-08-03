@@ -75,26 +75,26 @@ jobs:
         name: ${{ matrix.platform.os }}
         path: lib/build/**/*
         if-no-files-found: error
-  commit:
-    name: Commit everything
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Download artifacts
-        uses: actions/download-artifact@v8
-        with:
-          merge-multiple: true
-      - name: Copy SDL3
-        run: cp -r SDL3/runtimes/ src/piko.SDL3/
-      - name: Copy SDL3_shadercross
-        run: cp -r SDL3_shadercross/runtimes/ src/piko.SDL3.ShaderCross/
-      - name: Copy VMA
-        run: cp -r VMA/runtimes/ src/piko.VulkanMemoryAllocator.Silk.NET/
-      - name: Commit files
-        uses: EndBug/add-and-commit@v10
-        with:
-          add: 'src'
-          default_author: github_actions
-          message: 'Build native dependencies (run ${{ github.run_number }})'
+  #commit:
+  #  name: Commit everything
+  #  needs: build
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout
+  #      uses: actions/checkout@v4
+  #    - name: Download artifacts
+  #      uses: actions/download-artifact@v8
+  #      with:
+  #        merge-multiple: true
+  #    - name: Copy SDL3
+  #      run: cp -r SDL3/runtimes/ src/piko.SDL3/
+  #    - name: Copy SDL3_shadercross
+  #      run: cp -r SDL3_shadercross/runtimes/ src/piko.SDL3.ShaderCross/
+  #    - name: Copy VMA
+  #      run: cp -r VMA/runtimes/ src/piko.VulkanMemoryAllocator.Silk.NET/
+  #    - name: Commit files
+  #      uses: EndBug/add-and-commit@v10
+  #      with:
+  #        add: 'src'
+  #        default_author: github_actions
+  #        message: 'Build native dependencies (run ${{ github.run_number }})'
