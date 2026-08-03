@@ -50,29 +50,36 @@ public class TypeTransformer(TypeTransformer.Options options)
                 if (c.Prefix != prefix)
                     continue;
 
-                if (type.IsFlagsEnum)
+                switch (type.TypeToGenerate)
                 {
-                    if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
+                    case GenerateType.StaticClass:
+                        c.ClassName = type.TypeName;
+                        break;
+                    case GenerateType.Enum:
+                    case GenerateType.FlagsEnum:
                     {
-                        // need to remap some types such as nuint as enums can't be of that type
-                        string enumType = c.Type switch
+                        if (!_newEnums.TryGetValue(type.TypeName, out EnumBinding binding))
                         {
-                            "nuint" => "ulong",
-                            _ => c.Type
-                        };
+                            // need to remap some types such as nuint as enums can't be of that type
+                            string enumType = type.EnumType ?? c.Type switch
+                            {
+                                "nuint" => "ulong",
+                                _ => c.Type
+                            };
 
-                        binding = new EnumBinding(type.TypeName, enumType)
-                        {
-                            IsFlagsEnum = true
-                        };
-                        _newEnums.Add(type.TypeName, binding);
+                            binding = new EnumBinding(type.TypeName, enumType)
+                            {
+                                IsFlagsEnum = type.TypeToGenerate == GenerateType.FlagsEnum
+                            };
+                            _newEnums.Add(type.TypeName, binding);
+                        }
+
+                        binding.Values.Add(new EnumBinding.EnumValue(c.Name, c.Value));
+                        c.SkipGenerationInMainClass = true;
+
+                        break;
                     }
-
-                    binding.Values.Add(new EnumBinding.EnumValue(c.Name, c.Value));
-                    c.SkipGenerationInMainClass = true;
                 }
-                else
-                    c.ClassName = type.TypeName;
             }
         }
     }
@@ -184,15 +191,38 @@ public class TypeTransformer(TypeTransformer.Options options)
         public string TypeName;
 
         /// <summary>
-        /// If true, a flags enum will be generated. Otherwise, a static class will be generated.
+        /// The type that should be generated.
         /// </summary>
-        public bool IsFlagsEnum;
+        public GenerateType TypeToGenerate;
 
-        public ConstantType(string typeName, bool isFlagsEnum)
+        /// <summary>
+        /// The type of an enum. If not provided, a value will be auto-determined, which may not always be correct.
+        /// </summary>
+        public string? EnumType;
+
+        public ConstantType(string typeName, GenerateType typeToGenerate)
         {
             TypeName = typeName;
-            IsFlagsEnum = isFlagsEnum;
+            TypeToGenerate = typeToGenerate;
         }
+    }
+
+    public enum GenerateType
+    {
+        /// <summary>
+        /// Generate a static class.
+        /// </summary>
+        StaticClass,
+
+        /// <summary>
+        /// Generate a non-flags enum.
+        /// </summary>
+        Enum,
+
+        /// <summary>
+        /// Generate a flags enum.
+        /// </summary>
+        FlagsEnum
     }
 
     public struct TypeRemap

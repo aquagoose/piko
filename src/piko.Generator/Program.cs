@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using piko.Generator;
 using piko.Generator.Analyzers;
 using piko.Generator.Bindings;
@@ -18,7 +19,8 @@ PikoGeneratorConfig pikoConfig = JsonSerializer.Deserialize<PikoGeneratorConfig>
 {
     IncludeFields = true,
     ReadCommentHandling = JsonCommentHandling.Skip,
-    AllowTrailingCommas = true
+    AllowTrailingCommas = true,
+    Converters = { new JsonStringEnumConverter() }
 });
 
 ClangSharpAnalyzer sdl3Anaylyzer = new ClangSharpAnalyzer(workingDir, pikoConfig.ClangSharp, pikoConfig.TypeRemapping.Keys.ToList());

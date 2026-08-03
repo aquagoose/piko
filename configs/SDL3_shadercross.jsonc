@@ -25,7 +25,7 @@
   "Constants": {
     "PrefixRemapping": {},
     "AssociateConstantPrefixWithType": {
-      "SDL_SHADERCROSS_PROP": { "TypeName": "Prop", "IsFlagsEnum": false }
+      "SDL_SHADERCROSS_PROP": { "TypeName": "Prop", "TypeToGenerate": "StaticClass" }
     }
   },
   "Generator": {

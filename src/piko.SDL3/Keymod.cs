@@ -4,8 +4,7 @@ using System.Runtime.InteropServices.Marshalling;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    [Flags]
-    public enum Keymod : uint
+    public enum Keymod : ushort
     {
         None = 0x0000U,
         Lshift = 0x0001U,

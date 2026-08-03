@@ -4,7 +4,6 @@ using System.Runtime.InteropServices.Marshalling;
 namespace piko.SDL3;
 public static unsafe partial class SDL
 {
-    [Flags]
     public enum BlendMode : uint
     {
         None = 0x00000000U,
