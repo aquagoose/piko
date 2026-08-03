@@ -62,11 +62,11 @@ jobs:
         if [[ $ZIPNAME == *.zip ]]; then
           unzip -d SDL_shadercross $ZIPNAME
         else
-          mkdir -P SDL_shadercross
+          mkdir -p SDL_shadercross
           tar -zxvf -C SDL_shadercross $ZIPNAME
         fi
         OUT_DIR="lib/build/SDL3_shadercross/runtimes/${{ matrix.platform.runtime }}/native"
-        mkdir -P $OUT_DIR
+        mkdir -p $OUT_DIR
         for file in ${{ matrix.platform.shadercross-files }}; do
           cp -L SDL_shadercross/${{ matrix.platform.shadercross-libdir }}/$file $OUT_DIR/
         done
