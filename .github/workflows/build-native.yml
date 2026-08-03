@@ -9,36 +9,70 @@ jobs:
     name: Build deps
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+        platform:
+          - os: windows-latest
+            runtime: win-x64
+            shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-VC-x64.zip"
+            shadercross-zipname: "SDL3_shadercross-3.0.0-windows-VC-x64.zip"
+            shadercross-libdir: bin
+            shadercross-files: ["SDL3_shadercross.dll", "spirv-cross-c-shared.dll", "dxcompiler.dll", "dxil.dll"]
+          - os: ubuntu-latest
+            runtime: linux-x64
+            shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-linux-x64.zip"
+            shadercross-zipname: "SDL3_shadercross-3.0.0-linux-x64.tar.gz"
+            shadercross-libdir: lib
+            shadercross-files: ["libSDL3_shadercross.so", "libspirv-cross-c-shared.so.0", "libdxcompiler.so", "libdxil.so"]
+          - os: macos-latest
+            runtime: osx-arm64
+            shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-macos-arm64.zip"
+            shadercross-zipname: "SDL3_shadercross-3.0.0-darwin-arm64-x64.tar.gz"
+            shadercross-libdir: lib
+            shadercross-files: ["libSDL3_shadercross.dylib", "libspirv-cross-c-shared.0.dylib", "libdxcompiler.dylib", "libdxil.dylib"]
+    runs-on: ${{ matrix.platform.os }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         submodules: true
-    - name: Install linux deps
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: | # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
-        sudo apt-get install build-essential git make \
-        pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
-        libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
-        libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
-        libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
-        libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev libusb-1.0-0-dev \
-        libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
-    - name: Setup Vulkan SDK
-      uses: humbletim/setup-vulkan-sdk@v1.2.1
-      with:
-        vulkan-query-version: latest
-        vulkan-use-cache: true
-    - name: Build
-      run: ./build-native.sh ${{ matrix.os }}
-      working-directory: lib/
+    #- name: Install linux deps
+    #  if: ${{ matrix.platform.os == 'ubuntu-latest' }}
+    #  run: | # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
+    #    sudo apt-get install build-essential git make \
+    #    pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
+    #    libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
+    #    libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
+    #    libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
+    #    libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev libusb-1.0-0-dev \
+    #    libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
+    #- name: Setup Vulkan SDK
+    #  uses: humbletim/setup-vulkan-sdk@v1.2.1
+    #  with:
+    #    vulkan-query-version: latest
+    #    vulkan-use-cache: true
+    #- name: Build
+    #  run: ./build-native.sh ${{ matrix.platform.os }}
+    #  working-directory: lib/
+    #  shell: bash
+    - name: Download prebuilt SDL3_shadercross binaries
       shell: bash
+      run: |
+        curl -L --output SDL3_shadercross-dl.zip ${{ matrix.platform.shadercross-url }}
+        unzip SDL3_shadercross-dl.zip
+        ZIPNAME=${{ matrix.platform.shadercross-zipname }}
+        if [[ $ZIPNAME == *.zip ]]; then
+          unzip -d SDL_shadercross $ZIPNAME
+        else
+          tar -zxvf -C SDL_shadercross $ZIPNAME
+        fi
+        OUT_DIR="lib/build/SDL3_shadercross/runtimes/${{ matrix.platform.runtime }}/native"
+        mkdir -P $OUT_DIR
+        for file in ${{ matrix.platform.shadercross-files }}; do
+          cp -L SDL_shadercross/${{ matrix.platform.shadercross-libdir }}/$file $OUT_DIR/
+        done
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
-        name: ${{ matrix.os }}
+        name: ${{ matrix.platform.os }}
         path: lib/build/**/*
         if-no-files-found: error
   commit:
@@ -54,6 +88,8 @@ jobs:
           merge-multiple: true
       - name: Copy SDL3
         run: cp -r SDL3/runtimes/ src/piko.SDL3/
+      - name: Copy SDL3_shadercross
+        run: cp -r SDL3_shadercross/runtimes/ src/piko.SDL3.ShaderCross/
       - name: Copy VMA
         run: cp -r VMA/runtimes/ src/piko.VulkanMemoryAllocator.Silk.NET/
       - name: Commit files
