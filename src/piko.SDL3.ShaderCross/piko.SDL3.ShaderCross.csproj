@@ -13,4 +13,8 @@
       <ProjectReference Include="..\piko.SDL3\piko.SDL3.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="runtimes/**/*" Pack="true" PackagePath="runtimes/" />
+    </ItemGroup>
+
 </Project>
