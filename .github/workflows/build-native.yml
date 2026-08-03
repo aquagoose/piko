@@ -37,25 +37,25 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
-    #- name: Install linux deps
-    #  if: ${{ matrix.platform.os == 'ubuntu-latest' }}
-    #  run: | # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
-    #    sudo apt-get install build-essential git make \
-    #    pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
-    #    libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
-    #    libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
-    #    libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
-    #    libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev libusb-1.0-0-dev \
-    #    libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
-    #- name: Setup Vulkan SDK
-    #  uses: humbletim/setup-vulkan-sdk@v1.2.1
-    #  with:
-    #    vulkan-query-version: latest
-    #    vulkan-use-cache: true
-    #- name: Build
-    #  run: ./build-native.sh ${{ matrix.platform.os }}
-    #  working-directory: lib/
-    #  shell: bash
+    - name: Install linux deps
+      if: ${{ matrix.platform.os == 'ubuntu-latest' }}
+      run: | # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
+        sudo apt-get install build-essential git make \
+        pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
+        libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
+        libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
+        libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
+        libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev libusb-1.0-0-dev \
+        libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
+    - name: Setup Vulkan SDK
+      uses: humbletim/setup-vulkan-sdk@v1.2.1
+      with:
+        vulkan-query-version: latest
+        vulkan-use-cache: true
+    - name: Build
+      run: ./build-native.sh ${{ matrix.platform.os }}
+      working-directory: lib/
+      shell: bash
     - name: Download prebuilt SDL3_shadercross binaries
       shell: bash
       run: |
@@ -83,26 +83,26 @@ jobs:
         name: ${{ matrix.platform.os }}
         path: lib/build/**/*
         if-no-files-found: error
-  #commit:
-  #  name: Commit everything
-  #  needs: build
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Checkout
-  #      uses: actions/checkout@v4
-  #    - name: Download artifacts
-  #      uses: actions/download-artifact@v8
-  #      with:
-  #        merge-multiple: true
-  #    - name: Copy SDL3
-  #      run: cp -r SDL3/runtimes/ src/piko.SDL3/
-  #    - name: Copy SDL3_shadercross
-  #      run: cp -r SDL3_shadercross/runtimes/ src/piko.SDL3.ShaderCross/
-  #    - name: Copy VMA
-  #      run: cp -r VMA/runtimes/ src/piko.VulkanMemoryAllocator.Silk.NET/
-  #    - name: Commit files
-  #      uses: EndBug/add-and-commit@v10
-  #      with:
-  #        add: 'src'
-  #        default_author: github_actions
-  #        message: 'Build native dependencies (run ${{ github.run_number }})'
+  commit:
+    name: Commit everything
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          merge-multiple: true
+      - name: Copy SDL3
+        run: cp -r SDL3/runtimes/ src/piko.SDL3/
+      - name: Copy SDL3_shadercross
+        run: cp -r SDL3_shadercross/runtimes/ src/piko.SDL3.ShaderCross/
+      - name: Copy VMA
+        run: cp -r VMA/runtimes/ src/piko.VulkanMemoryAllocator.Silk.NET/
+      - name: Commit files
+        uses: EndBug/add-and-commit@v10
+        with:
+          add: 'src'
+          default_author: github_actions
+          message: 'Build native dependencies (run ${{ github.run_number }})'
