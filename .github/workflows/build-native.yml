@@ -62,6 +62,7 @@ jobs:
         if [[ $ZIPNAME == *.zip ]]; then
           unzip -d SDL_shadercross $ZIPNAME
         else
+          mkdir -P SDL_shadercross
           tar -zxvf -C SDL_shadercross $ZIPNAME
         fi
         OUT_DIR="lib/build/SDL3_shadercross/runtimes/${{ matrix.platform.runtime }}/native"
