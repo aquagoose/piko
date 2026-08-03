@@ -63,7 +63,7 @@ jobs:
           unzip -d SDL_shadercross $ZIPNAME
         else
           mkdir -p SDL_shadercross
-          tar -zxvf -C SDL_shadercross $ZIPNAME
+          tar -zxvf $ZIPNAME --directory SDL_shadercross
         fi
         OUT_DIR="lib/build/SDL3_shadercross/runtimes/${{ matrix.platform.runtime }}/native"
         mkdir -p $OUT_DIR
