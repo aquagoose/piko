@@ -59,15 +59,18 @@ jobs:
         curl -L --output SDL3_shadercross-dl.zip ${{ matrix.platform.shadercross-url }}
         unzip SDL3_shadercross-dl.zip
         ZIPNAME=${{ matrix.platform.shadercross-zipname }}
+        echo "ZIPNAME: $ZIPNAME"
         if [[ $ZIPNAME == *.zip ]]; then
           unzip -d SDL_shadercross $ZIPNAME
         else
           mkdir -p SDL_shadercross
-          tar -zxvf $ZIPNAME --directory SDL_shadercross
+          tar -zxvf $ZIPNAME --directory SDL_shadercross/
         fi
         OUT_DIR="lib/build/SDL3_shadercross/runtimes/${{ matrix.platform.runtime }}/native"
+        echo "OUT_DIR: $OUT_DIR"
         mkdir -p $OUT_DIR
         for file in ${{ matrix.platform.shadercross-files }}; do
+          echo "file: $file"
           cp -L SDL_shadercross/${{ matrix.platform.shadercross-libdir }}/$file $OUT_DIR/
         done
     - name: Upload artifact
