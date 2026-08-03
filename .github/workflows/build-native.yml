@@ -15,19 +15,19 @@ jobs:
             shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-VC-x64.zip"
             shadercross-zipname: "SDL3_shadercross-3.0.0-windows-VC-x64.zip"
             shadercross-libdir: bin
-            shadercross-files: ["SDL3_shadercross.dll", "spirv-cross-c-shared.dll", "dxcompiler.dll", "dxil.dll"]
+            shadercross-files: "SDL3_shadercross.dll spirv-cross-c-shared.dll dxcompiler.dll dxil.dll"
           - os: ubuntu-latest
             runtime: linux-x64
             shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-linux-x64.zip"
             shadercross-zipname: "SDL3_shadercross-3.0.0-linux-x64.tar.gz"
             shadercross-libdir: lib
-            shadercross-files: ["libSDL3_shadercross.so", "libspirv-cross-c-shared.so.0", "libdxcompiler.so", "libdxil.so"]
+            shadercross-files: "libSDL3_shadercross.so libspirv-cross-c-shared.so.0 libdxcompiler.so libdxil.so"
           - os: macos-latest
             runtime: osx-arm64
             shadercross-url: "https://nightly.link/libsdl-org/SDL_shadercross/workflows/main/main/SDL3_shadercross-macos-arm64.zip"
             shadercross-zipname: "SDL3_shadercross-3.0.0-darwin-arm64-x64.tar.gz"
             shadercross-libdir: lib
-            shadercross-files: ["libSDL3_shadercross.dylib", "libspirv-cross-c-shared.0.dylib", "libdxcompiler.dylib", "libdxil.dylib"]
+            shadercross-files: "libSDL3_shadercross.dylib libspirv-cross-c-shared.0.dylib libdxcompiler.dylib libdxil.dylib"
     runs-on: ${{ matrix.platform.os }}
     steps:
     - name: Checkout
