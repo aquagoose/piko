@@ -39,6 +39,7 @@ prettifier.Prettify(ref sdl3Bindings);
 TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
 {
     EmptyStructsAreHandleTypes = pikoConfig.Generator.EmptyStructsAreHandleTypes,
+    BytesAreBooleansByDefault = pikoConfig.Generator.BytesAreBooleans,
     AssociateConstantPrefixWithType = pikoConfig.Constants.AssociateConstantPrefixWithType,
     TypeRemapping = pikoConfig.TypeRemapping
 });

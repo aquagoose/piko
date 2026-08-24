@@ -129,6 +129,8 @@ public class TypeTransformer(TypeTransformer.Options options)
             {
                 case "sbyte" when pointerLevel == 1:
                     return "string";
+                case "byte" when options.BytesAreBooleansByDefault && pointerLevel == 0:
+                    return "bool";
                 case "ReadOnlySpan<byte>":
                     return "string";
             }
@@ -174,6 +176,11 @@ public class TypeTransformer(TypeTransformer.Options options)
         /// If true, empty structs will be transformed to a special "handle" type.
         /// </summary>
         public bool EmptyStructsAreHandleTypes;
+
+        /// <summary>
+        /// If enabled, byte values will be generated as booleans unless manually specified
+        /// </summary>
+        public bool BytesAreBooleansByDefault;
 
         /// <summary>
         /// Associate a constant prefix (key) with a type (value).

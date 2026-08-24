@@ -197,6 +197,7 @@
     "HandleTypesUseIHandleInterface": true,
     "AllTypesAreSubTypes": true,
     "AllStringsAreUTF8": true,
+    "BytesAreBooleans": true,
     "CustomReturnValueTypeMarshallers": {
       "string": "StringMarshaller"
     }

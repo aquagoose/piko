@@ -7,5 +7,6 @@ public class GeneratorConfig
     public bool HandleTypesUseIHandleInterface;
     public bool AllTypesAreSubTypes;
     public bool AllStringsAreUTF8;
+    public bool BytesAreBooleans;
     public Dictionary<string, string> CustomReturnValueTypeMarshallers;
 }
