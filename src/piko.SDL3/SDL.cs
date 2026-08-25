@@ -96,15 +96,15 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadAsyncIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ReadAsyncIO(AsyncIO asyncio, void* ptr, ulong offset, ulong size, AsyncIOQueue queue, void* userdata);
+    public static partial bool ReadAsyncIO(AsyncIO asyncio, nint ptr, ulong offset, ulong size, AsyncIOQueue queue, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteAsyncIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteAsyncIO(AsyncIO asyncio, void* ptr, ulong offset, ulong size, AsyncIOQueue queue, void* userdata);
+    public static partial bool WriteAsyncIO(AsyncIO asyncio, nint ptr, ulong offset, ulong size, AsyncIOQueue queue, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseAsyncIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CloseAsyncIO(AsyncIO asyncio, [MarshalAs(UnmanagedType.I1)] bool flush, AsyncIOQueue queue, void* userdata);
+    public static partial bool CloseAsyncIO(AsyncIO asyncio, [MarshalAs(UnmanagedType.I1)] bool flush, AsyncIOQueue queue, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateAsyncIOQueue", StringMarshalling = StringMarshalling.Utf8)]
     public static partial AsyncIOQueue CreateAsyncIOQueue();
@@ -125,7 +125,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadFileAsync", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LoadFileAsync(string file, AsyncIOQueue queue, void* userdata);
+    public static partial bool LoadFileAsync(string file, AsyncIOQueue queue, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_TryLockSpinlock", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -171,13 +171,13 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CompareAndSwapAtomicPointer", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CompareAndSwapAtomicPointer(void** a, void* oldval, void* newval);
+    public static partial bool CompareAndSwapAtomicPointer(nint a, nint oldval, nint newval);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAtomicPointer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* SetAtomicPointer(void** a, void* v);
+    public static partial nint SetAtomicPointer(nint a, nint v);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetAtomicPointer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetAtomicPointer(void** a);
+    public static partial nint GetAtomicPointer(nint a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetNumAudioDrivers", StringMarshalling = StringMarshalling.Utf8)]
     public static partial int GetNumAudioDrivers();
@@ -301,18 +301,18 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PutAudioStreamData", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool PutAudioStreamData(AudioStream stream, void* buf, int len);
+    public static partial bool PutAudioStreamData(AudioStream stream, nint buf, int len);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PutAudioStreamDataNoCopy", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool PutAudioStreamDataNoCopy(AudioStream stream, void* buf, int len, AudioStreamDataCompleteCallback callback, void* userdata);
+    public static partial bool PutAudioStreamDataNoCopy(AudioStream stream, nint buf, int len, AudioStreamDataCompleteCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PutAudioStreamPlanarData", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool PutAudioStreamPlanarData(AudioStream stream, void** channelBuffers, int numChannels, int numSamples);
+    public static partial bool PutAudioStreamPlanarData(AudioStream stream, nint channelBuffers, int numChannels, int numSamples);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetAudioStreamData", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial int GetAudioStreamData(AudioStream stream, void* buf, int len);
+    public static partial int GetAudioStreamData(AudioStream stream, nint buf, int len);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetAudioStreamAvailable", StringMarshalling = StringMarshalling.Utf8)]
     public static partial int GetAudioStreamAvailable(AudioStream stream);
@@ -350,21 +350,21 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamGetCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamGetCallback(AudioStream stream, AudioStreamCallback callback, void* userdata);
+    public static partial bool SetAudioStreamGetCallback(AudioStream stream, AudioStreamCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioStreamPutCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioStreamPutCallback(AudioStream stream, AudioStreamCallback callback, void* userdata);
+    public static partial bool SetAudioStreamPutCallback(AudioStream stream, AudioStreamCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyAudioStream", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DestroyAudioStream(AudioStream stream);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenAudioDeviceStream", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, AudioStreamCallback callback, void* userdata);
+    public static partial AudioStream OpenAudioDeviceStream(uint devid, AudioSpec* spec, AudioStreamCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAudioPostmixCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetAudioPostmixCallback(uint devid, AudioPostmixCallback callback, void* userdata);
+    public static partial bool SetAudioPostmixCallback(uint devid, AudioPostmixCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadWAV_IO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -474,14 +474,14 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetClipboardData", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetClipboardData(ClipboardDataCallback callback, ClipboardCleanupCallback cleanup, void* userdata, sbyte** mimeTypes, nuint numMimeTypes);
+    public static partial bool SetClipboardData(ClipboardDataCallback callback, ClipboardCleanupCallback cleanup, nint userdata, sbyte** mimeTypes, nuint numMimeTypes);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ClearClipboardData", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool ClearClipboardData();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetClipboardData", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetClipboardData(string mimeType, nuint* size);
+    public static partial nint GetClipboardData(string mimeType, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_HasClipboardData", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -562,16 +562,16 @@ public static unsafe partial class SDL
     public static partial int GetSystemPageSize();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowOpenFileDialog", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void ShowOpenFileDialog(DialogFileCallback callback, void* userdata, Window window, DialogFileFilter* filters, int nfilters, string defaultLocation, [MarshalAs(UnmanagedType.I1)] bool allowMany);
+    public static partial void ShowOpenFileDialog(DialogFileCallback callback, nint userdata, Window window, DialogFileFilter* filters, int nfilters, string defaultLocation, [MarshalAs(UnmanagedType.I1)] bool allowMany);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowSaveFileDialog", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void ShowSaveFileDialog(DialogFileCallback callback, void* userdata, Window window, DialogFileFilter* filters, int nfilters, string defaultLocation);
+    public static partial void ShowSaveFileDialog(DialogFileCallback callback, nint userdata, Window window, DialogFileFilter* filters, int nfilters, string defaultLocation);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowOpenFolderDialog", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void ShowOpenFolderDialog(DialogFileCallback callback, void* userdata, Window window, string defaultLocation, [MarshalAs(UnmanagedType.I1)] bool allowMany);
+    public static partial void ShowOpenFolderDialog(DialogFileCallback callback, nint userdata, Window window, string defaultLocation, [MarshalAs(UnmanagedType.I1)] bool allowMany);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowFileDialogWithProperties", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void ShowFileDialogWithProperties(FileDialogType type, DialogFileCallback callback, void* userdata, uint props);
+    public static partial void ShowFileDialogWithProperties(FileDialogType type, DialogFileCallback callback, nint userdata, uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OutOfMemory", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -622,21 +622,21 @@ public static unsafe partial class SDL
     public static partial bool PushEvent(Event* @event);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventFilter", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetEventFilter(EventFilter filter, void* userdata);
+    public static partial void SetEventFilter(EventFilter filter, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetEventFilter", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetEventFilter(EventFilter* filter, void** userdata);
+    public static partial bool GetEventFilter(EventFilter* filter, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddEventWatch", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AddEventWatch(EventFilter filter, void* userdata);
+    public static partial bool AddEventWatch(EventFilter filter, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveEventWatch", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void RemoveEventWatch(EventFilter filter, void* userdata);
+    public static partial void RemoveEventWatch(EventFilter filter, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FilterEvents", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void FilterEvents(EventFilter filter, void* userdata);
+    public static partial void FilterEvents(EventFilter filter, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetEventEnabled", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void SetEventEnabled(uint type, [MarshalAs(UnmanagedType.I1)] bool enabled);
@@ -672,7 +672,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateDirectory", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool EnumerateDirectory(string path, EnumerateDirectoryCallback callback, void* userdata);
+    public static partial bool EnumerateDirectory(string path, EnumerateDirectoryCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemovePath", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -935,7 +935,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SendGamepadEffect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SendGamepadEffect(Gamepad gamepad, void* data, int size);
+    public static partial bool SendGamepadEffect(Gamepad gamepad, nint data, int size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseGamepad", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void CloseGamepad(Gamepad gamepad);
@@ -1043,13 +1043,13 @@ public static unsafe partial class SDL
     public static partial GPUCommandBuffer AcquireGPUCommandBuffer(GPUDevice device);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PushGPUVertexUniformData", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void PushGPUVertexUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, void* data, uint length);
+    public static partial void PushGPUVertexUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, nint data, uint length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PushGPUFragmentUniformData", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void PushGPUFragmentUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, void* data, uint length);
+    public static partial void PushGPUFragmentUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, nint data, uint length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PushGPUComputeUniformData", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void PushGPUComputeUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, void* data, uint length);
+    public static partial void PushGPUComputeUniformData(GPUCommandBuffer commandBuffer, uint slotIndex, nint data, uint length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BeginGPURenderPass", StringMarshalling = StringMarshalling.Utf8)]
     public static partial GPURenderPass BeginGPURenderPass(GPUCommandBuffer commandBuffer, GPUColorTargetInfo* colorTargetInfos, uint numColorTargets, GPUDepthStencilTargetInfo* depthStencilTargetInfo);
@@ -1133,7 +1133,7 @@ public static unsafe partial class SDL
     public static partial void EndGPUComputePass(GPUComputePass computePass);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapGPUTransferBuffer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* MapGPUTransferBuffer(GPUDevice device, GPUTransferBuffer transferBuffer, [MarshalAs(UnmanagedType.I1)] bool cycle);
+    public static partial nint MapGPUTransferBuffer(GPUDevice device, GPUTransferBuffer transferBuffer, [MarshalAs(UnmanagedType.I1)] bool cycle);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnmapGPUTransferBuffer", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void UnmapGPUTransferBuffer(GPUDevice device, GPUTransferBuffer transferBuffer);
@@ -1463,10 +1463,10 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddHintCallback", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AddHintCallback(string name, IntPtr callback, void* userdata);
+    public static partial bool AddHintCallback(string name, IntPtr callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveHintCallback", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void RemoveHintCallback(string name, IntPtr callback, void* userdata);
+    public static partial void RemoveHintCallback(string name, IntPtr callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Init", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1491,7 +1491,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RunOnMainThread", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RunOnMainThread(MainThreadCallback callback, void* userdata, [MarshalAs(UnmanagedType.I1)] bool waitComplete);
+    public static partial bool RunOnMainThread(MainThreadCallback callback, nint userdata, [MarshalAs(UnmanagedType.I1)] bool waitComplete);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetAppMetadata", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1509,16 +1509,16 @@ public static unsafe partial class SDL
     public static partial IOStream IOFromFile(string file, string mode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_IOFromMem", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial IOStream IOFromMem(void* mem, nuint size);
+    public static partial IOStream IOFromMem(nint mem, nuint size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_IOFromConstMem", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial IOStream IOFromConstMem(void* mem, nuint size);
+    public static partial IOStream IOFromConstMem(nint mem, nuint size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_IOFromDynamicMem", StringMarshalling = StringMarshalling.Utf8)]
     public static partial IOStream IOFromDynamicMem();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenIO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial IOStream OpenIO(IOStreamInterface* iface, void* userdata);
+    public static partial IOStream OpenIO(IOStreamInterface* iface, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1540,28 +1540,28 @@ public static unsafe partial class SDL
     public static partial long TellIO(IOStream context);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadIO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial nuint ReadIO(IOStream context, void* ptr, nuint size);
+    public static partial nuint ReadIO(IOStream context, nint ptr, nuint size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteIO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial nuint WriteIO(IOStream context, void* ptr, nuint size);
+    public static partial nuint WriteIO(IOStream context, nint ptr, nuint size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlushIO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool FlushIO(IOStream context);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadFile_IO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* LoadFileIO(IOStream src, nuint* datasize, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial nint LoadFileIO(IOStream src, nuint* datasize, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadFile", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* LoadFile(string file, nuint* datasize);
+    public static partial nint LoadFile(string file, nuint* datasize);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SaveFile_IO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SaveFileIO(IOStream src, void* data, nuint datasize, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial bool SaveFileIO(IOStream src, nint data, nuint datasize, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SaveFile", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SaveFile(string file, void* data, nuint datasize);
+    public static partial bool SaveFile(string file, nint data, nuint datasize);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadU8", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1863,7 +1863,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SendJoystickEffect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SendJoystickEffect(Joystick joystick, void* data, int size);
+    public static partial bool SendJoystickEffect(Joystick joystick, nint data, int size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseJoystick", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void CloseJoystick(Joystick joystick);
@@ -1992,10 +1992,10 @@ public static unsafe partial class SDL
     public static partial LogOutputFunction GetDefaultLogOutputFunction();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetLogOutputFunction", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void GetLogOutputFunction(LogOutputFunction* callback, void** userdata);
+    public static partial void GetLogOutputFunction(LogOutputFunction* callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetLogOutputFunction", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetLogOutputFunction(LogOutputFunction callback, void* userdata);
+    public static partial void SetLogOutputFunction(LogOutputFunction callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShowMessageBox", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2006,13 +2006,13 @@ public static unsafe partial class SDL
     public static partial bool ShowSimpleMessageBox(MessageBoxFlags flags, string title, string message, Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Metal_CreateView", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* MetalCreateView(Window window);
+    public static partial nint MetalCreateView(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Metal_DestroyView", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void MetalDestroyView(void* view);
+    public static partial void MetalDestroyView(nint view);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_Metal_GetLayer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* MetalGetLayer(void* view);
+    public static partial nint MetalGetLayer(nint view);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenURL", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2050,7 +2050,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRelativeMouseTransform", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetRelativeMouseTransform(MouseMotionTransformCallback callback, void* userdata);
+    public static partial bool SetRelativeMouseTransform(MouseMotionTransformCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowRelativeMouseMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2249,7 +2249,7 @@ public static unsafe partial class SDL
     public static partial uint GetProcessProperties(Process process);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadProcess", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* ReadProcess(Process process, nuint* datasize, int* exitcode);
+    public static partial nint ReadProcess(Process process, nuint* datasize, int* exitcode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetProcessInput", StringMarshalling = StringMarshalling.Utf8)]
     public static partial IOStream GetProcessInput(Process process);
@@ -2287,11 +2287,11 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetPointerPropertyWithCleanup", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetPointerPropertyWithCleanup(uint props, string name, void* value, CleanupPropertyCallback cleanup, void* userdata);
+    public static partial bool SetPointerPropertyWithCleanup(uint props, string name, nint value, CleanupPropertyCallback cleanup, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetPointerProperty", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetPointerProperty(uint props, string name, void* value);
+    public static partial bool SetPointerProperty(uint props, string name, nint value);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetStringProperty", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2317,7 +2317,7 @@ public static unsafe partial class SDL
     public static partial PropertyType GetPropertyType(uint props, string name);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetPointerProperty", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetPointerProperty(uint props, string name, void* defaultValue);
+    public static partial nint GetPointerProperty(uint props, string name, nint defaultValue);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetStringProperty", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalUsing(typeof(StringMarshaller))]
@@ -2339,7 +2339,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateProperties", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool EnumerateProperties(uint props, EnumeratePropertiesCallback callback, void* userdata);
+    public static partial bool EnumerateProperties(uint props, EnumeratePropertiesCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyProperties", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DestroyProperties(uint props);
@@ -2538,7 +2538,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool UpdateTexture(Texture* texture, Rect* rect, void* pixels, int pitch);
+    public static partial bool UpdateTexture(Texture* texture, Rect* rect, nint pixels, int pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateYUVTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2550,7 +2550,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LockTexture(Texture* texture, Rect* rect, void** pixels, int* pitch);
+    public static partial bool LockTexture(Texture* texture, Rect* rect, nint pixels, int* pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockTextureToSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2724,7 +2724,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderGeometryRaw", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderGeometryRaw(Renderer renderer, Texture* texture, float* xy, int xyStride, FColor* color, int colorStride, float* uv, int uvStride, int numVertices, void* indices, int numIndices, int sizeIndices);
+    public static partial bool RenderGeometryRaw(Renderer renderer, Texture* texture, float* xy, int xyStride, FColor* color, int colorStride, float* uv, int uvStride, int numVertices, nint indices, int numIndices, int sizeIndices);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderTextureAddressMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2752,10 +2752,10 @@ public static unsafe partial class SDL
     public static partial bool FlushRenderer(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRenderMetalLayer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetRenderMetalLayer(Renderer renderer);
+    public static partial nint GetRenderMetalLayer(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRenderMetalCommandEncoder", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetRenderMetalCommandEncoder(Renderer renderer);
+    public static partial nint GetRenderMetalCommandEncoder(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddVulkanRenderSemaphores", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2786,7 +2786,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetGPURenderStateFragmentUniforms", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetGPURenderStateFragmentUniforms(GPURenderState state, uint slotIndex, void* data, uint length);
+    public static partial bool SetGPURenderStateFragmentUniforms(GPURenderState state, uint slotIndex, nint data, uint length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetGPURenderState", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2850,7 +2850,7 @@ public static unsafe partial class SDL
     public static partial Storage OpenFileStorage(string path);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_OpenStorage", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Storage OpenStorage(StorageInterface* iface, void* userdata);
+    public static partial Storage OpenStorage(StorageInterface* iface, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseStorage", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2866,11 +2866,11 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadStorageFile", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ReadStorageFile(Storage storage, string path, void* destination, ulong length);
+    public static partial bool ReadStorageFile(Storage storage, string path, nint destination, ulong length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteStorageFile", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteStorageFile(Storage storage, string path, void* source, ulong length);
+    public static partial bool WriteStorageFile(Storage storage, string path, nint source, ulong length);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateStorageDirectory", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2878,7 +2878,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EnumerateStorageDirectory", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool EnumerateStorageDirectory(Storage storage, string path, EnumerateDirectoryCallback callback, void* userdata);
+    public static partial bool EnumerateStorageDirectory(Storage storage, string path, EnumerateDirectoryCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveStoragePath", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2906,7 +2906,7 @@ public static unsafe partial class SDL
     public static partial Surface* CreateSurface(int width, int height, PixelFormat format);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateSurfaceFrom", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* CreateSurfaceFrom(int width, int height, PixelFormat format, void* pixels, int pitch);
+    public static partial Surface* CreateSurfaceFrom(int width, int height, PixelFormat format, nint pixels, int pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroySurface", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DestroySurface(Surface* surface);
@@ -3059,15 +3059,15 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ConvertPixels", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ConvertPixels(int width, int height, PixelFormat srcFormat, void* src, int srcPitch, PixelFormat dstFormat, void* dst, int dstPitch);
+    public static partial bool ConvertPixels(int width, int height, PixelFormat srcFormat, nint src, int srcPitch, PixelFormat dstFormat, nint dst, int dstPitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ConvertPixelsAndColorspace", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ConvertPixelsAndColorspace(int width, int height, PixelFormat srcFormat, Colorspace srcColorspace, uint srcProperties, void* src, int srcPitch, PixelFormat dstFormat, Colorspace dstColorspace, uint dstProperties, void* dst, int dstPitch);
+    public static partial bool ConvertPixelsAndColorspace(int width, int height, PixelFormat srcFormat, Colorspace srcColorspace, uint srcProperties, nint src, int srcPitch, PixelFormat dstFormat, Colorspace dstColorspace, uint dstProperties, nint dst, int dstPitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PremultiplyAlpha", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool PremultiplyAlpha(int width, int height, PixelFormat srcFormat, void* src, int srcPitch, PixelFormat dstFormat, void* dst, int dstPitch, [MarshalAs(UnmanagedType.I1)] bool linear);
+    public static partial bool PremultiplyAlpha(int width, int height, PixelFormat srcFormat, nint src, int srcPitch, PixelFormat dstFormat, nint dst, int dstPitch, [MarshalAs(UnmanagedType.I1)] bool linear);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PremultiplySurfaceAlpha", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3140,7 +3140,7 @@ public static unsafe partial class SDL
     public static partial bool WriteSurfacePixelFloat(Surface* surface, int x, int y, float r, float g, float b, float a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetX11EventHook", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetX11EventHook(X11EventHook callback, void* userdata);
+    public static partial void SetX11EventHook(X11EventHook callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetLinuxThreadPriority", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3180,7 +3180,7 @@ public static unsafe partial class SDL
     public static partial void OnApplicationDidEnterForeground();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateThreadRuntime", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Thread CreateThreadRuntime(ThreadFunction fn, string name, void* data, IntPtr pfnbeginthread, IntPtr pfnendthread);
+    public static partial Thread CreateThreadRuntime(ThreadFunction fn, string name, nint data, IntPtr pfnbeginthread, IntPtr pfnendthread);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateThreadWithPropertiesRuntime", StringMarshalling = StringMarshalling.Utf8)]
     public static partial Thread CreateThreadWithPropertiesRuntime(uint props, IntPtr pfnbeginthread, IntPtr pfnendthread);
@@ -3209,11 +3209,11 @@ public static unsafe partial class SDL
     public static partial void DetachThread(Thread thread);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTLS", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetTLS(AtomicInt* id);
+    public static partial nint GetTLS(AtomicInt* id);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTLS", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTLS(AtomicInt* id, void* value, TLSDestructorCallback destructor);
+    public static partial bool SetTLS(AtomicInt* id, nint value, TLSDestructorCallback destructor);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CleanupTLS", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void CleanupTLS();
@@ -3271,10 +3271,10 @@ public static unsafe partial class SDL
     public static partial void DelayPrecise(ulong ns);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddTimer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint AddTimer(uint interval, TimerCallback callback, void* userdata);
+    public static partial uint AddTimer(uint interval, TimerCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddTimerNS", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint AddTimerNS(ulong interval, NSTimerCallback callback, void* userdata);
+    public static partial uint AddTimerNS(ulong interval, NSTimerCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveTimer", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3345,7 +3345,7 @@ public static unsafe partial class SDL
     public static partial bool GetTrayEntryEnabled(TrayEntry entry);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTrayEntryCallback", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetTrayEntryCallback(TrayEntry entry, TrayCallback callback, void* userdata);
+    public static partial void SetTrayEntryCallback(TrayEntry entry, TrayCallback callback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ClickTrayEntry", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void ClickTrayEntry(TrayEntry entry);
@@ -3452,7 +3452,7 @@ public static unsafe partial class SDL
     public static partial DisplayMode* GetWindowFullscreenMode(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetWindowICCProfile", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* GetWindowICCProfile(Window window, nuint* size);
+    public static partial nint GetWindowICCProfile(Window window, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetWindowPixelFormat", StringMarshalling = StringMarshalling.Utf8)]
     public static partial PixelFormat GetWindowPixelFormat(Window window);
@@ -3674,7 +3674,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowHitTest", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetWindowHitTest(Window window, HitTest callback, void* callbackData);
+    public static partial bool SetWindowHitTest(Window window, HitTest callback, nint callbackData);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowShape", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3755,16 +3755,16 @@ public static unsafe partial class SDL
     public static partial GLContextState GLGetCurrentContext();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EGL_GetCurrentDisplay", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* EGLGetCurrentDisplay();
+    public static partial nint EGLGetCurrentDisplay();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EGL_GetCurrentConfig", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* EGLGetCurrentConfig();
+    public static partial nint EGLGetCurrentConfig();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EGL_GetWindowSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* EGLGetWindowSurface(Window window);
+    public static partial nint EGLGetWindowSurface(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_EGL_SetAttributeCallbacks", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void EGLSetAttributeCallbacks(EGLAttribArrayCallback platformattribcallback, IntPtr surfaceattribcallback, IntPtr contextattribcallback, void* userdata);
+    public static partial void EGLSetAttributeCallbacks(EGLAttribArrayCallback platformattribcallback, IntPtr surfaceattribcallback, IntPtr contextattribcallback, nint userdata);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GL_SetSwapInterval", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3807,58 +3807,58 @@ public static unsafe partial class SDL
     public static partial bool VulkanGetPresentationSupport(VkInstanceT instance, VkPhysicalDeviceT physicaldevice, uint queuefamilyindex);
 
 
-    public delegate void AudioStreamDataCompleteCallback(void* userdata, void* buf, int buflen);
+    public delegate void AudioStreamDataCompleteCallback(nint userdata, nint buf, int buflen);
 
-    public delegate void AudioStreamCallback(void* userdata, AudioStream stream, int additionalAmount, int totalAmount);
+    public delegate void AudioStreamCallback(nint userdata, AudioStream stream, int additionalAmount, int totalAmount);
 
-    public delegate void AudioPostmixCallback(void* userdata, AudioSpec* spec, float* buffer, int buflen);
+    public delegate void AudioPostmixCallback(nint userdata, AudioSpec* spec, float* buffer, int buflen);
 
-    public delegate void* ClipboardDataCallback(void* userdata, string mimeType, nuint* size);
+    public delegate nint ClipboardDataCallback(nint userdata, string mimeType, nuint* size);
 
-    public delegate void ClipboardCleanupCallback(void* userdata);
+    public delegate void ClipboardCleanupCallback(nint userdata);
 
-    public delegate void DialogFileCallback(void* userdata, sbyte** filelist, int filter);
+    public delegate void DialogFileCallback(nint userdata, sbyte** filelist, int filter);
 
-    public delegate bool EventFilter(void* userdata, Event* @event);
+    public delegate bool EventFilter(nint userdata, Event* @event);
 
-    public delegate EnumerationResult EnumerateDirectoryCallback(void* userdata, string dirname, string fname);
+    public delegate EnumerationResult EnumerateDirectoryCallback(nint userdata, string dirname, string fname);
 
-    public delegate void HintCallback(void* userdata, string name, string oldvalue, string newvalue);
+    public delegate void HintCallback(nint userdata, string name, string oldvalue, string newvalue);
 
-    public delegate AppResult AppInitFunc(void** appstate, int argc, sbyte** argv);
+    public delegate AppResult AppInitFunc(nint appstate, int argc, sbyte** argv);
 
-    public delegate AppResult AppIterateFunc(void* appstate);
+    public delegate AppResult AppIterateFunc(nint appstate);
 
-    public delegate AppResult AppEventFunc(void* appstate, Event* @event);
+    public delegate AppResult AppEventFunc(nint appstate, Event* @event);
 
-    public delegate void AppQuitFunc(void* appstate, AppResult result);
+    public delegate void AppQuitFunc(nint appstate, AppResult result);
 
-    public delegate void MainThreadCallback(void* userdata);
+    public delegate void MainThreadCallback(nint userdata);
 
-    public delegate void LogOutputFunction(void* userdata, int category, LogPriority priority, string message);
+    public delegate void LogOutputFunction(nint userdata, int category, LogPriority priority, string message);
 
-    public delegate void MouseMotionTransformCallback(void* userdata, ulong timestamp, Window window, uint mouseid, float* x, float* y);
+    public delegate void MouseMotionTransformCallback(nint userdata, ulong timestamp, Window window, uint mouseid, float* x, float* y);
 
-    public delegate void CleanupPropertyCallback(void* userdata, void* value);
+    public delegate void CleanupPropertyCallback(nint userdata, nint value);
 
-    public delegate void EnumeratePropertiesCallback(void* userdata, uint props, string name);
+    public delegate void EnumeratePropertiesCallback(nint userdata, uint props, string name);
 
-    public delegate bool X11EventHook(void* userdata, XEvent* xevent);
+    public delegate bool X11EventHook(nint userdata, XEvent* xevent);
 
-    public delegate int ThreadFunction(void* data);
+    public delegate int ThreadFunction(nint data);
 
-    public delegate void TLSDestructorCallback(void* value);
+    public delegate void TLSDestructorCallback(nint value);
 
-    public delegate uint TimerCallback(void* userdata, uint timerid, uint interval);
+    public delegate uint TimerCallback(nint userdata, uint timerid, uint interval);
 
-    public delegate ulong NSTimerCallback(void* userdata, uint timerid, ulong interval);
+    public delegate ulong NSTimerCallback(nint userdata, uint timerid, ulong interval);
 
-    public delegate void TrayCallback(void* userdata, TrayEntry entry);
+    public delegate void TrayCallback(nint userdata, TrayEntry entry);
 
-    public delegate nint* EGLAttribArrayCallback(void* userdata);
+    public delegate nint* EGLAttribArrayCallback(nint userdata);
 
-    public delegate int* EGLIntArrayCallback(void* userdata, void* display, void* config);
+    public delegate int* EGLIntArrayCallback(nint userdata, nint display, nint config);
 
-    public delegate HitTestResult HitTest(Window win, Point* area, void* data);
+    public delegate HitTestResult HitTest(Window win, Point* area, nint data);
 
 }

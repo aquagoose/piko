@@ -8,14 +8,14 @@ public static unsafe partial class SDL
     public unsafe struct GPUVulkanOptions
     {
         public uint VulkanApiVersion;
-        public void* FeatureList;
-        public void* Vulkan10PhysicalDeviceFeatures;
+        public nint FeatureList;
+        public nint Vulkan10PhysicalDeviceFeatures;
         public uint DeviceExtensionCount;
         public sbyte** DeviceExtensionNames;
         public uint InstanceExtensionCount;
         public sbyte** InstanceExtensionNames;
     
-        public GPUVulkanOptions(uint vulkanApiVersion, void* featureList, void* vulkan10PhysicalDeviceFeatures, uint deviceExtensionCount, sbyte** deviceExtensionNames, uint instanceExtensionCount, sbyte** instanceExtensionNames)
+        public GPUVulkanOptions(uint vulkanApiVersion, nint featureList, nint vulkan10PhysicalDeviceFeatures, uint deviceExtensionCount, sbyte** deviceExtensionNames, uint instanceExtensionCount, sbyte** instanceExtensionNames)
         {
             this.VulkanApiVersion = vulkanApiVersion;
             this.FeatureList = featureList;

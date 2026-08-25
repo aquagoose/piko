@@ -12,11 +12,11 @@ public static unsafe partial class SDL
         public int W;
         public int H;
         public int Pitch;
-        public void* Pixels;
+        public nint Pixels;
         public int Refcount;
-        public void* Reserved;
+        public nint Reserved;
     
-        public Surface(uint flags, PixelFormat format, int w, int h, int pitch, void* pixels, int refcount, void* reserved)
+        public Surface(uint flags, PixelFormat format, int w, int h, int pitch, nint pixels, int refcount, nint reserved)
         {
             this.Flags = flags;
             this.Format = format;

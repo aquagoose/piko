@@ -9,9 +9,9 @@ public static unsafe partial class SDL
     {
         public AtomicInt Status;
         public ulong Thread;
-        public void* Reserved;
+        public nint Reserved;
     
-        public InitState(AtomicInt status, ulong thread, void* reserved)
+        public InitState(AtomicInt status, ulong thread, nint reserved)
         {
             this.Status = status;
             this.Thread = thread;

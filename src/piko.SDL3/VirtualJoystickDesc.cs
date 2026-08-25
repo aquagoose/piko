@@ -24,7 +24,7 @@ public static unsafe partial class SDL
         public sbyte* Name;
         public VirtualJoystickTouchpadDesc* Touchpads;
         public VirtualJoystickSensorDesc* Sensors;
-        public void* Userdata;
+        public nint Userdata;
         public IntPtr Update;
         public IntPtr SetPlayerIndex;
         public IntPtr Rumble;
@@ -34,7 +34,7 @@ public static unsafe partial class SDL
         public IntPtr SetSensorsEnabled;
         public IntPtr Cleanup;
     
-        public VirtualJoystickDesc(uint version, ushort type, ushort padding, ushort vendorId, ushort productId, ushort naxes, ushort nbuttons, ushort nballs, ushort nhats, ushort ntouchpads, ushort nsensors, ushort padding2, uint buttonMask, uint axisMask, sbyte* name, VirtualJoystickTouchpadDesc* touchpads, VirtualJoystickSensorDesc* sensors, void* userdata, IntPtr update, IntPtr setPlayerIndex, IntPtr rumble, IntPtr rumbleTriggers, IntPtr setLED, IntPtr sendEffect, IntPtr setSensorsEnabled, IntPtr cleanup)
+        public VirtualJoystickDesc(uint version, ushort type, ushort padding, ushort vendorId, ushort productId, ushort naxes, ushort nbuttons, ushort nballs, ushort nhats, ushort ntouchpads, ushort nsensors, ushort padding2, uint buttonMask, uint axisMask, sbyte* name, VirtualJoystickTouchpadDesc* touchpads, VirtualJoystickSensorDesc* sensors, nint userdata, IntPtr update, IntPtr setPlayerIndex, IntPtr rumble, IntPtr rumbleTriggers, IntPtr setLED, IntPtr sendEffect, IntPtr setSensorsEnabled, IntPtr cleanup)
         {
             this.Version = version;
             this.Type = type;

@@ -12,10 +12,10 @@ public static unsafe partial class SDL
         public ulong Timestamp;
         public uint WindowID;
         public int Code;
-        public void* Data1;
-        public void* Data2;
+        public nint Data1;
+        public nint Data2;
     
-        public UserEvent(uint type, uint reserved, ulong timestamp, uint windowID, int code, void* data1, void* data2)
+        public UserEvent(uint type, uint reserved, ulong timestamp, uint windowID, int code, nint data1, nint data2)
         {
             this.Type = type;
             this.Reserved = reserved;

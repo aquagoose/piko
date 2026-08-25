@@ -134,6 +134,15 @@ public class TypeTransformer(TypeTransformer.Options options)
             }
         }
 
+        if (pointerLevel > 0)
+        {
+            switch (type)
+            {
+                case "void":
+                    return "nint";
+            }
+        }
+
         if (!isStruct)
         {
             switch (type)
