@@ -8,13 +8,8 @@ using piko.SDL3;
 if (!SDL.Init(SDL.InitFlags.Video | SDL.InitFlags.Events))
     throw new Exception($"Failed to initialize SDL: {SDL.GetError()}");
 
-SDL.Window window = SDL.CreateWindow("Renderer Example", 800, 600, SDL.WindowFlags.Resizable);
-if (window.IsNull)
-    throw new Exception($"Failed to create SDL window: {SDL.GetError()}");
-
-SDL.Renderer renderer = SDL.CreateRenderer(window, null);
-if (renderer.IsNull)
-    throw new Exception($"Failed to create SDL renderer: {SDL.GetError()}");
+if (!SDL.CreateWindowAndRenderer("Renderer Example", 800, 600, SDL.WindowFlags.Resizable, out SDL.Window window, out SDL.Renderer renderer))
+    throw new Exception($"Failed to create window or renderer: {SDL.GetError()}");
 
 SDL.Surface surface = SDL.LoadPNG("Content/DEBUG.png");
 if (surface.IsNull)
@@ -54,12 +49,9 @@ while (alive)
 
     for (int i = 0; i < 20; i++)
     {
-        unsafe
-        {
-            int mulAmount = i > 9 ? 19 - i : i;
-            SDL.FRect dest = new SDL.FRect(mulAmount * 70, i * 20, texture.W, texture.H);
-            SDL.RenderTextureRotated(renderer, texture, null, &dest, angle + i * 50, null, SDL.FlipMode.None);
-        }
+        int mulAmount = i > 9 ? 19 - i : i;
+        SDL.FRect dest = new SDL.FRect(mulAmount * 70, i * 20, texture.W, texture.H);
+        SDL.RenderTextureRotated(renderer, texture, null, dest, angle + i * 50, null, SDL.FlipMode.None);
     }
 
     SDL.RenderPresent(renderer);
