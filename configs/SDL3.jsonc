@@ -130,7 +130,9 @@
     "SDL_NSTimerCallback": { "Name": "NSTimerCallback" },
     "SDL_TrayCallback": { "Name": "TrayCallback" },
     "SDL_EGLAttribArrayCallback": { "Name": "EGLAttribArrayCallback" },
-    "SDL_HitTest": { "Name": "HitTest" }
+    "SDL_HitTest": { "Name": "HitTest" },
+    "SDL_Texture": { "Name": "TextureRef", "RemapTo": "Texture" },
+    "SDL_Surface": { "Name": "SurfaceRef", "RemapTo": "Surface" }
   },
   "FunctionRemapping": {
     "SDL_SetGamepadLED": { "BytesAreBooleans": false },

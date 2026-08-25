@@ -7,10 +7,10 @@ public static unsafe partial class SDL
     [StructLayout(LayoutKind.Sequential)]
     public unsafe struct CursorFrameInfo
     {
-        public Surface* Surface;
+        public Surface Surface;
         public uint Duration;
     
-        public CursorFrameInfo(Surface* surface, uint duration)
+        public CursorFrameInfo(Surface surface, uint duration)
         {
             this.Surface = surface;
             this.Duration = duration;

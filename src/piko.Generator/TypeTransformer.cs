@@ -120,8 +120,13 @@ public class TypeTransformer(TypeTransformer.Options options)
         // todo see if there's a better way to do this rather than looping through every remapped type
         foreach ((_, TypeRemap remap) in _options.TypeRemapping)
         {
-            if (remap.Name == type && remap.IsHandleType)
+            if (remap.Name != type)
+                continue;
+
+            if (remap.IsHandleType)
                 pointerLevel--;
+            else if (remap.RemapTo != null)
+                return remap.RemapTo;
         }
 
         if (nativeType != null)
@@ -258,11 +263,14 @@ public class TypeTransformer(TypeTransformer.Options options)
     {
         public string Name;
 
+        public string? RemapTo;
+
         public bool IsHandleType;
 
-        public TypeRemap(string name, bool isHandleType)
+        public TypeRemap(string name, string? remapTo, bool isHandleType)
         {
             Name = name;
+            RemapTo = remapTo;
             IsHandleType = isHandleType;
         }
     }

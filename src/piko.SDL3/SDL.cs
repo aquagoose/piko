@@ -440,10 +440,10 @@ public static unsafe partial class SDL
     public static partial bool GetCameraFormat(Camera camera, CameraSpec* spec);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AcquireCameraFrame", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* AcquireCameraFrame(Camera camera, ulong* timestampns);
+    public static partial Surface AcquireCameraFrame(Camera camera, ulong* timestampns);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReleaseCameraFrame", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void ReleaseCameraFrame(Camera camera, Surface* frame);
+    public static partial void ReleaseCameraFrame(Camera camera, Surface frame);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CloseCamera", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void CloseCamera(Camera camera);
@@ -2068,7 +2068,7 @@ public static unsafe partial class SDL
     public static partial Cursor CreateCursor(byte* data, byte* mask, int w, int h, int hotX, int hotY);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateColorCursor", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Cursor CreateColorCursor(Surface* surface, int hotX, int hotY);
+    public static partial Cursor CreateColorCursor(Surface surface, int hotX, int hotY);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateAnimatedCursor", StringMarshalling = StringMarshalling.Utf8)]
     public static partial Cursor CreateAnimatedCursor(CursorFrameInfo* frames, int frameCount, int hotX, int hotY);
@@ -2439,7 +2439,7 @@ public static unsafe partial class SDL
     public static partial GPUDevice GetGPURendererDevice(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateSoftwareRenderer", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Renderer CreateSoftwareRenderer(Surface* surface);
+    public static partial Renderer CreateSoftwareRenderer(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRenderer", StringMarshalling = StringMarshalling.Utf8)]
     public static partial Renderer GetRenderer(Window window);
@@ -2463,108 +2463,108 @@ public static unsafe partial class SDL
     public static partial bool GetCurrentRenderOutputSize(Renderer renderer, int* w, int* h);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateTexture", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Texture* CreateTexture(Renderer renderer, PixelFormat format, TextureAccess access, int w, int h);
+    public static partial Texture CreateTexture(Renderer renderer, PixelFormat format, TextureAccess access, int w, int h);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateTextureFromSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Texture* CreateTextureFromSurface(Renderer renderer, Surface* surface);
+    public static partial Texture CreateTextureFromSurface(Renderer renderer, Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateTextureWithProperties", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Texture* CreateTextureWithProperties(Renderer renderer, uint props);
+    public static partial Texture CreateTextureWithProperties(Renderer renderer, uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureProperties", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint GetTextureProperties(Texture* texture);
+    public static partial uint GetTextureProperties(Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRendererFromTexture", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Renderer GetRendererFromTexture(Texture* texture);
+    public static partial Renderer GetRendererFromTexture(Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureSize", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureSize(Texture* texture, float* w, float* h);
+    public static partial bool GetTextureSize(Texture texture, float* w, float* h);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTexturePalette", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTexturePalette(Texture* texture, Palette* palette);
+    public static partial bool SetTexturePalette(Texture texture, Palette* palette);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTexturePalette", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Palette* GetTexturePalette(Texture* texture);
+    public static partial Palette* GetTexturePalette(Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureColorMod(Texture* texture, byte r, byte g, byte b);
+    public static partial bool SetTextureColorMod(Texture texture, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureColorModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureColorModFloat(Texture* texture, float r, float g, float b);
+    public static partial bool SetTextureColorModFloat(Texture texture, float r, float g, float b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureColorMod(Texture* texture, byte* r, byte* g, byte* b);
+    public static partial bool GetTextureColorMod(Texture texture, byte* r, byte* g, byte* b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureColorModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureColorModFloat(Texture* texture, float* r, float* g, float* b);
+    public static partial bool GetTextureColorModFloat(Texture texture, float* r, float* g, float* b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureAlphaMod(Texture* texture, byte alpha);
+    public static partial bool SetTextureAlphaMod(Texture texture, byte alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureAlphaModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureAlphaModFloat(Texture* texture, float alpha);
+    public static partial bool SetTextureAlphaModFloat(Texture texture, float alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureAlphaMod(Texture* texture, byte* alpha);
+    public static partial bool GetTextureAlphaMod(Texture texture, byte* alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureAlphaModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureAlphaModFloat(Texture* texture, float* alpha);
+    public static partial bool GetTextureAlphaModFloat(Texture texture, float* alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureBlendMode(Texture* texture, BlendMode blendmode);
+    public static partial bool SetTextureBlendMode(Texture texture, BlendMode blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureBlendMode(Texture* texture, BlendMode* blendmode);
+    public static partial bool GetTextureBlendMode(Texture texture, BlendMode* blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureScaleMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureScaleMode(Texture* texture, ScaleMode scalemode);
+    public static partial bool SetTextureScaleMode(Texture texture, ScaleMode scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetTextureScaleMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetTextureScaleMode(Texture* texture, ScaleMode* scalemode);
+    public static partial bool GetTextureScaleMode(Texture texture, ScaleMode* scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool UpdateTexture(Texture* texture, Rect* rect, nint pixels, int pitch);
+    public static partial bool UpdateTexture(Texture texture, Rect* rect, nint pixels, int pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateYUVTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool UpdateYUVTexture(Texture* texture, Rect* rect, byte* yplane, int ypitch, byte* uplane, int upitch, byte* vplane, int vpitch);
+    public static partial bool UpdateYUVTexture(Texture texture, Rect* rect, byte* yplane, int ypitch, byte* uplane, int upitch, byte* vplane, int vpitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UpdateNVTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool UpdateNVTexture(Texture* texture, Rect* rect, byte* yplane, int ypitch, byte* uvplane, int uvpitch);
+    public static partial bool UpdateNVTexture(Texture texture, Rect* rect, byte* yplane, int ypitch, byte* uvplane, int uvpitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LockTexture(Texture* texture, Rect* rect, nint pixels, int* pitch);
+    public static partial bool LockTexture(Texture texture, Rect* rect, nint pixels, int* pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockTextureToSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LockTextureToSurface(Texture* texture, Rect* rect, Surface** surface);
+    public static partial bool LockTextureToSurface(Texture texture, Rect* rect, Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnlockTexture", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void UnlockTexture(Texture* texture);
+    public static partial void UnlockTexture(Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderTarget", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetRenderTarget(Renderer renderer, Texture* texture);
+    public static partial bool SetRenderTarget(Renderer renderer, Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRenderTarget", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Texture* GetRenderTarget(Renderer renderer);
+    public static partial Texture GetRenderTarget(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderLogicalPresentation", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2696,35 +2696,35 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTexture", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTexture(Renderer renderer, Texture* texture, FRect* srcrect, FRect* dstrect);
+    public static partial bool RenderTexture(Renderer renderer, Texture texture, FRect* srcrect, FRect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTextureRotated", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTextureRotated(Renderer renderer, Texture* texture, FRect* srcrect, FRect* dstrect, double angle, FPoint* center, FlipMode flip);
+    public static partial bool RenderTextureRotated(Renderer renderer, Texture texture, FRect* srcrect, FRect* dstrect, double angle, FPoint* center, FlipMode flip);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTextureAffine", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTextureAffine(Renderer renderer, Texture* texture, FRect* srcrect, FPoint* origin, FPoint* right, FPoint* down);
+    public static partial bool RenderTextureAffine(Renderer renderer, Texture texture, FRect* srcrect, FPoint* origin, FPoint* right, FPoint* down);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTextureTiled", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTextureTiled(Renderer renderer, Texture* texture, FRect* srcrect, float scale, FRect* dstrect);
+    public static partial bool RenderTextureTiled(Renderer renderer, Texture texture, FRect* srcrect, float scale, FRect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTexture9Grid", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTexture9Grid(Renderer renderer, Texture* texture, FRect* srcrect, float leftWidth, float rightWidth, float topHeight, float bottomHeight, float scale, FRect* dstrect);
+    public static partial bool RenderTexture9Grid(Renderer renderer, Texture texture, FRect* srcrect, float leftWidth, float rightWidth, float topHeight, float bottomHeight, float scale, FRect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderTexture9GridTiled", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderTexture9GridTiled(Renderer renderer, Texture* texture, FRect* srcrect, float leftWidth, float rightWidth, float topHeight, float bottomHeight, float scale, FRect* dstrect, float tilescale);
+    public static partial bool RenderTexture9GridTiled(Renderer renderer, Texture texture, FRect* srcrect, float leftWidth, float rightWidth, float topHeight, float bottomHeight, float scale, FRect* dstrect, float tilescale);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderGeometry", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderGeometry(Renderer renderer, Texture* texture, Vertex* vertices, int numVertices, int* indices, int numIndices);
+    public static partial bool RenderGeometry(Renderer renderer, Texture texture, Vertex* vertices, int numVertices, int* indices, int numIndices);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderGeometryRaw", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool RenderGeometryRaw(Renderer renderer, Texture* texture, float* xy, int xyStride, FColor* color, int colorStride, float* uv, int uvStride, int numVertices, nint indices, int numIndices, int sizeIndices);
+    public static partial bool RenderGeometryRaw(Renderer renderer, Texture texture, float* xy, int xyStride, FColor* color, int colorStride, float* uv, int uvStride, int numVertices, nint indices, int numIndices, int sizeIndices);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderTextureAddressMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2735,14 +2735,14 @@ public static unsafe partial class SDL
     public static partial bool GetRenderTextureAddressMode(Renderer renderer, TextureAddressMode* uMode, TextureAddressMode* vMode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderReadPixels", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* RenderReadPixels(Renderer renderer, Rect* rect);
+    public static partial Surface RenderReadPixels(Renderer renderer, Rect* rect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RenderPresent", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool RenderPresent(Renderer renderer);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyTexture", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void DestroyTexture(Texture* texture);
+    public static partial void DestroyTexture(Texture texture);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroyRenderer", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void DestroyRenderer(Renderer renderer);
@@ -2903,159 +2903,159 @@ public static unsafe partial class SDL
     public static partial sbyte** GlobStorageDirectory(Storage storage, string path, string pattern, uint flags, int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* CreateSurface(int width, int height, PixelFormat format);
+    public static partial Surface CreateSurface(int width, int height, PixelFormat format);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateSurfaceFrom", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* CreateSurfaceFrom(int width, int height, PixelFormat format, nint pixels, int pitch);
+    public static partial Surface CreateSurfaceFrom(int width, int height, PixelFormat format, nint pixels, int pitch);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DestroySurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void DestroySurface(Surface* surface);
+    public static partial void DestroySurface(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceProperties", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint GetSurfaceProperties(Surface* surface);
+    public static partial uint GetSurfaceProperties(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceColorspace", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceColorspace(Surface* surface, Colorspace colorspace);
+    public static partial bool SetSurfaceColorspace(Surface surface, Colorspace colorspace);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceColorspace", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Colorspace GetSurfaceColorspace(Surface* surface);
+    public static partial Colorspace GetSurfaceColorspace(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateSurfacePalette", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Palette* CreateSurfacePalette(Surface* surface);
+    public static partial Palette* CreateSurfacePalette(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfacePalette", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfacePalette(Surface* surface, Palette* palette);
+    public static partial bool SetSurfacePalette(Surface surface, Palette* palette);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfacePalette", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Palette* GetSurfacePalette(Surface* surface);
+    public static partial Palette* GetSurfacePalette(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_AddSurfaceAlternateImage", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool AddSurfaceAlternateImage(Surface* surface, Surface* image);
+    public static partial bool AddSurfaceAlternateImage(Surface surface, Surface image);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SurfaceHasAlternateImages", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SurfaceHasAlternateImages(Surface* surface);
+    public static partial bool SurfaceHasAlternateImages(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceImages", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface** GetSurfaceImages(Surface* surface, int* count);
+    public static partial Surface GetSurfaceImages(Surface surface, int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveSurfaceAlternateImages", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void RemoveSurfaceAlternateImages(Surface* surface);
+    public static partial void RemoveSurfaceAlternateImages(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LockSurface(Surface* surface);
+    public static partial bool LockSurface(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnlockSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void UnlockSurface(Surface* surface);
+    public static partial void UnlockSurface(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadSurface_IO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadSurfaceIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial Surface LoadSurfaceIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadSurface(string file);
+    public static partial Surface LoadSurface(string file);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadBMP_IO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadBMPIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial Surface LoadBMPIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadBMP", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadBMP(string file);
+    public static partial Surface LoadBMP(string file);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SaveBMP_IO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SaveBMPIO(Surface* surface, IOStream dst, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial bool SaveBMPIO(Surface surface, IOStream dst, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SaveBMP", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SaveBMP(Surface* surface, string file);
+    public static partial bool SaveBMP(Surface surface, string file);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadPNG_IO", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadPNGIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial Surface LoadPNGIO(IOStream src, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LoadPNG", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* LoadPNG(string file);
+    public static partial Surface LoadPNG(string file);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SavePNG_IO", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SavePNGIO(Surface* surface, IOStream dst, [MarshalAs(UnmanagedType.I1)] bool closeio);
+    public static partial bool SavePNGIO(Surface surface, IOStream dst, [MarshalAs(UnmanagedType.I1)] bool closeio);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SavePNG", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SavePNG(Surface* surface, string file);
+    public static partial bool SavePNG(Surface surface, string file);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceRLE", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceRLE(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool enabled);
+    public static partial bool SetSurfaceRLE(Surface surface, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SurfaceHasRLE", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SurfaceHasRLE(Surface* surface);
+    public static partial bool SurfaceHasRLE(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceColorKey", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceColorKey(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool enabled, uint key);
+    public static partial bool SetSurfaceColorKey(Surface surface, [MarshalAs(UnmanagedType.I1)] bool enabled, uint key);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SurfaceHasColorKey", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SurfaceHasColorKey(Surface* surface);
+    public static partial bool SurfaceHasColorKey(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceColorKey", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceColorKey(Surface* surface, uint* key);
+    public static partial bool GetSurfaceColorKey(Surface surface, uint* key);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceColorMod(Surface* surface, byte r, byte g, byte b);
+    public static partial bool SetSurfaceColorMod(Surface surface, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceColorMod(Surface* surface, byte* r, byte* g, byte* b);
+    public static partial bool GetSurfaceColorMod(Surface surface, byte* r, byte* g, byte* b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceAlphaMod(Surface* surface, byte alpha);
+    public static partial bool SetSurfaceAlphaMod(Surface surface, byte alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceAlphaMod(Surface* surface, byte* alpha);
+    public static partial bool GetSurfaceAlphaMod(Surface surface, byte* alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceBlendMode(Surface* surface, BlendMode blendmode);
+    public static partial bool SetSurfaceBlendMode(Surface surface, BlendMode blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceBlendMode", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceBlendMode(Surface* surface, BlendMode* blendmode);
+    public static partial bool GetSurfaceBlendMode(Surface surface, BlendMode* blendmode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceClipRect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceClipRect(Surface* surface, Rect* rect);
+    public static partial bool SetSurfaceClipRect(Surface surface, Rect* rect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceClipRect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool GetSurfaceClipRect(Surface* surface, Rect* rect);
+    public static partial bool GetSurfaceClipRect(Surface surface, Rect* rect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlipSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool FlipSurface(Surface* surface, FlipMode flip);
+    public static partial bool FlipSurface(Surface surface, FlipMode flip);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RotateSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* RotateSurface(Surface* surface, float angle);
+    public static partial Surface RotateSurface(Surface surface, float angle);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_DuplicateSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* DuplicateSurface(Surface* surface);
+    public static partial Surface DuplicateSurface(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ScaleSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* ScaleSurface(Surface* surface, int width, int height, ScaleMode scalemode);
+    public static partial Surface ScaleSurface(Surface surface, int width, int height, ScaleMode scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ConvertSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* ConvertSurface(Surface* surface, PixelFormat format);
+    public static partial Surface ConvertSurface(Surface surface, PixelFormat format);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ConvertSurfaceAndColorspace", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* ConvertSurfaceAndColorspace(Surface* surface, PixelFormat format, Palette* palette, Colorspace colorspace, uint props);
+    public static partial Surface ConvertSurfaceAndColorspace(Surface surface, PixelFormat format, Palette* palette, Colorspace colorspace, uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ConvertPixels", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3071,73 +3071,73 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_PremultiplySurfaceAlpha", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool PremultiplySurfaceAlpha(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool linear);
+    public static partial bool PremultiplySurfaceAlpha(Surface surface, [MarshalAs(UnmanagedType.I1)] bool linear);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ClearSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ClearSurface(Surface* surface, float r, float g, float b, float a);
+    public static partial bool ClearSurface(Surface surface, float r, float g, float b, float a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FillSurfaceRect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool FillSurfaceRect(Surface* dst, Rect* rect, uint color);
+    public static partial bool FillSurfaceRect(Surface dst, Rect* rect, uint color);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FillSurfaceRects", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool FillSurfaceRects(Surface* dst, Rect* rects, int count, uint color);
+    public static partial bool FillSurfaceRects(Surface dst, Rect* rects, int count, uint color);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurface(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect);
+    public static partial bool BlitSurface(Surface src, Rect* srcrect, Surface dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurfaceUnchecked", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurfaceUnchecked(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect);
+    public static partial bool BlitSurfaceUnchecked(Surface src, Rect* srcrect, Surface dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurfaceScaled", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurfaceScaled(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect, ScaleMode scalemode);
+    public static partial bool BlitSurfaceScaled(Surface src, Rect* srcrect, Surface dst, Rect* dstrect, ScaleMode scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurfaceUncheckedScaled", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurfaceUncheckedScaled(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect, ScaleMode scalemode);
+    public static partial bool BlitSurfaceUncheckedScaled(Surface src, Rect* srcrect, Surface dst, Rect* dstrect, ScaleMode scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_StretchSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool StretchSurface(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect, ScaleMode scalemode);
+    public static partial bool StretchSurface(Surface src, Rect* srcrect, Surface dst, Rect* dstrect, ScaleMode scalemode);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurfaceTiled", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurfaceTiled(Surface* src, Rect* srcrect, Surface* dst, Rect* dstrect);
+    public static partial bool BlitSurfaceTiled(Surface src, Rect* srcrect, Surface dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurfaceTiledWithScale", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurfaceTiledWithScale(Surface* src, Rect* srcrect, float scale, ScaleMode scalemode, Surface* dst, Rect* dstrect);
+    public static partial bool BlitSurfaceTiledWithScale(Surface src, Rect* srcrect, float scale, ScaleMode scalemode, Surface dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BlitSurface9Grid", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool BlitSurface9Grid(Surface* src, Rect* srcrect, int leftWidth, int rightWidth, int topHeight, int bottomHeight, float scale, ScaleMode scalemode, Surface* dst, Rect* dstrect);
+    public static partial bool BlitSurface9Grid(Surface src, Rect* srcrect, int leftWidth, int rightWidth, int topHeight, int bottomHeight, float scale, ScaleMode scalemode, Surface dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapSurfaceRGB", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapSurfaceRGB(Surface* surface, byte r, byte g, byte b);
+    public static partial uint MapSurfaceRGB(Surface surface, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapSurfaceRGBA", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapSurfaceRGBA(Surface* surface, byte r, byte g, byte b, byte a);
+    public static partial uint MapSurfaceRGBA(Surface surface, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadSurfacePixel", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ReadSurfacePixel(Surface* surface, int x, int y, byte* r, byte* g, byte* b, byte* a);
+    public static partial bool ReadSurfacePixel(Surface surface, int x, int y, byte* r, byte* g, byte* b, byte* a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadSurfacePixelFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ReadSurfacePixelFloat(Surface* surface, int x, int y, float* r, float* g, float* b, float* a);
+    public static partial bool ReadSurfacePixelFloat(Surface surface, int x, int y, float* r, float* g, float* b, float* a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteSurfacePixel", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteSurfacePixel(Surface* surface, int x, int y, byte r, byte g, byte b, byte a);
+    public static partial bool WriteSurfacePixel(Surface surface, int x, int y, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteSurfacePixelFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteSurfacePixelFloat(Surface* surface, int x, int y, float r, float g, float b, float a);
+    public static partial bool WriteSurfacePixelFloat(Surface surface, int x, int y, float r, float g, float b, float a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetX11EventHook", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void SetX11EventHook(X11EventHook callback, nint userdata);
@@ -3294,10 +3294,10 @@ public static unsafe partial class SDL
     public static partial Finger** GetTouchFingers(ulong touchid, int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_CreateTray", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Tray CreateTray(Surface* icon, string tooltip);
+    public static partial Tray CreateTray(Surface icon, string tooltip);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTrayIcon", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetTrayIcon(Tray tray, Surface* icon);
+    public static partial void SetTrayIcon(Tray tray, Surface icon);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTrayTooltip", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void SetTrayTooltip(Tray tray, string tooltip);
@@ -3494,7 +3494,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowIcon", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetWindowIcon(Window window, Surface* icon);
+    public static partial bool SetWindowIcon(Window window, Surface icon);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowPosition", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3601,7 +3601,7 @@ public static unsafe partial class SDL
     public static partial bool WindowHasSurface(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetWindowSurface", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface* GetWindowSurface(Window window);
+    public static partial Surface GetWindowSurface(Window window);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowSurfaceVSync", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3678,7 +3678,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetWindowShape", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetWindowShape(Window window, Surface* shape);
+    public static partial bool SetWindowShape(Window window, Surface shape);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_FlashWindow", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
