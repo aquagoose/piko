@@ -95,7 +95,7 @@ public class TypeTransformer(TypeTransformer.Options options)
     private void TransformFunction(FunctionBinding f)
     {
         bool isBoolRemapEnabled = _options.BytesAreBooleansByDefault;
-        if (_options.FunctionRemapping.TryGetValue(f.PInvokeName, out FunctionRemap remap))
+        if (_options.FunctionRemapping?.TryGetValue(f.PInvokeName, out FunctionRemap remap) ?? false)
         {
             if (remap.BytesAreBooleans is bool bytesAreBooleans)
                 _options.BytesAreBooleansByDefault = bytesAreBooleans;
@@ -217,7 +217,7 @@ public class TypeTransformer(TypeTransformer.Options options)
 
         public Dictionary<string, TypeRemap> TypeRemapping;
 
-        public Dictionary<string, FunctionRemap> FunctionRemapping;
+        public Dictionary<string, FunctionRemap>? FunctionRemapping;
     }
 
     public struct ConstantType

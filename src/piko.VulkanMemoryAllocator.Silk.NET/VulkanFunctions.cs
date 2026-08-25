@@ -31,10 +31,10 @@ public unsafe struct VulkanFunctions
     public IntPtr VkGetPhysicalDeviceMemoryProperties2KHR;
     public IntPtr VkGetDeviceBufferMemoryRequirements;
     public IntPtr VkGetDeviceImageMemoryRequirements;
-    public void* VkGetMemoryWin32HandleKHR;
+    public nint VkGetMemoryWin32HandleKHR;
     public IntPtr VkGetPhysicalDeviceProperties2KHR;
 
-    public VulkanFunctions(IntPtr vkGetInstanceProcAddr, IntPtr vkGetDeviceProcAddr, IntPtr vkGetPhysicalDeviceProperties, IntPtr vkGetPhysicalDeviceMemoryProperties, IntPtr vkAllocateMemory, IntPtr vkFreeMemory, IntPtr vkMapMemory, IntPtr vkUnmapMemory, IntPtr vkFlushMappedMemoryRanges, IntPtr vkInvalidateMappedMemoryRanges, IntPtr vkBindBufferMemory, IntPtr vkBindImageMemory, IntPtr vkGetBufferMemoryRequirements, IntPtr vkGetImageMemoryRequirements, IntPtr vkCreateBuffer, IntPtr vkDestroyBuffer, IntPtr vkCreateImage, IntPtr vkDestroyImage, IntPtr vkCmdCopyBuffer, IntPtr vkGetBufferMemoryRequirements2KHR, IntPtr vkGetImageMemoryRequirements2KHR, IntPtr vkBindBufferMemory2KHR, IntPtr vkBindImageMemory2KHR, IntPtr vkGetPhysicalDeviceMemoryProperties2KHR, IntPtr vkGetDeviceBufferMemoryRequirements, IntPtr vkGetDeviceImageMemoryRequirements, void* vkGetMemoryWin32HandleKHR, IntPtr vkGetPhysicalDeviceProperties2KHR)
+    public VulkanFunctions(IntPtr vkGetInstanceProcAddr, IntPtr vkGetDeviceProcAddr, IntPtr vkGetPhysicalDeviceProperties, IntPtr vkGetPhysicalDeviceMemoryProperties, IntPtr vkAllocateMemory, IntPtr vkFreeMemory, IntPtr vkMapMemory, IntPtr vkUnmapMemory, IntPtr vkFlushMappedMemoryRanges, IntPtr vkInvalidateMappedMemoryRanges, IntPtr vkBindBufferMemory, IntPtr vkBindImageMemory, IntPtr vkGetBufferMemoryRequirements, IntPtr vkGetImageMemoryRequirements, IntPtr vkCreateBuffer, IntPtr vkDestroyBuffer, IntPtr vkCreateImage, IntPtr vkDestroyImage, IntPtr vkCmdCopyBuffer, IntPtr vkGetBufferMemoryRequirements2KHR, IntPtr vkGetImageMemoryRequirements2KHR, IntPtr vkBindBufferMemory2KHR, IntPtr vkBindImageMemory2KHR, IntPtr vkGetPhysicalDeviceMemoryProperties2KHR, IntPtr vkGetDeviceBufferMemoryRequirements, IntPtr vkGetDeviceImageMemoryRequirements, nint vkGetMemoryWin32HandleKHR, IntPtr vkGetPhysicalDeviceProperties2KHR)
     {
         this.VkGetInstanceProcAddr = vkGetInstanceProcAddr;
         this.VkGetDeviceProcAddr = vkGetDeviceProcAddr;

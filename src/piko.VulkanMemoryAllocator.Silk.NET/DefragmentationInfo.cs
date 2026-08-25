@@ -10,9 +10,9 @@ public unsafe struct DefragmentationInfo
     public ulong MaxBytesPerPass;
     public uint MaxAllocationsPerPass;
     public IntPtr PfnBreakCallback;
-    public void* PBreakCallbackUserData;
+    public nint PBreakCallbackUserData;
 
-    public DefragmentationInfo(uint flags, Pool pool, ulong maxBytesPerPass, uint maxAllocationsPerPass, IntPtr pfnBreakCallback, void* pBreakCallbackUserData)
+    public DefragmentationInfo(uint flags, Pool pool, ulong maxBytesPerPass, uint maxAllocationsPerPass, IntPtr pfnBreakCallback, nint pBreakCallbackUserData)
     {
         this.Flags = flags;
         this.Pool = pool;

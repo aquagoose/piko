@@ -21,22 +21,22 @@ public static unsafe partial class SDLShaderCross
     public static partial SDL.GPUShaderFormat GetSPIRVShaderFormats();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_TranspileMSLFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* TranspileMSLFromSPIRV(SPIRVInfo* info);
+    public static partial nint TranspileMSLFromSPIRV(SPIRVInfo* info);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_TranspileHLSLFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* TranspileHLSLFromSPIRV(SPIRVInfo* info);
+    public static partial nint TranspileHLSLFromSPIRV(SPIRVInfo* info);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileDXBCFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileDXBCFromSPIRV(SPIRVInfo* info, nuint* size);
+    public static partial nint CompileDXBCFromSPIRV(SPIRVInfo* info, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileDXILFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileDXILFromSPIRV(SPIRVInfo* info, nuint* size);
+    public static partial nint CompileDXILFromSPIRV(SPIRVInfo* info, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileGraphicsShaderFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileGraphicsShaderFromSPIRV(void* device, SPIRVInfo* info, GraphicsShaderResourceInfo* resourceInfo, uint props);
+    public static partial nint CompileGraphicsShaderFromSPIRV(nint device, SPIRVInfo* info, GraphicsShaderResourceInfo* resourceInfo, uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileComputePipelineFromSPIRV", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileComputePipelineFromSPIRV(void* device, SPIRVInfo* info, ComputePipelineMetadata* metadata, uint props);
+    public static partial nint CompileComputePipelineFromSPIRV(nint device, SPIRVInfo* info, ComputePipelineMetadata* metadata, uint props);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_ReflectGraphicsSPIRV", StringMarshalling = StringMarshalling.Utf8)]
     public static partial GraphicsShaderMetadata* ReflectGraphicsSPIRV(byte* bytecode, nuint bytecodeSize, uint props);
@@ -48,12 +48,13 @@ public static unsafe partial class SDLShaderCross
     public static partial SDL.GPUShaderFormat GetHLSLShaderFormats();
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileDXBCFromHLSL", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileDXBCFromHLSL(HLSLInfo* info, nuint* size);
+    public static partial nint CompileDXBCFromHLSL(HLSLInfo* info, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileDXILFromHLSL", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileDXILFromHLSL(HLSLInfo* info, nuint* size);
+    public static partial nint CompileDXILFromHLSL(HLSLInfo* info, nuint* size);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ShaderCross_CompileSPIRVFromHLSL", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void* CompileSPIRVFromHLSL(HLSLInfo* info, nuint* size);
+    public static partial nint CompileSPIRVFromHLSL(HLSLInfo* info, nuint* size);
+
 
 }

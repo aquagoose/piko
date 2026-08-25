@@ -7,9 +7,9 @@ public unsafe struct VirtualAllocationInfo
 {
     public ulong Offset;
     public ulong Size;
-    public void* PUserData;
+    public nint PUserData;
 
-    public VirtualAllocationInfo(ulong offset, ulong size, void* pUserData)
+    public VirtualAllocationInfo(ulong offset, ulong size, nint pUserData)
     {
         this.Offset = offset;
         this.Size = size;

@@ -4,8 +4,8 @@ namespace piko.SDL3.ShaderCross;
 public static unsafe partial class SDLShaderCross
 {
     public static SDL.GPUShader CompileGraphicsShaderFromSPIRV(SDL.GPUDevice device, SPIRVInfo* info, GraphicsShaderResourceInfo* resourceInfo, uint props)
-        => new SDL.GPUShader((nint) CompileGraphicsShaderFromSPIRV((void*) device.Handle, info, resourceInfo, props));
+        => new SDL.GPUShader(CompileGraphicsShaderFromSPIRV(device.Handle, info, resourceInfo, props));
 
     public static SDL.GPUComputePipeline CompileComputePipelineFromSPIRV(SDL.GPUDevice device, SPIRVInfo* info, ComputePipelineMetadata* metadata, uint props)
-        => new SDL.GPUComputePipeline((nint) CompileComputePipelineFromSPIRV((void*) device.Handle, info, metadata, props));
+        => new SDL.GPUComputePipeline(CompileComputePipelineFromSPIRV(device.Handle, info, metadata, props));
 }

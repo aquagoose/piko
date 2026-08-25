@@ -56,8 +56,8 @@ unsafe
         };
 
         nuint spirvSize;
-        void* spirv = SDLShaderCross.CompileSPIRVFromHLSL(&hlslInfo, &spirvSize);
-        if (spirv == null)
+        nint spirv = SDLShaderCross.CompileSPIRVFromHLSL(&hlslInfo, &spirvSize);
+        if (spirv == 0)
             throw new Exception($"Failed to compile HLSL: {SDL.GetError()}");
 
         SDLShaderCross.SPIRVInfo spirvInfo = new()
@@ -74,7 +74,7 @@ unsafe
         if (shader.IsNull)
             throw new Exception($"Failed to compile shader: {SDL.GetError()}");
 
-        NativeMemory.Free(spirv);
+        NativeMemory.Free((void*) spirv);
         Marshal.FreeHGlobal(pEntryPoint);
         Marshal.FreeHGlobal(pHlsl);
 

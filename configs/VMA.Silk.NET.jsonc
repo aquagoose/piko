@@ -54,6 +54,7 @@
     "HandleTypesUseIHandleInterface": true,
     "AllTypesAreSubTypes": false,
     "AllStringsAreUTF8": false,
+    "BytesAreBooleans": true,
     "CustomReturnValueTypeMarshallers": {}
   }
 }

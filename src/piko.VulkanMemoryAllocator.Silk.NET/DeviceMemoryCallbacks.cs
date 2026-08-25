@@ -7,9 +7,9 @@ public unsafe struct DeviceMemoryCallbacks
 {
     public IntPtr PfnAllocate;
     public IntPtr PfnFree;
-    public void* PUserData;
+    public nint PUserData;
 
-    public DeviceMemoryCallbacks(IntPtr pfnAllocate, IntPtr pfnFree, void* pUserData)
+    public DeviceMemoryCallbacks(IntPtr pfnAllocate, IntPtr pfnFree, nint pUserData)
     {
         this.PfnAllocate = pfnAllocate;
         this.PfnFree = pfnFree;

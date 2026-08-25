@@ -8,9 +8,9 @@ public unsafe struct VirtualAllocationCreateInfo
     public ulong Size;
     public ulong Alignment;
     public uint Flags;
-    public void* PUserData;
+    public nint PUserData;
 
-    public VirtualAllocationCreateInfo(ulong size, ulong alignment, uint flags, void* pUserData)
+    public VirtualAllocationCreateInfo(ulong size, ulong alignment, uint flags, nint pUserData)
     {
         this.Size = size;
         this.Alignment = alignment;

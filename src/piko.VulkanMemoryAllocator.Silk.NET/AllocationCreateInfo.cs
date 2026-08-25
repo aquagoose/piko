@@ -11,11 +11,11 @@ public unsafe struct AllocationCreateInfo
     public uint PreferredFlags;
     public uint MemoryTypeBits;
     public Pool Pool;
-    public void* PUserData;
+    public nint PUserData;
     public float Priority;
     public ulong MinAlignment;
 
-    public AllocationCreateInfo(uint flags, MemoryUsage usage, uint requiredFlags, uint preferredFlags, uint memoryTypeBits, Pool pool, void* pUserData, float priority, ulong minAlignment)
+    public AllocationCreateInfo(uint flags, MemoryUsage usage, uint requiredFlags, uint preferredFlags, uint memoryTypeBits, Pool pool, nint pUserData, float priority, ulong minAlignment)
     {
         this.Flags = flags;
         this.Usage = usage;

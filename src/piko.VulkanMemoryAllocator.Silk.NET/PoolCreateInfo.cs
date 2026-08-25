@@ -12,9 +12,9 @@ public unsafe struct PoolCreateInfo
     public nuint MaxBlockCount;
     public float Priority;
     public ulong MinAllocationAlignment;
-    public void* PMemoryAllocateNext;
+    public nint PMemoryAllocateNext;
 
-    public PoolCreateInfo(uint memoryTypeIndex, uint flags, ulong blockSize, nuint minBlockCount, nuint maxBlockCount, float priority, ulong minAllocationAlignment, void* pMemoryAllocateNext)
+    public PoolCreateInfo(uint memoryTypeIndex, uint flags, ulong blockSize, nuint minBlockCount, nuint maxBlockCount, float priority, ulong minAllocationAlignment, nint pMemoryAllocateNext)
     {
         this.MemoryTypeIndex = memoryTypeIndex;
         this.Flags = flags;
