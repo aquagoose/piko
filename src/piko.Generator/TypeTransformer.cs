@@ -125,8 +125,11 @@ public class TypeTransformer(TypeTransformer.Options options)
 
             if (remap.IsHandleType)
                 pointerLevel--;
-            else if (remap.RemapTo != null)
-                return remap.RemapTo;
+            if (remap.RemapTo != null)
+            {
+                type = remap.RemapTo;
+                pointerLevel--; // todo HACK: this won't work in all cases and should be solved. this just assumes ALL remap types link to a handle type.
+            }
         }
 
         if (nativeType != null)

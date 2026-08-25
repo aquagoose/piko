@@ -2554,7 +2554,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_LockTextureToSurface", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool LockTextureToSurface(Texture texture, Rect* rect, Surface surface);
+    public static partial bool LockTextureToSurface(Texture texture, Rect* rect, Surface* surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_UnlockTexture", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void UnlockTexture(Texture texture);
@@ -2940,7 +2940,7 @@ public static unsafe partial class SDL
     public static partial bool SurfaceHasAlternateImages(Surface surface);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceImages", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial Surface GetSurfaceImages(Surface surface, int* count);
+    public static partial Surface* GetSurfaceImages(Surface surface, int* count);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_RemoveSurfaceAlternateImages", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void RemoveSurfaceAlternateImages(Surface surface);
