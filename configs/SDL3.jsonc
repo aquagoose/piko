@@ -132,6 +132,22 @@
     "SDL_EGLAttribArrayCallback": { "Name": "EGLAttribArrayCallback" },
     "SDL_HitTest": { "Name": "HitTest" }
   },
+  "FunctionRemapping": {
+    "SDL_SetGamepadLED": { "BytesAreBooleans": false },
+    "SDL_SetGPUStencilReference": { "BytesAreBooleans": false },
+    "SDL_WriteU8": { "BytesAreBooleans": false },
+    "SDL_SetJoystickLED": { "BytesAreBooleans": false },
+    "SDL_MapRGB": { "BytesAreBooleans": false },
+    "SDL_MapRGBA": { "BytesAreBooleans": false },
+    "SDL_SetTextureColorMod": { "BytesAreBooleans": false },
+    "SDL_SetTextureAlphaMod": { "BytesAreBooleans": false },
+    "SDL_SetRenderDrawColor": { "BytesAreBooleans": false },
+    "SDL_SetSurfaceColorMod": { "BytesAreBooleans": false },
+    "SDL_SetSurfaceAlphaMod": { "BytesAreBooleans": false },
+    "SDL_MapSurfaceRGB": { "BytesAreBooleans": false },
+    "SDL_MapSurfaceRGBA": { "BytesAreBooleans": false },
+    "SDL_WriteSurfacePixel": { "BytesAreBooleans": false }
+  },
   "Enums": {
     "CustomPrefixes": {
       "SDL_GPUIndexElementSize": "Size",

@@ -44,6 +44,11 @@ public class PikoGeneratorConfig
     public Dictionary<string, TypeTransformer.TypeRemap> TypeRemapping;
 
     /// <summary>
+    /// Remap various parts of functions, including parameters.
+    /// </summary>
+    public Dictionary<string, TypeTransformer.FunctionRemap> FunctionRemapping;
+
+    /// <summary>
     /// Defines the configuration for enums.
     /// </summary>
     public EnumsConfig Enums;

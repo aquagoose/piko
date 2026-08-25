@@ -931,7 +931,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetGamepadLED", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetGamepadLED(Gamepad gamepad, [MarshalAs(UnmanagedType.I1)] bool red, [MarshalAs(UnmanagedType.I1)] bool green, [MarshalAs(UnmanagedType.I1)] bool blue);
+    public static partial bool SetGamepadLED(Gamepad gamepad, byte red, byte green, byte blue);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SendGamepadEffect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1067,7 +1067,7 @@ public static unsafe partial class SDL
     public static partial void SetGPUBlendConstants(GPURenderPass renderPass, FColor blendConstants);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetGPUStencilReference", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial void SetGPUStencilReference(GPURenderPass renderPass, [MarshalAs(UnmanagedType.I1)] bool reference);
+    public static partial void SetGPUStencilReference(GPURenderPass renderPass, byte reference);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_BindGPUVertexBuffers", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void BindGPUVertexBuffers(GPURenderPass renderPass, uint firstSlot, GPUBufferBinding* bindings, uint numBindings);
@@ -1621,7 +1621,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteU8", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteU8(IOStream dst, [MarshalAs(UnmanagedType.I1)] bool value);
+    public static partial bool WriteU8(IOStream dst, byte value);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteS8", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -1859,7 +1859,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetJoystickLED", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetJoystickLED(Joystick joystick, [MarshalAs(UnmanagedType.I1)] bool red, [MarshalAs(UnmanagedType.I1)] bool green, [MarshalAs(UnmanagedType.I1)] bool blue);
+    public static partial bool SetJoystickLED(Joystick joystick, byte red, byte green, byte blue);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SendJoystickEffect", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2221,10 +2221,10 @@ public static unsafe partial class SDL
     public static partial void DestroyPalette(Palette* palette);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapRGB", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapRGB(PixelFormatDetails* format, Palette* palette, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b);
+    public static partial uint MapRGB(PixelFormatDetails* format, Palette* palette, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapRGBA", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapRGBA(PixelFormatDetails* format, Palette* palette, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
+    public static partial uint MapRGBA(PixelFormatDetails* format, Palette* palette, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetRGB", StringMarshalling = StringMarshalling.Utf8)]
     public static partial void GetRGB(uint pixelvalue, PixelFormatDetails* format, Palette* palette, byte* r, byte* g, byte* b);
@@ -2490,7 +2490,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureColorMod(Texture* texture, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b);
+    public static partial bool SetTextureColorMod(Texture* texture, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureColorModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2506,7 +2506,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetTextureAlphaMod(Texture* texture, [MarshalAs(UnmanagedType.I1)] bool alpha);
+    public static partial bool SetTextureAlphaMod(Texture* texture, byte alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetTextureAlphaModFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -2628,7 +2628,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderDrawColor", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetRenderDrawColor(Renderer renderer, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
+    public static partial bool SetRenderDrawColor(Renderer renderer, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetRenderDrawColorFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3008,7 +3008,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceColorMod(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b);
+    public static partial bool SetSurfaceColorMod(Surface* surface, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceColorMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3016,7 +3016,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_SetSurfaceAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool SetSurfaceAlphaMod(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool alpha);
+    public static partial bool SetSurfaceAlphaMod(Surface* surface, byte alpha);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_GetSurfaceAlphaMod", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3118,10 +3118,10 @@ public static unsafe partial class SDL
     public static partial bool BlitSurface9Grid(Surface* src, Rect* srcrect, int leftWidth, int rightWidth, int topHeight, int bottomHeight, float scale, ScaleMode scalemode, Surface* dst, Rect* dstrect);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapSurfaceRGB", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapSurfaceRGB(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b);
+    public static partial uint MapSurfaceRGB(Surface* surface, byte r, byte g, byte b);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_MapSurfaceRGBA", StringMarshalling = StringMarshalling.Utf8)]
-    public static partial uint MapSurfaceRGBA(Surface* surface, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
+    public static partial uint MapSurfaceRGBA(Surface* surface, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_ReadSurfacePixel", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
@@ -3133,7 +3133,7 @@ public static unsafe partial class SDL
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteSurfacePixel", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool WriteSurfacePixel(Surface* surface, int x, int y, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
+    public static partial bool WriteSurfacePixel(Surface* surface, int x, int y, byte r, byte g, byte b, byte a);
 
     [LibraryImport(LibraryName, EntryPoint = "SDL_WriteSurfacePixelFloat", StringMarshalling = StringMarshalling.Utf8)]
     [return: MarshalAs(UnmanagedType.I1)]

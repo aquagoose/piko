@@ -15,7 +15,7 @@ unsafe
     
     // todo debugMode is a byte?
     // todo name should be nullable or something
-    SDL.GPUDevice device = SDL.CreateGPUDevice(SDL.GPUShaderFormat.Spirv | SDL.GPUShaderFormat.Msl, 0, null);
+    SDL.GPUDevice device = SDL.CreateGPUDevice(SDL.GPUShaderFormat.Spirv | SDL.GPUShaderFormat.Msl, false, null);
     if (device.IsNull)
         throw new Exception($"Failed to create device: {SDL.GetError()}");
 
@@ -49,7 +49,8 @@ unsafe
             throw new Exception($"Failed to acquire command buffer: {SDL.GetError()}");
         // todo i had to manually add "out" to the bindings as it didn't generate as a pointer at all, which is invalid
         // todo the last 2 parameters should be out or ref. or both!
-        SDL.WaitAndAcquireGPUSwapchainTexture(cb, window, out SDL.GPUTexture texture, null, null);
+        SDL.GPUTexture texture;
+        SDL.WaitAndAcquireGPUSwapchainTexture(cb, window, &texture, null, null);
         if (texture.IsNull)
         {
             SDL.CancelGPUCommandBuffer(cb);

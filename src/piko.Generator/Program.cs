@@ -41,7 +41,8 @@ TypeTransformer transformer = new TypeTransformer(new TypeTransformer.Options
     EmptyStructsAreHandleTypes = pikoConfig.Generator.EmptyStructsAreHandleTypes,
     BytesAreBooleansByDefault = pikoConfig.Generator.BytesAreBooleans,
     AssociateConstantPrefixWithType = pikoConfig.Constants.AssociateConstantPrefixWithType,
-    TypeRemapping = pikoConfig.TypeRemapping
+    TypeRemapping = pikoConfig.TypeRemapping,
+    FunctionRemapping = pikoConfig.FunctionRemapping
 });
 transformer.Transform(ref sdl3Bindings);
 

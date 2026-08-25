@@ -5,6 +5,8 @@ namespace piko.Generator;
 
 public class TypeTransformer(TypeTransformer.Options options)
 {
+    private Options _options = options;
+
     private readonly Dictionary<string, StructBinding> _structs = new();
 
     private readonly Dictionary<string, EnumBinding> _newEnums = new();
@@ -13,7 +15,7 @@ public class TypeTransformer(TypeTransformer.Options options)
     {
         foreach (StructBinding s in bindings.Structs)
         {
-            if (s.Fields.Count == 0 && options.EmptyStructsAreHandleTypes && s.Layout != LayoutKind.Explicit)
+            if (s.Fields.Count == 0 && _options.EmptyStructsAreHandleTypes && s.Layout != LayoutKind.Explicit)
                 s.IsHandleType = true;
 
             _structs.Add(s.Name, s);
@@ -43,9 +45,9 @@ public class TypeTransformer(TypeTransformer.Options options)
         if (c.Type == "string" && c.Value.EndsWith("u8"))
             c.Value = c.Value.Substring(0, c.Value.Length - 2);
 
-        if (options.AssociateConstantPrefixWithType != null)
+        if (_options.AssociateConstantPrefixWithType != null)
         {
-            foreach ((string prefix, ConstantType type) in options.AssociateConstantPrefixWithType)
+            foreach ((string prefix, ConstantType type) in _options.AssociateConstantPrefixWithType)
             {
                 if (c.Prefix != prefix)
                     continue;
@@ -92,11 +94,20 @@ public class TypeTransformer(TypeTransformer.Options options)
 
     private void TransformFunction(FunctionBinding f)
     {
+        bool isBoolRemapEnabled = _options.BytesAreBooleansByDefault;
+        if (_options.FunctionRemapping.TryGetValue(f.PInvokeName, out FunctionRemap remap))
+        {
+            if (remap.BytesAreBooleans is bool bytesAreBooleans)
+                _options.BytesAreBooleansByDefault = bytesAreBooleans;
+        }
+
         if (f.ReturnType != null)
             f.ReturnType = GetCorrectedType(f.ReturnType, f.ReturnTypeNativeType, ref f.ReturnTypePointerLevel, false);
 
         foreach (FunctionBinding.Parameter parameter in f.Parameters)
             parameter.Type = GetCorrectedType(parameter.Type, parameter.NativeType, ref parameter.PointerLevel, false, true, ref parameter.FlowDirection);
+
+        _options.BytesAreBooleansByDefault = isBoolRemapEnabled;
     }
 
     private string GetCorrectedType(string type, string? nativeType, ref int pointerLevel, bool isStruct, bool isParameter, ref PointerFlowDirection flowDirection)
@@ -107,7 +118,7 @@ public class TypeTransformer(TypeTransformer.Options options)
 
         // naive way of checking if the type we're transforming has been manually remapped to a handle type
         // todo see if there's a better way to do this rather than looping through every remapped type
-        foreach ((_, TypeRemap remap) in options.TypeRemapping)
+        foreach ((_, TypeRemap remap) in _options.TypeRemapping)
         {
             if (remap.Name == type && remap.IsHandleType)
                 pointerLevel--;
@@ -129,7 +140,7 @@ public class TypeTransformer(TypeTransformer.Options options)
             {
                 case "sbyte" when pointerLevel == 1:
                     return "string";
-                case "byte" when options.BytesAreBooleansByDefault && pointerLevel == 0:
+                case "byte" when _options.BytesAreBooleansByDefault && pointerLevel == 0:
                     return "bool";
                 case "ReadOnlySpan<byte>":
                     return "string";
@@ -188,6 +199,8 @@ public class TypeTransformer(TypeTransformer.Options options)
         public Dictionary<string, ConstantType> AssociateConstantPrefixWithType;
 
         public Dictionary<string, TypeRemap> TypeRemapping;
+
+        public Dictionary<string, FunctionRemap> FunctionRemapping;
     }
 
     public struct ConstantType
@@ -243,5 +256,13 @@ public class TypeTransformer(TypeTransformer.Options options)
             Name = name;
             IsHandleType = isHandleType;
         }
+    }
+
+    public struct FunctionRemap
+    {
+        /// <summary>
+        /// Remap bytes as booleans. This overrides the default setting if set.
+        /// </summary>
+        public bool? BytesAreBooleans;
     }
 }
