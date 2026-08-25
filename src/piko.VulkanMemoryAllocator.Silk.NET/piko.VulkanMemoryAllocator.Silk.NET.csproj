@@ -19,7 +19,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="runtimes/**/*" Pack="true" PackagePath="runtimes/" />
+        <None Include="runtimes/**/*" Pack="true" PackagePath="runtimes/" CopyToOutputDirectory="PreserveNewest">
+        	<Link>%(Filename)%(Extension)</Link>
+        </None>
     </ItemGroup>
 
 </Project>
